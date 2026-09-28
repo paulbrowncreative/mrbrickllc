@@ -1,0 +1,14 @@
+{% extends "inner.html" %}
+{% block body %}
+<section class="section">
+  <div class="container quote-section">
+    <div>
+      <h2>Reach Mr. Brick</h2>
+      <p class="lede">Call or text for the fastest answer. Photos by text are welcome.</p>
+      {% include "partials/contact_lines.html" %}
+      <p class="muted">We reply to messages during business hours. For the quickest quote, include your ZIP code and a photo of the area.</p>
+    </div>
+    {% with form_uid='q-contact', form_heading='Send a quote request' %}{% include "partials/quote_form.html" %}{% endwith %}
+  </div>
+</section>
+{% endblock %}

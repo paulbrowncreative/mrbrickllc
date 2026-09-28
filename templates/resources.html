@@ -1,0 +1,14 @@
+{% extends "inner.html" %}
+{% from "partials/macros.html" import picture, cta_band %}
+{% block body %}
+<section class="section">
+  <div class="container">
+    <ul class="post-list" role="list">
+      {% for p in posts %}
+      <li class="post-card"><a href="/resources/{{ p.slug }}">{{ picture(p.image, sizes='(min-width: 48em) 33vw, 100vw') }}<span class="pill">{{ p.category }}</span><h2 style="font-size:var(--step-1);margin-top:var(--s-3)">{{ p.title }}</h2><p>{{ p.description }}</p></a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{{ cta_band(location='resources') }}
+{% endblock %}

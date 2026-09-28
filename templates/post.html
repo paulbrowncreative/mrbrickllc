@@ -1,0 +1,24 @@
+{% extends "inner.html" %}
+{% from "partials/macros.html" import picture, icon, cta_band %}
+{% block body %}
+<section class="section">
+  <div class="container split">
+    <article class="prose article">
+      <figure class="figure" style="margin-bottom:var(--s-6)">{{ picture(post.image, sizes='(min-width: 64em) 55vw, 100vw') }}</figure>
+      {{ post.html|safe }}
+    </article>
+    <div class="stack">
+      <div class="aside-box" data-cta-location="post_aside">
+        <h2>Need a pro to look at it?</h2>
+        <p>Free quotes from a family-owned masonry contractor with {{ site.years_experience }} years of experience.</p>
+        <div class="btn-row"><a class="btn" href="/request-quote" data-cta="quote">Request a Free Quote</a><a class="btn btn--ghost" href="tel:{{ site.phone_e164 }}">Call {{ site.phone }}</a></div>
+      </div>
+      <div>
+        <h2 style="font-size:var(--step-2)">Related services</h2>
+        <ul class="link-grid" role="list">{% for slug in post.services %}<li><a href="/{{ slug }}"><span><strong>{{ services[slug].name }}</strong></span>{{ icon('arrow') }}</a></li>{% endfor %}</ul>
+      </div>
+    </div>
+  </div>
+</section>
+{{ cta_band(location='post') }}
+{% endblock %}

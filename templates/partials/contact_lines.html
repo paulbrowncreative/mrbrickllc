@@ -1,0 +1,7 @@
+{% from "partials/macros.html" import icon %}
+<ul class="contact-lines" role="list" data-cta-location="contact_block">
+  <li>{{ icon('phone') }}<div><strong>Call or text</strong><a href="tel:{{ site.phone_e164 }}">{{ site.phone }}</a></div></li>
+  <li>{{ icon('mail') }}<div><strong>Email</strong><a href="mailto:{{ site.email }}">{{ site.email }}</a></div></li>
+  <li>{{ icon('clock') }}<div><strong>Hours</strong>{% for h in site.hours %}{{ h.label }}: {{ h.display }}{% if not loop.last %}<br>{% endif %}{% endfor %}</div></li>
+  <li>{{ icon('pin') }}<div><strong>Service area</strong>Based in {{ site.address.city }}, {{ site.address.region }} · serving Southeastern Michigan</div></li>
+</ul>

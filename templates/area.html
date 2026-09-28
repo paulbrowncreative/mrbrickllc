@@ -1,0 +1,43 @@
+{% extends "inner.html" %}
+{% from "partials/macros.html" import icon, faq_list, photo_grid, lightbox, cta_band %}
+{% block body %}
+<section class="section">
+  <div class="container split">
+    <div class="prose">
+      <h2>What we see in {{ area.name }} homes</h2>
+      {{ area.local|paras }}
+    </div>
+    <div class="aside-box">
+      <h2>Communities we serve in {{ area.name }}</h2>
+      <ul class="area-list" role="list">{% for c in area.communities %}<li>{{ c }}</li>{% endfor %}</ul>
+      <p class="mt-6 mb-0 muted">Don't see your city? <a href="tel:{{ site.phone_e164 }}">Call or text {{ site.phone }}</a>.</p>
+    </div>
+  </div>
+</section>
+<section class="section section--concrete">
+  <div class="container">
+    <div class="section-head"><h2>Most-requested services in {{ area.name }}</h2></div>
+    <ul class="link-grid link-grid--2" role="list">
+      {% for slug in area.focus %}{% set s = services[slug] %}<li><a href="/{{ slug }}"><span><strong>{{ s.name }}</strong><span>{{ s.lede|truncate(100) }}</span></span>{{ icon('arrow') }}</a></li>{% endfor %}
+    </ul>
+    <p class="mt-6"><a class="text-link" href="/services">All masonry and concrete services</a></p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head"><h2>Recent Mr. Brick work</h2><p>A sample of our projects around Southeastern Michigan.</p></div>
+    {{ photo_grid(photos) }}
+    <p class="mt-6"><a class="text-link" href="/gallery">See all project photos</a></p>
+  </div>
+</section>
+{% if area.faqs %}
+<section class="section section--concrete">
+  <div class="container two-col">
+    <h2>{{ area.name }} questions</h2>
+    {{ faq_list(area.faqs) }}
+  </div>
+</section>
+{% endif %}
+{{ cta_band(heading='Free quotes in ' ~ area.name, location='area') }}
+{{ lightbox() }}
+{% endblock %}

@@ -1,0 +1,54 @@
+# Source photo catalog. Every photo is Mr. Brick project/crew photography taken
+# from the existing mrbrickllc.com gallery. Tags drive gallery filters + service pages.
+crew-brick-pillars-stone-steps: {src: gallery-01-mr-brick-llc.jpg, alt: "Mr. Brick masons building brick pillars beside limestone front steps at a brick home", tags: [porches, steps, brick, residential]}
+brick-steps-stone-treads: {src: gallery-02-mr-brick-llc.jpg, alt: "New brick steps with tan stone treads beside a concrete patio", tags: [steps, brick, residential]}
+stone-steps-iron-gate: {src: gallery-03-mr-brick-llc.jpg, alt: "Stone steps leading to a wrought iron gate with brick detailing", tags: [steps, stone, residential]}
+driveway-screed-pour: {src: gallery-06-mr-brick-llc.jpg, alt: "Crew screeding a freshly poured concrete driveway in front of a garage", tags: [driveways, concrete, residential]}
+driveway-fresh-pour: {src: gallery-07-mr-brick-llc.jpg, alt: "Freshly finished concrete driveway leading to a detached garage", tags: [driveways, concrete, residential]}
+footing-excavation: {src: gallery-08-mr-brick-llc.jpg, alt: "Crew excavating a square footing in a residential yard", tags: [foundations, residential]}
+porch-block-foundation: {src: gallery-09-mr-brick-llc.jpg, alt: "Brick and concrete block foundation being built for a new front porch", tags: [porches, foundations, brick, residential]}
+mason-leveling-brick: {src: gallery-10-mr-brick-llc.jpg, alt: "Mason checking a new brick course with a level", tags: [brick, residential]}
+brick-entry-planter: {src: gallery-11-mr-brick-llc.jpg, alt: "Brick entry with new steps and a built-in brick planter", tags: [brick, porches, residential]}
+block-wall-concrete-steps: {src: gallery-12-mr-brick-llc.jpg, alt: "Concrete block wall alongside new poured concrete steps", tags: [retaining-walls, concrete, steps]}
+brick-porch-entry: {src: gallery-13-mr-brick-llc.jpg, alt: "Restored brick porch and steps at a brown brick home", tags: [porches, brick, residential]}
+porch-stone-steps-columns: {src: gallery-14-mr-brick-llc.jpg, alt: "Front porch with new stone steps, brick base and white columns", tags: [porches, steps, stone, residential]}
+bricklaying-step-riser: {src: gallery-15-mr-brick-llc.jpg, alt: "Brick risers being laid on a concrete step, mortar and tools in view", tags: [steps, brick]}
+brick-pillar-concrete-cap: {src: gallery-16-mr-brick-llc.jpg, alt: "New brick pillar with a concrete cap next to concrete steps", tags: [brick, steps]}
+chimney-tall-rebuild: {src: gallery-17-mr-brick-llc.jpg, alt: "Tall rebuilt brick chimney rising along the side of a building", tags: [chimneys, brick]}
+chimney-twin-caps: {src: gallery-18-mr-brick-llc.jpg, alt: "Chimney with two new flue caps on a roof with white siding", tags: [chimneys, residential]}
+chimney-terracotta-flues: {src: gallery-19-mr-brick-llc.jpg, alt: "Chimney crown with three clay flue tiles during repair", tags: [chimneys]}
+chimney-roof-scaffold: {src: gallery-20-mr-brick-llc.jpg, alt: "Brick chimney on a shingled roof with scaffolding set for repair", tags: [chimneys, residential]}
+brick-pillar-landscape: {src: gallery-21-mr-brick-llc.jpg, alt: "Brick pillar with concrete cap at the top of new steps", tags: [brick, steps, residential]}
+chimney-rebuild-staging: {src: gallery-22-mr-brick-llc.jpg, alt: "Brick chimney being rebuilt, with brick staged on the roof", tags: [chimneys, brick]}
+mr-brick-truck: {src: gallery-23-mr-brick-llc.jpg, alt: "Mr. Brick work truck parked at a job site next to a brick chimney", tags: [company]}
+concrete-sealing: {src: gallery-24-mr-brick-llc.jpg, alt: "Applying sealer to a concrete surface", tags: [concrete]}
+paver-porch-wet: {src: gallery-25-mr-brick-llc.jpg, alt: "Brick paver porch landing with a single step at a brick home", tags: [pavers, porches, residential]}
+brick-walkway-border: {src: gallery-26-mr-brick-llc.jpg, alt: "Brick walkway with a dark border leading to a front door", tags: [walkways, pavers, brick, residential]}
+curved-brick-path: {src: gallery-27-mr-brick-llc.jpg, alt: "Curved brick paver path with dark border, newly installed", tags: [walkways, pavers, residential]}
+chimney-black-cap: {src: gallery-29-mr-brick-llc.jpg, alt: "Brick chimney with a black metal cap against a blue sky", tags: [chimneys, residential]}
+chimney-clay-pots: {src: gallery-32-mr-brick-llc.jpg, alt: "Brick chimney with two clay chimney pots", tags: [chimneys]}
+chimney-three-flues: {src: gallery-33-mr-brick-llc.jpg, alt: "Rebuilt brick chimney with three capped flues and a new crown", tags: [chimneys, residential]}
+chimney-before-after: {src: gallery-52-mr-brick-llc.jpg, alt: "Before and after: a crumbling brick chimney and the same chimney rebuilt by Mr. Brick", tags: [chimneys, brick]}
+chimney-scaffold-side: {src: 3977.png, alt: "Chimney on the side of a brick home with scaffolding during repair", tags: [chimneys, residential]}
+concrete-block-steps: {src: 3979.png, alt: "New concrete steps at the side entry of a home", tags: [steps, concrete, residential]}
+patio-base-prep: {src: 3982.png, alt: "Mason grading the base for a paver patio around a fire pit", tags: [patios, pavers, residential]}
+chimney-tall-exterior: {src: 3985.png, alt: "Tall exterior brick chimney after repair", tags: [chimneys, residential]}
+concrete-walkway-new: {src: 3994.png, alt: "New concrete front walkway between garden beds", tags: [walkways, concrete, residential]}
+chimney-stone-cap: {src: 3995.png, alt: "Chimney finished with a stone cap and new flue liners", tags: [chimneys]}
+chimney-crown-closeup: {src: 3996.png, alt: "Close-up of a new chimney crown poured over brick", tags: [chimneys]}
+chimney-house-scaffold: {src: 3997.png, alt: "Brick chimney on a two-story home with scaffolding in place", tags: [chimneys, residential]}
+chimney-cap-finished: {src: 4001.png, alt: "Brick chimney with a new metal cap after repointing", tags: [chimneys, residential]}
+chimney-crew-scaffold: {src: 4002.png, alt: "Mr. Brick crew on scaffolding rebuilding a tall brick chimney", tags: [chimneys, brick, residential]}
+porch-slab-stone-house: {src: 4003.png, alt: "New concrete porch slab and step at a stone-front home", tags: [porches, concrete, residential]}
+concrete-finish-broom: {src: 4005.png, alt: "Crew broom-finishing new concrete in front of a home", tags: [concrete, residential]}
+crew-planter-wall: {src: mr-brick-gallery-915-01.jpg, alt: "Mr. Brick masons rebuilding a long brick planter wall with new brick staged on site", tags: [brick, commercial]}
+concrete-slab-forms: {src: mr-brick-gallery-915-02.jpg, alt: "Fresh concrete slab inside wood forms", tags: [concrete, patios]}
+herringbone-brick-walk: {src: mr-brick-gallery-915-03.jpg, alt: "Red brick paver walkway laid in a herringbone pattern", tags: [walkways, pavers, brick, residential]}
+brick-wall-sidewalk: {src: mr-brick-gallery-915-05.jpg, alt: "New brick wall with a stone cap along a sidewalk", tags: [brick, commercial]}
+tuckpointing-stone-cap: {src: mr-brick-gallery-915-06.jpg, alt: "Mason repointing mortar joints on a brick wall with a limestone cap", tags: [brick, commercial]}
+concrete-side-walk: {src: mr-brick-gallery-915-07.jpg, alt: "New concrete side walkway along a home", tags: [walkways, concrete, residential]}
+red-brick-steps-iron-door: {src: mr-brick-gallery-915-steps.jpg, alt: "Red brick steps leading to an iron front door", tags: [steps, brick, residential]}
+curved-paver-walkway: {src: paver-walkway-installation-hero-mr-brick-cust.jpg, alt: "Curved paver walkway with a charcoal border along a brick home", tags: [walkways, pavers, residential]}
+paver-patio-wall: {src: pavers12.png, alt: "Paver patio bordered by a stone seat wall", tags: [patios, pavers, residential]}
+brick-steps-dark-treads: {src: porch-services-hero-mr-brick-llc-cust.png, alt: "Brick steps with dark stone treads and a planter at a front door", tags: [porches, steps, brick, residential]}
+stone-steps-iron-railings: {src: stair-services-hero-mr-brick-llc-cust.png, alt: "Stone-capped steps with brick risers leading to a porch with iron railings", tags: [steps, stone, porches, residential]}

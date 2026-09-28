@@ -1,0 +1,60 @@
+# VERIFY: have these reviewed by the business (and counsel if desired) before launch.
+privacy-policy:
+  title: Privacy Policy | Mr. Brick LLC
+  description: How Mr. Brick LLC collects, uses and protects information submitted through mrbrickllc.com.
+  h1: Privacy policy
+  body: |
+    *Last updated {{UPDATED}}*
+
+    Mr. Brick LLC ("we", "us") operates mrbrickllc.com. This policy explains what information we collect through this website and how we use it.
+
+    ## Information you give us
+    When you request a quote or contact us, we collect what you enter: your name, phone number, email address (optional), project ZIP code, project details, contact preferences and any photos you upload. We use this information only to respond to your request, quote and schedule your project, and keep records of work we perform. We do not sell your personal information.
+
+    ## Information collected automatically
+    To understand which pages and advertising bring customers to us, the site records the page you first arrived on, the referring website, and campaign parameters in the address you clicked (such as utm_source or a Google Ads click ID). This is stored in your browser and sent with your quote request. If we enable Google Analytics or Google Ads measurement, those services may set cookies and collect usage data such as pages viewed and device type under Google's own privacy policy. We do not send your name, phone number, email or message to analytics or advertising platforms.
+
+    ## Service providers
+    Our website is hosted by Netlify, which processes form submissions on our behalf. Information may also be handled by the email and phone services we use to respond to you.
+
+    ## Your choices
+    You can block or delete cookies and site data in your browser settings. To ask about, correct or delete information you've sent us, contact us at {{PHONE}} or {{EMAIL}}.
+
+    ## Children
+    This website is not directed to children under 13, and we do not knowingly collect their information.
+
+    ## Changes
+    We may update this policy. The date above shows when it last changed.
+terms:
+  title: Terms of Use | Mr. Brick LLC
+  description: Terms of use for the Mr. Brick LLC website.
+  h1: Terms of use
+  body: |
+    *Last updated {{UPDATED}}*
+
+    By using mrbrickllc.com you agree to these terms.
+
+    ## Website information
+    Content on this site is general information about masonry and concrete work. It is not a quote, a guarantee of results, or engineering advice. Every project is different; the scope, price, schedule and warranty for your project are set only in a written quote or agreement from Mr. Brick LLC.
+
+    ## Offers and discounts
+    Promotions and discounts are subject to the terms shown with each offer, can't be combined unless stated, and may change or end at any time. Offers must be mentioned at the time of scheduling.
+
+    ## Financing
+    Financing is available on qualifying projects. Terms and eligibility are provided before you commit and are not guaranteed by this website.
+
+    ## Photos and content
+    Photos on this site show Mr. Brick projects. Site content may not be copied or reused without permission.
+
+    ## Contact
+    Questions about these terms: {{PHONE}} or {{EMAIL}}.
+accessibility:
+  title: Accessibility Statement | Mr. Brick LLC
+  description: Mr. Brick LLC's commitment to an accessible website and how to get help.
+  h1: Accessibility
+  body: |
+    *Last updated {{UPDATED}}*
+
+    We want everyone to be able to use mrbrickllc.com. This site is built to meet the Web Content Accessibility Guidelines (WCAG) 2.2 Level AA, including keyboard navigation, visible focus, text alternatives for images, sufficient color contrast, labeled form fields and support for reduced-motion settings.
+
+    If any part of the site is hard to use, please tell us and we'll help you get what you need another way. Call or text {{PHONE}} or email {{EMAIL}}.

@@ -1,0 +1,73 @@
+url,old_site,new_site,action,target
+/,yes,yes,"kept (same URL, rebuilt)",
+/3rd-party-video-splash-pop-02,yes,no,301,/
+/about,yes,yes,"kept (same URL, rebuilt)",
+/basement-waterproofing,yes,no,301,/foundation-services
+/brick-paver-services,yes,no,301,/paver-services
+/brick-walkway-installation,yes,no,301,/walkway-services
+/call-or-text-pop,yes,no,301,/contact
+/chimney-rebuilding,yes,yes,"kept (same URL, rebuilt)",
+/chimney-repair,yes,yes,"kept (same URL, rebuilt)",
+/chimney-services,yes,yes,"kept (same URL, rebuilt)",
+/cinder-block-wall-installation,yes,yes,"kept (same URL, rebuilt)",
+/concrete-acid-staining,yes,no,301,/stamped-concrete
+/concrete-coating,yes,no,301,/concrete-sealing
+/concrete-demolition-services,yes,no,301,/concrete-services
+/concrete-driveway-installation,yes,yes,"kept (same URL, rebuilt)",
+/concrete-leveling,yes,yes,"kept (same URL, rebuilt)",
+/concrete-patio-installation,yes,no,301,/patio-services
+/concrete-resurfacing,yes,yes,"kept (same URL, rebuilt)",
+/concrete-sealing,yes,yes,"kept (same URL, rebuilt)",
+/concrete-services,yes,yes,"kept (same URL, rebuilt)",
+/concrete-stair-installation,yes,no,301,/stair-services
+/concrete-walkway-installation,yes,no,301,/walkway-services
+/contact,yes,yes,"kept (same URL, rebuilt)",
+/driveway-repair,yes,yes,"kept (same URL, rebuilt)",
+/driveway-resurfacing,yes,no,301,/driveway-repair
+/driveway-services,yes,yes,"kept (same URL, rebuilt)",
+/faqs,yes,yes,"kept (same URL, rebuilt)",
+/finance,yes,yes,"kept (same URL, rebuilt)",
+/fireplace-installation,yes,no,301,/fireplace-services
+/fireplace-repair,yes,no,301,/fireplace-services
+/fireplace-services,yes,yes,"kept (same URL, rebuilt)",
+/foundation-installation,yes,no,301,/foundation-services
+/foundation-repair,yes,yes,"kept (same URL, rebuilt)",
+/foundation-services,yes,yes,"kept (same URL, rebuilt)",
+/gallery,yes,yes,"kept (same URL, rebuilt)",
+/hibu-eng-menu,yes,no,301,/contact
+/hibu-video-splash,yes,no,301,/
+/outdoor-kitchen-installation,yes,yes,"kept (same URL, rebuilt)",
+/patio-services,yes,yes,"kept (same URL, rebuilt)",
+/paver-services,yes,yes,"kept (same URL, rebuilt)",
+/paver-walkway-installation,yes,no,301,/walkway-services
+/porch-rebuilds,yes,yes,"kept (same URL, rebuilt)",
+/porch-restorations,yes,yes,"kept (same URL, rebuilt)",
+/porch-services,yes,yes,"kept (same URL, rebuilt)",
+/request-quote,yes,yes,"kept (same URL, rebuilt)",
+/retaining-wall-installation,yes,no,301,/retaining-wall-services
+/retaining-wall-services,yes,yes,"kept (same URL, rebuilt)",
+/reviews,yes,yes,"kept (same URL, rebuilt)",
+/special-offers,yes,yes,"kept (same URL, rebuilt)",
+/specialty-masonry-services,yes,no,301,/brick-masonry
+/stair-services,yes,yes,"kept (same URL, rebuilt)",
+/stamped-concrete,yes,yes,"kept (same URL, rebuilt)",
+/stamped-concrete-patio-services,yes,no,301,/stamped-concrete
+/stone-patio-installation,yes,no,301,/patio-services
+/stone-stair-installation,yes,no,301,/stair-services
+/tuckpointing,yes,yes,"kept (same URL, rebuilt)",
+/video-splash-pop,yes,no,301,/
+/walkway-services,yes,yes,"kept (same URL, rebuilt)",
+/accessibility,no,yes,new page,
+/brick-masonry,no,yes,new page,
+/brick-repair,no,yes,new page,
+/privacy-policy,no,yes,new page,
+/resources,no,yes,new page,
+/resources/chimney-repair-warning-signs,no,yes,new page,
+/resources/porch-and-step-problems,no,yes,new page,
+/resources/tuckpointing-vs-rebuilding,no,yes,new page,
+/service-areas,no,yes,new page,
+/service-areas/macomb-county,no,yes,new page,
+/service-areas/oakland-county,no,yes,new page,
+/service-areas/wayne-county,no,yes,new page,
+/services,no,yes,new page,
+/terms,no,yes,new page,

@@ -1,0 +1,118 @@
+{# ---------------------------------------------------------------- Images #}
+{% macro picture(id, sizes="100vw", loading="lazy", cls="", priority=false, alt=None) -%}
+{%- set m = images[id] -%}
+{%- set ws = m.widths -%}
+{%- set w = ws[-1] if ws[-1] <= 1200 else 1200 -%}
+<picture>
+  <source type="image/avif" srcset="{% for x in ws %}/static/img/{{ id }}-{{ x }}.avif {{ x }}w{{ ', ' if not loop.last }}{% endfor %}" sizes="{{ sizes }}">
+  <source type="image/webp" srcset="{% for x in ws %}/static/img/{{ id }}-{{ x }}.webp {{ x }}w{{ ', ' if not loop.last }}{% endfor %}" sizes="{{ sizes }}">
+  <img src="/static/img/{{ id }}-{{ m.jpg }}.jpg" alt="{{ m.alt if alt is none else alt }}" width="{{ m.w }}" height="{{ m.h }}"{% if cls %} class="{{ cls }}"{% endif %} {% if priority %}fetchpriority="high" loading="eager"{% else %}loading="{{ loading }}"{% endif %} decoding="async">
+</picture>
+{%- endmacro %}
+
+{# ---------------------------------------------------------------- Icons (inline, decorative) #}
+{% macro icon(name) -%}
+{%- if name == 'phone' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+{%- elif name == 'text' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+{%- elif name == 'mail' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+{%- elif name == 'clock' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+{%- elif name == 'pin' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+{%- elif name == 'quote' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>
+{%- elif name == 'arrow' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+{%- elif name == 'chev' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+{%- elif name == 'plus' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+{%- elif name == 'menu' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+{%- elif name == 'close' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+{%- elif name == 'left' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+{%- elif name == 'right' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+{%- elif name == 'Facebook' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v9h4v-9h3l.5-4h-3.5V8.8c0-.5.3-.8.8-.8z"/></svg>
+{%- elif name == 'Instagram' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7.3A4.7 4.7 0 1 0 12 16.7 4.7 4.7 0 0 0 12 7.3zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM12 3.6c2.7 0 3 0 4.1.1 2.8.1 4.1 1.4 4.2 4.2.1 1.1.1 1.4.1 4.1s0 3-.1 4.1c-.1 2.8-1.4 4.1-4.2 4.2-1.1.1-1.4.1-4.1.1s-3 0-4.1-.1c-2.8-.1-4.1-1.4-4.2-4.2C3.6 15 3.6 14.7 3.6 12s0-3 .1-4.1C3.8 5.1 5.1 3.8 7.9 3.7 9 3.6 9.3 3.6 12 3.6zM12 2c-2.7 0-3.1 0-4.1.1-3.8.2-5.6 2-5.8 5.8C2 8.9 2 9.3 2 12s0 3.1.1 4.1c.2 3.8 2 5.6 5.8 5.8 1 .1 1.4.1 4.1.1s3.1 0 4.1-.1c3.8-.2 5.6-2 5.8-5.8.1-1 .1-1.4.1-4.1s0-3.1-.1-4.1c-.2-3.8-2-5.6-5.8-5.8C15.1 2 14.7 2 12 2z"/></svg>
+{%- elif name == 'YouTube' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15V9l5.8 3-5.8 3z"/></svg>
+{%- elif name == 'TikTok' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16.6 2h-3.3v13.4a2.9 2.9 0 1 1-2-2.8V9.2a6.3 6.3 0 1 0 5.3 6.2V8.6a7.7 7.7 0 0 0 4.4 1.4V6.7a4.5 4.5 0 0 1-4.4-4.7z"/></svg>
+{%- endif -%}
+{%- endmacro %}
+
+{# ---------------------------------------------------------------- CTA pair #}
+{% macro cta_pair(location, light=false, quote_label="Request a Free Quote") -%}
+<div class="btn-row" data-cta-location="{{ location }}">
+  <a class="btn btn--lg" href="/request-quote" data-cta="quote">{{ quote_label }}</a>
+  <a class="btn btn--lg {{ 'btn--ghost-light' if light else 'btn--ghost' }}" href="tel:{{ site.phone_e164 }}" data-cta="call">{{ icon('phone') }}Call {{ site.phone }}</a>
+</div>
+{%- endmacro %}
+
+{# ---------------------------------------------------------------- FAQ list #}
+{% macro faq_list(items) -%}
+<div class="faq">
+  {% for f in items %}
+  <details>
+    <summary>{{ f.q }}{{ icon('plus') }}</summary>
+    <div class="faq__a"><p>{{ f.a }}</p></div>
+  </details>
+  {% endfor %}
+</div>
+{%- endmacro %}
+
+{# ---------------------------------------------------------------- Promotions #}
+{% macro promo_cards(promos, feature_first=true, hl='h3') -%}
+<div class="offers">
+  {% for p in promos %}
+  <article class="offer{{ ' offer--feature' if feature_first and loop.first }}" {% if p.ends %}data-promo-ends="{{ p.ends }}"{% endif %}>
+    <{{ hl }}>{{ p.title }}</{{ hl }}>
+    <p>{{ p.body }}</p>
+    <small>{{ p.terms }}{% if p.ends %} Offer ends {{ p.ends }}.{% endif %}</small>
+  </article>
+  {% endfor %}
+</div>
+{%- endmacro %}
+
+{# ---------------------------------------------------------------- Photo grid #}
+{% macro photo_grid(ids, cls="", sizes="(min-width: 48em) 33vw, 50vw", tag_labels=None) -%}
+<ul class="photo-grid {{ cls }}" role="list">
+  {% for id in ids %}{% set m = images[id] %}
+  <li>
+    <a class="photo-card" href="/static/img/{{ id }}-{{ m.jpg }}.jpg" data-lightbox data-id="{{ id }}" data-full="/static/img/{{ id }}-{{ m.widths[-1] }}.webp" data-alt="{{ m.alt }}">
+      {{ picture(id, sizes=sizes) }}
+      <span class="visually-hidden">Open larger photo</span>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{%- endmacro %}
+
+{% macro lightbox() -%}
+<dialog class="lightbox" aria-label="Project photo">
+  <img class="lightbox__img" src="data:," alt="">
+  <div class="lightbox__bar">
+    <p class="lightbox__caption"></p>
+    <div class="lightbox__nav">
+      <button class="icon-btn" type="button" data-lb-prev aria-label="Previous photo">{{ icon('left') }}</button>
+      <button class="icon-btn" type="button" data-lb-next aria-label="Next photo">{{ icon('right') }}</button>
+      <button class="icon-btn" type="button" data-lb-close aria-label="Close">{{ icon('close') }}</button>
+    </div>
+  </div>
+</dialog>
+{%- endmacro %}
+
+{# ---------------------------------------------------------------- Breadcrumbs #}
+{% macro breadcrumbs(items) -%}
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <ol>
+    {% for label, url in items %}
+    <li>{% if loop.last %}<span aria-current="page">{{ label }}</span>{% else %}<a href="{{ url }}">{{ label }}</a>{% endif %}</li>
+    {% endfor %}
+  </ol>
+</nav>
+{%- endmacro %}
+
+{# ---------------------------------------------------------------- CTA band #}
+{% macro cta_band(heading="Get a straight answer on your project", text="Free quotes, no pressure. Call or text, or send photos with your quote request.", location="cta_band") -%}
+<section class="cta-band" aria-labelledby="cta-{{ location }}">
+  <div class="container cta-band__inner">
+    <div>
+      <h2 id="cta-{{ location }}">{{ heading }}</h2>
+      <p>{{ text }}</p>
+    </div>
+    {{ cta_pair(location, light=true) }}
+  </div>
+</section>
+{%- endmacro %}

@@ -1,0 +1,86 @@
+# ---------------------------------------------------------------------------
+# SINGLE SOURCE OF TRUTH for business facts. Every template reads from here.
+# Anything marked VERIFY must be confirmed by Mr. Brick before launch.
+# ---------------------------------------------------------------------------
+name: Mr. Brick LLC
+short_name: Mr. Brick
+tagline: He's honest, he's practical, he's quick.
+base_url: https://www.mrbrickllc.com
+phone: "(586) 209-3052"
+phone_e164: "+15862093052"
+# VERIFY: the Facebook page lists (586) 250-8329. Pick one number and use it everywhere (GBP, FB, Yelp, site).
+email: mrbrickdesignco@gmail.com
+region_label: Southeastern Michigan
+# Address appears in the old site's LocalBusiness schema and on Facebook.
+# VERIFY whether it should be shown publicly (hide street if GBP is a service-area listing).
+address:
+  street: 14692 Agnes Avenue
+  city: Eastpointe
+  region: MI
+  postal: "48021"
+  country: US
+  show_street: false
+geo: {lat: 42.45451, lng: -82.96887}
+hours:
+  - {days: [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday], label: "Mon – Sat", opens: "08:30", closes: "18:00", display: "8:30 am – 6:00 pm"}
+  - {days: [Sunday], label: "Sunday", display: "Closed"}
+years_experience: "25+"
+facts:
+  - Family owned and operated
+  - Licensed and insured
+  - 10-year warranty on all new construction
+  - Fast, free quotes
+  - Price matching with written quotes from licensed competitors
+  - Financing available
+  - Residential and commercial
+payment_methods: [Cash, Check, Visa, Mastercard, Discover, American Express, Apple Pay, Google Pay, Samsung Pay, Zelle, Venmo, Cash App, Financing]
+social:
+  - {name: Facebook, url: "https://facebook.com/397065863481590"}
+  - {name: Instagram, url: "https://instagram.com/mr.brick.designllc"}
+  - {name: YouTube, url: "https://youtube.com/@mrbrickllc"}
+  - {name: TikTok, url: "https://www.tiktok.com/@mr.brick.llc"}
+# Paste the real Google review link (from Google Business Profile > "Ask for reviews") when available.
+google_review_url: ""
+google_maps_url: ""
+
+tracking:
+  # Leave blank until real IDs exist. Nothing loads while blank (no invented IDs).
+  gtm_id: ""            # e.g. GTM-XXXXXXX
+  # Google Ads conversions are configured inside GTM, keyed off the dataLayer events.
+
+# Site-wide promotions. Rendered only when active and inside the date window.
+# The client script also hides any promo whose end date has passed, so a stale
+# build never shows an expired offer. Remove or set active: false to retire.
+promotions:
+  - id: masonry-20
+    active: true          # VERIFY: old homepage labelled this a "Summer Special"
+    title: 20% off your masonry project
+    body: Mention this offer when you schedule your free quote.
+    terms: Not valid with other offers. Restrictions apply. Must be mentioned at time of scheduling.
+    starts: ""
+    ends: ""              # set a YYYY-MM-DD end date if this is seasonal
+    banner: true
+  - id: military-10
+    active: true
+    title: 10% off for active military and veterans
+    body: Our thank-you to those who served. Ask when you call.
+    terms: Not valid with other offers. Restrictions apply. Must be mentioned at time of scheduling.
+    starts: ""
+    ends: ""
+    banner: false
+  - id: first-responders
+    active: true
+    title: First responder discount
+    body: Firefighters, EMTs and law enforcement — ask about your discount when you call.
+    terms: Not valid with other offers. Restrictions apply. Must be mentioned at time of scheduling.
+    starts: ""
+    ends: ""
+    banner: false
+  - id: seniors
+    active: true
+    title: Senior discount
+    body: Ask about senior pricing on any masonry service.
+    terms: Not valid with other offers. Restrictions apply. Must be mentioned at time of scheduling.
+    starts: ""
+    ends: ""
+    banner: false

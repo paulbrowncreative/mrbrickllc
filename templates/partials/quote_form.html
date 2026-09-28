@@ -1,0 +1,122 @@
+{% from "partials/macros.html" import icon %}
+{# Multi-step quote form. Works as a single long form without JS.
+   Netlify Forms: name="quote", honeypot "bot-field", file uploads enabled.
+   form_uid keeps ids unique if the form ever appears twice on one page. #}
+{% set uid = form_uid|default('q') %}
+{% set preselect = preselect_service|default('') %}
+<div class="quote" data-cta-location="quote_form">
+  <div class="quote__head">
+    <{{ form_heading_tag|default('h2') }} id="{{ uid }}-title">{{ form_heading|default('Request a free quote') }}</{{ form_heading_tag|default('h2') }}>
+    <p>Three short steps. We'll get back to you to talk through the project and set up a time to see it.</p>
+    <ol class="progress" aria-hidden="true"><li></li><li></li><li></li></ol>
+    <p class="progress-label" aria-live="polite"></p>
+  </div>
+  <form name="quote" method="POST" action="/thank-you" enctype="multipart/form-data"
+        data-netlify="true" netlify-honeypot="bot-field" data-quote-form="{{ uid }}"
+        aria-labelledby="{{ uid }}-title" novalidate>
+    <input type="hidden" name="form-name" value="quote">
+    <p class="hp" aria-hidden="true"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+    {# Attribution (filled by site.js; never sent to analytics) #}
+    {% for f in ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','gbraid','wbraid','first_touch','last_touch','landing_page','referrer','submitted_from'] %}
+    <input type="hidden" name="{{ f }}" value="">
+    {% endfor %}
+
+    <div class="form-alert" role="alert" tabindex="-1"></div>
+
+    <fieldset class="step">
+      <legend>What do you need help with?</legend>
+      <div class="field">
+        <span class="label" id="{{ uid }}-svc-label">Service</span>
+        <div class="choice-grid choice-grid--3" role="radiogroup" aria-labelledby="{{ uid }}-svc-label">
+          {% for s in form_services %}
+          <label class="choice"><input type="radio" name="service" value="{{ s }}" required data-msg="Choose the service that's closest — or pick Other."{% if s == preselect %} checked{% endif %}><span>{{ s }}</span></label>
+          {% endfor %}
+        </div>
+        <p class="error" id="{{ uid }}-svc-err"></p>
+      </div>
+      <div class="field">
+        <span class="label" id="{{ uid }}-prop-label">Property type</span>
+        <div class="choice-grid" role="radiogroup" aria-labelledby="{{ uid }}-prop-label">
+          <label class="choice"><input type="radio" name="property_type" value="Residential" required data-msg="Choose a property type." checked><span>Home / residential</span></label>
+          <label class="choice"><input type="radio" name="property_type" value="Commercial" required><span>Business / commercial</span></label>
+        </div>
+        <p class="error"></p>
+      </div>
+      <div class="form-actions"><button class="btn" type="button" data-next>Continue</button></div>
+    </fieldset>
+
+    <fieldset class="step">
+      <legend>Tell us about the project</legend>
+      <div class="field">
+        <label for="{{ uid }}-details">What's going on? <span class="opt">(optional)</span></label>
+        <textarea class="textarea" id="{{ uid }}-details" name="details" maxlength="2000" placeholder="Example: Front porch has pulled away from the house and the steps are cracked."></textarea>
+      </div>
+      <div class="row-2">
+        <div class="field">
+          <label for="{{ uid }}-zip">Project ZIP code</label>
+          <input class="input" id="{{ uid }}-zip" name="zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" pattern="[0-9]{5}" required data-msg="Enter the ZIP code where the work is.">
+          <p class="error"></p>
+        </div>
+        <div class="field">
+          <label for="{{ uid }}-when">When would you like it done?</label>
+          <select class="select" id="{{ uid }}-when" name="timeframe">
+            <option>As soon as possible</option>
+            <option>Within 1–3 months</option>
+            <option>3+ months out</option>
+            <option>Just getting prices</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="{{ uid }}-photos">Photos <span class="opt">(optional, up to 8 MB total)</span></label>
+        <input class="input" id="{{ uid }}-photos" name="photos" type="file" accept="image/*" multiple>
+        <span class="hint">Photos help us give you a more accurate first answer.</span>
+        <p class="error"></p>
+      </div>
+      <div class="form-actions">
+        <button class="btn btn--ghost" type="button" data-back>Back</button>
+        <button class="btn" type="button" data-next>Continue</button>
+      </div>
+    </fieldset>
+
+    <fieldset class="step">
+      <legend>How should we reach you?</legend>
+      <div class="field">
+        <label for="{{ uid }}-name">Name</label>
+        <input class="input" id="{{ uid }}-name" name="name" autocomplete="name" required data-msg="Enter your name.">
+        <p class="error"></p>
+      </div>
+      <div class="row-2">
+        <div class="field">
+          <label for="{{ uid }}-phone">Phone</label>
+          <input class="input" id="{{ uid }}-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required data-msg="Enter a phone number so we can reach you.">
+          <p class="error"></p>
+        </div>
+        <div class="field">
+          <label for="{{ uid }}-email">Email <span class="opt">(optional)</span></label>
+          <input class="input" id="{{ uid }}-email" name="email" type="email" autocomplete="email">
+          <p class="error"></p>
+        </div>
+      </div>
+      <div class="row-2">
+        <div class="field">
+          <label for="{{ uid }}-method">Best way to reach you</label>
+          <select class="select" id="{{ uid }}-method" name="contact_method">
+            <option>Call</option><option>Text</option><option>Email</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="{{ uid }}-time">Best time</label>
+          <select class="select" id="{{ uid }}-time" name="contact_time">
+            <option>Anytime</option><option>Morning</option><option>Afternoon</option><option>Evening</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="btn btn--ghost" type="button" data-back>Back</button>
+        <button class="btn" type="submit">Send My Quote Request</button>
+      </div>
+      <p class="form-note">We use your details only to respond about your project. See our <a href="/privacy-policy">privacy policy</a>.</p>
+    </fieldset>
+  </form>
+</div>

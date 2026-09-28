@@ -1,0 +1,11 @@
+{% extends "inner.html" %}
+{% from "partials/macros.html" import faq_list, cta_band %}
+{% block body %}
+<section class="section">
+  <div class="container two-col">
+    <div><h2>About working with us</h2><p class="muted">Service-specific questions are answered on each <a href="/services">service page</a>.</p></div>
+    {{ faq_list(faqs) }}
+  </div>
+</section>
+{{ cta_band(location='faqs') }}
+{% endblock %}

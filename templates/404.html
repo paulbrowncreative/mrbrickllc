@@ -1,0 +1,11 @@
+{% extends "inner.html" %}
+{% from "partials/macros.html" import icon %}
+{% block body %}
+<section class="section">
+  <div class="container two-col">
+    <div class="prose"><h2>Try one of these</h2><p>The page may have moved when we rebuilt the site.</p>
+      <div class="btn-row"><a class="btn" href="/">Go to home page</a><a class="btn btn--ghost" href="/request-quote">Request a Free Quote</a></div></div>
+    <ul class="link-grid" role="list">{% for c in categories %}<li><a href="/{{ c.hub }}"><span><strong>{{ c.name }}</strong></span>{{ icon('arrow') }}</a></li>{% endfor %}</ul>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "inner.html" %}
+{% from "partials/macros.html" import icon, cta_band %}
+{% block body %}
+<section class="section">
+  <div class="container">
+    {% for c in categories %}
+    <div class="two-col" style="padding-block: var(--s-6); border-top: 1px solid var(--line)">
+      <div><h2><a href="/{{ c.hub }}" style="color:inherit;text-decoration:none">{{ c.name }}</a></h2><p class="muted">{{ services[c.hub].lede }}</p><a class="text-link" href="/{{ c.hub }}">{{ c.name }} overview</a></div>
+      <ul class="link-grid" role="list">
+        {% for s in c.children %}<li><a href="/{{ s.slug }}"><span><strong>{{ s.name }}</strong><span>{{ s.lede|truncate(100) }}</span></span>{{ icon('arrow') }}</a></li>{% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{{ cta_band(location='services_index') }}
+{% endblock %}

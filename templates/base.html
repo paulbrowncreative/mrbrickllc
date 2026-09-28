@@ -1,0 +1,149 @@
+{% from "partials/macros.html" import icon, picture %}<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{ page.title }}</title>
+<meta name="description" content="{{ page.description }}">
+{% if page.noindex %}<meta name="robots" content="noindex, follow">{% else %}<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="{{ page.canonical }}">{% endif %}
+<meta name="theme-color" content="#25282b">
+<meta name="format-detection" content="telephone=no">
+<meta name="google-site-verification" content="vhU8PR1ChxNF3cgy_92awQkdPibAR8LJ0qD6kCiBlfs">
+<meta property="og:type" content="{{ page.og_type|default('website') }}">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="{{ page.og_title|default(page.title) }}">
+<meta property="og:description" content="{{ page.description }}">
+<meta property="og:url" content="{{ page.canonical }}">
+<meta property="og:image" content="{{ site.base_url }}{{ page.og_image }}">
+<meta property="og:image:alt" content="{{ page.og_image_alt }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page.og_title|default(page.title) }}">
+<meta name="twitter:description" content="{{ page.description }}">
+<meta name="twitter:image" content="{{ site.base_url }}{{ page.og_image }}">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/static/img/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/static/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/static/fonts/archivo-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+{% if page.lcp_image %}{% set m = images[page.lcp_image] %}<link rel="preload" as="image" type="image/avif" imagesrcset="{% for x in m.widths %}/static/img/{{ page.lcp_image }}-{{ x }}.avif {{ x }}w{{ ', ' if not loop.last }}{% endfor %}" imagesizes="{{ page.lcp_sizes|default('(min-width: 64em) 48vw, 100vw') }}" fetchpriority="high">{% endif %}
+<link rel="stylesheet" href="{{ asset('css/site.css') }}">
+{% if site.tracking.gtm_id %}<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','{{ site.tracking.gtm_id }}');</script>{% endif %}
+{% for block in page.schema %}<script type="application/ld+json">{{ block|tojson }}</script>
+{% endfor %}
+</head>
+<body data-page-type="{{ page.type|default('page') }}"{% if page.service_slug %} data-service="{{ page.service_slug }}"{% endif %}>
+{% if site.tracking.gtm_id %}<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.tracking.gtm_id }}" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>{% endif %}
+<a class="skip-link" href="#main">Skip to content</a>
+
+{% if banner_promo and page.type != 'thank-you' %}
+<aside class="promo-bar" aria-label="Current offer" data-cta-location="promo_bar" {% if banner_promo.ends %}data-promo-ends="{{ banner_promo.ends }}"{% endif %}>
+  <strong>{{ banner_promo.title }}.</strong> {{ banner_promo.body }} <a href="/special-offers">See all offers</a>
+</aside>
+{% endif %}
+
+<header class="site-header" data-cta-location="header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Mr. Brick LLC home">
+      <picture>
+        <source type="image/webp" srcset="/static/img/mr-brick-logo-240.webp 1x, /static/img/mr-brick-logo-480.webp 2x">
+        <img src="/static/img/mr-brick-logo-240.png" alt="Mr. Brick — State of the Art Brickwork" width="240" height="118">
+      </picture>
+    </a>
+    <nav id="primary-nav" class="primary-nav" aria-label="Main">
+      <ul class="nav-list">
+        <li>
+          <button class="nav-sub-toggle" type="button" aria-expanded="false" aria-controls="mega-services">Services {{ icon('chev') }}</button>
+          <div class="mega" id="mega-services">
+            <div class="mega__inner">
+              {% for c in categories %}
+              <div class="mega__group">
+                <h2><a href="/{{ c.hub }}">{{ c.name }}</a></h2>
+                <ul>
+                  {% for s in c.children %}<li><a href="/{{ s.slug }}">{{ s.name }}</a></li>{% endfor %}
+                </ul>
+              </div>
+              {% endfor %}
+              <div class="mega__group mega__all"><h2><a href="/services">All services</a></h2></div>
+            </div>
+          </div>
+        </li>
+        {% for label, url in [('Projects','/gallery'),('About','/about'),('Service Areas','/service-areas'),('Financing','/finance'),('Reviews','/reviews'),('Contact','/contact')] %}
+        <li><a href="{{ url }}"{% if page.path == url or page.path.startswith(url ~ '/') %} aria-current="page"{% endif %}>{{ label }}</a></li>
+        {% endfor %}
+      </ul>
+      <div class="nav-cta" data-cta-location="mobile_menu">
+        <a class="btn btn--lg btn--block" href="/request-quote" data-cta="quote">Request a Free Quote</a>
+        <a class="btn btn--lg btn--block btn--ghost-light" href="tel:{{ site.phone_e164 }}">{{ icon('phone') }}Call {{ site.phone }}</a>
+      </div>
+    </nav>
+    <a class="header-phone" href="tel:{{ site.phone_e164 }}">{{ icon('phone') }}<span>{{ site.phone }}</span></a>
+    <a class="btn header-cta" href="/request-quote" data-cta="quote"><span class="xl-only">Request a </span>Free Quote</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">{{ icon('menu') }}<span class="nav-toggle__label">Menu</span></button>
+  </div>
+</header>
+
+<main id="main">
+{% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer" data-cta-location="footer">
+  <div class="course course--dark" aria-hidden="true"></div>
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <img src="/static/img/mr-brick-logo-480.png" alt="Mr. Brick LLC" width="480" height="236" loading="lazy">
+      <p>Family-owned masonry and concrete contractor serving Southeastern Michigan for {{ site.years_experience }} years. Licensed and insured.</p>
+      <a class="footer-phone" href="tel:{{ site.phone_e164 }}">{{ site.phone }}</a><br>
+      <a href="sms:{{ site.phone_e164 }}">Text us</a> · <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+      <div class="social">
+        {% for s in site.social %}<a href="{{ s.url }}" rel="noopener" target="_blank" aria-label="Mr. Brick on {{ s.name }} (opens in new tab)">{{ icon(s.name) }}</a>{% endfor %}
+      </div>
+    </div>
+    <div>
+      <h2>Services</h2>
+      <ul>
+        {% for c in categories %}<li><a href="/{{ c.hub }}">{{ c.name }}</a></li>{% endfor %}
+        <li><a href="/services">All services</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Popular</h2>
+      <ul>
+        {% for slug in ['chimney-repair','tuckpointing','porch-rebuilds','brick-repair','concrete-driveway-installation','paver-services','stamped-concrete'] %}<li><a href="/{{ slug }}">{{ services[slug].name }}</a></li>{% endfor %}
+      </ul>
+    </div>
+    <div>
+      <h2>Company</h2>
+      <ul>
+        {% for label, url in [('About Mr. Brick','/about'),('Projects','/gallery'),('Reviews','/reviews'),('Financing','/finance'),('Special offers','/special-offers'),('FAQs','/faqs'),('Masonry resources','/resources'),('Contact','/contact'),('Request a quote','/request-quote')] %}<li><a href="{{ url }}">{{ label }}</a></li>{% endfor %}
+      </ul>
+      <h2 class="mt-6">Hours</h2>
+      <dl class="hours">
+        {% for h in site.hours %}<dt>{{ h.label }}</dt><dd>{{ h.display }}</dd>{% endfor %}
+      </dl>
+    </div>
+  </div>
+  <div class="container">
+    <p><strong style="color:#fff">Service areas:</strong> Based in {{ site.address.city }}, {{ site.address.region }}. Serving Southeastern Michigan including <a href="/service-areas/macomb-county">Macomb County</a>, <a href="/service-areas/wayne-county">Wayne County</a> and <a href="/service-areas/oakland-county">Oakland County</a>.</p>
+  </div>
+  <div class="container footer-bottom">
+    <p class="mb-0">© {{ year }} {{ site.name }}. All rights reserved.</p>
+    <ul>
+      <li><a href="/privacy-policy">Privacy policy</a></li>
+      <li><a href="/terms">Terms</a></li>
+      <li><a href="/accessibility">Accessibility</a></li>
+      <li><a href="/sitemap.xml">Sitemap</a></li>
+    </ul>
+  </div>
+</footer>
+
+<nav class="mobile-bar" aria-label="Quick contact" data-cta-location="mobile_bar">
+  <a href="tel:{{ site.phone_e164 }}">{{ icon('phone') }}Call</a>
+  <a href="sms:{{ site.phone_e164 }}">{{ icon('text') }}Text</a>
+  <a class="is-primary" href="/request-quote" data-cta="quote">{{ icon('quote') }}Free Quote</a>
+</nav>
+
+<script src="{{ asset('js/site.js') }}" defer></script>
+</body>
+</html>

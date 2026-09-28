@@ -1,0 +1,6 @@
+# Verified customer reviews ONLY. Copy real reviews (with permission where required)
+# from Google, Facebook, etc. Leave empty until then — the site will show links to
+# review platforms instead of testimonials. Never invent or paraphrase reviews.
+# Example entry (do not uncomment until real):
+# - {name: "First L.", text: "Exact review text", source: Google, date: 2026-05-01, rating: 5, url: ""}
+reviews: []

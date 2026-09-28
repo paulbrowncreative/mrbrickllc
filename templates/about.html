@@ -1,0 +1,30 @@
+{% extends "inner.html" %}
+{% from "partials/macros.html" import picture, icon, cta_band %}
+{% block body %}
+<section class="section">
+  <div class="container split">
+    <div class="prose">
+      <h2>A family masonry business</h2>
+      <p>Mr. Brick LLC is a family-owned and operated masonry contractor based in Eastpointe. For more than 25 years we've repaired and built brick, block, stone and concrete for homes and businesses across Southeastern Michigan — chimneys, porches and steps, driveways and walks, patios, foundations and retaining walls.</p>
+      <p>Our motto is simple: honest, practical and quick. Honest means telling you what your masonry actually needs, including when a smaller repair will do. Practical means building for Michigan weather — footings below frost depth, mortar matched to your brick, crowns and caps that keep water out. Quick means fast, free quotes and clear communication from first call to clean-up.</p>
+      <h2>What you can count on</h2>
+      <ul class="checks">
+        {% for f in site.facts %}<li>{{ f }}</li>{% endfor %}
+      </ul>
+      <h2>Residential and commercial</h2>
+      <p>Most of our work is for homeowners, but we also take on commercial masonry — brick walls and planters, entries, steps, block construction and concrete.</p>
+    </div>
+    <div class="stack">
+      <figure class="figure">{{ picture('tuckpointing-stone-cap', sizes='(min-width: 64em) 40vw, 100vw') }}<figcaption>Repointing a brick wall with a limestone cap.</figcaption></figure>
+      <figure class="figure">{{ picture('mr-brick-truck', sizes='(min-width: 64em) 40vw, 100vw') }}<figcaption>On the job in Southeastern Michigan.</figcaption></figure>
+    </div>
+  </div>
+</section>
+<section class="section section--concrete">
+  <div class="container two-col">
+    <div><h2>Ways to pay</h2><p class="muted">Pay the way that works for you. <a href="/finance">Financing</a> is available on qualifying projects.</p></div>
+    <ul class="area-list" role="list">{% for p in site.payment_methods %}<li>{{ p }}</li>{% endfor %}</ul>
+  </div>
+</section>
+{{ cta_band(location='about') }}
+{% endblock %}

@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% from "partials/macros.html" import picture, icon, cta_pair, faq_list, promo_cards, photo_grid, lightbox, cta_band %}
+{% block content %}
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__grid">
+    <div class="hero__copy" data-cta-location="hero">
+      <p class="hero__place">Based in Eastpointe, serving all of Southeastern Michigan</p>
+      <h1 id="hero-title">Masonry contractors who build it to last</h1>
+      <p class="lede">Brick, chimneys, porches, steps, concrete and pavers — repaired right or rebuilt for good by a family-owned crew with {{ site.years_experience }} years on the tools.</p>
+      {{ cta_pair('hero', light=true) }}
+      <ul class="proof" role="list">
+        <li><strong>{{ site.years_experience }} years</strong>masonry experience</li>
+        <li><strong>10-year</strong>warranty on new construction</li>
+        <li><strong>Licensed</strong>and insured</li>
+        <li><strong>Free</strong>quotes, price matching</li>
+      </ul>
+    </div>
+    <div class="hero__media">
+      {{ picture('crew-brick-pillars-stone-steps', sizes='(min-width: 64em) 48vw, 100vw', priority=true) }}
+      <p class="hero__caption">Mr. Brick crew building brick pillars at a front entry</p>
+    </div>
+  </div>
+</section>
+<div class="course" aria-hidden="true"></div>
+
+<section class="section" aria-labelledby="services-title">
+  <div class="container">
+    <div class="section-head">
+      <h2 id="services-title">What we repair and build</h2>
+      <p>Seven trades under one roof, from a single loose brick to a new driveway. Pick the one closest to your project.</p>
+    </div>
+    <ul class="bond" role="list">
+      {% for c in categories %}
+      {% if loop.index == 5 %}<li class="bond__half" aria-hidden="true"></li>{% endif %}
+      <li class="bond__brick">
+        <a href="/{{ c.hub }}">
+          <span><h3>{{ c.name }}</h3><p>{{ c.short }}</p></span>
+          <span class="bond__more">View services {{ icon('arrow') }}</span>
+        </a>
+      </li>
+      {% if loop.last %}<li class="bond__half" aria-hidden="true"></li>{% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section section--concrete" aria-labelledby="why-title">
+  <div class="container split split--center">
+    <div>
+      <h2 id="why-title">Why homeowners call Mr. Brick</h2>
+      <p class="lede">Honest, practical and quick. We tell you what your masonry actually needs — and when a smaller repair will do.</p>
+      <ul class="reasons mt-6" role="list">
+        <li><h3>{{ site.years_experience }} years of masonry</h3><p>Brick, block, stone and concrete. We've seen what fails in Michigan weather and build to avoid it.</p></li>
+        <li><h3>Family owned and operated</h3><p>You deal with the people doing the work, not a call center.</p></li>
+        <li><h3>10-year warranty</h3><p>All new construction is backed by our 10-year warranty.</p></li>
+        <li><h3>Price matching</h3><p>We'll match written quotes from licensed competitors for comparable work.</p></li>
+        <li><h3>Financing available</h3><p>Options for qualifying projects so repairs don't have to wait. <a href="/finance">How financing works</a>.</p></li>
+        <li><h3>Call or text</h3><p>Send a text with a photo. It's often the fastest way to a first answer.</p></li>
+      </ul>
+    </div>
+    <figure class="figure">
+      {{ picture('crew-planter-wall', sizes='(min-width: 64em) 40vw, 100vw') }}
+      <figcaption>Mr. Brick masons rebuilding a brick planter wall.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="work-title">
+  <div class="container">
+    <div class="section-head">
+      <h2 id="work-title">Recent work</h2>
+      <p>Real Mr. Brick jobs — chimneys, porches, steps, walks and concrete across Southeastern Michigan.</p>
+    </div>
+    {{ photo_grid(['porch-stone-steps-columns','chimney-crew-scaffold','herringbone-brick-walk','driveway-screed-pour','stone-steps-iron-railings','tuckpointing-stone-cap','brick-walkway-border','chimney-three-flues','red-brick-steps-iron-door'], cls='photo-grid--feature') }}
+    <p class="mt-6"><a class="btn btn--ghost" href="/gallery">See all project photos</a></p>
+  </div>
+</section>
+
+<section class="section section--dark" aria-labelledby="process-title">
+  <div class="container">
+    <div class="section-head">
+      <h2 id="process-title">How it works</h2>
+      <p>Straightforward from first call to clean-up.</p>
+    </div>
+    <ol class="process">
+      <li><h3>Reach out</h3><p>Call, text, or send a quote request with photos. Tell us what you're seeing.</p></li>
+      <li><h3>Free quote</h3><p>We look at the job, explain what it needs, and give you a price. No obligation.</p></li>
+      <li><h3>Schedule</h3><p>We set a start date around weather and your schedule, and tell you what to expect.</p></li>
+      <li><h3>Build and clean up</h3><p>The work gets done right, the site gets cleaned up, and new construction carries our 10-year warranty.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="areas-title">
+  <div class="container split">
+    <div>
+      <h2 id="areas-title">Serving Southeastern Michigan</h2>
+      <p class="lede">We're based in Eastpointe and work throughout Macomb, Wayne and Oakland counties and the rest of Southeastern Michigan.</p>
+      <p><a class="text-link" href="/service-areas">See our service areas</a></p>
+    </div>
+    <div class="area-cards area-cards--stack">
+      {% for slug, a in areas.items() %}
+      <a class="area-card" href="/service-areas/{{ slug }}"><h3>{{ a.name }}</h3><p>{{ a.communities[:4]|join(', ') }} and more</p></a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--concrete" aria-labelledby="reviews-title">
+  <div class="container">
+    {% include "partials/reviews_block.html" %}
+  </div>
+</section>
+
+{% if promos %}
+<section class="section" aria-labelledby="offers-title">
+  <div class="container">
+    <div class="section-head">
+      <h2 id="offers-title">Current offers</h2>
+      <p>Mention an offer when you schedule. Offers can't be combined.</p>
+    </div>
+    {{ promo_cards(promos[:2]) }}
+    <p class="mt-6"><a class="text-link" href="/special-offers">All offers and discounts</a> · <a class="text-link" href="/finance">Financing</a></p>
+  </div>
+</section>
+{% endif %}
+
+<section class="section section--concrete" aria-labelledby="faq-title">
+  <div class="container two-col">
+    <div>
+      <h2 id="faq-title">Common questions</h2>
+      <p class="lede">Quick answers before you call. <a href="/faqs">More FAQs</a></p>
+    </div>
+    {{ faq_list(faqs[:6]) }}
+  </div>
+</section>
+
+<section class="section section--dark" id="quote" aria-labelledby="q-home-title">
+  <div class="container quote-section">
+    <div>
+      <h2>Tell us about your project</h2>
+      <p class="lede">A few details and a photo or two is all we need to get started. Prefer to talk? Call or text any time during business hours.</p>
+      {% include "partials/contact_lines.html" %}
+    </div>
+    {% with form_uid='q-home', form_heading='Request a free quote' %}{% include "partials/quote_form.html" %}{% endwith %}
+  </div>
+</section>
+{{ lightbox() }}
+{% endblock %}

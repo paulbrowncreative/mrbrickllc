@@ -1,0 +1,36 @@
+{% extends "inner.html" %}
+{% from "partials/macros.html" import cta_band, faq_list %}
+{% block body %}
+<section class="section">
+  <div class="container split">
+    <div class="prose">
+      <h2>How financing works</h2>
+      <ol>
+        <li><strong>Get your free quote.</strong> We look at the project and price it first, so you know the amount you're considering financing.</li>
+        <li><strong>Ask about financing.</strong> Call or text <a href="tel:{{ site.phone_e164 }}">{{ site.phone }}</a> and we'll walk you through the options available for your project.</li>
+        <li><strong>Choose what fits.</strong> Review the terms and decide. There's no obligation.</li>
+      </ol>
+      <p class="muted">Terms and eligibility vary by project and are explained before you commit. We don't publish rates here because they depend on the applicant and the project.</p>
+    </div>
+    <div class="aside-box" data-cta-location="finance_aside">
+      <h2>Talk financing</h2>
+      <p>The fastest way to learn your options is a quick call or text.</p>
+      <div class="btn-row">
+        <a class="btn" href="tel:{{ site.phone_e164 }}">Call {{ site.phone }}</a>
+        <a class="btn btn--ghost" href="/request-quote" data-cta="quote">Request a Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--concrete">
+  <div class="container two-col">
+    <h2>Financing questions</h2>
+    {{ faq_list([
+      {'q':'Which projects can be financed?','a':'Financing is available on qualifying projects. Call us with your project and we will tell you what applies.'},
+      {'q':'Does financing change the price of my project?','a':'Your quote is based on the work, not how you pay. Ask about any current offers, which cannot be combined.'},
+      {'q':'What other payment methods do you accept?','a':site.payment_methods|reject('equalto','Financing')|join(', ') ~ '.'}
+    ]) }}
+  </div>
+</section>
+{{ cta_band(location='finance') }}
+{% endblock %}

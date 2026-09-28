@@ -1,0 +1,27 @@
+{% from "partials/macros.html" import icon %}
+<div class="section-head">
+  <h2 id="reviews-title">What customers say</h2>
+  {% if not reviews %}<p>We only publish real reviews. Read them where they were written.</p>{% endif %}
+</div>
+{% if reviews %}
+<ul class="review-list" role="list">
+  {% for r in reviews[:limit|default(6)] %}
+  <li><figure class="review">
+    {% if r.rating %}<p class="stars" aria-label="{{ r.rating }} out of 5 stars">{{ '★' * r.rating }}</p>{% endif %}
+    <blockquote><p>{{ r.text }}</p></blockquote>
+    <figcaption>{{ r.name }} · {{ r.source }}{% if r.date %} · <time datetime="{{ r.date }}">{{ r.date }}</time>{% endif %}</figcaption>
+  </figure></li>
+  {% endfor %}
+</ul>
+{% else %}
+<div class="review-empty" data-cta-location="reviews">
+  <div>
+    <h3>Worked with Mr. Brick?</h3>
+    <p class="mb-0">Your review helps neighbors choose a contractor with confidence — and it's the best thank-you we can get.</p>
+  </div>
+  <div class="btn-row">
+    {% if site.google_review_url %}<a class="btn" href="{{ site.google_review_url }}" target="_blank" rel="noopener" data-review-link="google">Review us on Google</a>{% endif %}
+    <a class="btn {{ 'btn--ghost' if site.google_review_url }}" href="{{ site.social[0].url }}" target="_blank" rel="noopener" data-review-link="facebook">See us on Facebook</a>
+  </div>
+</div>
+{% endif %}

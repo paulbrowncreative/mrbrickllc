@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% from "partials/macros.html" import picture, icon, cta_pair, breadcrumbs %}
+{% block content %}
+<section class="page-hero{{ ' page-hero--plain' if not page.hero_image }}" aria-labelledby="page-title">
+  <div class="page-hero__grid">
+    <div class="page-hero__copy" data-cta-location="page_hero">
+      {% if page.crumbs %}{{ breadcrumbs(page.crumbs) }}{% endif %}
+      <h1 id="page-title">{{ page.h1 }}</h1>
+      {% if page.lede %}<p class="lede">{{ page.lede }}</p>{% endif %}
+      {% if page.hero_cta %}{{ cta_pair('page_hero', light=true) }}{% endif %}
+    </div>
+    {% if page.hero_image %}<div class="page-hero__media">{{ picture(page.hero_image, sizes='(min-width: 64em) 42vw, 100vw', priority=true) }}</div>{% endif %}
+  </div>
+</section>
+<div class="course" aria-hidden="true"></div>
+{% block body %}{% endblock %}
+{% endblock %}

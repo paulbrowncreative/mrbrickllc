@@ -1,0 +1,65 @@
+# Service-area pages. Mr. Brick states it serves "all of Southeastern Michigan"
+# and is based in Eastpointe. County-level pages are used instead of mass city
+# pages; add a city page only when real local projects/content exist for it.
+# VERIFY: community lists with the owner before launch.
+hub:
+  title: Service Areas | Masonry Contractor in Southeastern Michigan | Mr. Brick
+  description: Mr. Brick is based in Eastpointe and serves homes and businesses across Southeastern Michigan, including Macomb, Wayne and Oakland counties.
+  h1: Masonry across Southeastern Michigan
+  lede: Based in Eastpointe, Mr. Brick serves homeowners and businesses throughout Southeastern Michigan. Not sure if we cover your address? Call or text — the answer is usually yes.
+
+areas:
+  macomb-county:
+    name: Macomb County
+    title: Masonry Contractor in Macomb County, MI | Mr. Brick
+    description: Brick, chimney, porch and concrete work for Macomb County homes from Eastpointe-based Mr. Brick — Roseville, St. Clair Shores, Warren, Sterling Heights and more.
+    h1: Masonry contractor in Macomb County
+    lede: Macomb County is home. Mr. Brick is based in Eastpointe, a short drive from most of the county.
+    image: brick-porch-entry
+    communities: [Eastpointe, Roseville, St. Clair Shores, Warren, Fraser, Clinton Township, Sterling Heights, Mount Clemens, Macomb Township, Shelby Township, Utica, Harrison Township]
+    local: |
+      Southern Macomb — Eastpointe, Roseville, St. Clair Shores and Warren — is built largely of post-war brick bungalows and ranches. After seventy-plus Michigan winters, those homes tend to need the same things: brick front porches that have settled or pulled away from the house, limestone and concrete caps that have popped loose, chimneys with failing crowns and open mortar near the top, and steps that have tipped.
+
+      Farther north, in Sterling Heights, Clinton, Macomb and Shelby townships, newer subdivisions bring different projects: paver patios, stamped concrete, retaining walls on graded lots, and driveway replacements where the original concrete has scaled from road salt.
+    focus: [porch-rebuilds, chimney-repair, tuckpointing, paver-services, concrete-driveway-installation, retaining-wall-services]
+    faqs:
+      - q: Where is Mr. Brick located?
+        a: We're based in Eastpointe and work throughout Macomb County and the rest of Southeastern Michigan.
+      - q: Do I need a permit for a porch or driveway in my city?
+        a: Many Macomb County communities require permits for porch rebuilds and driveway approaches. Requirements vary by city, and we'll confirm what applies to your project.
+
+  wayne-county:
+    name: Wayne County
+    title: Masonry Contractor in Wayne County & the Grosse Pointes | Mr. Brick
+    description: Chimney rebuilding, tuckpointing, brick and porch restoration for Grosse Pointe, Harper Woods, Detroit and Wayne County homes. Free quotes from Mr. Brick.
+    h1: Masonry contractor in Wayne County and the Grosse Pointes
+    lede: From Grosse Pointe to Detroit's east side, Mr. Brick restores the brick and stone that older homes are built on.
+    image: crew-brick-pillars-stone-steps
+    communities: [Grosse Pointe, Grosse Pointe Park, Grosse Pointe Farms, Grosse Pointe Woods, Grosse Pointe Shores, Harper Woods, Detroit]
+    local: |
+      Much of eastern Wayne County's housing predates the Second World War — solid brick and stone homes in the Grosse Pointes and Detroit neighborhoods with tall chimneys, masonry porches, and decorative brickwork that isn't built the same way anymore.
+
+      Older masonry was laid in softer mortar than what's sold today. Repointing it with modern high-strength mortar can crack the brick around the repair, so mortar selection and careful joint removal matter more on these homes than anywhere else. Chimney rebuilds, repointing, brick matching and porch and step restoration make up much of this work.
+    focus: [chimney-rebuilding, tuckpointing, brick-repair, porch-restorations, stair-services, fireplace-services]
+    faqs:
+      - q: Can you match brick on an older Grosse Pointe or Detroit home?
+        a: We source the closest available match for size, color and texture and show you samples first. Some historic brick is no longer made, and we'll be clear about that before work starts.
+      - q: Do you work on historic homes?
+        a: Yes. Older masonry calls for compatible mortar and careful technique, and we take both seriously.
+
+  oakland-county:
+    name: Oakland County
+    title: Masonry Contractor in Oakland County, MI | Mr. Brick
+    description: Brick repair, chimneys, porches, patios and concrete for Oakland County homes — Royal Oak, Madison Heights, Troy, Birmingham and more. Free quotes.
+    h1: Masonry contractor in Oakland County
+    lede: Brick, stone and concrete work for Oakland County homes and businesses, from Royal Oak bungalows to newer Troy and Rochester Hills subdivisions.
+    image: stone-steps-iron-railings
+    communities: [Royal Oak, Madison Heights, Ferndale, Hazel Park, Troy, Birmingham, Bloomfield Hills, Rochester Hills, Rochester]
+    local: |
+      South Oakland County — Royal Oak, Ferndale, Hazel Park and Madison Heights — is dense with 1920s-to-1950s brick bungalows and colonials. Chimneys, front steps and porch caps are the usual trouble spots after decades of freeze-thaw.
+
+      In Birmingham, Bloomfield and Troy, projects lean toward stone steps and entries, brick and stone repair on larger homes, and patios and outdoor living spaces where the finish quality has to match the house.
+    focus: [chimney-repair, stair-services, brick-repair, patio-services, stamped-concrete, walkway-services]
+    faqs:
+      - q: Do you serve all of Oakland County?
+        a: We serve communities throughout Southeastern Michigan. Call or text with your address and we'll confirm.

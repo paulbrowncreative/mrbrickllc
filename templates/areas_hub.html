@@ -1,0 +1,29 @@
+{% extends "inner.html" %}
+{% from "partials/macros.html" import icon, cta_band %}
+{% block body %}
+<section class="section">
+  <div class="container">
+    <div class="area-cards">
+      {% for slug, a in areas.items() %}
+      <a class="area-card" href="/service-areas/{{ slug }}"><h2 style="font-size:var(--step-2)">{{ a.name }}</h2><p>{{ a.communities|join(', ') }}</p></a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section class="section section--concrete">
+  <div class="container two-col">
+    <div class="prose">
+      <h2>Southeastern Michigan masonry, from Eastpointe outward</h2>
+      <p>Our base in Eastpointe puts Macomb County, the Grosse Pointes, Detroit's east side and south Oakland County within easy reach. We also take on projects elsewhere in Southeastern Michigan. If your community isn't listed, call or text and ask.</p>
+      <p>Wherever you are, the same things apply: masonry built for freeze-thaw, footings below frost depth, mortar matched to your brick, and a free quote before any work starts.</p>
+    </div>
+    <div>
+      <h2>Popular services</h2>
+      <ul class="link-grid" role="list">
+        {% for slug in ['chimney-repair','porch-rebuilds','tuckpointing','concrete-driveway-installation','paver-services','brick-repair'] %}<li><a href="/{{ slug }}"><span><strong>{{ services[slug].name }}</strong></span>{{ icon('arrow') }}</a></li>{% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+{{ cta_band(heading='Not sure we cover your address?', text='Call or text with your city — the answer is usually yes.', location='areas_hub') }}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "inner.html" %}
+{% from "partials/macros.html" import promo_cards, cta_band %}
+{% block body %}
+<section class="section">
+  <div class="container">
+    {% if promos %}{{ promo_cards(promos, hl='h2') }}{% else %}<p class="lede">There are no active promotions right now. Ask about financing and price matching when you call.</p>{% endif %}
+    <p class="mt-6 muted">To use an offer, mention it when you schedule your quote. One offer per project. Offers can't be combined with other promotions. Restrictions apply.</p>
+  </div>
+</section>
+{{ cta_band(heading='Claim your offer', text='Call or text and mention the offer when you schedule.', location='offers') }}
+{% endblock %}

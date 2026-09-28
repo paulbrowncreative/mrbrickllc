@@ -1,0 +1,18 @@
+{% extends "inner.html" %}
+{% block body %}
+<section class="section">
+  <div class="container two-col">
+    <div class="prose">
+      <h2>What happens next</h2>
+      <p>We'll review your request and get back to you by your preferred contact method, usually within business hours ({% for h in site.hours %}{{ h.label }} {{ h.display }}{{ '; ' if not loop.last }}{% endfor %}).</p>
+      <p>Need to add photos or details? Text them to <a href="sms:{{ site.phone_e164 }}">{{ site.phone }}</a>.</p>
+    </div>
+    <div class="prose">
+      <h2>While you wait</h2>
+      <p><a class="text-link" href="/gallery">Browse project photos</a></p>
+      <p><a class="text-link" href="/resources">Read our masonry guides</a></p>
+      <p><a class="text-link" href="/finance">Learn about financing</a></p>
+    </div>
+  </div>
+</section>
+{% endblock %}

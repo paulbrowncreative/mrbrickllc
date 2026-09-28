@@ -1,0 +1,21 @@
+{% extends "inner.html" %}
+{% from "partials/macros.html" import cta_band %}
+{% block body %}
+<section class="section section--concrete">
+  <div class="container">{% set limit = 100 %}{% include "partials/reviews_block.html" %}</div>
+</section>
+<section class="section">
+  <div class="container two-col">
+    <div class="prose">
+      <h2>Judge the work for yourself</h2>
+      <p>Browse photos of real Mr. Brick projects — chimney rebuilds, porch and step work, walks, driveways and brick repair.</p>
+      <p><a class="btn btn--ghost" href="/gallery">View project photos</a></p>
+    </div>
+    <div class="prose">
+      <h2>Our commitments</h2>
+      <ul class="checks">{% for f in site.facts %}<li>{{ f }}</li>{% endfor %}</ul>
+    </div>
+  </div>
+</section>
+{{ cta_band(location='reviews') }}
+{% endblock %}
