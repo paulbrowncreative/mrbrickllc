@@ -54,7 +54,7 @@
     <nav id="primary-nav" class="primary-nav" aria-label="Main">
       <ul class="nav-list">
         <li>
-          <button class="nav-sub-toggle" type="button" aria-expanded="false" aria-controls="mega-services">Services {{ icon('chev') }}</button>
+          <button class="nav-sub-toggle" type="button" aria-expanded="false" aria-controls="mega-services"{% if page.type == 'service' or page.path == '/services' %} data-current{% endif %}>Services {{ icon('chev') }}</button>
           <div class="mega" id="mega-services">
             <div class="mega__inner">
               {% for c in categories %}
@@ -69,17 +69,39 @@
             </div>
           </div>
         </li>
-        {% for label, url in [('Projects','/gallery'),('About','/about'),('Service Areas','/service-areas'),('Financing','/finance'),('Reviews','/reviews'),('Contact','/contact')] %}
-        <li><a href="{{ url }}"{% if page.path == url or page.path.startswith(url ~ '/') %} aria-current="page"{% endif %}>{{ label }}</a></li>
-        {% endfor %}
+        <li><a href="/gallery"{% if page.path == '/gallery' %} aria-current="page"{% endif %}>Projects</a></li>
+        <li class="has-dropdown">
+          <button class="nav-sub-toggle" type="button" aria-expanded="false" aria-controls="menu-areas"{% if page.path.startswith('/service-areas') %} data-current{% endif %}>Service Areas {{ icon('chev') }}</button>
+          <div class="dropdown" id="menu-areas">
+            <ul>
+              {% for slug, a in areas.items() %}
+              <li><a href="/service-areas/{{ slug }}"{% if page.path == '/service-areas/' ~ slug %} aria-current="page"{% endif %}><strong>{{ a.name }}</strong></a>
+                {% if a.cities %}<ul>{% for c in a.cities %}<li><a href="/service-areas/{{ c.slug }}"{% if page.path == '/service-areas/' ~ c.slug %} aria-current="page"{% endif %}>{{ c.name }}</a></li>{% endfor %}</ul>{% endif %}
+              </li>
+              {% endfor %}
+              <li class="dropdown__all"><a href="/service-areas">All service areas</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="has-dropdown">
+          {% set about_links = [('About Mr. Brick','/about'),('Reviews','/reviews'),('Financing','/finance'),('Special offers','/special-offers'),('FAQs','/faqs'),('Masonry guides','/resources')] %}
+          <button class="nav-sub-toggle" type="button" aria-expanded="false" aria-controls="menu-about">About {{ icon('chev') }}</button>
+          <div class="dropdown" id="menu-about">
+            <ul>
+              {% for label, url in about_links %}<li><a href="{{ url }}"{% if page.path == url or page.path.startswith(url ~ '/') %} aria-current="page"{% endif %}>{{ label }}</a></li>{% endfor %}
+            </ul>
+          </div>
+        </li>
+        <li><a href="/contact"{% if page.path == '/contact' %} aria-current="page"{% endif %}>Contact</a></li>
       </ul>
       <div class="nav-cta" data-cta-location="mobile_menu">
         <a class="btn btn--lg btn--block" href="/request-quote" data-cta="quote">Request a Free Quote</a>
         <a class="btn btn--lg btn--block btn--ghost-light" href="tel:{{ site.phone_e164 }}">{{ icon('phone') }}Call {{ site.phone }}</a>
+        <a class="btn btn--lg btn--block btn--ghost-light" href="sms:{{ site.phone_e164 }}">{{ icon('text') }}Text photos</a>
       </div>
     </nav>
     <a class="header-phone" href="tel:{{ site.phone_e164 }}">{{ icon('phone') }}<span>{{ site.phone }}</span></a>
-    <a class="btn header-cta" href="/request-quote" data-cta="quote"><span class="xl-only">Request a </span>Free Quote</a>
+    <a class="btn header-cta" href="/request-quote" data-cta="quote"><span class="xl-only">Request a&nbsp;</span>Free Quote</a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">{{ icon('menu') }}<span class="nav-toggle__label">Menu</span></button>
   </div>
 </header>
@@ -92,10 +114,18 @@
   <div class="course course--dark" aria-hidden="true"></div>
   <div class="container footer-top">
     <div class="footer-brand">
-      <img src="/static/img/mr-brick-logo-480.png" alt="Mr. Brick LLC" width="480" height="236" loading="lazy">
+      <img src="/static/img/mr-brick-logo-480.png" alt="Mr. Brick LLC" width="480" height="236" loading="lazy" decoding="async">
       <p>Family-owned masonry and concrete contractor serving Southeastern Michigan for {{ site.years_experience }} years. Licensed and insured.</p>
-      <a class="footer-phone" href="tel:{{ site.phone_e164 }}">{{ site.phone }}</a><br>
-      <a href="sms:{{ site.phone_e164 }}">Text us</a> · <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+      <address class="nap">
+        <strong>{{ site.name }}</strong><br>
+        {% if site.address.show_street %}{{ site.address.street }}<br>{% endif %}{{ site.address.city }}, {{ site.address.region }} {{ site.address.postal }}<br>
+        <a class="footer-phone" href="tel:{{ site.phone_e164 }}">{{ site.phone }}</a><br>
+        <a href="sms:{{ site.phone_e164 }}">Text us</a> · <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+      </address>
+      <dl class="hours">
+        {% for h in site.hours %}<dt>{{ h.label }}</dt><dd>{{ h.display }}</dd>{% endfor %}
+      </dl>
+      <p class="mt-6"><a class="btn" href="/request-quote" data-cta="quote">Request a Free Quote</a></p>
       <div class="social">
         {% for s in site.social %}<a href="{{ s.url }}" rel="noopener" target="_blank" aria-label="Mr. Brick on {{ s.name }} (opens in new tab)">{{ icon(s.name) }}</a>{% endfor %}
       </div>
@@ -106,26 +136,25 @@
         {% for c in categories %}<li><a href="/{{ c.hub }}">{{ c.name }}</a></li>{% endfor %}
         <li><a href="/services">All services</a></li>
       </ul>
+      <h2 class="mt-6">Popular</h2>
+      <ul>
+        {% for slug in ['chimney-repair','tuckpointing','porch-rebuilds','brick-repair','concrete-driveway-installation','foundation-repair'] %}<li><a href="/{{ slug }}">{{ services[slug].name }}</a></li>{% endfor %}
+      </ul>
     </div>
     <div>
-      <h2>Popular</h2>
+      <h2>Service areas</h2>
       <ul>
-        {% for slug in ['chimney-repair','tuckpointing','porch-rebuilds','brick-repair','concrete-driveway-installation','paver-services','stamped-concrete'] %}<li><a href="/{{ slug }}">{{ services[slug].name }}</a></li>{% endfor %}
+        {% for slug, a in areas.items() %}<li><a href="/service-areas/{{ slug }}">{{ a.name }}</a></li>{% endfor %}
+        {% for slug, c in cities.items() %}<li><a href="/service-areas/{{ slug }}">{{ c.name }}</a></li>{% endfor %}
+        <li><a href="/service-areas">All service areas</a></li>
       </ul>
     </div>
     <div>
       <h2>Company</h2>
       <ul>
-        {% for label, url in [('About Mr. Brick','/about'),('Projects','/gallery'),('Reviews','/reviews'),('Financing','/finance'),('Special offers','/special-offers'),('FAQs','/faqs'),('Masonry resources','/resources'),('Contact','/contact'),('Request a quote','/request-quote')] %}<li><a href="{{ url }}">{{ label }}</a></li>{% endfor %}
+        {% for label, url in [('About Mr. Brick','/about'),('Projects','/gallery'),('Reviews','/reviews'),('Financing','/finance'),('Special offers','/special-offers'),('FAQs','/faqs'),('Masonry guides','/resources'),('Contact','/contact'),('Request a quote','/request-quote')] %}<li><a href="{{ url }}">{{ label }}</a></li>{% endfor %}
       </ul>
-      <h2 class="mt-6">Hours</h2>
-      <dl class="hours">
-        {% for h in site.hours %}<dt>{{ h.label }}</dt><dd>{{ h.display }}</dd>{% endfor %}
-      </dl>
     </div>
-  </div>
-  <div class="container">
-    <p><strong style="color:#fff">Service areas:</strong> Based in {{ site.address.city }}, {{ site.address.region }}. Serving Southeastern Michigan including <a href="/service-areas/macomb-county">Macomb County</a>, <a href="/service-areas/wayne-county">Wayne County</a> and <a href="/service-areas/oakland-county">Oakland County</a>.</p>
   </div>
   <div class="container footer-bottom">
     <p class="mb-0">© {{ year }} {{ site.name }}. All rights reserved.</p>

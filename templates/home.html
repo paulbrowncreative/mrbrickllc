@@ -1,12 +1,12 @@
 {% extends "base.html" %}
-{% from "partials/macros.html" import picture, icon, cta_pair, faq_list, promo_cards, photo_grid, lightbox, cta_band %}
+{% from "partials/macros.html" import picture, icon, cta_pair, faq_list, promo_cards, photo_grid, lightbox, cta_band, process_steps, text_photos %}
 {% block content %}
 <section class="hero" aria-labelledby="hero-title">
   <div class="hero__grid">
     <div class="hero__copy" data-cta-location="hero">
-      <p class="hero__place">Based in Eastpointe, serving all of Southeastern Michigan</p>
-      <h1 id="hero-title">Masonry contractors who build it to last</h1>
-      <p class="lede">Brick, chimneys, porches, steps, concrete and pavers — repaired right or rebuilt for good by a family-owned crew with {{ site.years_experience }} years on the tools.</p>
+      <p class="hero__place">Family-owned masonry contractor · Eastpointe,&nbsp;MI</p>
+      <h1 id="hero-title">{{ page.h1 }}</h1>
+      <p class="lede">Brick, chimneys, porches, steps, concrete and pavers, repaired right or rebuilt for good across Macomb, Wayne and Oakland counties. {{ site.years_experience }} years on the tools.</p>
       {{ cta_pair('hero', light=true) }}
       <ul class="proof" role="list">
         <li><strong>{{ site.years_experience }} years</strong>masonry experience</li>
@@ -41,6 +41,12 @@
       {% if loop.last %}<li class="bond__half" aria-hidden="true"></li>{% endif %}
       {% endfor %}
     </ul>
+    <div class="popular">
+      <h3 class="popular__label">Most requested</h3>
+      <ul class="area-list" role="list">
+        {% for slug in ['chimney-repair','tuckpointing','brick-repair','porch-rebuilds','stair-services','concrete-driveway-installation','paver-services','foundation-repair','retaining-wall-services'] %}<li><a href="/{{ slug }}">{{ services[slug].name }}</a></li>{% endfor %}
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -65,14 +71,36 @@
   </div>
 </section>
 
-<section class="section" aria-labelledby="work-title">
+<section class="section feature" aria-labelledby="feature-title">
+  <div class="container split split--center">
+    <figure class="figure feature__media">
+      {{ picture('chimney-before-after', sizes='(min-width: 64em) 50vw, 100vw') }}
+      <figcaption>Before and after: a failing chimney rebuilt from the roofline up by Mr. Brick.</figcaption>
+    </figure>
+    <div>
+      <p class="eyebrow">Before and after</p>
+      <h2 id="feature-title">A chimney that was coming apart, rebuilt to last</h2>
+      <p class="lede">Open joints, spalled brick and a failed crown let water in every winter. We took it down to sound brick, rebuilt it with matched brick and mortar, and topped it with a new crown and caps.</p>
+      <p>Most chimneys don't need this much work if problems are caught early. We'll tell you whether yours needs a <a href="/chimney-repair">repair</a> or a <a href="/chimney-rebuilding">rebuild</a>, and why.</p>
+      <div class="btn-row mt-6" data-cta-location="feature">
+        <a class="btn" href="/request-quote?service=Chimney" data-cta="quote_chimney">Get a Chimney Quote</a>
+        <a class="btn btn--ghost" href="/gallery?type=chimneys">See Chimney Projects</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--concrete" aria-labelledby="work-title">
   <div class="container">
     <div class="section-head">
       <h2 id="work-title">Recent work</h2>
       <p>Real Mr. Brick jobs — chimneys, porches, steps, walks and concrete across Southeastern Michigan.</p>
     </div>
     {{ photo_grid(['porch-stone-steps-columns','chimney-crew-scaffold','herringbone-brick-walk','driveway-screed-pour','stone-steps-iron-railings','tuckpointing-stone-cap','brick-walkway-border','chimney-three-flues','red-brick-steps-iron-door'], cls='photo-grid--feature') }}
-    <p class="mt-6"><a class="btn btn--ghost" href="/gallery">See all project photos</a></p>
+    <div class="btn-row mt-6">
+      <a class="btn btn--ghost" href="/gallery">View All Projects</a>
+      {% for k in ['porches','steps','chimneys','driveways','pavers'] %}<a class="text-link" href="/gallery?type={{ k }}">{{ tag_labels[k] }}</a>{% endfor %}
+    </div>
   </div>
 </section>
 
@@ -80,14 +108,10 @@
   <div class="container">
     <div class="section-head">
       <h2 id="process-title">How it works</h2>
-      <p>Straightforward from first call to clean-up.</p>
+      <p>Straightforward from the first photo to clean-up.</p>
     </div>
-    <ol class="process">
-      <li><h3>Reach out</h3><p>Call, text, or send a quote request with photos. Tell us what you're seeing.</p></li>
-      <li><h3>Free quote</h3><p>We look at the job, explain what it needs, and give you a price. No obligation.</p></li>
-      <li><h3>Schedule</h3><p>We set a start date around weather and your schedule, and tell you what to expect.</p></li>
-      <li><h3>Build and clean up</h3><p>The work gets done right, the site gets cleaned up, and new construction carries our 10-year warranty.</p></li>
-    </ol>
+    {{ process_steps() }}
+    <div class="mt-6">{{ text_photos('process') }}</div>
   </div>
 </section>
 
@@ -96,11 +120,12 @@
     <div>
       <h2 id="areas-title">Serving Southeastern Michigan</h2>
       <p class="lede">We're based in Eastpointe and work throughout Macomb, Wayne and Oakland counties and the rest of Southeastern Michigan.</p>
-      <p><a class="text-link" href="/service-areas">See our service areas</a></p>
+      <p class="muted">Community pages: {% for slug, c in cities.items() %}<a href="/service-areas/{{ slug }}">{{ c.name|replace('The ', 'the ') if not loop.first else c.name }}</a>{{ ', ' if not loop.last }}{% endfor %}.</p>
+      <p><a class="text-link" href="/service-areas">See all service areas</a></p>
     </div>
     <div class="area-cards area-cards--stack">
       {% for slug, a in areas.items() %}
-      <a class="area-card" href="/service-areas/{{ slug }}"><h3>{{ a.name }}</h3><p>{{ a.communities[:4]|join(', ') }} and more</p></a>
+      <a class="area-card" href="/service-areas/{{ slug }}"><h3>{{ a.name }}</h3><p>{{ a.communities[:5]|join(', ') }} and more</p></a>
       {% endfor %}
     </div>
   </div>
@@ -131,7 +156,7 @@
       <h2 id="faq-title">Common questions</h2>
       <p class="lede">Quick answers before you call. <a href="/faqs">More FAQs</a></p>
     </div>
-    {{ faq_list(faqs[:6]) }}
+    {{ faq_list(faqs|selectattr('home')|list) }}
   </div>
 </section>
 
@@ -139,7 +164,8 @@
   <div class="container quote-section">
     <div>
       <h2>Tell us about your project</h2>
-      <p class="lede">A few details and a photo or two is all we need to get started. Prefer to talk? Call or text any time during business hours.</p>
+      <p class="lede">A few details and a photo or two is all we need to get started. Prefer to talk? Call or text during business hours.</p>
+      {{ text_photos('quote_section') }}
       {% include "partials/contact_lines.html" %}
     </div>
     {% with form_uid='q-home', form_heading='Request a free quote' %}{% include "partials/quote_form.html" %}{% endwith %}

@@ -3,7 +3,7 @@
 # pages; add a city page only when real local projects/content exist for it.
 # VERIFY: community lists with the owner before launch.
 hub:
-  title: Service Areas | Masonry Contractor in Southeastern Michigan | Mr. Brick
+  title: Service Areas | Southeastern Michigan Masonry | Mr. Brick
   description: Mr. Brick is based in Eastpointe and serves homes and businesses across Southeastern Michigan, including Macomb, Wayne and Oakland counties.
   h1: Masonry across Southeastern Michigan
   lede: Based in Eastpointe, Mr. Brick serves homeowners and businesses throughout Southeastern Michigan. Not sure if we cover your address? Call or text — the answer is usually yes.
@@ -63,3 +63,153 @@ areas:
     faqs:
       - q: Do you serve all of Oakland County?
         a: We serve communities throughout Southeastern Michigan. Call or text with your address and we'll confirm.
+
+# ---------------------------------------------------------------------------
+# Community pages. Kept deliberately few: the home base plus the communities
+# closest to it, each with genuinely local content (housing stock, exposure,
+# permits, typical projects). No invented project claims or addresses.
+# VERIFY with the owner; add a real project photo/story per city when available.
+cities:
+  eastpointe:
+    name: Eastpointe
+    county: macomb-county
+    title: Eastpointe, MI Masonry Contractor | Porches & Chimneys | Mr. Brick
+    description: Eastpointe is Mr. Brick's home base. Brick porch and step rebuilds, chimney repair, tuckpointing and concrete for Eastpointe homes. Call or text (586) 209-3052.
+    h1: Eastpointe masonry contractor
+    lede: Eastpointe is where Mr. Brick is based, so local jobs get quick quotes and short drive times.
+    image: brick-porch-entry
+    nearby: [roseville, st-clair-shores, warren, grosse-pointe]
+    local: |
+      Most Eastpointe homes are brick bungalows, ranches and Cape Cods from the 1920s through the 1950s, on the neighborhoods that run from 8 Mile up past 10 Mile between Kelly and Gratiot. It's the same housing stock we've worked on for more than 25 years, so we know where it fails.
+
+      The front porch is the usual trouble spot. Many were built as a concrete slab on a brick or block base. After decades of frost heave the slab settles, cracks, or pulls away from the house, and the brick base below starts to lose mortar. Tipped steps, loose railings, crumbling limestone or concrete caps, and chimneys with cracked crowns and open joints near the top come next.
+    considerations:
+      - {title: "Porch and step rebuilds", text: "Porches on bungalows of this era often sit on shallow bases. When a porch has pulled away from the house, we check the footing before quoting a rebuild or a restoration."}
+      - {title: "Permits", text: "Porch rebuilds, new steps and driveway approaches generally go through the City of Eastpointe building department. We'll confirm what your project needs before work starts."}
+      - {title: "Matching older brick", text: "Common brick from the 1940s and '50s is sometimes no longer made in the same size or color. We source the closest match and show you before we lay it."}
+    focus: [porch-rebuilds, porch-restorations, stair-services, chimney-repair, tuckpointing, concrete-driveway-installation]
+    faqs:
+      - q: Is Mr. Brick actually based in Eastpointe?
+        a: Yes. Mr. Brick LLC is a family-owned masonry contractor based in Eastpointe, Michigan, and Eastpointe homes are a big part of our work.
+      - q: My porch is pulling away from the house. Does it need to be rebuilt?
+        a: Not always. If the slab and base are sound and have only settled slightly, a restoration may be enough. If the base has failed or the porch has dropped and separated, a rebuild on a proper footing is the lasting fix. We'll look at it and tell you which.
+
+  st-clair-shores:
+    name: St. Clair Shores
+    county: macomb-county
+    title: Masonry & Concrete Contractor in St. Clair Shores, MI | Mr. Brick
+    description: Chimney repair, brick porches and steps, pavers, patios and concrete for St. Clair Shores homes near Lake St. Clair. Free quotes from Eastpointe-based Mr. Brick.
+    h1: Masonry and concrete in St. Clair Shores
+    lede: Brick, chimney, porch and concrete work for St. Clair Shores homes, from the canal streets to the neighborhoods off Harper and Little Mack.
+    image: paver-patio-wall
+    nearby: [eastpointe, roseville, grosse-pointe]
+    local: |
+      St. Clair Shores is mostly brick ranches and bungalows built in the 1940s through the 1960s, many on streets that run down to Lake St. Clair or its canals. Being close to the lake changes what a masonry project needs.
+
+      Wind off the lake hits chimneys and exposed brick harder, so crowns, caps and mortar near the top of the chimney wear out sooner. Yards near the water and canals tend to stay wetter, which makes base preparation and drainage the difference between a patio or walkway that stays flat and one that heaves after two winters. Backyard living is a big part of these homes, so pavers, patios and walkways are common projects alongside porch and step repairs.
+    considerations:
+      - {title: "Base and drainage", text: "For patios, walks and steps on wetter lots we dig out, build a compacted base and slope the surface so water runs away from the house."}
+      - {title: "Lake exposure", text: "Chimneys and exposed walls get more wind-driven rain. A sound crown, cap and fully packed joints matter more here."}
+      - {title: "Permits", text: "Many porch, step and driveway projects need a City of St. Clair Shores permit. We confirm requirements for your project up front."}
+    focus: [paver-services, patio-services, chimney-repair, porch-restorations, walkway-services, concrete-driveway-installation]
+    faqs:
+      - q: Do you build paver patios in St. Clair Shores?
+        a: Yes. Paver and concrete patios, walkways and seat walls are common projects for us in St. Clair Shores. Base preparation and drainage are planned for your specific yard.
+      - q: Why does my chimney near the lake keep needing repairs?
+        a: Wind-driven rain and freeze-thaw cycles wear chimney crowns and top-course mortar faster on exposed homes. Fixing the crown and repointing the top section usually addresses the cause, not just the symptom.
+
+  grosse-pointe:
+    name: The Grosse Pointes
+    county: wayne-county
+    title: Grosse Pointe Masonry Contractor | Chimneys & Brick | Mr. Brick
+    description: Chimney rebuilding, tuckpointing, brick matching and stone step restoration for older homes in the Grosse Pointes. Free quotes from Eastpointe-based Mr. Brick.
+    h1: Masonry for Grosse Pointe homes
+    lede: Chimneys, brick, stone steps and porches restored with the care older homes in the Grosse Pointes need, from a family-owned contractor just up the road in Eastpointe.
+    image: crew-brick-pillars-stone-steps
+    nearby: [eastpointe, st-clair-shores]
+    local: |
+      Grosse Pointe, Grosse Pointe Park, Grosse Pointe Farms, Grosse Pointe Woods and Grosse Pointe Shores have some of the oldest and most detailed masonry in the region. Many homes were built from the 1910s through the 1930s, with tall chimneys, limestone trim, decorative brick bonds and stone steps.
+
+      That age calls for a different approach. Older brick was laid in softer mortar than what's sold today, and repointing it with modern high-strength mortar can crack the brick instead of the joint. Brick matching takes more care, and chimney rebuilds have to match the original detailing above the roofline. These homes are also closely watched by neighbors and city inspectors, so the finished work has to look like it was always there.
+    considerations:
+      - {title: "Compatible mortar", text: "We match mortar strength and color to the original wall so the joint, not the brick, stays the sacrificial part."}
+      - {title: "Five separate cities", text: "Each of the five Grosse Pointes has its own building department and rules. We confirm permit requirements with the right city for your address."}
+      - {title: "Detail matching", text: "Corbels, soldier courses and stone caps are rebuilt to match what was there, not simplified."}
+    focus: [chimney-rebuilding, chimney-repair, tuckpointing, brick-repair, stair-services, porch-restorations]
+    faqs:
+      - q: Do you work in all five Grosse Pointes?
+        a: Yes. We work in Grosse Pointe, Grosse Pointe Park, Grosse Pointe Farms, Grosse Pointe Woods and Grosse Pointe Shores.
+      - q: Can you rebuild an older chimney so it matches the house?
+        a: Yes. We document the existing chimney, source the closest brick match, and rebuild details like corbelling and caps to match. We'll show you brick samples before work begins.
+
+  roseville:
+    name: Roseville
+    county: macomb-county
+    title: Roseville, MI Masonry Contractor | Porches & Steps | Mr. Brick
+    description: Porch and step repair, chimney work, tuckpointing and concrete driveways for Roseville homes. Family-owned Mr. Brick is minutes away in Eastpointe. Free quotes.
+    h1: Roseville masonry and concrete
+    lede: Porches, steps, chimneys and driveways for Roseville homes, from a family-owned contractor based next door in Eastpointe.
+    image: brick-steps-dark-treads
+    nearby: [eastpointe, st-clair-shores, warren]
+    local: |
+      Roseville's neighborhoods are filled with compact post-war brick ranches and bungalows, most built in the 1940s and 1950s. On homes this size, the front steps, porch and driveway are a big part of what people see first, and they take the most wear.
+
+      The usual projects are front steps that have settled or cracked, brick porch bases losing mortar, limestone or concrete caps that have loosened, and original driveways and approaches that have scaled or cracked from decades of road salt. Chimneys with failing crowns are common here too.
+    considerations:
+      - {title: "Steps and stoops", text: "Tipped or cracked steps are often rebuilt on a new footing so they don't settle again. Brick, stone and concrete options are available."}
+      - {title: "Salt damage", text: "Scaling concrete near the street is usually salt and freeze-thaw. Depending on how deep it goes, resurfacing or replacement may be the fix."}
+      - {title: "Permits", text: "Steps, porches and driveway approaches often need a City of Roseville permit. We'll confirm before scheduling."}
+    focus: [stair-services, porch-restorations, concrete-driveway-installation, driveway-repair, chimney-repair, tuckpointing]
+    faqs:
+      - q: How quickly can you look at a job in Roseville?
+        a: Roseville is right next to our Eastpointe base. Call or text (586) 209-3052 with a photo and we'll set up a time for your free quote.
+      - q: Should I repair or replace my cracked front steps?
+        a: If the steps are level and the cracks are cosmetic, a repair may work. If they've tipped, pulled away from the house, or the concrete is breaking apart, replacing them on a proper footing is the durable option.
+
+  warren:
+    name: Warren
+    county: macomb-county
+    title: Masonry & Concrete Contractor in Warren, MI | Mr. Brick
+    description: Concrete driveways, porches and steps, chimney repair and brick work for Warren homes and businesses. Free quotes from Mr. Brick, based in neighboring Eastpointe.
+    h1: Warren masonry and concrete contractor
+    lede: Driveways, porches, steps, chimneys and brick repair for Warren homes and commercial properties.
+    image: driveway-screed-pour
+    nearby: [eastpointe, roseville]
+    local: |
+      Warren is Macomb County's largest city, with a housing stock dominated by brick ranches built in the 1950s and 1960s, plus a large base of commercial and industrial property. Many of those homes still have their original driveways, front porches and chimneys.
+
+      At sixty-plus years old, original driveways are often cracked, heaved at the joints, or scaled on the surface, and front porches and steps have settled. We handle full driveway replacement with proper base preparation, porch and step rebuilds, chimney repair, and brick and block work for both homes and businesses.
+    considerations:
+      - {title: "Driveway replacement", text: "Old concrete is removed, the base is regraded and compacted, and the new slab is poured with control joints so it cracks where it's supposed to."}
+      - {title: "Commercial work", text: "We also take on commercial brick walls, planters, entries, steps and block construction."}
+      - {title: "Permits", text: "Driveway approaches and porch work typically require a City of Warren permit. We'll confirm what applies."}
+    focus: [concrete-driveway-installation, driveway-repair, porch-rebuilds, stair-services, chimney-repair, cinder-block-wall-installation]
+    faqs:
+      - q: Do you replace driveways in Warren?
+        a: Yes. We remove the old concrete, prepare and compact the base, and pour a new driveway with control joints and the finish you choose.
+      - q: Do you work on commercial properties in Warren?
+        a: Yes. Mr. Brick handles commercial masonry and concrete, including brick walls and planters, entries, steps and block construction.
+
+  royal-oak:
+    name: Royal Oak
+    county: oakland-county
+    title: Royal Oak, MI Masonry Contractor | Chimneys & Steps | Mr. Brick
+    description: Chimney repair, tuckpointing, brick steps and porch restoration for Royal Oak bungalows and colonials. Family-owned Mr. Brick, 25+ years. Free quotes.
+    h1: Royal Oak masonry contractor
+    lede: Chimneys, brick, steps and porches for Royal Oak's older bungalows and colonials.
+    image: stone-steps-iron-railings
+    nearby: [warren]
+    local: |
+      Much of Royal Oak was built between the 1920s and the 1950s: brick and brick-trimmed bungalows, Tudors and colonials on tight lots. Nearly every one has a masonry chimney, brick or concrete front steps, and a small front porch.
+
+      After close to a century, the chimney is often the first thing to go, with a cracked crown, open joints near the top and spalling brick. Front steps and porch caps follow. Like other older homes, these walls were laid in softer mortar, so repointing needs a compatible mix to avoid damaging the brick.
+    considerations:
+      - {title: "Chimneys on older homes", text: "We inspect the crown, cap, flue and top courses together. Many chimneys can be saved with a new crown and repointing before a partial rebuild is needed."}
+      - {title: "Tight lots", text: "Narrow side yards and detached garages mean careful staging and protecting lawns, beds and neighboring property."}
+      - {title: "Permits", text: "Porch, step and some chimney work may require a City of Royal Oak permit. We confirm requirements before starting."}
+    focus: [chimney-repair, chimney-rebuilding, tuckpointing, stair-services, porch-restorations, brick-repair]
+    faqs:
+      - q: Do you serve Royal Oak and south Oakland County?
+        a: Yes. We work in Royal Oak and nearby communities including Madison Heights, Ferndale, Hazel Park and Berkley.
+      - q: Can my old chimney be repaired instead of rebuilt?
+        a: Often, yes. If the brick is sound below the top few courses, a new crown, cap and repointing may be all it needs. If the top section has loosened or is leaning, a partial rebuild from the roofline up is the safer fix.

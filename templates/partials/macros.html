@@ -25,6 +25,11 @@
 {%- elif name == 'close' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
 {%- elif name == 'left' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
 {%- elif name == 'right' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+{%- elif name == 'shield' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+{%- elif name == 'family' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V21H3z"/><path d="M9 21v-6h6v6"/></svg>
+{%- elif name == 'award' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="m8.2 13.7-1.2 8.3 5-3 5 3-1.2-8.3"/></svg>
+{%- elif name == 'tag' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L2 12V2h10l8.6 8.6a2 2 0 0 1 0 2.8z"/><circle cx="7" cy="7" r="1.5"/></svg>
+{%- elif name == 'camera' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
 {%- elif name == 'Facebook' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v9h4v-9h3l.5-4h-3.5V8.8c0-.5.3-.8.8-.8z"/></svg>
 {%- elif name == 'Instagram' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7.3A4.7 4.7 0 1 0 12 16.7 4.7 4.7 0 0 0 12 7.3zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM12 3.6c2.7 0 3 0 4.1.1 2.8.1 4.1 1.4 4.2 4.2.1 1.1.1 1.4.1 4.1s0 3-.1 4.1c-.1 2.8-1.4 4.1-4.2 4.2-1.1.1-1.4.1-4.1.1s-3 0-4.1-.1c-2.8-.1-4.1-1.4-4.2-4.2C3.6 15 3.6 14.7 3.6 12s0-3 .1-4.1C3.8 5.1 5.1 3.8 7.9 3.7 9 3.6 9.3 3.6 12 3.6zM12 2c-2.7 0-3.1 0-4.1.1-3.8.2-5.6 2-5.8 5.8C2 8.9 2 9.3 2 12s0 3.1.1 4.1c.2 3.8 2 5.6 5.8 5.8 1 .1 1.4.1 4.1.1s3.1 0 4.1-.1c3.8-.2 5.6-2 5.8-5.8.1-1 .1-1.4.1-4.1s0-3.1-.1-4.1c-.2-3.8-2-5.6-5.8-5.8C15.1 2 14.7 2 12 2z"/></svg>
 {%- elif name == 'YouTube' -%}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15V9l5.8 3-5.8 3z"/></svg>
@@ -46,7 +51,7 @@
   {% for f in items %}
   <details>
     <summary>{{ f.q }}{{ icon('plus') }}</summary>
-    <div class="faq__a"><p>{{ f.a }}</p></div>
+    <div class="faq__a"><p>{{ f.a|safe }}</p></div>
   </details>
   {% endfor %}
 </div>
@@ -70,7 +75,7 @@
 <ul class="photo-grid {{ cls }}" role="list">
   {% for id in ids %}{% set m = images[id] %}
   <li>
-    <a class="photo-card" href="/static/img/{{ id }}-{{ m.jpg }}.jpg" data-lightbox data-id="{{ id }}" data-full="/static/img/{{ id }}-{{ m.widths[-1] }}.webp" data-alt="{{ m.alt }}">
+    <a class="photo-card" href="/static/img/{{ id }}-{{ m.jpg }}.jpg" data-lightbox data-id="{{ id }}" data-full="/static/img/{{ id }}-{{ m.widths[-1] }}.webp" data-alt="{{ m.alt }}"{% if tag_service.get(m.tags[0]) %} data-service-url="/{{ tag_service[m.tags[0]] }}" data-service-name="{{ services[tag_service[m.tags[0]]].name }}"{% endif %}>
       {{ picture(id, sizes=sizes) }}
       <span class="visually-hidden">Open larger photo</span>
     </a>
@@ -83,7 +88,10 @@
 <dialog class="lightbox" aria-label="Project photo">
   <img class="lightbox__img" src="data:," alt="">
   <div class="lightbox__bar">
-    <p class="lightbox__caption"></p>
+    <div>
+      <p class="lightbox__caption"></p>
+      <a class="lightbox__service" href="#" hidden data-cta="lightbox_service"></a>
+    </div>
     <div class="lightbox__nav">
       <button class="icon-btn" type="button" data-lb-prev aria-label="Previous photo">{{ icon('left') }}</button>
       <button class="icon-btn" type="button" data-lb-next aria-label="Next photo">{{ icon('right') }}</button>
@@ -115,4 +123,30 @@
     {{ cta_pair(location, light=true) }}
   </div>
 </section>
+{%- endmacro %}
+
+
+{# ---------------------------------------------------------------- Trust strip (verified facts only) #}
+{% macro trust_strip(dark=true) -%}
+<ul class="trust-strip{{ ' trust-strip--light' if not dark }}" role="list">
+  <li>{{ icon('family') }}<span><strong>Family owned</strong> {{ site.years_experience }} years</span></li>
+  <li>{{ icon('shield') }}<span><strong>Licensed</strong> and insured</span></li>
+  <li>{{ icon('award') }}<span><strong>10-year warranty</strong> on new construction</span></li>
+  <li>{{ icon('tag') }}<span><strong>Free quotes</strong> and price matching</span></li>
+</ul>
+{%- endmacro %}
+
+{# ---------------------------------------------------------------- Process #}
+{% macro process_steps(subject="your project") -%}
+<ol class="process">
+  <li><h3>Send a photo or call</h3><p>Call, text or request a quote online. A photo of the problem area lets us give you a useful first answer.</p></li>
+  <li><h3>Free on-site quote</h3><p>We look at {{ subject }}, find the cause, explain the options and give you a written price. No obligation.</p></li>
+  <li><h3>Scheduled around the weather</h3><p>We set a start date that suits you and conditions mortar and concrete need to cure properly.</p></li>
+  <li><h3>Built right, cleaned up</h3><p>The work gets done, the site gets cleaned, and new construction carries our 10-year warranty.</p></li>
+</ol>
+{%- endmacro %}
+
+{# ---------------------------------------------------------------- Photo-by-text prompt #}
+{% macro text_photos(location="body") -%}
+<p class="text-photos" data-cta-location="{{ location }}">{{ icon('camera') }}<span>Fastest way to a first answer: <a href="sms:{{ site.phone_e164 }}">text a photo to {{ site.phone }}</a>.</span></p>
 {%- endmacro %}

@@ -52,6 +52,15 @@ for slug, s in services.items():
     s["form_service"] = FORM_OVERRIDE.get(slug, FORM_MAP[s["category"]])
 
 areas = area_data["areas"]
+cities = area_data.get("cities") or {}
+for slug, c in cities.items():
+    c["slug"] = slug
+    assert c["county"] in areas, f"city {slug}: unknown county {c['county']}"
+    for f in c["focus"]:
+        assert f in services, f"city {slug}: unknown service {f}"
+for slug, a in areas.items():
+    a["slug"] = slug
+    a["cities"] = [c for c in cities.values() if c["county"] == slug]
 
 # ------------------------------------------------------------------ promotions
 def active_promos():
@@ -100,7 +109,19 @@ env.filters["paras"] = paras
 env.tests["contains"] = lambda seq, x: x in (seq or [])
 
 ASSETS = {}
-env.globals.update(site=site, images=images, categories=cats, services=services, areas=areas,
+# Gallery tag -> the service page that best explains that kind of work.
+TAG_SERVICE = {"chimneys": "chimney-services", "porches": "porch-services", "steps": "stair-services",
+               "brick": "brick-masonry", "stone": "stair-services", "concrete": "concrete-services",
+               "driveways": "driveway-services", "walkways": "walkway-services", "pavers": "paver-services",
+               "patios": "patio-services", "retaining-walls": "retaining-wall-services",
+               "foundations": "foundation-services"}
+
+def strip_tags(text):
+    return re.sub(r"<[^>]+>", "", text or "")
+env.filters["strip_tags"] = strip_tags
+
+env.globals.update(site=site, images=images, categories=cats, services=services, areas=areas, cities=cities,
+                   tag_service=TAG_SERVICE,
                    faqs=faqs, reviews=reviews, promos=promos, banner_promo=banner_promo,
                    form_services=FORM_SERVICES, posts=posts, year=dt.date.today().year,
                    asset=lambda rel: ASSETS[rel])
@@ -113,6 +134,9 @@ def business_schema():
             "postalCode": a["postal"], "addressCountry": a["country"]}
     if a.get("show_street"):
         addr["streetAddress"] = a["street"]
+    extra = {}
+    if site.get("google_maps_url"):
+        extra["hasMap"] = site["google_maps_url"]
     hours = [{"@type": "OpeningHoursSpecification", "dayOfWeek": h["days"], "opens": h["opens"], "closes": h["closes"]}
              for h in site["hours"] if h.get("opens")]
     return {
@@ -129,25 +153,36 @@ def business_schema():
         "slogan": "He's honest, he's practical, he's quick.",
         "address": addr,
         "areaServed": [{"@type": "AdministrativeArea", "name": n} for n in
-                       ["Macomb County, MI", "Wayne County, MI", "Oakland County, MI", "Southeastern Michigan"]],
+                       ["Macomb County, MI", "Wayne County, MI", "Oakland County, MI", "Southeastern Michigan"]]
+                      + [{"@type": "City", "name": (c["name"].replace("The ", "") + ", MI")} for c in cities.values()],
         "openingHoursSpecification": hours,
+        "knowsAbout": [c["name"] for c in cats],
+        "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Masonry and concrete services", "itemListElement": [
+            {"@type": "OfferCatalog", "name": c["name"], "itemListElement": [
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": x["name"], "url": BASE + "/" + x["slug"]}}
+                for x in [services[c["hub"]]] + c["children"]]} for c in cats]},
         "paymentAccepted": ", ".join(site["payment_methods"]),
         "sameAs": [s["url"] for s in site["social"]],
+        **extra,
     }
 
 def crumbs_schema(crumbs):
-    return {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+    return {"@context": "https://schema.org", "@type": "BreadcrumbList", "@id": url_of(crumbs[-1][1]) + "#breadcrumb", "itemListElement": [
         {"@type": "ListItem", "position": i + 1, "name": n, "item": BASE + (u if u != "/" else "/")}
         for i, (n, u) in enumerate(crumbs)]}
 
 def faq_schema(items):
     return {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
-        {"@type": "Question", "name": f["q"], "acceptedAnswer": {"@type": "Answer", "text": f["a"]}} for f in items]}
+        {"@type": "Question", "name": f["q"], "acceptedAnswer": {"@type": "Answer", "text": strip_tags(f["a"])}} for f in items]}
 
 def webpage_schema(p):
-    return {"@context": "https://schema.org", "@type": p.get("schema_type", "WebPage"), "@id": p["canonical"] + "#webpage",
-            "url": p["canonical"], "name": p["title"], "description": p["description"], "inLanguage": "en-US",
-            "isPartOf": {"@id": BASE + "/#website"}, "about": {"@id": BIZ_ID}}
+    out = {"@context": "https://schema.org", "@type": p.get("schema_type", "WebPage"), "@id": p["canonical"] + "#webpage",
+           "url": p["canonical"], "name": p["title"], "description": p["description"], "inLanguage": "en-US",
+           "isPartOf": {"@id": BASE + "/#website"}, "about": {"@id": BIZ_ID},
+           "primaryImageOfPage": {"@type": "ImageObject", "url": BASE + p["og_image"]}}
+    if p.get("crumbs"):
+        out["breadcrumb"] = {"@id": p["canonical"] + "#breadcrumb"}
+    return out
 
 WEBSITE = {"@context": "https://schema.org", "@type": "WebSite", "@id": BASE + "/#website", "url": BASE + "/",
            "name": site["name"], "publisher": {"@id": BIZ_ID}, "inLanguage": "en-US"}
@@ -177,12 +212,21 @@ def photos_for(tags, exclude=None, n=6):
     return (primary + secondary)[:n]
 
 H = ("Home", "/")
+HOME_FAQS = [f for f in faqs if f.get("home")]
+AREA_SCHEMA = [{"@type": "AdministrativeArea", "name": a["name"] + ", MI"} for a in areas.values()]
+FAQ_GROUPS = []
+for f in faqs:
+    g = next((x for x in FAQ_GROUPS if x[0] == f["group"]), None)
+    if not g:
+        g = (f["group"], [])
+        FAQ_GROUPS.append(g)
+    g[1].append(f)
 
-add("/", "home.html", "Masonry Contractors in Southeastern Michigan | Mr. Brick LLC",
-    "Family-owned masonry contractor serving Southeastern Michigan for 25+ years. Brick, chimney, porch, concrete and paver work. 10-year warranty on new construction. Free quotes.",
-    type="home", lcp_image="crew-brick-pillars-stone-steps", lcp_sizes="(min-width: 64em) 48vw, 100vw",
+add("/", "home.html", "Masonry Contractor in Eastpointe & Southeast Michigan | Mr. Brick",
+    "Family-owned masonry and concrete contractor in Eastpointe serving Southeastern Michigan for 25+ years: brick, chimneys, porches, steps, concrete. Free quotes.",
+    type="home", h1="Masonry built for Michigan winters", lcp_image="crew-brick-pillars-stone-steps", lcp_sizes="(min-width: 64em) 48vw, 100vw",
     og_title="Mr. Brick LLC — Masonry Contractors in Southeastern Michigan",
-    extra_schema=[faq_schema(faqs[:6])])
+    extra_schema=[faq_schema(HOME_FAQS)])
 
 add("/services", "services_index.html", "Masonry & Concrete Services | Mr. Brick LLC",
     "Every masonry and concrete service Mr. Brick offers in Southeastern Michigan: brick, chimneys, porches, concrete, driveways, pavers, patios, foundations and walls.",
@@ -200,7 +244,8 @@ for slug, s in services.items():
     extra = [{"@context": "https://schema.org", "@type": "Service", "@id": url_of("/" + slug) + "#service",
               "name": s["name"], "serviceType": s["name"], "description": s["description"],
               "url": url_of("/" + slug), "provider": {"@id": BIZ_ID},
-              "areaServed": {"@type": "AdministrativeArea", "name": "Southeastern Michigan"}}]
+              "image": BASE + f"/static/img/{s['image']}-{images[s['image']]['jpg']}.jpg",
+              "areaServed": AREA_SCHEMA + [{"@type": "AdministrativeArea", "name": "Southeastern Michigan"}]}]
     if s.get("faqs"):
         extra.append(faq_schema(s["faqs"]))
     add("/" + slug, "service.html", s["title"], s["description"], type="service", service_slug=slug,
@@ -217,11 +262,20 @@ for slug, a in areas.items():
         photos=photos_for([t for f in a["focus"] for t in services[f].get("tags", [])], exclude=a["image"], n=6),
         crumbs=[H, ("Service Areas", "/service-areas"), (a["name"], f"/service-areas/{slug}")],
         extra_schema=[faq_schema(a["faqs"])] if a.get("faqs") else [])
+for slug, c in cities.items():
+    county = areas[c["county"]]
+    add(f"/service-areas/{slug}", "area.html", c["title"], c["description"], h1=c["h1"], lede=c["lede"],
+        area=c, county=county, hero_image=c["image"], hero_cta=True, type="area",
+        photos=photos_for([t for f in c["focus"] for t in services[f].get("tags", [])], exclude=c["image"], n=6),
+        crumbs=[H, ("Service Areas", "/service-areas"), (county["name"], f"/service-areas/{c['county']}"),
+                (c["name"], f"/service-areas/{slug}")],
+        extra_schema=[faq_schema(c["faqs"])] if c.get("faqs") else [])
 
 TAG_LABELS = {"chimneys": "Chimneys", "porches": "Porches", "steps": "Steps", "brick": "Brick", "stone": "Stone",
               "concrete": "Concrete", "driveways": "Driveways", "walkways": "Walkways", "pavers": "Pavers",
-              "patios": "Patios", "retaining-walls": "Walls", "foundations": "Foundations",
+              "patios": "Patios", "retaining-walls": "Retaining walls", "foundations": "Foundations",
               "commercial": "Commercial", "residential": "Residential", "company": "Our crew"}
+env.globals["tag_labels"] = TAG_LABELS
 gallery_ids = [i for i in images]
 filters = []
 for k in ["chimneys", "porches", "steps", "brick", "stone", "concrete", "driveways", "walkways", "pavers", "patios",
@@ -232,11 +286,11 @@ for k in ["chimneys", "porches", "steps", "brick", "stone", "concrete", "drivewa
 add("/gallery", "gallery.html", "Masonry Project Photos | Brick, Chimney & Concrete | Mr. Brick",
     "Photos of real Mr. Brick projects in Southeastern Michigan: chimney rebuilds, porches and steps, brick walkways, driveways, concrete and brick repair.",
     h1="Project gallery", lede="Real Mr. Brick jobs. Filter by the kind of work you're planning.",
-    crumbs=[H, ("Projects", "/gallery")], gallery=gallery_ids, filters=filters, tag_labels=TAG_LABELS,
+    crumbs=[H, ("Projects", "/gallery")], gallery=gallery_ids, filters=filters,
     type="gallery", og_image_id="chimney-before-after", schema_type="CollectionPage")
 
 add("/about", "about.html", "About Mr. Brick LLC | Family-Owned Masonry Contractor, Eastpointe MI",
-    "Mr. Brick LLC is a family-owned masonry contractor based in Eastpointe, serving Southeastern Michigan for 25+ years. Licensed, insured, 10-year warranty on new construction.",
+    "Family-owned masonry contractor based in Eastpointe, serving Southeastern Michigan for 25+ years. Licensed, insured, 10-year warranty on new construction.",
     h1="Honest, practical and quick since day one", lede="A family-owned masonry contractor with more than 25 years of experience across Southeastern Michigan.",
     crumbs=[H, ("About", "/about")], hero_image="chimney-crew-scaffold", hero_cta=True, schema_type="AboutPage")
 
@@ -255,10 +309,10 @@ add("/special-offers", "offers.html", "Special Offers & Discounts | Mr. Brick LL
     h1="Offers and discounts", lede="Current promotions plus standing discounts for military, veterans, first responders and seniors.",
     crumbs=[H, ("Special Offers", "/special-offers")], hero_cta=True)
 
-add("/faqs", "faqs.html", "Masonry FAQs | Quotes, Warranty, Payment | Mr. Brick LLC",
-    "Answers about free quotes, service areas, warranty, price matching, financing, payment methods and tuckpointing from Mr. Brick LLC.",
+add("/faqs", "faqs.html", "Masonry FAQs | Cost, Timing, Warranty & Financing | Mr. Brick LLC",
+    "Straight answers on masonry and chimney repair costs, project timing, concrete curing, tuckpointing, foundations, warranty and financing from Mr. Brick LLC.",
     h1="Frequently asked questions", lede="The questions we hear most, answered plainly.",
-    crumbs=[H, ("FAQs", "/faqs")], extra_schema=[faq_schema(faqs)])
+    crumbs=[H, ("FAQs", "/faqs")], faq_groups=FAQ_GROUPS, extra_schema=[faq_schema(faqs)])
 
 add("/contact", "contact.html", "Contact Mr. Brick LLC | Call or Text (586) 209-3052",
     "Call or text Mr. Brick at (586) 209-3052 or send a quote request. Masonry contractor based in Eastpointe, serving Southeastern Michigan. Mon–Sat 8:30–6.",
@@ -276,7 +330,7 @@ add("/resources", "resources.html", "Masonry Guides for Michigan Homeowners | Mr
     crumbs=[H, ("Resources", "/resources")], schema_type="CollectionPage")
 for p in posts:
     add(f"/resources/{p['slug']}", "post.html", p["seo_title"], p["description"], h1=p["title"],
-        lede=p["description"], post=p, og_type="article", og_image_id=p["image"], lcp_image=None,
+        lede=p["description"], post=p, og_type="article", lastmod=p.get("updated", p["date"]), og_image_id=p["image"], lcp_image=None,
         crumbs=[H, ("Resources", "/resources"), (p["category"], f"/resources/{p['slug']}")], type="post",
         extra_schema=[{"@context": "https://schema.org", "@type": "BlogPosting", "headline": p["title"],
                        "description": p["description"], "datePublished": p["date"], "dateModified": p["date"],
@@ -288,6 +342,7 @@ LEGAL = yaml.safe_load(open(C / "legal.yaml"))
 for slug, L in LEGAL.items():
     add("/" + slug, "legal.html", L["title"], L["description"], h1=L["h1"], lede=L.get("lede", ""),
         body=markdown.markdown(L["body"].replace("{{PHONE}}", site["phone"]).replace("{{EMAIL}}", site["email"]).replace("{{UPDATED}}", "September 27, 2026")),
+        lastmod="2026-09-27",
         crumbs=[H, (L["h1"], "/" + slug)])
 
 add("/thank-you", "thank_you.html", "Thanks — We Got Your Request | Mr. Brick LLC",
@@ -323,6 +378,36 @@ REDIRECTS = {
     "/hibu-video-splash": "/",
     "/hibu-eng-menu": "/contact",
 }
+
+# ------------------------------------------------------------------ headers
+# Written to dist/_headers (not netlify.toml) so they apply to Git deploys
+# and to drag-and-drop zip deploys alike.
+CSP = ("default-src 'self'; "
+       "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://*.googleadservices.com https://*.doubleclick.net https://*.google.com; "
+       "img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; font-src 'self'; "
+       "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.doubleclick.net https://*.google.com https://*.googleadservices.com; "
+       "frame-src https://www.googletagmanager.com https://*.doubleclick.net; "
+       "form-action 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; upgrade-insecure-requests")
+HEADERS = f"""/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Security-Policy: {CSP}
+
+/static/css/*
+  Cache-Control: public, max-age=31536000, immutable
+/static/js/*
+  Cache-Control: public, max-age=31536000, immutable
+/static/img/*
+  Cache-Control: public, max-age=2592000
+/static/fonts/*
+  Cache-Control: public, max-age=2592000
+
+/thank-you
+  X-Robots-Tag: noindex
+"""
 
 # ------------------------------------------------------------------ build
 def out_path(path):
@@ -365,7 +450,10 @@ def build():
     urls = [p for p in PAGES if not p.get("noindex")]
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for p in urls:
-        sm.append(f"  <url><loc>{p['canonical']}</loc><lastmod>{TODAY}</lastmod></url>")
+        # lastmod only where we genuinely know it; a build date on every URL
+        # teaches Google to ignore the field.
+        lm = p.get("lastmod")
+        sm.append(f"  <url><loc>{p['canonical']}</loc>" + (f"<lastmod>{lm}</lastmod>" if lm else "") + "</url>")
     sm.append("</urlset>")
     (DIST / "sitemap.xml").write_text("\n".join(sm) + "\n")
     (DIST / "robots.txt").write_text(f"User-agent: *\nDisallow: /thank-you\n\nSitemap: {BASE}/sitemap.xml\n")
@@ -377,6 +465,8 @@ def build():
         lines.append(f"{old}/  {new}  301")
     lines.append("/gallery/*  /gallery  301")
     (DIST / "_redirects").write_text("\n".join(lines) + "\n")
+
+    (DIST / "_headers").write_text(HEADERS)
 
     (DIST / "site.webmanifest").write_text(json.dumps({
         "name": site["name"], "short_name": site["short_name"], "start_url": "/", "display": "browser",
@@ -390,7 +480,7 @@ def build():
     with open(docs / "metadata-map.csv", "w") as f:
         f.write("url,title,title_len,description_len,h1,indexable\n")
         for p in PAGES:
-            h1 = p.get("h1") or (p.get("svc") or {}).get("h1") or ("Masonry contractors who build it to last" if p["path"] == "/" else "")
+            h1 = p.get("h1") or (p.get("svc") or {}).get("h1") or ""
             f.write(f'"{p["canonical"]}","{p["title"]}",{len(p["title"])},{len(p["description"])},"{h1}",{"no" if p.get("noindex") else "yes"}\n')
     with open(docs / "redirect-map.csv", "w") as f:
         f.write("old_url,new_url,status,reason\n")

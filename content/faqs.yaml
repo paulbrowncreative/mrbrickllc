@@ -1,21 +1,70 @@
-# General FAQs (home page + /faqs). Answers restate only verified business facts.
+# General FAQs (home page + /faqs). Answers restate only verified business facts
+# or general, widely accepted masonry practice. No prices are published: cost
+# answers explain what drives price instead. `group` controls /faqs sections;
+# `home: true` puts a question on the home page (keep it to ~6).
 - q: Does Mr. Brick offer free quotes?
-  a: Yes. Quotes are free and there's no obligation. Call or text (586) 209-3052, or request a quote online and tell us about your project.
-- q: What areas do you serve?
-  a: We're based in Eastpointe and serve homes and businesses throughout Southeastern Michigan, including Macomb, Wayne and Oakland counties.
-- q: Are you licensed and insured?
-  a: Yes. Mr. Brick LLC is licensed and insured.
-- q: Do you offer a warranty?
-  a: Mr. Brick provides a 10-year warranty on all new construction. Ask us about warranty coverage for your specific project.
+  group: Quotes & pricing
+  home: true
+  a: Yes. Quotes are free and there's no obligation. Call or text (586) 209-3052, or request a quote online and tell us about your project. Photos help us give you a better first answer.
+- q: How much does masonry repair cost?
+  group: Quotes & pricing
+  home: true
+  a: It depends on the size of the repair, access (ground level or rooftop), the materials that need to be matched, and whether the underlying cause, such as a failed crown or poor drainage, also has to be fixed. A few replaced bricks and a full section rebuild are very different jobs. We look at the project and give you a written price before any work starts.
+- q: How much does chimney repair cost?
+  group: Quotes & pricing
+  a: Chimney pricing depends on the chimney's height and roof pitch, how many courses need work, whether the crown or cap needs replacing, and whether a partial rebuild is needed. A new crown and repointing costs far less than a rebuild, which is why catching problems early matters. We'll inspect it and quote the repair it actually needs.
 - q: Do you price match?
+  group: Quotes & pricing
   a: Yes. We'll price match written quotes from licensed competitors for comparable work.
 - q: Is financing available?
+  group: Quotes & pricing
+  home: true
   a: Yes. Financing options are available on qualifying projects. Call us to talk through the options.
 - q: What forms of payment do you accept?
+  group: Quotes & pricing
   a: Cash, check, Visa, Mastercard, Discover and American Express, plus Apple Pay, Google Pay, Samsung Pay, Zelle, Venmo and Cash App. Financing is also available.
-- q: Do you work on commercial properties?
-  a: Yes. Mr. Brick handles both residential and commercial masonry and concrete work.
-- q: How do I know if my brick needs tuckpointing?
-  a: Michigan's freeze-thaw cycles wear out mortar joints over time. Watch for mortar that is cracked, crumbling or recessed, loose or missing bricks, and white staining (efflorescence) on the wall. If you see these, a professional assessment is worthwhile.
 - q: Do you offer discounts?
-  a: We offer discounts for active military and veterans, first responders and seniors, plus periodic promotions. Mention your discount when you schedule — offers can't be combined.
+  group: Quotes & pricing
+  a: We offer discounts for active military and veterans, first responders and seniors, plus periodic promotions. Mention your discount when you schedule. Offers can't be combined.
+
+- q: What areas do you serve?
+  group: Working with Mr. Brick
+  home: true
+  a: We're based in Eastpointe and serve homes and businesses throughout Southeastern Michigan, including Macomb, Wayne and Oakland counties. Not sure about your address? Call or text and ask.
+- q: Are you licensed and insured?
+  group: Working with Mr. Brick
+  home: true
+  a: Yes. Mr. Brick LLC is licensed and insured.
+- q: Do you offer a warranty?
+  group: Working with Mr. Brick
+  home: true
+  a: Mr. Brick provides a 10-year warranty on all new construction. Ask us about warranty coverage for your specific project.
+- q: Do you work on commercial properties?
+  group: Working with Mr. Brick
+  a: Yes. Mr. Brick handles both residential and commercial masonry and concrete work.
+- q: Do you handle permits?
+  group: Working with Mr. Brick
+  a: Permit requirements vary by city and project. Porch rebuilds, new steps and driveway approaches often need one. We'll tell you what your project requires before work is scheduled.
+
+- q: How long does a masonry project take?
+  group: Projects & timing
+  a: Small repairs like replacing a few bricks or a chimney cap can take a day. Porch rebuilds, chimney rebuilds and driveways typically take several days of work, plus curing time. Weather matters too, since mortar and concrete can't be placed when they'll freeze. We'll give you a realistic timeline with your quote.
+- q: How long does tuckpointing last?
+  group: Projects & timing
+  a: Properly done repointing with compatible mortar commonly lasts decades. Chimneys, parapets and walls under downspouts or roof runoff wear out sooner. Fixing the water source along with the joints makes the repair last longer.
+- q: How long does new concrete take to cure?
+  group: Projects & timing
+  a: As a general guide, new concrete can usually take foot traffic after a day or two and passenger cars after about a week, and it keeps gaining strength for about a month. Temperature and mix affect those times, so we'll give you specific guidance for your pour.
+- q: Can masonry work be done in winter?
+  group: Projects & timing
+  a: Mortar and concrete need above-freezing temperatures to cure properly, so most exterior masonry is scheduled from spring through late fall. Some repairs can be done in mild winter weather. Call and we'll tell you what's possible for your project.
+
+- q: When should brick be replaced instead of repointed?
+  group: Brick, chimneys & foundations
+  a: If only the mortar is worn and the bricks are tight and sound, repointing is enough. Brick needs replacing when faces are flaking off (spalling), bricks are cracked through or loose, or a section is bulging or leaning. Read our guide on <a href="/resources/tuckpointing-vs-rebuilding">tuckpointing vs. rebuilding</a>.
+- q: How do I know if my brick needs tuckpointing?
+  group: Brick, chimneys & foundations
+  a: Michigan's freeze-thaw cycles wear out mortar joints over time. Watch for mortar that is cracked, crumbling or recessed, loose or missing bricks, and white staining (efflorescence) on the wall. If you see these, a professional assessment is worthwhile.
+- q: Do you repair cracked foundations?
+  group: Brick, chimneys & foundations
+  a: Yes. We repair cracked and deteriorated masonry foundations, block walls and footings. Some foundation problems, such as active movement or bowing basement walls, may need a structural engineer's evaluation first. We'll tell you honestly if yours does.

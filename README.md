@@ -7,8 +7,8 @@ A static site for Mr. Brick LLC, deployed on Netlify.
 |---|---|
 | Phone, hours, social links, promotions, GTM ID | `content/site.yaml` |
 | Services (27 pages) | `content/services.yaml` |
-| County pages | `content/areas.yaml` |
-| General FAQs | `content/faqs.yaml` |
+| County and community pages | `content/areas.yaml` (`areas:` counties, `cities:` community pages) |
+| General FAQs | `content/faqs.yaml` (`group` = section on /faqs, `home: true` = shown on the home page) |
 | Verified reviews | `content/reviews.yaml` |
 | Guides | `content/posts/*.md` (front matter plus Markdown) |
 | Legal pages | `content/legal.yaml` |
@@ -21,6 +21,10 @@ python3 build.py              # -> dist/
 python3 tools/serve.py 8080   # http://127.0.0.1:8080 (mimics Netlify pretty URLs)
 ```
 Netlify runs `python3 build.py` and publishes `dist/` (see `netlify.toml`).
+`build.py` also writes `dist/_headers` (security + cache headers), `dist/_redirects`, `sitemap.xml`
+and `robots.txt`, so a zipped `dist/` can be deployed by drag-and-drop with identical behavior.
+
+Deploy zip: `python3 build.py && (cd dist && zip -qr ../mrbrickllc-netlify-dist.zip .)`
 
 ## Docs
 `docs/` contains the launch report, analytics event map, redirect map, URL inventory and metadata map.

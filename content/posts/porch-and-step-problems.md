@@ -2,7 +2,7 @@
 title: "Why Brick Porches and Steps Fail in Michigan — and How to Fix Them for Good"
 slug: porch-and-step-problems
 seo_title: "Why Brick Porches & Steps Fail in Michigan | Mr. Brick"
-description: "Settling slabs, popped caps, loose brick and tipping steps: why Southeastern Michigan porches fail, when restoration works, and when a rebuild is the only lasting fix."
+description: "Settling slabs, popped caps, loose brick and tipping steps: why Southeastern Michigan porches fail, when restoration works, and when only a rebuild lasts."
 date: 2026-09-27
 category: Porches
 image: porch-stone-steps-columns

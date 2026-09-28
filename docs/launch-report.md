@@ -65,7 +65,7 @@ The full list is in `url-inventory.csv` and `redirect-map.csv`.
 - **Offers:** promotions are managed in `site.yaml` with start and end dates and are hidden automatically once expired, even on a stale build.
 
 ## Measurement
-See `analytics-event-map.md`. There are 19 dataLayer events. The primary conversion, `quote_request`, fires once per real submission. First- and last-touch UTM and click-ID attribution travel with each lead into Netlify Forms. No personal data is sent to analytics.
+See `analytics-event-map.md`. There are 20 dataLayer events. The primary conversion, `quote_request`, fires once per real submission. First- and last-touch UTM and click-ID attribution travel with each lead into Netlify Forms. No personal data is sent to analytics.
 
 ## Accessibility
 axe-core (WCAG 2.0/2.1/2.2 AA plus best practice) reports **0 violations on the 15 audited templates**.
@@ -116,3 +116,59 @@ Measured on a simulated mobile connection (150 ms latency, 1.6 Mbps, 4× CPU slo
 - [ ] After the switch: submit the sitemap in Google Search Console, inspect the home page and 3 service pages, and watch the Pages and 404 reports for 4 weeks.
 - [ ] Update the website URL and hours in Google Business Profile if they changed. Cancel the old Hibu site only after the DNS move.
 - [ ] Remove the old Bing, iPromote and Facebook pixels unless they're re-added through GTM.
+
+---
+
+# Optimization pass — September 2026
+
+## What changed
+- **Local SEO architecture:** added six community pages under `/service-areas/`: Eastpointe (home base), St. Clair Shores, the Grosse Pointes, Roseville, Warren and Royal Oak. Each one covers the local housing stock, exposure, permits, the most-requested services, nearby communities and FAQs. They're linked from their county page, the Service Areas menu, the footer, the home page and the relevant service pages. No project claims, addresses or reviews were invented.
+- **Navigation:** Services mega menu, plus **Service Areas** (counties and communities) and **About** (About, Reviews, Financing, Offers, FAQs, Guides) dropdowns. Every page in the recommended structure is now one click from the header. Current-section highlighting and keyboard focus-out closing are included.
+- **Home page:**
+  - A tighter H1 ("Masonry built for Michigan winters") with the location in the eyebrow and lede.
+  - A **before/after chimney feature** with a chimney-specific CTA.
+  - "Most requested" service links and project-type shortcuts into the gallery.
+  - Community links, grouped FAQ selection and a "text a photo" prompt.
+- **Service pages:** a verified-facts trust strip in the hero, a dedicated **process** section with its own CTA, "text us a photo" prompts, a gallery link pre-filtered to that service, and links to the community pages that feature the service.
+- **FAQs:** expanded from 10 to 19 questions, grouped into Quotes & pricing, Working with Mr. Brick, Projects & timing, and Brick, chimneys & foundations, with topic navigation. Cost answers explain what drives price; no prices are published.
+- **Gallery:** `?type=` deep links (used by service pages and the home page), a filter-aware link to the matching service, and a lightbox link from any photo to its service page.
+- **Quote form:**
+  - Photos are downscaled in the browser before upload, so phone photos fit under Netlify's 8 MB limit.
+  - Up to 5 images, with type validation and a selected-file summary.
+  - Double-submit guard.
+  - Phone auto-formatting.
+  - Email becomes required when "Email" is the preferred contact method.
+  - Field length limits and clearer microcopy.
+  - A new `form_service_select` event.
+- **Footer:** NAP block (name, city, ZIP, phone, text, email), hours, a quote button, and service-area and community links.
+- **Technical SEO:**
+  - The `sitemap.xml` `lastmod` is emitted only where it's known (guides and legal pages) instead of stamping every URL with the build date.
+  - Richer `HomeAndConstructionBusiness` schema: community `areaServed`, `knowsAbout` and an `OfferCatalog` of every service.
+  - `Service` schema now has county `areaServed` and an image.
+  - `WebPage` schema links to its `BreadcrumbList` and primary image.
+  - FAQ schema text is stripped of HTML.
+- **Headers:** moved from `netlify.toml` to a generated `dist/_headers`, so Git deploys and drag-and-drop zip deploys behave the same. `upgrade-insecure-requests` was added to the CSP.
+
+## Verified
+- **Build:** 56 pages (54 indexable), all in the sitemap. There are no orphan pages and no broken internal links.
+- **Metadata:** unique titles (70 characters or fewer) and descriptions (165 or fewer), exactly one H1 per page, every JSON-LD block parses, and every image has alt text.
+- **Accessibility:** axe-core (WCAG 2.0/2.1/2.2 AA plus best practice) reports **0 violations** on 17 templates at 1440 px and 390 px.
+- **Layout:** no horizontal overflow and no console errors on 9 key pages at 320, 375, 390, 414, 768, 1024, 1280, 1440 and 1920 px.
+- **Quote form, end to end:**
+  - Service pre-select and step validation.
+  - The conditional email requirement and phone formatting.
+  - Photo summary and a single POST despite a double click.
+  - The redirect to `/thank-you` and the `quote_request` event.
+- **Performance** (simulated mobile: 150 ms latency, 1.6 Mbps, 4× CPU slowdown):
+  - Home: LCP 1.7 s, CLS 0
+  - Service page: LCP 1.6 s, CLS 0
+  - Community page: LCP 1.6 s, CLS 0
+
+## Still needs the owner
+- Confirm the phone number (the site uses 586-209-3052, but Facebook lists 586-250-8329).
+- Confirm whether the street address should be public.
+- Confirm the 20% promotion and its end date.
+- Review the community-page copy and community lists.
+- Add the Google review link and Google Maps URL to `content/site.yaml`.
+- Add real reviews to `content/reviews.yaml`.
+- Add the GTM ID.

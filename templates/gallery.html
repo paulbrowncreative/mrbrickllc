@@ -5,13 +5,14 @@
   <div class="container">
     <div class="gallery-filters" role="group" aria-label="Filter photos by project type">
       <button class="chip" type="button" data-filter="all" aria-pressed="true">All<span class="count">{{ gallery|length }}</span></button>
-      {% for key, label, n in filters %}<button class="chip" type="button" data-filter="{{ key }}" aria-pressed="false">{{ label }}<span class="count">{{ n }}</span></button>{% endfor %}
+      {% for key, label, n in filters %}<button class="chip" type="button" data-filter="{{ key }}" aria-pressed="false"{% if tag_service.get(key) %} data-service-url="/{{ tag_service[key] }}" data-service-name="{{ services[tag_service[key]].name }}"{% endif %}>{{ label }}<span class="count">{{ n }}</span></button>{% endfor %}
     </div>
     <p class="visually-hidden" aria-live="polite" data-gallery-status></p>
+    <p class="gallery-context" data-gallery-context hidden>Planning work like this? <a class="text-link" href="#" data-gallery-service>See our <span data-gallery-label></span> services</a></p>
     <ul class="photo-grid photo-grid--4" role="list" data-gallery>
       {% for id in gallery %}{% set m = images[id] %}
       <li data-tags="{{ m.tags|join(' ') }}">
-        <a class="photo-card" href="/static/img/{{ id }}-{{ m.jpg }}.jpg" data-lightbox data-id="{{ id }}" data-full="/static/img/{{ id }}-{{ m.widths[-1] }}.webp" data-alt="{{ m.alt }}">
+        <a class="photo-card" href="/static/img/{{ id }}-{{ m.jpg }}.jpg" data-lightbox data-id="{{ id }}" data-full="/static/img/{{ id }}-{{ m.widths[-1] }}.webp" data-alt="{{ m.alt }}"{% if tag_service.get(m.tags[0]) %} data-service-url="/{{ tag_service[m.tags[0]] }}" data-service-name="{{ services[tag_service[m.tags[0]]].name }}"{% endif %}>
           {{ picture(id, sizes='(min-width: 80em) 25vw, (min-width: 48em) 33vw, 50vw', loading=('eager' if loop.index <= 4 else 'lazy')) }}
           <span class="photo-card__tag">{{ tag_labels.get(m.tags[0], m.tags[0]) }}</span>
         </a>

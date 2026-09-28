@@ -7,7 +7,7 @@
 <div class="quote" data-cta-location="quote_form">
   <div class="quote__head">
     <{{ form_heading_tag|default('h2') }} id="{{ uid }}-title">{{ form_heading|default('Request a free quote') }}</{{ form_heading_tag|default('h2') }}>
-    <p>Three short steps. We'll get back to you to talk through the project and set up a time to see it.</p>
+    <p>Three short steps, about a minute. Free and no obligation.</p>
     <ol class="progress" aria-hidden="true"><li></li><li></li><li></li></ol>
     <p class="progress-label" aria-live="polite"></p>
   </div>
@@ -55,6 +55,7 @@
         <div class="field">
           <label for="{{ uid }}-zip">Project ZIP code</label>
           <input class="input" id="{{ uid }}-zip" name="zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" pattern="[0-9]{5}" required data-msg="Enter the ZIP code where the work is.">
+          <span class="hint">So we can confirm we cover your area.</span>
           <p class="error"></p>
         </div>
         <div class="field">
@@ -68,9 +69,10 @@
         </div>
       </div>
       <div class="field">
-        <label for="{{ uid }}-photos">Photos <span class="opt">(optional, up to 8 MB total)</span></label>
-        <input class="input" id="{{ uid }}-photos" name="photos" type="file" accept="image/*" multiple>
-        <span class="hint">Photos help us give you a more accurate first answer.</span>
+        <label for="{{ uid }}-photos">Photos <span class="opt">(optional but helpful)</span></label>
+        <input class="input" id="{{ uid }}-photos" name="photos" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" multiple aria-describedby="{{ uid }}-photos-hint">
+        <span class="hint" id="{{ uid }}-photos-hint">Up to 5 photos (JPG, PNG, HEIC). A wide shot plus a close-up works best.</span>
+        <p class="file-summary" data-file-summary aria-live="polite"></p>
         <p class="error"></p>
       </div>
       <div class="form-actions">
@@ -83,18 +85,18 @@
       <legend>How should we reach you?</legend>
       <div class="field">
         <label for="{{ uid }}-name">Name</label>
-        <input class="input" id="{{ uid }}-name" name="name" autocomplete="name" required data-msg="Enter your name.">
+        <input class="input" id="{{ uid }}-name" name="name" autocomplete="name" maxlength="80" required data-msg="Enter your name.">
         <p class="error"></p>
       </div>
       <div class="row-2">
         <div class="field">
           <label for="{{ uid }}-phone">Phone</label>
-          <input class="input" id="{{ uid }}-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required data-msg="Enter a phone number so we can reach you.">
+          <input class="input" id="{{ uid }}-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="20" placeholder="(586) 555-0123" required data-msg="Enter a phone number so we can reach you.">
           <p class="error"></p>
         </div>
         <div class="field">
           <label for="{{ uid }}-email">Email <span class="opt">(optional)</span></label>
-          <input class="input" id="{{ uid }}-email" name="email" type="email" autocomplete="email">
+          <input class="input" id="{{ uid }}-email" name="email" type="email" autocomplete="email" maxlength="120">
           <p class="error"></p>
         </div>
       </div>
@@ -114,9 +116,9 @@
       </div>
       <div class="form-actions">
         <button class="btn btn--ghost" type="button" data-back>Back</button>
-        <button class="btn" type="submit">Send My Quote Request</button>
+        <button class="btn" type="submit">Get My Free Quote</button>
       </div>
-      <p class="form-note">We use your details only to respond about your project. See our <a href="/privacy-policy">privacy policy</a>.</p>
+      <p class="form-note">We use your details only to respond about your project. No spam, no sharing. See our <a href="/privacy-policy">privacy policy</a>.</p>
     </fieldset>
   </form>
 </div>

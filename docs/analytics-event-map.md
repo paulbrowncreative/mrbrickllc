@@ -21,6 +21,7 @@ Every event carries `page_type` (home, service, area, post, gallery, quote, than
 | `form_start` | First focus inside a quote form | `form_id` | Yes | — | No |
 | `form_step` | Advancing a step | `form_id`, `step` | Yes | — | No |
 | `form_error` | Validation or submit failure | `form_id`, `field_name`, `step` | Yes | — | No |
+| `form_service_select` | Service chosen in the quote form | `form_id`, `service_type` | Yes | — | No |
 | `file_upload` | Photos selected | `form_id`, `file_count` | Yes | — | No |
 | `form_submit` | Valid submit attempt | `form_id`, `service_type`, `property_type` | Yes | — | No |
 | `form_success` | Netlify accepted the submission | `form_id`, `service_type`, `property_type` | Yes | — | No (see below) |
@@ -28,12 +29,14 @@ Every event carries `page_type` (home, service, area, post, gallery, quote, than
 | `gallery_filter` | Gallery filter chip | `filter` | Yes | — | No |
 | `view_project` | Lightbox opened | `project_id` | Yes | — | No |
 
-`cta_location` values: `header`, `mobile_bar`, `mobile_menu`, `hero`, `page_hero`, `service_hero`, `promo_bar`, `quote_form`, `contact_block`, `cta_band`, `finance_aside`, `post_aside`, `reviews`, `footer`, `body`.
+`cta_location` values: `header`, `mobile_bar`, `mobile_menu`, `hero`, `page_hero`, `service_hero`, `promo_bar`, `quote_form`, `quote_section`, `contact_block`, `cta_band`, `process`, `feature`, `signs_aside`, `area_aside`, `area_process`, `finance_aside`, `post_aside`, `reviews`, `footer`, `body`. `cta_band` locations are suffixed by page (for example `area`, `faqs`, `gallery`).
+
+`cta_id` values include `quote`, `call`, `quote_aside`, `quote_chimney` and `lightbox_service`.
 
 ## Recommended GTM setup
 
 1. **GA4 Configuration** tag on all pages.
-2. **GA4 Event** tag that fires on a Custom Event trigger matching the regex `^(view_service|click_phone|click_text|click_email|click_quote|cta_click|financing_click|review_click|navigation_click|form_start|form_step|form_error|file_upload|form_submit|form_success|gallery_filter|view_project)$`. Pass the dataLayer variables listed above as event parameters.
+2. **GA4 Event** tag that fires on a Custom Event trigger matching the regex `^(view_service|click_phone|click_text|click_email|click_quote|cta_click|financing_click|review_click|navigation_click|form_start|form_step|form_error|form_service_select|file_upload|form_submit|form_success|gallery_filter|view_project)$`. Pass the dataLayer variables listed above as event parameters.
 3. **GA4 Event `generate_lead`** that fires on the `quote_request` custom event. Mark it as a key event in GA4.
 4. **Google Ads conversions**:
    - *Quote request*, fired on `quote_request`. This is the primary conversion.

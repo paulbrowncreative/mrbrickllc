@@ -1,5 +1,5 @@
 url,title,title_len,description_len,h1,indexable
-"https://www.mrbrickllc.com/","Masonry Contractors in Southeastern Michigan | Mr. Brick LLC",60,175,"Masonry contractors who build it to last",yes
+"https://www.mrbrickllc.com/","Masonry Contractor in Eastpointe & Southeast Michigan | Mr. Brick",65,159,"Masonry built for Michigan winters",yes
 "https://www.mrbrickllc.com/services","Masonry & Concrete Services | Mr. Brick LLC",43,163,"Masonry and concrete services",yes
 "https://www.mrbrickllc.com/brick-masonry","Brick & Masonry Contractor in Southeastern Michigan | Mr. Brick",63,152,"Brick and masonry repair, done to last another fifty years",yes
 "https://www.mrbrickllc.com/brick-repair","Brick Repair & Replacement in Southeastern Michigan | Mr. Brick",63,161,"Brick repair and replacement",yes
@@ -28,24 +28,30 @@ url,title,title_len,description_len,h1,indexable
 "https://www.mrbrickllc.com/foundation-services","Foundations & Footings in Southeastern Michigan | Mr. Brick",59,142,"Foundations, footings and structural masonry",yes
 "https://www.mrbrickllc.com/foundation-repair","Foundation Repair in Southeastern Michigan | Mr. Brick",54,141,"Foundation repair",yes
 "https://www.mrbrickllc.com/retaining-wall-services","Retaining Wall Installation in Southeastern Michigan | Mr. Brick",64,139,"Retaining walls",yes
-"https://www.mrbrickllc.com/service-areas","Service Areas | Masonry Contractor in Southeastern Michigan | Mr. Brick",71,140,"Masonry across Southeastern Michigan",yes
+"https://www.mrbrickllc.com/service-areas","Service Areas | Southeastern Michigan Masonry | Mr. Brick",57,140,"Masonry across Southeastern Michigan",yes
 "https://www.mrbrickllc.com/service-areas/macomb-county","Masonry Contractor in Macomb County, MI | Mr. Brick",51,161,"Masonry contractor in Macomb County",yes
 "https://www.mrbrickllc.com/service-areas/wayne-county","Masonry Contractor in Wayne County & the Grosse Pointes | Mr. Brick",67,154,"Masonry contractor in Wayne County and the Grosse Pointes",yes
 "https://www.mrbrickllc.com/service-areas/oakland-county","Masonry Contractor in Oakland County, MI | Mr. Brick",52,147,"Masonry contractor in Oakland County",yes
+"https://www.mrbrickllc.com/service-areas/eastpointe","Eastpointe, MI Masonry Contractor | Porches & Chimneys | Mr. Brick",66,160,"Eastpointe masonry contractor",yes
+"https://www.mrbrickllc.com/service-areas/st-clair-shores","Masonry & Concrete Contractor in St. Clair Shores, MI | Mr. Brick",65,161,"Masonry and concrete in St. Clair Shores",yes
+"https://www.mrbrickllc.com/service-areas/grosse-pointe","Grosse Pointe Masonry Contractor | Chimneys & Brick | Mr. Brick",63,159,"Masonry for Grosse Pointe homes",yes
+"https://www.mrbrickllc.com/service-areas/roseville","Roseville, MI Masonry Contractor | Porches & Steps | Mr. Brick",62,160,"Roseville masonry and concrete",yes
+"https://www.mrbrickllc.com/service-areas/warren","Masonry & Concrete Contractor in Warren, MI | Mr. Brick",55,162,"Warren masonry and concrete contractor",yes
+"https://www.mrbrickllc.com/service-areas/royal-oak","Royal Oak, MI Masonry Contractor | Chimneys & Steps | Mr. Brick",63,150,"Royal Oak masonry contractor",yes
 "https://www.mrbrickllc.com/gallery","Masonry Project Photos | Brick, Chimney & Concrete | Mr. Brick",62,150,"Project gallery",yes
-"https://www.mrbrickllc.com/about","About Mr. Brick LLC | Family-Owned Masonry Contractor, Eastpointe MI",68,173,"Honest, practical and quick since day one",yes
+"https://www.mrbrickllc.com/about","About Mr. Brick LLC | Family-Owned Masonry Contractor, Eastpointe MI",68,154,"Honest, practical and quick since day one",yes
 "https://www.mrbrickllc.com/reviews","Mr. Brick LLC Reviews | Masonry Contractor in Southeastern Michigan",67,151,"Reviews",yes
 "https://www.mrbrickllc.com/finance","Masonry Financing Options | Mr. Brick LLC",41,139,"Financing for your masonry project",yes
 "https://www.mrbrickllc.com/special-offers","Special Offers & Discounts | Mr. Brick LLC",42,145,"Offers and discounts",yes
-"https://www.mrbrickllc.com/faqs","Masonry FAQs | Quotes, Warranty, Payment | Mr. Brick LLC",56,131,"Frequently asked questions",yes
+"https://www.mrbrickllc.com/faqs","Masonry FAQs | Cost, Timing, Warranty & Financing | Mr. Brick LLC",65,156,"Frequently asked questions",yes
 "https://www.mrbrickllc.com/contact","Contact Mr. Brick LLC | Call or Text (586) 209-3052",51,152,"Contact Mr. Brick",yes
 "https://www.mrbrickllc.com/request-quote","Request a Free Masonry Quote | Mr. Brick LLC",44,146,"Request a free quote",yes
 "https://www.mrbrickllc.com/resources","Masonry Guides for Michigan Homeowners | Mr. Brick",50,141,"Masonry guides for Michigan homeowners",yes
 "https://www.mrbrickllc.com/resources/chimney-repair-warning-signs","7 Signs Your Chimney Needs Repair | Southeastern Michigan | Mr. Brick",69,158,"7 Signs Your Chimney Needs Repair Before Water Gets In",yes
-"https://www.mrbrickllc.com/resources/porch-and-step-problems","Why Brick Porches & Steps Fail in Michigan | Mr. Brick",54,167,"Why Brick Porches and Steps Fail in Michigan — and How to Fix Them for Good",yes
+"https://www.mrbrickllc.com/resources/porch-and-step-problems","Why Brick Porches & Steps Fail in Michigan | Mr. Brick",54,154,"Why Brick Porches and Steps Fail in Michigan — and How to Fix Them for Good",yes
 "https://www.mrbrickllc.com/resources/tuckpointing-vs-rebuilding","Tuckpointing vs. Rebuilding Brick: Which Do You Need? | Mr. Brick",65,143,"Tuckpointing vs. Rebuilding: How to Tell What Your Brick Needs",yes
 "https://www.mrbrickllc.com/privacy-policy","Privacy Policy | Mr. Brick LLC",30,91,"Privacy policy",yes
-"https://www.mrbrickllc.com/terms","Terms of Use | Mr. Brick LLC",28,43,"Terms of use",yes
+"https://www.mrbrickllc.com/terms","Terms of Use | Mr. Brick LLC",28,139,"Terms of use",yes
 "https://www.mrbrickllc.com/accessibility","Accessibility Statement | Mr. Brick LLC",39,72,"Accessibility",yes
 "https://www.mrbrickllc.com/thank-you","Thanks — We Got Your Request | Mr. Brick LLC",44,45,"Thanks — your request is in",no
 "https://www.mrbrickllc.com/404","Page Not Found | Mr. Brick LLC",30,41,"That page isn't here",no
