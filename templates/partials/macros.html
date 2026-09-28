@@ -5,7 +5,6 @@
 {%- set w = ws[-1] if ws[-1] <= 1200 else 1200 -%}
 <picture>
   <source type="image/avif" srcset="{% for x in ws %}/static/img/{{ id }}-{{ x }}.avif {{ x }}w{{ ', ' if not loop.last }}{% endfor %}" sizes="{{ sizes }}">
-  <source type="image/webp" srcset="{% for x in ws %}/static/img/{{ id }}-{{ x }}.webp {{ x }}w{{ ', ' if not loop.last }}{% endfor %}" sizes="{{ sizes }}">
   <img src="/static/img/{{ id }}-{{ m.jpg }}.jpg" alt="{{ m.alt if alt is none else alt }}" width="{{ m.w }}" height="{{ m.h }}"{% if cls %} class="{{ cls }}"{% endif %} {% if priority %}fetchpriority="high" loading="eager"{% else %}loading="{{ loading }}"{% endif %} decoding="async">
 </picture>
 {%- endmacro %}
@@ -75,7 +74,7 @@
 <ul class="photo-grid {{ cls }}" role="list">
   {% for id in ids %}{% set m = images[id] %}
   <li>
-    <a class="photo-card" href="/static/img/{{ id }}-{{ m.jpg }}.jpg" data-lightbox data-id="{{ id }}" data-full="/static/img/{{ id }}-{{ m.widths[-1] }}.webp" data-alt="{{ m.alt }}"{% if tag_service.get(m.tags[0]) %} data-service-url="/{{ tag_service[m.tags[0]] }}" data-service-name="{{ services[tag_service[m.tags[0]]].name }}"{% endif %}>
+    <a class="photo-card" href="/static/img/{{ id }}-{{ m.jpg }}.jpg" data-lightbox data-id="{{ id }}" data-full="/static/img/{{ id }}-{{ m.jpg }}.jpg" data-full-avif="/static/img/{{ id }}-{{ m.widths[-1] }}.avif" data-alt="{{ m.alt }}"{% if tag_service.get(m.tags[0]) %} data-service-url="/{{ tag_service[m.tags[0]] }}" data-service-name="{{ services[tag_service[m.tags[0]]].name }}"{% endif %}>
       {{ picture(id, sizes=sizes) }}
       <span class="visually-hidden">Open larger photo</span>
     </a>

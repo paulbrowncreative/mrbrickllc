@@ -12,7 +12,7 @@
     <ul class="photo-grid photo-grid--4" role="list" data-gallery>
       {% for id in gallery %}{% set m = images[id] %}
       <li data-tags="{{ m.tags|join(' ') }}">
-        <a class="photo-card" href="/static/img/{{ id }}-{{ m.jpg }}.jpg" data-lightbox data-id="{{ id }}" data-full="/static/img/{{ id }}-{{ m.widths[-1] }}.webp" data-alt="{{ m.alt }}"{% if tag_service.get(m.tags[0]) %} data-service-url="/{{ tag_service[m.tags[0]] }}" data-service-name="{{ services[tag_service[m.tags[0]]].name }}"{% endif %}>
+        <a class="photo-card" href="/static/img/{{ id }}-{{ m.jpg }}.jpg" data-lightbox data-id="{{ id }}" data-full="/static/img/{{ id }}-{{ m.jpg }}.jpg" data-full-avif="/static/img/{{ id }}-{{ m.widths[-1] }}.avif" data-alt="{{ m.alt }}"{% if tag_service.get(m.tags[0]) %} data-service-url="/{{ tag_service[m.tags[0]] }}" data-service-name="{{ services[tag_service[m.tags[0]]].name }}"{% endif %}>
           {{ picture(id, sizes='(min-width: 80em) 25vw, (min-width: 48em) 33vw, 50vw', loading=('eager' if loop.index <= 4 else 'lazy')) }}
           <span class="photo-card__tag">{{ tag_labels.get(m.tags[0], m.tags[0]) }}</span>
         </a>

@@ -430,7 +430,10 @@
     function open(i) {
       var b = list[i]; if (!b) return;
       idx = i;
-      img.src = b.getAttribute('data-full');
+      // Use the large AVIF only if this browser already chose AVIF for the thumbnail.
+      var thumb = b.querySelector('img');
+      var avif = thumb && /\.avif(\?|$)/.test(thumb.currentSrc || '');
+      img.src = (avif && b.getAttribute('data-full-avif')) || b.getAttribute('data-full');
       img.alt = b.getAttribute('data-alt');
       cap.textContent = b.getAttribute('data-alt');
       if (svcLink) {

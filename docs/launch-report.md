@@ -83,7 +83,7 @@ Measured on a simulated mobile connection (150 ms latency, 1.6 Mbps, 4× CPU slo
 | Home | 1.5 s | 0.000 | 386 KB |
 | Chimney repair | 0.6 s | 0.000 | 72 KB |
 
-- **Images:** AVIF and WebP with a JPEG fallback, served responsively at 480–1600 px. Every image has width and height set, and images below the fold lazy-load.
+- **Images:** AVIF with a JPEG fallback, served responsively at 480–1600 px. (The WebP tier was removed in Sept 2026: AVIF is supported by every current browser, and dropping it cut the deploy by ~13 MB.) Every image has width and height set, and images below the fold lazy-load.
 - **Hero:** the hero image is preloaded with `fetchpriority=high`.
 - **Font:** one self-hosted variable font (90 KB) covers every weight and width.
 - **Assets:** CSS and JS are content-hashed and cached as immutable.

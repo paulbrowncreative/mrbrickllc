@@ -1,5 +1,6 @@
-"""Build responsive AVIF/WebP/JPEG variants from src-images/ using content/images.yaml.
+"""Build responsive AVIF variants plus one JPEG fallback from src-images/ using content/images.yaml.
 Run when photos change: python3 tools/optimize_images.py
+AVIF covers every current browser; the JPEG is the fallback and the share image.
 Writes static/img/<id>-<w>.<ext> and content/_image_manifest.json."""
 import json, pathlib, yaml
 from PIL import Image, ImageOps
@@ -15,7 +16,6 @@ for iid, meta in cat.items():
     for w in widths:
         r = im.resize((w, round(im.height*w/im.width)), Image.LANCZOS)
         r.save(OUT/f'{iid}-{w}.avif', quality=40, speed=6)
-        r.save(OUT/f'{iid}-{w}.webp', quality=66, method=6)
     w = min(1200, im.width)
     im.resize((w, round(im.height*w/im.width)), Image.LANCZOS).save(OUT/f'{iid}-{w}.jpg', quality=78, optimize=True, progressive=True)
     manifest[iid] = {'w': im.width, 'h': im.height, 'widths': widths, 'jpg': w, **meta}
