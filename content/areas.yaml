@@ -30,7 +30,7 @@ areas:
 
   wayne-county:
     name: Wayne County
-    title: Masonry Contractor in Wayne County & the Grosse Pointes | Mr. Brick
+    title: Wayne County & Grosse Pointe Masonry Contractor | Mr. Brick
     description: Chimney rebuilding, tuckpointing, brick and porch restoration for Grosse Pointe, Harper Woods, Detroit and Wayne County homes. Free quotes from Mr. Brick.
     h1: Masonry contractor in Wayne County and the Grosse Pointes
     lede: From Grosse Pointe to Detroit's east side, Mr. Brick restores the brick and stone that older homes are built on.
@@ -73,7 +73,7 @@ cities:
   eastpointe:
     name: Eastpointe
     county: macomb-county
-    title: Eastpointe, MI Masonry Contractor | Porches & Chimneys | Mr. Brick
+    title: Eastpointe, MI Masonry & Concrete Contractor | Mr. Brick
     description: Eastpointe is Mr. Brick's home base. Brick porch and step rebuilds, chimney repair, tuckpointing and concrete for Eastpointe homes. Call or text (586) 209-3052.
     h1: Eastpointe masonry contractor
     lede: Eastpointe is where Mr. Brick is based, so local jobs get quick quotes and short drive times.
@@ -97,7 +97,7 @@ cities:
   st-clair-shores:
     name: St. Clair Shores
     county: macomb-county
-    title: Masonry & Concrete Contractor in St. Clair Shores, MI | Mr. Brick
+    title: St. Clair Shores Masonry & Concrete Contractor | Mr. Brick
     description: Chimney repair, brick porches and steps, pavers, patios and concrete for St. Clair Shores homes near Lake St. Clair. Free quotes from Eastpointe-based Mr. Brick.
     h1: Masonry and concrete in St. Clair Shores
     lede: Brick, chimney, porch and concrete work for St. Clair Shores homes, from the canal streets to the neighborhoods off Harper and Little Mack.
@@ -121,7 +121,7 @@ cities:
   grosse-pointe:
     name: The Grosse Pointes
     county: wayne-county
-    title: Grosse Pointe Masonry Contractor | Chimneys & Brick | Mr. Brick
+    title: Grosse Pointe Masonry & Chimney Contractor | Mr. Brick
     description: Chimney rebuilding, tuckpointing, brick matching and stone step restoration for older homes in the Grosse Pointes. Free quotes from Eastpointe-based Mr. Brick.
     h1: Masonry for Grosse Pointe homes
     lede: Chimneys, brick, stone steps and porches restored with the care older homes in the Grosse Pointes need, from a family-owned contractor just up the road in Eastpointe.
@@ -130,7 +130,7 @@ cities:
     local: |
       Grosse Pointe, Grosse Pointe Park, Grosse Pointe Farms, Grosse Pointe Woods and Grosse Pointe Shores have some of the oldest and most detailed masonry in the region. Many homes were built from the 1910s through the 1930s, with tall chimneys, limestone trim, decorative brick bonds and stone steps.
 
-      That age calls for a different approach. Older brick was laid in softer mortar than what's sold today, and repointing it with modern high-strength mortar can crack the brick instead of the joint. Brick matching takes more care, and chimney rebuilds have to match the original detailing above the roofline. These homes are also closely watched by neighbors and city inspectors, so the finished work has to look like it was always there.
+      That age calls for a different approach. Lime-rich mortar from that era is softer than the brick around it, by design; fill those joints with a hard modern mix and the next few winters will split the brick faces instead. Brick matching takes more care, and chimney rebuilds have to match the original detailing above the roofline. These homes are also closely watched by neighbors and city inspectors, so the finished work has to look like it was always there.
     considerations:
       - {title: "Compatible mortar", text: "We match mortar strength and color to the original wall so the joint, not the brick, stays the sacrificial part."}
       - {title: "Five separate cities", text: "Each of the five Grosse Pointes has its own building department and rules. We confirm permit requirements with the right city for your address."}
@@ -145,7 +145,7 @@ cities:
   roseville:
     name: Roseville
     county: macomb-county
-    title: Roseville, MI Masonry Contractor | Porches & Steps | Mr. Brick
+    title: Roseville, MI Masonry & Concrete Contractor | Mr. Brick
     description: Porch and step repair, chimney work, tuckpointing and concrete driveways for Roseville homes. Family-owned Mr. Brick is minutes away in Eastpointe. Free quotes.
     h1: Roseville masonry and concrete
     lede: Porches, steps, chimneys and driveways for Roseville homes, from a family-owned contractor based next door in Eastpointe.
@@ -193,7 +193,7 @@ cities:
   royal-oak:
     name: Royal Oak
     county: oakland-county
-    title: Royal Oak, MI Masonry Contractor | Chimneys & Steps | Mr. Brick
+    title: Royal Oak, MI Masonry & Chimney Contractor | Mr. Brick
     description: Chimney repair, tuckpointing, brick steps and porch restoration for Royal Oak bungalows and colonials. Family-owned Mr. Brick, 25+ years. Free quotes.
     h1: Royal Oak masonry contractor
     lede: Chimneys, brick, steps and porches for Royal Oak's older bungalows and colonials.

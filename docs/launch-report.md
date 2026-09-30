@@ -172,3 +172,36 @@ Measured on a simulated mobile connection (150 ms latency, 1.6 Mbps, 4× CPU slo
 - Add the Google review link and Google Maps URL to `content/site.yaml`.
 - Add real reviews to `content/reviews.yaml`.
 - Add the GTM ID.
+
+---
+
+# Full QA pass — September 30, 2026
+
+## Fixed
+- **Heading outline:** the Services mega menu used eight `<h2>` labels, which put headings above the H1 on every page. They're now styled paragraphs. Every page now starts with its H1 and never skips a heading level.
+- **Title tags:** all titles now fit Google's display width (60 characters or fewer). Titles lead with the service or city keyword and end with the brand.
+- **Service H1s:** every service page H1 now carries the location ("Chimney repair *in Southeastern Michigan*"), shown as a secondary line. Generic hub and utility H1s were given keywords: "Concrete contractor…", "Masonry FAQs", "Masonry project gallery", "Mr. Brick reviews".
+- **Guide breadcrumbs:** the last item (on screen and in `BreadcrumbList`) is now the article title, not the category.
+- **Schema:**
+  - `BlogPosting` has a named author, `articleSection` and `inLanguage`.
+  - Area pages declare a `contentLocation`: a City or County, with City pages nested in their county.
+  - Service `WebPage` blocks point to their `Service` as `mainEntity`.
+- **Social tags:** `og:image:width`/`height`, `twitter:image:alt`, and article publish-time and section tags were added.
+- **Image sitemap:** each URL in `sitemap.xml` now lists the project photos rendered on that page, which helps the photos appear in Google Images.
+- **Unique copy:** the one sentence shared between the Wayne County and Grosse Pointe pages was rewritten.
+- **Gallery:** added about 150 words of useful content ("About these projects", "Browse by service").
+- **Footer:** the quote button no longer inherits the footer's link underline.
+
+## Verified on the final build
+- **Pages and links:** 56 pages (54 indexable), all in the sitemap. No orphan pages, no broken links or missing assets, no duplicate titles or descriptions, and exactly one H1 per page.
+- **Schema:**
+  - 10 types across 380+ blocks.
+  - Required properties are present and every `@id` reference resolves.
+  - Every page's FAQ markup matches the FAQs visible on it.
+- **Accessibility:** axe-core (WCAG 2.2 AA plus best practice) reports 0 violations on 17 templates at desktop and mobile widths.
+- **Layout:** no horizontal overflow and no console errors on 9 page types at 7 widths from 320 to 1920 px.
+- **Quote form, end to end:** validation, conditional email, a single POST on double-click, and the `/thank-you` conversion event.
+
+## Deliberately not changed
+- **URL slugs.** The existing slugs (`/chimney-repair`, `/tuckpointing`, `/porch-rebuilds`, and so on) are the URLs Google has already indexed for www.mrbrickllc.com. Renaming them would restart their ranking history for a marginal keyword gain, so they stay. New pages use clean, descriptive slugs.
+- **FAQPage markup.** It's kept because it's accurate and matches the visible questions. Google currently shows FAQ rich results mainly for government and health sites, so expect no FAQ snippets from it; other search and AI engines still read it.

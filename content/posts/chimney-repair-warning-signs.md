@@ -1,7 +1,7 @@
 ---
 title: "7 Signs Your Chimney Needs Repair Before Water Gets In"
 slug: chimney-repair-warning-signs
-seo_title: "7 Signs Your Chimney Needs Repair | Southeastern Michigan | Mr. Brick"
+seo_title: "7 Signs Your Chimney Needs Repair | Mr. Brick"
 description: "Cracked crowns, washed-out mortar, spalling brick and ceiling stains: the chimney warning signs Michigan homeowners should watch for, and what each one means."
 date: 2026-09-27
 category: Chimneys

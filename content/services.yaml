@@ -22,9 +22,9 @@ services:
     name: Brick & Masonry
     category: brick
     hub: true
-    title: Brick & Masonry Contractor in Southeastern Michigan | Mr. Brick
+    title: Brick & Masonry Contractor in SE Michigan | Mr. Brick
     description: Brick repair, tuckpointing, brick replacement and block wall construction for homes and businesses across Southeastern Michigan. 25+ years. Free quotes.
-    h1: Brick and masonry repair, done to last another fifty years
+    h1: Brick and masonry repair
     lede: Loose brick, crumbling mortar, cracked walls and new block construction — handled by masons who have been doing this work in Southeastern Michigan for more than 25 years.
     image: tuckpointing-stone-cap
     tags: [brick]
@@ -48,7 +48,7 @@ services:
   brick-repair:
     name: Brick Repair & Replacement
     category: brick
-    title: Brick Repair & Replacement in Southeastern Michigan | Mr. Brick
+    title: Brick Repair & Replacement in SE Michigan | Mr. Brick
     description: Cracked, loose or spalling brick repaired and replaced with matched brick and mortar. Serving Southeastern Michigan for 25+ years. Call or text for a free quote.
     h1: Brick repair and replacement
     lede: We remove damaged brick, replace it with a close match, and re-lay it in mortar suited to your wall — so the repair holds and doesn't look like a patch.
@@ -130,9 +130,9 @@ services:
   cinder-block-wall-installation:
     name: Block Wall Construction
     category: brick
-    title: Concrete Block & Cinder Block Walls in SE Michigan | Mr. Brick
+    title: Cinder Block & Concrete Block Walls in SE MI | Mr. Brick
     description: Concrete block walls built on proper footings for garages, foundations, retaining and privacy walls. Residential and commercial. Serving Southeastern Michigan.
-    h1: Concrete block wall construction
+    h1: Cinder block and concrete block walls
     lede: Block walls for garages, foundations, retaining and screening — laid plumb and level on a footing that won't heave.
     image: block-wall-concrete-steps
     tags: [retaining-walls, foundations]
@@ -166,7 +166,7 @@ services:
     name: Chimneys & Fireplaces
     category: chimney
     hub: true
-    title: Chimney Repair & Rebuilding in Southeastern Michigan | Mr. Brick
+    title: Chimney Repair & Rebuilding in SE Michigan | Mr. Brick
     description: Chimney repair, crowns, caps, tuckpointing and full chimney rebuilds across Southeastern Michigan. Before-and-after results from a 25+ year masonry contractor.
     h1: Chimney repair and rebuilding
     lede: The chimney is the most weather-beaten masonry on your house. We repair it, rebuild it, and cap it so water stays out.
@@ -274,7 +274,7 @@ services:
   fireplace-services:
     name: Fireplace Repair & Installation
     category: chimney
-    title: Fireplace Repair & Masonry Fireplaces in SE Michigan | Mr. Brick
+    title: Fireplace Repair & Installation in SE Michigan | Mr. Brick
     description: Masonry fireplace repair, firebox and hearth restoration, and new indoor and outdoor fireplaces built by Mr. Brick in Southeastern Michigan. Free quotes.
     h1: Fireplace repair and installation
     lede: Firebox, hearth and surround repairs, plus new masonry fireplaces indoors and out.
@@ -313,9 +313,9 @@ services:
     name: Porches & Steps
     category: porch
     hub: true
-    title: Porch Repair & Rebuilding in Southeastern Michigan | Mr. Brick
+    title: Porch Repair & Rebuilding in SE Michigan | Mr. Brick
     description: Brick and concrete porch restoration, porch rebuilds and new front steps across Southeastern Michigan. Real project photos. Free quotes from Mr. Brick.
-    h1: Porch restoration, rebuilds and steps
+    h1: Porch repair, rebuilds and steps
     lede: Your porch and steps are the first thing people see and the part of the house they walk on every day. We make them safe, solid, and good-looking again.
     image: porch-stone-steps-columns
     tags: [porches, steps]
@@ -339,7 +339,7 @@ services:
   porch-restorations:
     name: Porch Restoration
     category: porch
-    title: Brick & Concrete Porch Restoration in SE Michigan | Mr. Brick
+    title: Porch Restoration in Southeastern Michigan | Mr. Brick
     description: Porch restoration for brick and concrete porches — brick repair, new caps, resurfacing and step repair — across Southeastern Michigan. Free quotes.
     h1: Porch restoration
     lede: Brick, caps, surfaces and steps repaired on a porch that's structurally sound — so you keep what's good and fix what isn't.
@@ -378,7 +378,7 @@ services:
   porch-rebuilds:
     name: Porch Rebuilds
     category: porch
-    title: Porch Rebuild & New Porch Construction in SE Michigan | Mr. Brick
+    title: Porch Rebuilds & New Porches in SE Michigan | Mr. Brick
     description: Complete porch rebuilds from the footing up — brick, block, stone and concrete — for Southeastern Michigan homes. 10-year warranty on new construction.
     h1: Porch rebuilds
     lede: When a porch has settled, cracked through, or pulled away from the house, we take it down and build it back on a foundation that won't move.
@@ -417,7 +417,7 @@ services:
   stair-services:
     name: Brick, Stone & Concrete Steps
     category: porch
-    title: Brick, Stone & Concrete Steps in Southeastern Michigan | Mr. Brick
+    title: Brick, Stone & Concrete Steps in SE Michigan | Mr. Brick
     description: New and rebuilt front steps in brick, stone and concrete — safe rise and run, solid footings, matched to your home. Serving Southeastern Michigan. Free quotes.
     h1: Brick, stone and concrete steps
     lede: Front and side-entry steps built with consistent, comfortable step heights on a base that won't heave in winter.
@@ -459,7 +459,7 @@ services:
     hub: true
     title: Concrete Contractor in Southeastern Michigan | Mr. Brick
     description: Concrete installation, stamped concrete, resurfacing, leveling, sealing and removal for homes and businesses across Southeastern Michigan. Free quotes.
-    h1: Concrete work for homes and businesses
+    h1: Concrete contractor for homes and businesses
     lede: New pours, decorative finishes, repairs and sealing — plus removal and haul-away of old concrete when it's time to start over.
     image: driveway-screed-pour
     tags: [concrete, driveways]
@@ -508,7 +508,7 @@ services:
   concrete-resurfacing:
     name: Concrete Resurfacing
     category: concrete
-    title: Concrete Resurfacing & Repair in Southeastern Michigan | Mr. Brick
+    title: Concrete Resurfacing & Repair in SE Michigan | Mr. Brick
     description: Resurface worn, scaled or stained concrete patios, porches, walks and driveways instead of replacing them — when the slab underneath is sound. Free quotes.
     h1: Concrete resurfacing and repair
     lede: A new wearing surface over concrete that's structurally sound but worn out, scaled or stained.
@@ -572,7 +572,7 @@ services:
   concrete-sealing:
     name: Concrete Sealing & Coatings
     category: concrete
-    title: Concrete Sealing & Coatings in Southeastern Michigan | Mr. Brick
+    title: Concrete Sealing & Coatings in SE Michigan | Mr. Brick
     description: Sealers and protective coatings for driveways, patios, stamped concrete and garage floors that resist salt, stains and freeze-thaw damage. Free quotes.
     h1: Concrete sealing and coatings
     lede: Protect concrete from road salt, stains and water — and keep stamped and colored concrete looking the way it did when it was poured.
@@ -607,7 +607,7 @@ services:
     name: Driveways, Walkways & Pavers
     category: flatwork
     hub: true
-    title: Concrete & Brick Driveways in Southeastern Michigan | Mr. Brick
+    title: Concrete & Brick Driveways in SE Michigan | Mr. Brick
     description: Concrete driveway installation, brick and paver driveways, driveway repair, walkways and paver work across Southeastern Michigan. Free quotes from Mr. Brick.
     h1: Driveways, walkways and pavers
     lede: Concrete, brick and paver driveways and walks — built on a base designed for Michigan winters.
@@ -623,7 +623,7 @@ services:
   concrete-driveway-installation:
     name: Concrete Driveway Installation
     category: flatwork
-    title: Concrete Driveway Installation in Southeastern Michigan | Mr. Brick
+    title: Concrete Driveway Installation in SE Michigan | Mr. Brick
     description: New and replacement concrete driveways with proper excavation, compacted base, reinforcement and drainage. Old driveway removal included. Free quotes.
     h1: Concrete driveway installation
     lede: Tear-out, base, forms, reinforcement and a clean finish — a new driveway built to handle Michigan freeze-thaw and daily traffic.
@@ -655,7 +655,7 @@ services:
   driveway-repair:
     name: Driveway Repair & Resurfacing
     category: flatwork
-    title: Driveway Repair & Resurfacing in Southeastern Michigan | Mr. Brick
+    title: Driveway Repair & Resurfacing in SE Michigan | Mr. Brick
     description: Concrete, brick and paver driveway repair — cracks, sunken sections, scaled surfaces and partial replacement. Serving Southeastern Michigan. Free quotes.
     h1: Driveway repair and resurfacing
     lede: Fix the damaged section, resurface a worn slab, or replace only the panels that failed — instead of paying for a whole new driveway.
@@ -721,7 +721,7 @@ services:
   paver-services:
     name: Brick Pavers
     category: flatwork
-    title: Brick Paver Installation in Southeastern Michigan | Mr. Brick
+    title: Brick Paver Installation in SE Michigan | Mr. Brick
     description: Brick and concrete paver patios, walkways, porches and driveways installed on a compacted base with edge restraint. Southeastern Michigan. Free quotes.
     h1: Brick paver installation and repair
     lede: Paver patios, walks, porch landings and driveways — plus repair and resetting of pavers that have settled.
@@ -757,7 +757,7 @@ services:
     hub: true
     title: Patio Installation in Southeastern Michigan | Mr. Brick
     description: Paver, natural stone, concrete and stamped concrete patios, fire features and outdoor kitchens built for Southeastern Michigan homes. Free quotes.
-    h1: Patios and outdoor living spaces
+    h1: Patio installation and outdoor living
     lede: Paver, stone and concrete patios — with seat walls, fire features and outdoor kitchens when you want more than a slab.
     image: paver-patio-wall
     tags: [patios, pavers]
@@ -815,7 +815,7 @@ services:
     hub: true
     title: Foundations & Footings in Southeastern Michigan | Mr. Brick
     description: Foundation crack repair, footings, block foundations for porches and additions, and retaining walls across Southeastern Michigan. Free quotes.
-    h1: Foundations, footings and structural masonry
+    h1: Foundations and footings
     lede: Footings, block foundations and foundation repairs for homes, porches, garages and additions.
     image: footing-excavation
     tags: [foundations, retaining-walls]
@@ -877,9 +877,9 @@ services:
   retaining-wall-services:
     name: Retaining Walls
     category: structural
-    title: Retaining Wall Installation in Southeastern Michigan | Mr. Brick
+    title: Retaining Wall Installation in SE Michigan | Mr. Brick
     description: Block, segmental, stone and brick retaining walls with proper base, drainage and reinforcement. Serving Southeastern Michigan. Free quotes.
-    h1: Retaining walls
+    h1: Retaining wall installation
     lede: Walls that hold back soil for years — built with the base, drainage and reinforcement that decide whether a retaining wall stands or leans.
     image: block-wall-concrete-steps
     tags: [retaining-walls]

@@ -1,5 +1,5 @@
 {% extends "inner.html" %}
-{% from "partials/macros.html" import picture, lightbox, cta_band %}
+{% from "partials/macros.html" import picture, lightbox, cta_band, icon %}
 {% block body %}
 <section class="section">
   <div class="container">
@@ -19,6 +19,21 @@
       </li>
       {% endfor %}
     </ul>
+  </div>
+</section>
+<section class="section section--concrete" aria-labelledby="by-service-title">
+  <div class="container two-col">
+    <div class="prose">
+      <h2 id="by-service-title">About these projects</h2>
+      <p>Every photo here is from a real Mr. Brick job. No stock photography. You'll see work in progress as well as finished results: chimneys on scaffolding, porch foundations before the brick goes on, and driveways mid-pour. How a job is built matters as much as how it looks on the last day.</p>
+      <p>Seeing something close to your project? Tell us which photo when you <a href="/request-quote">request a quote</a> or <a href="sms:{{ site.phone_e164 }}">text us</a>, and we'll explain what a similar job would involve at your home.</p>
+    </div>
+    <div>
+      <h2>Browse by service</h2>
+      <ul class="link-grid" role="list">
+        {% for c in categories %}<li><a href="/{{ c.hub }}"><span><strong>{{ c.name }}</strong><span>{{ c.short }}</span></span>{{ icon('arrow') }}</a></li>{% endfor %}
+      </ul>
+    </div>
   </div>
 </section>
 {{ cta_band(heading='Want results like these?', location='gallery') }}

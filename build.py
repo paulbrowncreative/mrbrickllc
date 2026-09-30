@@ -182,6 +182,10 @@ def webpage_schema(p):
            "primaryImageOfPage": {"@type": "ImageObject", "url": BASE + p["og_image"]}}
     if p.get("crumbs"):
         out["breadcrumb"] = {"@id": p["canonical"] + "#breadcrumb"}
+    if p.get("place"):
+        out["contentLocation"] = p["place"]
+    if p.get("type") == "service":
+        out["mainEntity"] = {"@id": p["canonical"] + "#service"}
     return out
 
 WEBSITE = {"@context": "https://schema.org", "@type": "WebSite", "@id": BASE + "/#website", "url": BASE + "/",
@@ -199,6 +203,8 @@ def add(path, template, title, description, **kw):
     img = p.get("og_image_id") or p.get("hero_image") or p.get("lcp_image") or "crew-brick-pillars-stone-steps"
     p["og_image"] = f"/static/img/{img}-{images[img]['jpg']}.jpg"
     p["og_image_alt"] = images[img]["alt"]
+    m = images[img]
+    p["og_image_w"], p["og_image_h"] = m["jpg"], round(m["h"] * m["jpg"] / m["w"])
     if p.get("hero_image") and not p.get("lcp_image"):
         p["lcp_image"] = p["hero_image"]
         p["lcp_sizes"] = "(min-width: 64em) 42vw, 100vw"
@@ -222,13 +228,13 @@ for f in faqs:
         FAQ_GROUPS.append(g)
     g[1].append(f)
 
-add("/", "home.html", "Masonry Contractor in Eastpointe & Southeast Michigan | Mr. Brick",
+add("/", "home.html", "Masonry Contractor in Eastpointe & SE Michigan | Mr. Brick",
     "Family-owned masonry and concrete contractor in Eastpointe serving Southeastern Michigan for 25+ years: brick, chimneys, porches, steps, concrete. Free quotes.",
     type="home", h1="Masonry built for Michigan winters", lcp_image="crew-brick-pillars-stone-steps", lcp_sizes="(min-width: 64em) 48vw, 100vw",
     og_title="Mr. Brick LLC — Masonry Contractors in Southeastern Michigan",
     extra_schema=[faq_schema(HOME_FAQS)])
 
-add("/services", "services_index.html", "Masonry & Concrete Services | Mr. Brick LLC",
+add("/services", "services_index.html", "Masonry & Concrete Services in SE Michigan | Mr. Brick",
     "Every masonry and concrete service Mr. Brick offers in Southeastern Michigan: brick, chimneys, porches, concrete, driveways, pavers, patios, foundations and walls.",
     h1="Masonry and concrete services", lede="Seven trades, one contractor. Find your project below, or call and describe it — we'll point you the right way.",
     crumbs=[H, ("Services", "/services")], hero_cta=True)
@@ -261,6 +267,7 @@ for slug, a in areas.items():
         area=a, hero_image=a["image"], hero_cta=True, type="area",
         photos=photos_for([t for f in a["focus"] for t in services[f].get("tags", [])], exclude=a["image"], n=6),
         crumbs=[H, ("Service Areas", "/service-areas"), (a["name"], f"/service-areas/{slug}")],
+        place={"@type": "AdministrativeArea", "name": a["name"] + ", Michigan"},
         extra_schema=[faq_schema(a["faqs"])] if a.get("faqs") else [])
 for slug, c in cities.items():
     county = areas[c["county"]]
@@ -269,6 +276,8 @@ for slug, c in cities.items():
         photos=photos_for([t for f in c["focus"] for t in services[f].get("tags", [])], exclude=c["image"], n=6),
         crumbs=[H, ("Service Areas", "/service-areas"), (county["name"], f"/service-areas/{c['county']}"),
                 (c["name"], f"/service-areas/{slug}")],
+        place={"@type": "City", "name": c["name"].replace("The ", "") + ", Michigan",
+               "containedInPlace": {"@type": "AdministrativeArea", "name": county["name"] + ", Michigan"}},
         extra_schema=[faq_schema(c["faqs"])] if c.get("faqs") else [])
 
 TAG_LABELS = {"chimneys": "Chimneys", "porches": "Porches", "steps": "Steps", "brick": "Brick", "stone": "Stone",
@@ -283,35 +292,35 @@ for k in ["chimneys", "porches", "steps", "brick", "stone", "concrete", "drivewa
     n = sum(1 for i in gallery_ids if k in images[i]["tags"])
     if n:
         filters.append((k, TAG_LABELS[k], n))
-add("/gallery", "gallery.html", "Masonry Project Photos | Brick, Chimney & Concrete | Mr. Brick",
+add("/gallery", "gallery.html", "Brick, Chimney & Porch Project Photos | Mr. Brick",
     "Photos of real Mr. Brick projects in Southeastern Michigan: chimney rebuilds, porches and steps, brick walkways, driveways, concrete and brick repair.",
-    h1="Project gallery", lede="Real Mr. Brick jobs. Filter by the kind of work you're planning.",
+    h1="Masonry project gallery", lede="Real Mr. Brick jobs. Filter by the kind of work you're planning.",
     crumbs=[H, ("Projects", "/gallery")], gallery=gallery_ids, filters=filters,
     type="gallery", og_image_id="chimney-before-after", schema_type="CollectionPage")
 
-add("/about", "about.html", "About Mr. Brick LLC | Family-Owned Masonry Contractor, Eastpointe MI",
+add("/about", "about.html", "About Mr. Brick | Family-Owned Masonry Contractor",
     "Family-owned masonry contractor based in Eastpointe, serving Southeastern Michigan for 25+ years. Licensed, insured, 10-year warranty on new construction.",
-    h1="Honest, practical and quick since day one", lede="A family-owned masonry contractor with more than 25 years of experience across Southeastern Michigan.",
+    h1="About Mr. Brick: honest, practical and quick", lede="A family-owned masonry contractor with more than 25 years of experience across Southeastern Michigan.",
     crumbs=[H, ("About", "/about")], hero_image="chimney-crew-scaffold", hero_cta=True, schema_type="AboutPage")
 
-add("/reviews", "reviews.html", "Mr. Brick LLC Reviews | Masonry Contractor in Southeastern Michigan",
+add("/reviews", "reviews.html", "Mr. Brick LLC Reviews | Eastpointe Masonry Contractor",
     "Read and leave reviews for Mr. Brick LLC, a family-owned masonry contractor serving Southeastern Michigan. See real project photos and our commitments.",
-    h1="Reviews", lede="Real feedback from real customers — and our commitments to every one of them.",
+    h1="Mr. Brick reviews", lede="Real feedback from real customers — and our commitments to every one of them.",
     crumbs=[H, ("Reviews", "/reviews")], hero_cta=True)
 
-add("/finance", "finance.html", "Masonry Financing Options | Mr. Brick LLC",
+add("/finance", "finance.html", "Masonry Financing in Southeastern Michigan | Mr. Brick",
     "Financing is available on qualifying masonry and concrete projects from Mr. Brick LLC. Learn how it works and call to discuss your options.",
     h1="Financing for your masonry project", lede="Needed repairs shouldn't have to wait. Financing options are available on qualifying projects.",
     crumbs=[H, ("Financing", "/finance")], hero_image="brick-steps-dark-treads")
 
 add("/special-offers", "offers.html", "Special Offers & Discounts | Mr. Brick LLC",
     "Current Mr. Brick masonry offers plus military, veteran, first responder and senior discounts. Mention your offer when you schedule a free quote.",
-    h1="Offers and discounts", lede="Current promotions plus standing discounts for military, veterans, first responders and seniors.",
+    h1="Masonry offers and discounts", lede="Current promotions plus standing discounts for military, veterans, first responders and seniors.",
     crumbs=[H, ("Special Offers", "/special-offers")], hero_cta=True)
 
-add("/faqs", "faqs.html", "Masonry FAQs | Cost, Timing, Warranty & Financing | Mr. Brick LLC",
+add("/faqs", "faqs.html", "Masonry FAQs: Cost, Timing & Warranty | Mr. Brick LLC",
     "Straight answers on masonry and chimney repair costs, project timing, concrete curing, tuckpointing, foundations, warranty and financing from Mr. Brick LLC.",
-    h1="Frequently asked questions", lede="The questions we hear most, answered plainly.",
+    h1="Masonry FAQs", lede="The questions we hear most, answered plainly.",
     crumbs=[H, ("FAQs", "/faqs")], faq_groups=FAQ_GROUPS, extra_schema=[faq_schema(faqs)])
 
 add("/contact", "contact.html", "Contact Mr. Brick LLC | Call or Text (586) 209-3052",
@@ -331,11 +340,12 @@ add("/resources", "resources.html", "Masonry Guides for Michigan Homeowners | Mr
 for p in posts:
     add(f"/resources/{p['slug']}", "post.html", p["seo_title"], p["description"], h1=p["title"],
         lede=p["description"], post=p, og_type="article", lastmod=p.get("updated", p["date"]), og_image_id=p["image"], lcp_image=None,
-        crumbs=[H, ("Resources", "/resources"), (p["category"], f"/resources/{p['slug']}")], type="post",
+        crumbs=[H, ("Resources", "/resources"), (p.get("crumb", p["title"]), f"/resources/{p['slug']}")], type="post",
         extra_schema=[{"@context": "https://schema.org", "@type": "BlogPosting", "headline": p["title"],
                        "description": p["description"], "datePublished": p["date"], "dateModified": p["date"],
                        "image": BASE + f"/static/img/{p['image']}-{images[p['image']]['jpg']}.jpg",
-                       "author": {"@id": BIZ_ID}, "publisher": {"@id": BIZ_ID},
+                       "author": {"@type": "Organization", "@id": BIZ_ID, "name": site["name"], "url": BASE + "/about"},
+                       "publisher": {"@id": BIZ_ID}, "articleSection": p["category"], "inLanguage": "en-US",
                        "mainEntityOfPage": url_of(f"/resources/{p['slug']}")}])
 
 LEGAL = yaml.safe_load(open(C / "legal.yaml"))
@@ -442,18 +452,22 @@ def build():
         p["schema"] = schema
         html_out = env.get_template(p["template"]).render(page=p, **{k: v for k, v in p.items() if k not in ("title",)})
         html_out = re.sub(r"\n\s*\n+", "\n", html_out)
+        main = html_out.split('<main id="main">', 1)[-1].split("</main>", 1)[0]
+        p["img_srcs"] = list(dict.fromkeys(re.findall(r'<img src="(/static/img/[^"]+\.jpg)"', main)))
         dest = out_path(p["path"])
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_text(html_out)
 
     # sitemap
     urls = [p for p in PAGES if not p.get("noindex")]
-    sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    sm = ['<?xml version="1.0" encoding="UTF-8"?>',
+          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">']
     for p in urls:
         # lastmod only where we genuinely know it; a build date on every URL
         # teaches Google to ignore the field.
         lm = p.get("lastmod")
-        sm.append(f"  <url><loc>{p['canonical']}</loc>" + (f"<lastmod>{lm}</lastmod>" if lm else "") + "</url>")
+        imgs = "".join(f"<image:image><image:loc>{BASE}{src}</image:loc></image:image>" for src in p.get("img_srcs", [])[:50])
+        sm.append(f"  <url><loc>{p['canonical']}</loc>" + (f"<lastmod>{lm}</lastmod>" if lm else "") + imgs + "</url>")
     sm.append("</urlset>")
     (DIST / "sitemap.xml").write_text("\n".join(sm) + "\n")
     (DIST / "robots.txt").write_text(f"User-agent: *\nDisallow: /thank-you\n\nSitemap: {BASE}/sitemap.xml\n")

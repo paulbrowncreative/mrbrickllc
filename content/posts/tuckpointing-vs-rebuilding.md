@@ -1,7 +1,7 @@
 ---
 title: "Tuckpointing vs. Rebuilding: How to Tell What Your Brick Needs"
 slug: tuckpointing-vs-rebuilding
-seo_title: "Tuckpointing vs. Rebuilding Brick: Which Do You Need? | Mr. Brick"
+seo_title: "Tuckpointing vs. Rebuilding Brick | Mr. Brick"
 description: "How to tell whether a brick wall or chimney needs repointing, brick replacement, or a rebuild — the signs a mason looks for, explained plainly."
 date: 2026-09-27
 category: Brick Repair
