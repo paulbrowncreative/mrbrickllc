@@ -561,7 +561,54 @@ h4 { font-size: var(--step-1); font-stretch: 90%; font-weight: 700; line-height:
 .review { margin: 0; padding: var(--s-5); background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-m); }
 .review blockquote { margin: 0 0 var(--s-4); }
 .review figcaption { font-size: var(--step--1); color: var(--slate); }
-.stars { color: var(--brick); letter-spacing: 0.1em; }
+.stars { color: var(--brick); letter-spacing: 0.1em; margin: 0 0 var(--s-3); line-height: 1; font-size: 1.1rem; }
+.stars__off { color: var(--mortar); }
+.review { height: 100%; display: flex; flex-direction: column; }
+.review blockquote { flex: 1; }
+.review blockquote p { margin: 0; }
+.review figcaption { display: flex; flex-direction: column; gap: 0.1rem; }
+.review__name { font-weight: 800; font-stretch: 90%; color: var(--ink); font-size: var(--step-0); }
+.review-list .review-card { list-style: none; }
+
+/* Reviews summary */
+.reviews-head { margin-bottom: var(--s-6); }
+.reviews-summary .stars { display: inline; margin: 0 0.35rem 0 0; }
+.reviews-summary .text-link { display: inline-block; margin-left: 0.35rem; }
+@media (min-width: 48em) { .reviews-summary { padding-right: 11rem; } }
+
+/* Review marquee: CSS-only loop over two copies of the list (-50% = one copy).
+   Pauses on hover and keyboard focus; the button pauses it for good (WCAG 2.2.2).
+   Reduced motion: no animation, a swipeable row instead. */
+.marquee { position: relative; }
+.marquee__viewport {
+  overflow: hidden; margin-inline: calc(-1 * var(--gutter)); padding: var(--s-2) 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+}
+.marquee__track { list-style: none; margin: 0; padding: 0 0 0 var(--gutter); display: flex; gap: var(--s-4); width: max-content; }
+.marquee .review-card { flex: none; width: min(22rem, 80vw); }
+.marquee .review blockquote p { display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical; overflow: hidden; }
+.marquee .review { box-shadow: var(--shadow-1); }
+.marquee__toggle {
+  position: absolute; right: 0; top: calc(-1 * var(--s-6) - 2.75rem); z-index: 2;
+  display: inline-flex; align-items: center; gap: 0.4rem; min-height: 2.75rem; padding: 0.4rem 0.9rem;
+  border: 2px solid var(--line); border-radius: 999px; background: var(--white); color: var(--ink);
+  font-weight: 700; font-size: var(--step--1); cursor: pointer;
+}
+.marquee__toggle:hover { border-color: var(--ink); }
+.marquee__toggle svg { width: 1rem; height: 1rem; }
+.js .marquee__toggle[hidden] { display: inline-flex; }
+@media (max-width: 47.99em) { .marquee__toggle { position: static; margin-bottom: var(--s-4); } }
+@media (prefers-reduced-motion: no-preference) {
+  .marquee__track { animation: marquee var(--marquee-duration, 120s) linear infinite; }
+  .marquee:hover .marquee__track, .marquee:focus-within .marquee__track, .marquee.is-paused .marquee__track { animation-play-state: paused; }
+  @keyframes marquee { to { transform: translateX(calc(-50% - var(--s-4) / 2)); } }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee__viewport { overflow-x: auto; scroll-snap-type: x mandatory; -webkit-mask-image: none; mask-image: none; }
+  .marquee .review-card { scroll-snap-align: start; }
+  .marquee .review-card[aria-hidden="true"], .js .marquee__toggle[hidden] { display: none; }
+}
 
 /* ---------------------------------------------------------------- FAQ */
 .faq { border-top: 2px solid var(--ink); }

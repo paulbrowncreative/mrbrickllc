@@ -1,27 +1,65 @@
 {% from "partials/macros.html" import icon %}
-<div class="section-head">
+{# Reviews come only from content/reviews.yaml (verified, copied verbatim).
+   mode: "marquee" (auto-scrolling cards, pausable) or "grid" (all reviews). #}
+{% set mode = review_mode|default('marquee') %}
+{% set g_url = site.google_maps_url %}
+<div class="section-head reviews-head">
   <h2 id="reviews-title">What customers say</h2>
-  {% if not reviews %}<p>We only publish real reviews. Read them where they were written.</p>{% endif %}
+  {% if reviews %}
+  <p class="reviews-summary">
+    {% if site.google_rating %}<span class="stars" aria-hidden="true">★★★★★</span> <strong>{{ site.google_rating }} out of 5</strong> on Google{% if site.google_review_count %} from {{ site.google_review_count }} reviews{% endif %}.{% else %}Real reviews from Mr. Brick customers on Google.{% endif %}
+    {% if g_url %}<a class="text-link" href="{{ g_url }}" target="_blank" rel="noopener" data-review-link="google">Read {{ 'all ' ~ site.google_review_count ~ ' ' if site.google_review_count else 'them ' }}on Google<span class="visually-hidden"> (opens in new tab)</span></a>{% endif %}
+  </p>
+  {% else %}
+  <p>We only publish real reviews. Read them where they were written.</p>
+  {% endif %}
 </div>
-{% if reviews %}
-<ul class="review-list" role="list">
-  {% for r in reviews[:limit|default(6)] %}
-  <li><figure class="review">
-    {% if r.rating %}<p class="stars" aria-label="{{ r.rating }} out of 5 stars">{{ '★' * r.rating }}</p>{% endif %}
+
+{% macro card(r, hidden=false) -%}
+<li class="review-card"{% if hidden %} aria-hidden="true"{% endif %}>
+  <figure class="review">
+    {% if r.rating %}<p class="stars"{% if not hidden %} role="img" aria-label="{{ r.rating }} out of 5 stars"{% endif %}>{{ '★' * (r.rating|int) }}<span class="stars__off">{{ '★' * (5 - r.rating|int) }}</span></p>{% endif %}
     <blockquote><p>{{ r.text }}</p></blockquote>
-    <figcaption>{{ r.name }} · {{ r.source }}{% if r.date %} · <time datetime="{{ r.date }}">{{ r.date }}</time>{% endif %}</figcaption>
-  </figure></li>
-  {% endfor %}
+    <figcaption>
+      <span class="review__name">{{ r.name }}</span>
+      <span class="review__meta">{{ r.source|default('Google') }}{% if r.date %} · <time datetime="{{ r.date }}">{{ r.date|review_date }}</time>{% endif %}</span>
+    </figcaption>
+  </figure>
+</li>
+{%- endmacro %}
+
+{% if reviews and mode == 'marquee' %}
+{% set shown = reviews[:limit|default(40)] %}
+<div class="marquee" data-marquee style="--marquee-duration: {{ [shown|length * 7, 40]|max }}s">
+  <button class="marquee__toggle" type="button" aria-pressed="false" hidden>{{ icon('pause') }}<span>Pause reviews</span></button>
+  <div class="marquee__viewport">
+    <ul class="marquee__track" role="list" aria-label="Customer reviews">
+      {% for r in shown %}{{ card(r) }}{% endfor %}
+      {# Second copy makes the loop seamless; hidden from assistive tech. #}
+      {% for r in shown %}{{ card(r, hidden=true) }}{% endfor %}
+    </ul>
+  </div>
+</div>
+<div class="btn-row mt-6" data-cta-location="reviews">
+  <a class="btn" href="/request-quote" data-cta="quote_reviews">Request a Free Quote</a>
+  {% if page.path != '/reviews' %}<a class="btn btn--ghost" href="/reviews">See All Reviews</a>{% endif %}
+</div>
+{% elif reviews %}
+<ul class="review-list" role="list">
+  {% for r in reviews %}{{ card(r) }}{% endfor %}
 </ul>
-{% else %}
-<div class="review-empty" data-cta-location="reviews">
+{% endif %}
+
+{% if not reviews or page.path == '/reviews' %}
+<div class="review-empty{{ ' mt-6' if reviews }}" data-cta-location="reviews">
   <div>
     <h3>Worked with Mr. Brick?</h3>
-    <p class="mb-0">Your review helps neighbors choose a contractor with confidence — and it's the best thank-you we can get.</p>
+    <p class="mb-0">Your review helps neighbors choose a contractor with confidence, and it's the best thank-you we can get.</p>
   </div>
   <div class="btn-row">
-    {% if site.google_review_url %}<a class="btn" href="{{ site.google_review_url }}" target="_blank" rel="noopener" data-review-link="google">Review us on Google</a>{% endif %}
-    <a class="btn {{ 'btn--ghost' if site.google_review_url }}" href="{{ site.social[0].url }}" target="_blank" rel="noopener" data-review-link="facebook">See us on Facebook</a>
+    {% if site.google_review_url %}<a class="btn" href="{{ site.google_review_url }}" target="_blank" rel="noopener" data-review-link="google">Review us on Google</a>
+    {% elif g_url %}<a class="btn" href="{{ g_url }}" target="_blank" rel="noopener" data-review-link="google">Find us on Google</a>{% endif %}
+    <a class="btn {{ 'btn--ghost' if site.google_review_url or g_url }}" href="{{ site.social[0].url }}" target="_blank" rel="noopener" data-review-link="facebook">See us on Facebook</a>
   </div>
 </div>
 {% endif %}

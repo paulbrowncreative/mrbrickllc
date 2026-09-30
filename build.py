@@ -106,6 +106,13 @@ def paras(text):
     parts = [p.strip() for p in (text or "").strip().split("\n\n") if p.strip()]
     return Markup("".join("<p>" + html.escape(" ".join(p.split())) + "</p>" for p in parts))
 env.filters["paras"] = paras
+
+def review_date(v):
+    try:
+        return dt.date.fromisoformat(str(v)).strftime("%B %Y")
+    except ValueError:
+        return str(v)
+env.filters["review_date"] = review_date
 env.tests["contains"] = lambda seq, x: x in (seq or [])
 
 ASSETS = {}

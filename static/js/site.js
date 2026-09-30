@@ -377,6 +377,21 @@
     if (lead) track('quote_request', lead);
   }
 
+  /* Review marquee: explicit pause/play control (hover/focus pause is CSS). */
+  doc.querySelectorAll('[data-marquee]').forEach(function (m) {
+    var btn = m.querySelector('.marquee__toggle');
+    if (!btn) return;
+    var label = btn.querySelector('span');
+    var pauseIcon = btn.querySelector('svg').outerHTML;
+    var playIcon = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+    btn.addEventListener('click', function () {
+      var paused = m.classList.toggle('is-paused');
+      btn.setAttribute('aria-pressed', String(paused));
+      btn.querySelector('svg').outerHTML = paused ? playIcon : pauseIcon;
+      label.textContent = paused ? 'Play reviews' : 'Pause reviews';
+    });
+  });
+
   /* ======================================================================
      6. GALLERY — filter chips + <dialog> lightbox.
      ====================================================================== */

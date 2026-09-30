@@ -40,8 +40,13 @@ social:
   - {name: YouTube, url: "https://youtube.com/@mrbrickllc"}
   - {name: TikTok, url: "https://www.tiktok.com/@mr.brick.llc"}
 # Paste the real Google review link (from Google Business Profile > "Ask for reviews") when available.
-google_review_url: ""
-google_maps_url: ""
+google_review_url: ""   # the "write a review" link from Google Business Profile > Ask for reviews
+# Public link to the Google Business Profile (shown as "Read them on Google").
+google_maps_url: "https://share.google/feP2sxOT53KzePCc2"
+# Shown in the reviews summary only when filled in. Copy them from the Google
+# profile and update them occasionally so they stay accurate.
+google_rating: ""        # e.g. "4.9"
+google_review_count: 36
 
 tracking:
   # Leave blank until real IDs exist. Nothing loads while blank (no invented IDs).

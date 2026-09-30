@@ -1,6 +1,20 @@
-# Verified customer reviews ONLY. Copy real reviews (with permission where required)
-# from Google, Facebook, etc. Leave empty until then — the site will show links to
-# review platforms instead of testimonials. Never invent or paraphrase reviews.
-# Example entry (do not uncomment until real):
-# - {name: "First L.", text: "Exact review text", source: Google, date: 2026-05-01, rating: 5, url: ""}
+# Verified customer reviews ONLY, copied word for word from the Google
+# Business Profile (or Facebook). Never invent, edit or paraphrase a review.
+# When this list has entries the site shows them automatically:
+#   - a scrolling review marquee on the home page and every service page
+#   - every review as cards on /reviews
+# Also fill in google_rating (and update google_review_count) in site.yaml.
+#
+# Format (one entry per review; rating 1-5; date YYYY-MM-DD, or leave it out):
+#
+# reviews:
+#   - name: "Jane D."
+#     rating: 5
+#     date: 2026-05-01
+#     source: Google
+#     text: >-
+#       Paste the full review text here exactly as written.
+#
+# Use first name + last initial unless the reviewer's Google display name is
+# already public in that form.
 reviews: []
