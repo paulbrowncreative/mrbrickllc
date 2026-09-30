@@ -205,3 +205,14 @@ Measured on a simulated mobile connection (150 ms latency, 1.6 Mbps, 4× CPU slo
 ## Deliberately not changed
 - **URL slugs.** The existing slugs (`/chimney-repair`, `/tuckpointing`, `/porch-rebuilds`, and so on) are the URLs Google has already indexed for www.mrbrickllc.com. Renaming them would restart their ranking history for a marginal keyword gain, so they stay. New pages use clean, descriptive slugs.
 - **FAQPage markup.** It's kept because it's accurate and matches the visible questions. Google currently shows FAQ rich results mainly for government and health sites, so expect no FAQ snippets from it; other search and AI engines still read it.
+
+---
+
+# Reviews — September 30, 2026
+- **34 verified Google reviews**, all 5-star, are in `content/reviews.yaml`, copied word for word as supplied.
+  - Home page and every service page: a scrolling review row with Pause/Play, pause on hover or focus, and a still, swipeable row for reduced motion.
+  - `/reviews`: every review as a card.
+  - Service pages lead with the reviews that mention that kind of work (keyword ranking in `build.py`: `REVIEW_KEYWORDS`).
+- **Summary line:** "5.0 out of 5 on Google from 36 reviews", linking to the Business Profile. Keep `google_rating` and `google_review_count` in `site.yaml` current.
+- **Excluded:** Joseph K.'s post. It's written by a team member ("we specialize…", "ask for Joe"), and presenting insider content as a customer review violates the FTC Consumer Reviews rule (16 CFR 465) and Google's review policies.
+- **No `AggregateRating` / `Review` schema was added.** Google doesn't award review stars to a business marking up reviews about itself (it treats them as self-serving), and the rating is Google's own.

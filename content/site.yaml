@@ -45,7 +45,7 @@ google_review_url: ""   # the "write a review" link from Google Business Profile
 google_maps_url: "https://share.google/feP2sxOT53KzePCc2"
 # Shown in the reviews summary only when filled in. Copy them from the Google
 # profile and update them occasionally so they stay accurate.
-google_rating: ""        # e.g. "4.9"
+google_rating: "5.0"      # from the Google Business Profile; update when it changes
 google_review_count: 36
 
 tracking:

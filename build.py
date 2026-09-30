@@ -225,6 +225,17 @@ def photos_for(tags, exclude=None, n=6):
     return (primary + secondary)[:n]
 
 H = ("Home", "/")
+REVIEW_KEYWORDS = {"brick": ["brick", "tuck", "spalling", "mason"], "chimney": ["chimney"],
+                   "porch": ["porch", "step", "stair"], "concrete": ["concrete", "slab", "cement", "pool"],
+                   "flatwork": ["driveway", "paver", "concrete", "slab"], "outdoor": ["patio", "paver", "pool"],
+                   "structural": ["foundation", "wall", "porch"]}
+# Most specific first; these lead before the category keywords above.
+REVIEW_KEYWORDS_BY_SERVICE = {"tuckpointing": ["tuck"], "brick-repair": ["spalling"],
+                              "chimney-rebuilding": ["rebuild"], "stair-services": ["step", "stair"],
+                              "paver-services": ["paver"], "walkway-services": ["paver"],
+                              "driveway-repair": ["driveway", "slab"], "concrete-driveway-installation": ["driveway"],
+                              "concrete-resurfacing": ["smooth", "sand"], "foundation-repair": ["foundation"],
+                              "foundation-services": ["foundation"]}
 HOME_FAQS = [f for f in faqs if f.get("home")]
 AREA_SCHEMA = [{"@type": "AdministrativeArea", "name": a["name"] + ", MI"} for a in areas.values()]
 FAQ_GROUPS = []
@@ -261,7 +272,14 @@ for slug, s in services.items():
               "areaServed": AREA_SCHEMA + [{"@type": "AdministrativeArea", "name": "Southeastern Michigan"}]}]
     if s.get("faqs"):
         extra.append(faq_schema(s["faqs"]))
+    # Reviews that mention this kind of work lead on its service page.
+    kws = REVIEW_KEYWORDS_BY_SERVICE.get(slug, []) + REVIEW_KEYWORDS[s["category"]]
+    def review_rank(r, kws=kws):
+        text = re.sub(r"mr\.? ?brick( llc)?", "", r["text"].lower())
+        return min((i for i, k in enumerate(kws) if k in text), default=len(kws))
+    ranked = sorted(reviews, key=review_rank)  # stable: ties keep the original order
     add("/" + slug, "service.html", s["title"], s["description"], type="service", service_slug=slug,
+        page_reviews=ranked,
         svc=s, hub=hub, children=cat["children"] if s["hub"] else [], related=related,
         photos=photos_for(s.get("tags", []), exclude=s["image"]), crumbs=crumbs,
         lcp_image=s["image"], lcp_sizes="(min-width: 64em) 42vw, 100vw", og_image_id=s["image"], extra_schema=extra)

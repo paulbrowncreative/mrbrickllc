@@ -100,7 +100,7 @@
 
 {% if reviews %}
 <section class="section section--concrete" aria-labelledby="reviews-title">
-  <div class="container">{% include "partials/reviews_block.html" %}</div>
+  <div class="container">{% set reviews = page.page_reviews %}{% include "partials/reviews_block.html" %}</div>
 </section>
 {% endif %}
 
