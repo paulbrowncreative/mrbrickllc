@@ -199,9 +199,16 @@ h4 { font-size: var(--step-1); font-stretch: 90%; font-weight: 700; line-height:
   display: flex; align-items: center; gap: var(--s-4);
   min-height: var(--header-h);
 }
-.brand { display: block; flex: none; margin-right: auto; }
-.brand img { width: 132px; height: auto; }
-@media (min-width: 64em) { .brand img { width: 150px; } }
+/* Logo is sized by height so it always sits inside the bar with even
+   breathing room above and below (header height minus 2 x padding). */
+.brand { display: block; flex: none; margin-right: auto; padding-block: 0.5rem; }
+.brand img { height: 3.1rem; width: auto; }
+@media (min-width: 64em) {
+  :root { --header-h: 5rem; }
+  .brand { padding-block: 0.6rem; margin-right: var(--s-6); }
+  .brand img { height: 3.6rem; }
+  .primary-nav { margin-left: auto; }
+}
 
 .nav-toggle {
   display: inline-flex; align-items: center; gap: 0.5rem;

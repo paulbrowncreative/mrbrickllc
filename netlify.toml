@@ -2,6 +2,10 @@
   command = "python3 build.py"
   publish = "dist"
 
+[functions]
+  # submission-created.js emails each verified quote request (see the file header)
+  directory = "netlify/functions"
+
 [build.environment]
   PYTHON_VERSION = "3.12"
 

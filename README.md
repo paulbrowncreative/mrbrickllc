@@ -28,3 +28,18 @@ Deploy zip: `python3 build.py && (cd dist && zip -qr ../mrbrickllc-netlify-dist.
 
 ## Docs
 `docs/` contains the launch report, analytics event map, redirect map, URL inventory and metadata map.
+
+## Quote form → email
+The quote form posts silently (no page reload, no third-party redirect) to Netlify Forms, which
+stores every submission and its photos. `netlify/functions/submission-created.js` then runs
+server-side on each verified (non-spam) submission and emails the lead to
+**mrbrickdesignco@gmail.com** with the customer's email as reply-to.
+
+Setup (once):
+1. Create a free account at resend.com **using mrbrickdesignco@gmail.com**, create an API key.
+2. Netlify → Site configuration → Environment variables → add `RESEND_API_KEY` (scope: Functions).
+3. Redeploy. Optional: verify mrbrickllc.com in Resend and set `LEAD_FROM="Mr. Brick Website <leads@mrbrickllc.com>"`.
+4. Backup: Netlify → Forms → Form notifications → add an email notification to mrbrickdesignco@gmail.com.
+
+Functions only deploy from Git (or the Netlify CLI). A drag-and-drop zip deploy still collects
+leads in Netlify Forms, so use step 4 for email in that case.
