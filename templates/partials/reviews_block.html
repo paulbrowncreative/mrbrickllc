@@ -2,6 +2,8 @@
 {# Reviews come only from content/reviews.yaml (verified, copied verbatim).
    mode: "marquee" (auto-scrolling cards, pausable) or "grid" (all reviews). #}
 {% set mode = review_mode|default('marquee') %}
+{# A loop needs enough cards to fill the row; below 4, show still cards. #}
+{% if mode == 'marquee' and reviews|length < 4 %}{% set mode = 'grid' %}{% endif %}
 {% set g_url = site.google_maps_url %}
 <div class="section-head reviews-head">
   <h2 id="reviews-title">What customers say</h2>
@@ -48,6 +50,12 @@
 <ul class="review-list" role="list">
   {% for r in reviews %}{{ card(r) }}{% endfor %}
 </ul>
+{% if page.path != '/reviews' %}
+<div class="btn-row mt-6" data-cta-location="reviews">
+  <a class="btn" href="/request-quote" data-cta="quote_reviews">Request a Free Quote</a>
+  <a class="btn btn--ghost" href="/reviews">See All Reviews</a>
+</div>
+{% endif %}
 {% endif %}
 
 {% if not reviews or page.path == '/reviews' %}

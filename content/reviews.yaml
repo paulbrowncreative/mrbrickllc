@@ -17,4 +17,9 @@
 #
 # Use first name + last initial unless the reviewer's Google display name is
 # already public in that form.
-reviews: []
+reviews:
+  - name: "Katie R."
+    rating: 5
+    source: Google
+    text: >-
+      I hired Mr. Brick to do some work on my chimney. They were fast, professional and friendly. The worke turned out great, you can tell they put a lot of pride into it. Will certainly hire them again if ever needed and would recommend to others.
