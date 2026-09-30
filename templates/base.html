@@ -31,6 +31,7 @@
 <link rel="icon" href="/static/img/icon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="/static/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
+<link rel="alternate" type="application/rss+xml" title="{{ site.name }} Blog" href="/blog/feed.xml">
 <link rel="preload" href="/static/fonts/archivo-var-latin.woff2" as="font" type="font/woff2" crossorigin>
 {% if page.lcp_image %}{% set m = images[page.lcp_image] %}<link rel="preload" as="image" type="image/avif" imagesrcset="{% for x in m.widths %}/static/img/{{ page.lcp_image }}-{{ x }}.avif {{ x }}w{{ ', ' if not loop.last }}{% endfor %}" imagesizes="{{ page.lcp_sizes|default('(min-width: 64em) 48vw, 100vw') }}" fetchpriority="high">{% endif %}
 <link rel="stylesheet" href="{{ asset('css/site.css') }}">
@@ -89,7 +90,7 @@
           </div>
         </li>
         <li class="has-dropdown">
-          {% set about_links = [('About Mr. Brick','/about'),('Reviews','/reviews'),('Financing','/finance'),('Special offers','/special-offers'),('FAQs','/faqs'),('Masonry guides','/resources')] %}
+          {% set about_links = [('About Mr. Brick','/about'),('Reviews','/reviews'),('Financing','/finance'),('Special offers','/special-offers'),('FAQs','/faqs')] %}
           <button class="nav-sub-toggle" type="button" aria-expanded="false" aria-controls="menu-about">About {{ icon('chev') }}</button>
           <div class="dropdown" id="menu-about">
             <ul>
@@ -97,6 +98,7 @@
             </ul>
           </div>
         </li>
+        <li><a href="/blog"{% if page.path == '/blog' or page.path.startswith('/blog/') %} aria-current="page"{% endif %}>Blog</a></li>
         <li><a href="/contact"{% if page.path == '/contact' %} aria-current="page"{% endif %}>Contact</a></li>
       </ul>
       <div class="nav-cta" data-cta-location="mobile_menu">
@@ -157,7 +159,7 @@
     <div>
       <h2>Company</h2>
       <ul>
-        {% for label, url in [('About Mr. Brick','/about'),('Projects','/gallery'),('Reviews','/reviews'),('Financing','/finance'),('Special offers','/special-offers'),('FAQs','/faqs'),('Masonry guides','/resources'),('Contact','/contact'),('Request a quote','/request-quote')] %}<li><a href="{{ url }}">{{ label }}</a></li>{% endfor %}
+        {% for label, url in [('About Mr. Brick','/about'),('Projects','/gallery'),('Reviews','/reviews'),('Financing','/finance'),('Special offers','/special-offers'),('FAQs','/faqs'),('Blog','/blog'),('Contact','/contact'),('Request a quote','/request-quote')] %}<li><a href="{{ url }}">{{ label }}</a></li>{% endfor %}
       </ul>
     </div>
   </div>

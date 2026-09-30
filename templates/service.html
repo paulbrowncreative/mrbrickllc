@@ -100,7 +100,7 @@
 
 {% if reviews %}
 <section class="section section--concrete" aria-labelledby="reviews-title">
-  <div class="container">{% set reviews = page.page_reviews %}{% include "partials/reviews_block.html" %}</div>
+  <div class="container">{% set reviews = page.page_reviews[:5] %}{% include "partials/reviews_block.html" %}</div>
 </section>
 {% endif %}
 
@@ -128,7 +128,7 @@
       {% if guides %}
       <h2 class="mt-6" style="font-size:var(--step-2)">Helpful guides</h2>
       <ul class="link-grid" role="list">
-        {% for g in guides %}<li><a href="/resources/{{ g.slug }}"><span><strong>{{ g.title }}</strong></span>{{ icon('arrow') }}</a></li>{% endfor %}
+        {% for g in guides %}<li><a href="{{ g.url }}"><span><strong>{{ g.title }}</strong></span>{{ icon('arrow') }}</a></li>{% endfor %}
       </ul>
       {% endif %}
     </div>

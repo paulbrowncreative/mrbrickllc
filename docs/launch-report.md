@@ -216,3 +216,27 @@ Measured on a simulated mobile connection (150 ms latency, 1.6 Mbps, 4× CPU slo
 - **Summary line:** "5.0 out of 5 on Google from 36 reviews", linking to the Business Profile. Keep `google_rating` and `google_review_count` in `site.yaml` current.
 - **Excluded:** Joseph K.'s post. It's written by a team member ("we specialize…", "ask for Joe"), and presenting insider content as a customer review violates the FTC Consumer Reviews rule (16 CFR 465) and Google's review policies.
 - **No `AggregateRating` / `Review` schema was added.** Google doesn't award review stars to a business marking up reviews about itself (it treats them as self-serving), and the rating is Google's own.
+
+---
+
+# Blog — September 30, 2026
+- **Where it lives:** `/blog`, in the main nav (the About menu's old "Masonry guides" link was folded into it). The old `/resources` URLs 301 to `/blog`.
+- **29 articles:** 26 new plus the 3 original guides. Every service page has at least one supporting article that links back to it (topic clusters). Each article targets one homeowner question, such as "why is my brick flaking", "chimney crown vs cap", "stamped concrete vs pavers", "how deep do footings need to be in Michigan" and "how to choose a masonry contractor".
+- **Articles include:**
+  - Real Mr. Brick project photos, both in the header and inline
+  - Table of contents, reading time, published date and author box
+  - Visible FAQs with `FAQPage` markup
+  - Service quote call-to-action, related services and "Keep reading"
+- **Blog index:** a featured guide (`featured: true`), topic jump links, and one section per service category, each linking to its service hub.
+- **Structured data:**
+  - `BlogPosting`: author, dates, `wordCount`, `articleSection`, and an `about` link to the matching `Service` entities.
+  - `Blog` and `ItemList` on the index.
+- **RSS:** `/blog/feed.xml`, linked from every page.
+- **Other pages:** a home page "From the blog" section, and service pages list their related guides.
+- **No invented facts:** no prices, statistics or project claims. Technical guidance is general and defers to the local building department where codes apply (for example, 42-inch frost depth "commonly", confirm locally).
+- **Review row:** service pages show their 5 most relevant reviews and the home page shows 12, so reviews don't dominate each page's unique content. The loop copies are now built by JavaScript, so each review appears once in the HTML.
+
+## Next for the blog
+- Publish roughly one new article a month from real customer questions, with photos from real jobs.
+- After 60–90 days, use Search Console to find the articles getting impressions and expand those with more detail, photos and FAQs.
+- Add project photos (for example, the pool deck before/after from R.'s review) to the matching articles.

@@ -133,7 +133,7 @@
 
 <section class="section section--concrete" aria-labelledby="reviews-title">
   <div class="container">
-    {% include "partials/reviews_block.html" %}
+    {% set reviews = reviews[:12] %}{% include "partials/reviews_block.html" %}
   </div>
 </section>
 
@@ -149,6 +149,20 @@
   </div>
 </section>
 {% endif %}
+
+<section class="section" aria-labelledby="blog-title">
+  <div class="container">
+    <div class="section-head section-head--row">
+      <div>
+        <h2 id="blog-title">From the Mr. Brick blog</h2>
+        <p>Plain-English guides to the masonry problems we see on Michigan homes every week.</p>
+      </div>
+      <a class="btn btn--ghost" href="/blog">Read the Blog</a>
+    </div>
+    {% from "partials/macros.html" import post_cards %}
+    {{ post_cards(posts[:3], hl='h3') }}
+  </div>
+</section>
 
 <section class="section section--concrete" aria-labelledby="faq-title">
   <div class="container two-col">

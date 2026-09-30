@@ -4,7 +4,6 @@ slug: chimney-repair-warning-signs
 seo_title: "7 Signs Your Chimney Needs Repair | Mr. Brick"
 description: "Cracked crowns, washed-out mortar, spalling brick and ceiling stains: the chimney warning signs Michigan homeowners should watch for, and what each one means."
 date: 2026-09-27
-category: Chimneys
 image: chimney-crew-scaffold
 services: [chimney-repair, chimney-rebuilding, tuckpointing]
 ---
@@ -34,6 +33,8 @@ A chimney cap keeps rain, birds and animals out of the flue. Rust streaks down t
 ## 6. Stains on ceilings or walls near the chimney
 
 Water stains near a chimney are often blamed on the roof. Sometimes that's right — flashing is part of the roof — but cracked crowns and open mortar joints cause just as many leaks. It's worth having the masonry checked before re-roofing around it.
+
+[[photo:chimney-roof-scaffold|A brick chimney with scaffolding set up for repair.]]
 
 ## 7. A lean or gap at the roofline
 

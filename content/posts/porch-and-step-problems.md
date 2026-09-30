@@ -4,7 +4,6 @@ slug: porch-and-step-problems
 seo_title: "Why Brick Porches & Steps Fail in Michigan | Mr. Brick"
 description: "Settling slabs, popped caps, loose brick and tipping steps: why Southeastern Michigan porches fail, when restoration works, and when only a rebuild lasts."
 date: 2026-09-27
-category: Porches
 image: porch-stone-steps-columns
 services: [porch-restorations, porch-rebuilds, stair-services]
 ---
@@ -24,6 +23,8 @@ Drive through almost any post-war neighborhood in Southeastern Michigan and you'
 ## When restoration makes sense
 
 If the porch hasn't moved — it's level, tight to the house, and the walls are straight — the problems are on the surface, and [porch restoration](/porch-restorations) is usually the right call. That can mean resetting or replacing caps, replacing and repointing brick, resurfacing the slab, and repairing step edges.
+
+[[photo:brick-steps-dark-treads|Rebuilt brick steps with dark stone treads.]]
 
 ## When it needs a rebuild
 

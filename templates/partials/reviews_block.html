@@ -32,17 +32,13 @@
 
 {% if reviews and mode == 'marquee' %}
 {% set shown = reviews[:limit|default(40)] %}
-<div class="marquee" data-marquee style="--marquee-duration: {{ [shown|length * ((6 + shown|length - 1) // shown|length if shown|length < 6 else 1) * 7, 40]|max }}s">
+<div class="marquee" data-marquee>
   <button class="marquee__toggle" type="button" aria-pressed="false" hidden>{{ icon('pause') }}<span>Pause reviews</span></button>
   <div class="marquee__viewport">
     <ul class="marquee__track" role="list" aria-label="Customer reviews">
-      {# Each half of the track must be wider than the widest screen (~6 cards),
-         so short lists repeat. Half one = real list + repeats; half two = a
-         copy of half one. -50% then loops seamlessly. Only the first list is
-         exposed to assistive tech. #}
-      {% set reps = ((6 + shown|length - 1) // shown|length) if shown|length < 6 else 1 %}
+      {# Rendered once. site.js clones the cards (aria-hidden, inert) to build the
+         seamless loop, so crawlers and screen readers get each review once. #}
       {% for r in shown %}{{ card(r) }}{% endfor %}
-      {% for _ in range(reps * 2 - 1) %}{% for r in shown %}{{ card(r, hidden=true) }}{% endfor %}{% endfor %}
     </ul>
   </div>
 </div>

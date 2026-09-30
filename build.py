@@ -78,15 +78,31 @@ promos = active_promos()
 banner_promo = next((p for p in promos if p.get("banner")), None)
 
 # ------------------------------------------------------------------ posts
+# Front matter: title, slug, seo_title, description, date, [updated], image,
+# services (first one sets the blog category), [faqs]. Body is Markdown; a line
+# [[photo:image-id]] or [[photo:image-id|Caption]] drops in a responsive photo.
 posts = []
 for f in sorted((C / "posts").glob("*.md")):
-    raw = f.read_text()
-    _, fm, body = raw.split("---", 2)
+    _, fm, body = f.read_text().split("---", 2)
     meta = yaml.safe_load(fm)
-    meta["html"] = markdown.markdown(body, extensions=["extra", "sane_lists"])
+    meta["body_md"] = body
     meta["date"] = str(meta["date"])
+    if meta.get("updated"):
+        meta["updated"] = str(meta["updated"])
+    assert meta["image"] in images, f"{f.name}: unknown image {meta['image']}"
+    for sv in meta["services"]:
+        assert sv in services, f"{f.name}: unknown service {sv}"
+    cat = cat_by_id[services[meta["services"][0]]["category"]]
+    meta["category"], meta["category_id"] = cat["name"], cat["id"]
+    meta["url"] = f"/blog/{meta['slug']}"
+    words = len(re.sub(r"\[\[photo:[^\]]+\]\]|[#*>\[\]()_-]", " ", body).split())
+    meta["words"], meta["minutes"] = words, max(2, -(-words // 230))
     posts.append(meta)
-posts.sort(key=lambda p: p["date"], reverse=True)
+posts.sort(key=lambda p: p["title"])                  # same-day posts A-Z
+posts.sort(key=lambda p: p["date"], reverse=True)      # newest first (stable)
+# The blog's lead story: front matter `featured: true`, else the newest post.
+featured_post = next((p for p in posts if p.get("featured")), posts[0])
+assert len({p["slug"] for p in posts}) == len(posts), "duplicate post slug"
 
 # ------------------------------------------------------------------ assets
 def fingerprint():
@@ -116,6 +132,22 @@ env.filters["review_date"] = review_date
 env.tests["contains"] = lambda seq, x: x in (seq or [])
 
 ASSETS = {}
+
+PHOTO_RE = re.compile(r"^\[\[photo:([a-z0-9-]+)(?:\|(.+?))?\]\]\s*$", re.M)
+def render_post(p):
+    macros = env.get_template("partials/macros.html").module
+    def photo(m):
+        iid, cap = m.group(1), (m.group(2) or "").strip()
+        assert iid in images, f"{p['slug']}: unknown photo {iid}"
+        pic = str(macros.picture(iid, sizes="(min-width: 64em) 44rem, 100vw"))
+        pic = " ".join(pic.split())
+        return (f'\n<figure class="figure post-figure">{pic}'
+                f'<figcaption>{html.escape(cap or images[iid]["alt"])}</figcaption></figure>\n')
+    body = PHOTO_RE.sub(photo, p["body_md"])
+    md = markdown.Markdown(extensions=["extra", "sane_lists", "toc"],
+                           extension_configs={"toc": {"toc_depth": "2-2", "permalink": False}})
+    p["html"] = md.convert(body)
+    p["toc"] = [(t["id"], t["name"]) for t in md.toc_tokens]
 # Gallery tag -> the service page that best explains that kind of work.
 TAG_SERVICE = {"chimneys": "chimney-services", "porches": "porch-services", "steps": "stair-services",
                "brick": "brick-masonry", "stone": "stair-services", "concrete": "concrete-services",
@@ -358,20 +390,39 @@ add("/request-quote", "quote.html", "Request a Free Masonry Quote | Mr. Brick LL
     h1="Request a free quote", lede="Three quick steps. Add photos if you can — they help us give you a better first answer.",
     crumbs=[H, ("Request a Quote", "/request-quote")], type="quote")
 
-add("/resources", "resources.html", "Masonry Guides for Michigan Homeowners | Mr. Brick",
-    "Practical guides on brick, chimney, porch and concrete problems from a Southeastern Michigan masonry contractor with 25+ years of experience.",
-    h1="Masonry guides for Michigan homeowners", lede="What to look for, what it means, and when to call a pro.",
-    crumbs=[H, ("Resources", "/resources")], schema_type="CollectionPage")
 for p in posts:
-    add(f"/resources/{p['slug']}", "post.html", p["seo_title"], p["description"], h1=p["title"],
-        lede=p["description"], post=p, og_type="article", lastmod=p.get("updated", p["date"]), og_image_id=p["image"], lcp_image=None,
-        crumbs=[H, ("Resources", "/resources"), (p.get("crumb", p["title"]), f"/resources/{p['slug']}")], type="post",
-        extra_schema=[{"@context": "https://schema.org", "@type": "BlogPosting", "headline": p["title"],
-                       "description": p["description"], "datePublished": p["date"], "dateModified": p["date"],
-                       "image": BASE + f"/static/img/{p['image']}-{images[p['image']]['jpg']}.jpg",
-                       "author": {"@type": "Organization", "@id": BIZ_ID, "name": site["name"], "url": BASE + "/about"},
-                       "publisher": {"@id": BIZ_ID}, "articleSection": p["category"], "inLanguage": "en-US",
-                       "mainEntityOfPage": url_of(f"/resources/{p['slug']}")}])
+    render_post(p)
+BLOG_CATS = [(c, [p for p in posts if p["category_id"] == c["id"]]) for c in cats]
+BLOG_CATS = [(c, ps) for c, ps in BLOG_CATS if ps]
+add("/blog", "blog.html", "Masonry & Concrete Blog for Michigan Homeowners | Mr. Brick",
+    "Masonry and concrete guides for Michigan homeowners: brick, chimneys, porches, steps, concrete, driveways, pavers, patios and foundations.",
+    h1="The Mr. Brick masonry blog", lede="Practical guides for Michigan homeowners: what the problem is, what it means, and how it gets fixed right.",
+    crumbs=[H, ("Blog", "/blog")], schema_type="Blog", blog_cats=BLOG_CATS, type="blog",
+    og_image_id=featured_post["image"], featured=featured_post,
+    extra_schema=[{"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [
+        {"@type": "ListItem", "position": i + 1, "url": url_of(p["url"]), "name": p["title"]}
+        for i, p in enumerate(posts)]}])
+for p in posts:
+    same = [q for q in posts if q is not p and q["category_id"] == p["category_id"]]
+    shared = [q for q in posts if q is not p and q not in same and set(q["services"]) & set(p["services"])]
+    rest = [q for q in posts if q is not p and q not in same and q not in shared]
+    p["related"] = (same + shared + rest)[:3]
+    schema = [{"@context": "https://schema.org", "@type": "BlogPosting", "@id": url_of(p["url"]) + "#article",
+               "headline": p["title"], "description": p["description"],
+               "datePublished": p["date"], "dateModified": p.get("updated", p["date"]),
+               "image": BASE + f"/static/img/{p['image']}-{images[p['image']]['jpg']}.jpg",
+               "author": {"@type": "Organization", "@id": BIZ_ID, "name": site["name"], "url": BASE + "/about"},
+               "publisher": {"@id": BIZ_ID}, "articleSection": p["category"], "inLanguage": "en-US",
+               "wordCount": p["words"],
+               "isPartOf": {"@type": "Blog", "@id": BASE + "/blog#blog", "name": site["name"] + " Blog", "url": BASE + "/blog"},
+               "about": [{"@type": "Service", "@id": url_of("/" + sv) + "#service", "name": services[sv]["name"],
+                          "url": url_of("/" + sv)} for sv in p["services"]],
+               "mainEntityOfPage": url_of(p["url"])}]
+    if p.get("faqs"):
+        schema.append(faq_schema(p["faqs"]))
+    add(p["url"], "post.html", p["seo_title"], p["description"], h1=p["title"],
+        lede=p["description"], post=p, og_type="article", lastmod=p.get("updated", p["date"]), og_image_id=p["image"],
+        lcp_image=None, crumbs=[H, ("Blog", "/blog"), (p["title"], p["url"])], type="post", extra_schema=schema)
 
 LEGAL = yaml.safe_load(open(C / "legal.yaml"))
 for slug, L in LEGAL.items():
@@ -412,6 +463,7 @@ REDIRECTS = {
     "/3rd-party-video-splash-pop-02": "/",
     "/hibu-video-splash": "/",
     "/hibu-eng-menu": "/contact",
+    "/resources": "/blog",
 }
 
 # ------------------------------------------------------------------ headers
@@ -503,9 +555,26 @@ def build():
         lines.append(f"{old}  {new}  301")
         lines.append(f"{old}/  {new}  301")
     lines.append("/gallery/*  /gallery  301")
+    lines.append("/resources/*  /blog/:splat  301")
     (DIST / "_redirects").write_text("\n".join(lines) + "\n")
 
     (DIST / "_headers").write_text(HEADERS)
+
+    # RSS for the blog (feed readers, Google Discover, email tools)
+    def rfc822(d):
+        return dt.datetime.fromisoformat(d).strftime("%a, %d %b %Y 12:00:00 -0400")
+    items = "".join(
+        f"<item><title>{html.escape(p['title'])}</title><link>{url_of(p['url'])}</link>"
+        f"<guid isPermaLink=\"true\">{url_of(p['url'])}</guid><pubDate>{rfc822(p['date'])}</pubDate>"
+        f"<category>{html.escape(p['category'])}</category><description>{html.escape(p['description'])}</description></item>"
+        for p in posts)
+    (DIST / "blog").mkdir(exist_ok=True)
+    (DIST / "blog" / "feed.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>'
+        f"<title>{html.escape(site['name'])} Blog</title><link>{BASE}/blog</link>"
+        f'<atom:link href="{BASE}/blog/feed.xml" rel="self" type="application/rss+xml"/>'
+        "<description>Masonry and concrete guides for Southeastern Michigan homeowners.</description>"
+        f"<language>en-us</language>{items}</channel></rss>\n")
 
     (DIST / "site.webmanifest").write_text(json.dumps({
         "name": site["name"], "short_name": site["short_name"], "start_url": "/", "display": "browser",

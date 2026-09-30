@@ -10,7 +10,7 @@ A static site for Mr. Brick LLC, deployed on Netlify.
 | County and community pages | `content/areas.yaml` (`areas:` counties, `cities:` community pages) |
 | General FAQs | `content/faqs.yaml` (`group` = section on /faqs, `home: true` = shown on the home page) |
 | Verified reviews | `content/reviews.yaml` |
-| Guides | `content/posts/*.md` (front matter plus Markdown) |
+| Blog posts (`/blog/<slug>`) | `content/posts/*.md`: front matter (title, slug, seo_title, description, date, image, services, optional faqs/featured/updated) plus Markdown. First service sets the category. `[[photo:image-id|Caption]]` on its own line inserts a project photo. |
 | Legal pages | `content/legal.yaml` |
 | Photos | Add the file to `src-images/`, add an entry in `content/images.yaml`, then run `python3 tools/optimize_images.py` |
 

@@ -151,3 +151,22 @@
 {% macro text_photos(location="body") -%}
 <p class="text-photos" data-cta-location="{{ location }}">{{ icon('camera') }}<span>Fastest way to a first answer: <a href="sms:{{ site.phone_e164 }}">text a photo to {{ site.phone }}</a>.</span></p>
 {%- endmacro %}
+
+
+{# ---------------------------------------------------------------- Blog cards #}
+{% macro post_cards(items, hl='h3', feature=false) -%}
+<ul class="post-list{{ ' post-list--feature' if feature }}" role="list">
+  {% for p in items %}
+  <li class="post-card">
+    <a href="{{ p.url }}">
+      {{ picture(p.image, sizes='(min-width: 64em) 30vw, (min-width: 48em) 45vw, 100vw') }}
+      <div class="post-card__body">
+        <span class="post-meta"><span class="pill">{{ p.category }}</span> {{ p.minutes }} min read</span>
+        <{{ hl }} class="post-card__title">{{ p.title }}</{{ hl }}>
+        <p class="post-card__excerpt">{{ p.description }}</p>
+      </div>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{%- endmacro %}

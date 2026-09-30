@@ -377,8 +377,29 @@
     if (lead) track('quote_request', lead);
   }
 
-  /* Review marquee: explicit pause/play control (hover/focus pause is CSS). */
+  /* Review marquee. The HTML has each review once; here we clone the cards so
+     each half of the track is at least ~6 cards (wider than any screen), then
+     animate -50% for a seamless loop. Clones are aria-hidden + inert.
+     Reduced motion: no clones, the row stays a swipeable list. */
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   doc.querySelectorAll('[data-marquee]').forEach(function (m) {
+    var track = m.querySelector('.marquee__track');
+    var cards = track ? Array.prototype.slice.call(track.children) : [];
+    if (!cards.length || reduceMotion) return;
+    var reps = cards.length < 6 ? Math.ceil(6 / cards.length) : 1;
+    var frag = doc.createDocumentFragment();
+    for (var i = 0; i < reps * 2 - 1; i++) {
+      cards.forEach(function (c) {
+        var clone = c.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        clone.setAttribute('inert', '');
+        clone.querySelectorAll('[role="img"]').forEach(function (el) { el.removeAttribute('role'); el.removeAttribute('aria-label'); });
+        frag.appendChild(clone);
+      });
+    }
+    track.appendChild(frag);
+    m.style.setProperty('--marquee-duration', Math.max(cards.length * reps * 7, 40) + 's');
+    m.classList.add('is-looping');
     var btn = m.querySelector('.marquee__toggle');
     if (!btn) return;
     var label = btn.querySelector('span');

@@ -4,7 +4,6 @@ slug: tuckpointing-vs-rebuilding
 seo_title: "Tuckpointing vs. Rebuilding Brick | Mr. Brick"
 description: "How to tell whether a brick wall or chimney needs repointing, brick replacement, or a rebuild — the signs a mason looks for, explained plainly."
 date: 2026-09-27
-category: Brick Repair
 image: tuckpointing-stone-cap
 services: [tuckpointing, brick-repair, chimney-rebuilding]
 ---
@@ -35,6 +34,8 @@ Rebuilding is warranted when the wall has lost its structure, not just its surfa
 - Repairs that have been redone several times and keep failing
 
 At that point the bricks are no longer bonded to each other. New mortar in the joints would just be holding loose units in place for a winter or two. The durable fix is to take the section down to sound masonry and relay it. On chimneys this is usually a [partial chimney rebuild](/chimney-rebuilding) from the roofline up.
+
+[[photo:chimney-rebuild-staging|A chimney rebuild in progress, with new brick staged on the roof.]]
 
 ## Chimneys fail first
 

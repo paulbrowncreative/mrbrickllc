@@ -1,0 +1,40 @@
+{% extends "inner.html" %}
+{% from "partials/macros.html" import picture, icon, cta_band, post_cards %}
+{% block body %}
+{% set lead = page.featured %}
+<section class="section">
+  <div class="container">
+    <nav class="blog-topics" aria-label="Blog topics">
+      <ul role="list">
+        {% for c, ps in blog_cats %}<li><a href="#topic-{{ c.id }}">{{ c.name }} <span class="count">{{ ps|length }}</span></a></li>{% endfor %}
+      </ul>
+    </nav>
+
+    <article class="post-lead">
+      <a class="post-lead__media" href="{{ lead.url }}" tabindex="-1" aria-hidden="true">{{ picture(lead.image, sizes='(min-width: 64em) 55vw, 100vw', loading='eager') }}</a>
+      <div class="post-lead__body">
+        <p class="post-meta"><span class="pill">{{ lead.category }}</span> {{ lead.minutes }} min read · Featured guide</p>
+        <h2 class="post-lead__title"><a href="{{ lead.url }}">{{ lead.title }}</a></h2>
+        <p class="lede">{{ lead.description }}</p>
+        <a class="text-link" href="{{ lead.url }}">Read the guide</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+{% for c, ps in blog_cats %}
+<section class="section blog-topic{{ ' section--concrete' if loop.index is odd }}" id="topic-{{ c.id }}" aria-labelledby="topic-{{ c.id }}-title">
+  <div class="container">
+    <div class="section-head section-head--row">
+      <div>
+        <h2 id="topic-{{ c.id }}-title">{{ c.name }}</h2>
+        <p>{{ services[c.hub].lede|truncate(150) }}</p>
+      </div>
+      <a class="text-link" href="/{{ c.hub }}">{{ c.name }} services</a>
+    </div>
+    {{ post_cards(ps, hl='h3') }}
+  </div>
+</section>
+{% endfor %}
+{{ cta_band(heading='Have a project in mind?', text='Send a photo and we\'ll tell you what we see, free. Call, text or request a quote.', location='blog') }}
+{% endblock %}

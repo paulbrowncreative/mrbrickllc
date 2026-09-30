@@ -1,24 +1,71 @@
-{% extends "inner.html" %}
-{% from "partials/macros.html" import picture, icon, cta_band %}
-{% block body %}
-<section class="section">
-  <div class="container split">
-    <article class="prose article">
-      <figure class="figure" style="margin-bottom:var(--s-6)">{{ picture(post.image, sizes='(min-width: 64em) 55vw, 100vw') }}</figure>
-      {{ post.html|safe }}
-    </article>
-    <div class="stack">
-      <div class="aside-box" data-cta-location="post_aside">
-        <h2>Need a pro to look at it?</h2>
-        <p>Free quotes from a family-owned masonry contractor with {{ site.years_experience }} years of experience.</p>
-        <div class="btn-row"><a class="btn" href="/request-quote" data-cta="quote">Request a Free Quote</a><a class="btn btn--ghost" href="tel:{{ site.phone_e164 }}">Call {{ site.phone }}</a></div>
-      </div>
-      <div>
-        <h2 style="font-size:var(--step-2)">Related services</h2>
-        <ul class="link-grid" role="list">{% for slug in post.services %}<li><a href="/{{ slug }}"><span><strong>{{ services[slug].name }}</strong></span>{{ icon('arrow') }}</a></li>{% endfor %}</ul>
-      </div>
+{% extends "base.html" %}
+{% from "partials/macros.html" import picture, icon, cta_band, breadcrumbs, faq_list, post_cards, text_photos %}
+{% block content %}
+{% set svc = services[post.services[0]] %}
+<section class="page-hero post-hero" aria-labelledby="page-title">
+  <div class="page-hero__grid">
+    <div class="page-hero__copy">
+      {{ breadcrumbs(page.crumbs) }}
+      <p class="post-meta post-meta--hero"><a class="pill" href="/blog#topic-{{ post.category_id }}">{{ post.category }}</a>
+        <span>{{ post.minutes }} min read</span>
+        <span>{{ 'Updated' if post.updated else 'Published' }} <time datetime="{{ post.updated or post.date }}">{{ (post.updated or post.date)|review_date }}</time></span></p>
+      <h1 id="page-title">{{ post.title }}</h1>
+      <p class="lede">{{ post.description }}</p>
     </div>
+    <div class="page-hero__media">{{ picture(post.image, sizes='(min-width: 64em) 42vw, 100vw', priority=true) }}</div>
   </div>
 </section>
-{{ cta_band(location='post') }}
+<div class="course" aria-hidden="true"></div>
+
+<section class="section">
+  <div class="container post-layout">
+    {% if post.toc|length > 2 %}
+    <nav class="toc" aria-label="In this article">
+      <details open>
+        <summary class="toc__title">In this article</summary>
+        <ol>{% for id, name in post.toc %}<li><a href="#{{ id }}">{{ name }}</a></li>{% endfor %}{% if post.faqs %}<li><a href="#faq">Common questions</a></li>{% endif %}</ol>
+      </details>
+    </nav>
+    {% endif %}
+    <article class="prose article">
+      {{ post.html|safe }}
+      {% if post.faqs %}
+      <h2 id="faq">Common questions</h2>
+      {{ faq_list(post.faqs) }}
+      {% endif %}
+      <div class="post-author">
+        <img src="/static/img/icon-192.png" alt="" width="64" height="64" loading="lazy">
+        <p class="mb-0"><strong>Written by the Mr. Brick team.</strong> Family-owned masonry contractor based in {{ site.address.city }}, Michigan, with {{ site.years_experience }} years of brick, chimney, porch and concrete work across Macomb, Wayne and Oakland counties. <a href="/about">About us</a>.</p>
+      </div>
+    </article>
+    <aside class="post-aside" aria-label="Article tools">
+      <div class="aside-box" data-cta-location="post_aside">
+        <h2>Need {{ svc.name|lower }}?</h2>
+        <p>Free quotes from a family-owned masonry contractor with {{ site.years_experience }} years of experience.</p>
+        <div class="btn-row">
+          <a class="btn btn--block" href="/request-quote?service={{ svc.form_service|urlencode }}" data-cta="quote_post">Get a Free Quote</a>
+          <a class="btn btn--ghost btn--block" href="tel:{{ site.phone_e164 }}">{{ icon('phone') }}Call {{ site.phone }}</a>
+        </div>
+        {{ text_photos('post_aside') }}
+      </div>
+      <div>
+        <h2 class="aside-title">Related services</h2>
+        <ul class="link-grid" role="list">{% for slug in post.services %}<li><a href="/{{ slug }}"><span><strong>{{ services[slug].name }}</strong></span>{{ icon('arrow') }}</a></li>{% endfor %}</ul>
+      </div>
+    </aside>
+  </div>
+</section>
+
+{% if post.related %}
+<section class="section section--concrete" aria-labelledby="more-title">
+  <div class="container">
+    <div class="section-head section-head--row">
+      <h2 id="more-title">Keep reading</h2>
+      <a class="text-link" href="/blog">All articles</a>
+    </div>
+    {{ post_cards(post.related, hl='h3') }}
+  </div>
+</section>
+{% endif %}
+{{ cta_band(heading='Want a pro to look at it?', text='Free quotes, no pressure. Send a photo by text or request a quote online.', location='post') }}
 {% endblock %}
