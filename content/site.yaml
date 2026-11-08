@@ -46,7 +46,7 @@ google_maps_url: "https://share.google/feP2sxOT53KzePCc2"
 # Shown in the reviews summary only when filled in. Copy them from the Google
 # profile and update them occasionally so they stay accurate.
 google_rating: "5.0"      # from the Google Business Profile; update when it changes
-google_review_count: 40   # current total from the Google profile; blank hides the count
+google_review_count: ""   # left blank on purpose: a fixed count goes stale; the link shows the live total
 
 tracking:
   # Leave blank until real IDs exist. Nothing loads while blank (no invented IDs).
