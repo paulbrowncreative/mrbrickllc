@@ -29,6 +29,8 @@ If the brick is solid and the problem is the mortar or the crown, a [chimney rep
 
 [[photo:chimney-before-after|Before and after: a deteriorated chimney rebuilt with new brick, crown and caps.]]
 
+[[photo:chimney-rebuild-before-during-after|One chimney rebuild, before, during and after.]]
+
 ## Partial vs. full chimney rebuild
 
 **Partial rebuild.** This is the most common. The chimney is taken down to the point where the masonry is solid, usually at or just below the roofline, and rebuilt from there. The part above the roof takes the worst weather, so that's where most failures are.

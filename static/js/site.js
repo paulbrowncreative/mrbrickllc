@@ -147,6 +147,9 @@
      4. PROMOTIONS — hide anything past its end date even if the build is stale.
      ====================================================================== */
   var today = new Date().toISOString().slice(0, 10);
+  doc.querySelectorAll('[data-holiday-date]').forEach(function (el) {
+    if (el.getAttribute('data-holiday-date') < today) el.remove();
+  });
   doc.querySelectorAll('[data-promo-ends]').forEach(function (el) {
     var ends = el.getAttribute('data-promo-ends');
     if (ends && ends < today) el.remove();

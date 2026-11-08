@@ -809,5 +809,214 @@
    "porches",
    "residential"
   ]
+ },
+ "pool-deck-coping-work": {
+  "w": 720,
+  "h": 908,
+  "widths": [
+   480
+  ],
+  "jpg": 720,
+  "src": "3983.png",
+  "alt": "Mason working on the concrete deck along a pool's coping",
+  "tags": [
+   "concrete",
+   "patios",
+   "residential"
+  ]
+ },
+ "chimney-stone-cap-roof": {
+  "w": 720,
+  "h": 914,
+  "widths": [
+   480
+  ],
+  "jpg": 720,
+  "src": "4000.png",
+  "alt": "Top of a brick chimney finished with a stone cap, seen from the roof",
+  "tags": [
+   "chimneys"
+  ]
+ },
+ "brick-steps-stone-treads-entry": {
+  "w": 1080,
+  "h": 932,
+  "widths": [
+   480,
+   800
+  ],
+  "jpg": 1080,
+  "src": "gallery-35-mr-brick-llc.png",
+  "alt": "Brick front steps with dark stone treads leading to a front door",
+  "tags": [
+   "steps",
+   "brick",
+   "porches",
+   "residential"
+  ]
+ },
+ "block-wall-stairwell": {
+  "w": 720,
+  "h": 842,
+  "widths": [
+   480
+  ],
+  "jpg": 720,
+  "src": "gallery-36-mr-brick-llc.png",
+  "alt": "Mason building a concrete block wall beside an outdoor stairwell",
+  "tags": [
+   "retaining-walls",
+   "foundations",
+   "residential"
+  ]
+ },
+ "block-wall-scaffold-build": {
+  "w": 720,
+  "h": 887,
+  "widths": [
+   480
+  ],
+  "jpg": 720,
+  "src": "gallery-37-mr-brick-llc.png",
+  "alt": "Concrete block wall under construction with scaffolding in place",
+  "tags": [
+   "foundations",
+   "retaining-walls"
+  ]
+ },
+ "chimney-rebuild-before-during-after": {
+  "w": 1080,
+  "h": 1078,
+  "widths": [
+   480,
+   800
+  ],
+  "jpg": 1080,
+  "src": "gallery-40-mr-brick-llc.png",
+  "alt": "A chimney rebuild shown before, during and after",
+  "tags": [
+   "chimneys",
+   "brick",
+   "residential"
+  ]
+ },
+ "chimney-rebuild-roof-staging": {
+  "w": 595,
+  "h": 974,
+  "widths": [
+   480
+  ],
+  "jpg": 595,
+  "src": "gallery-41-mr-brick-llc.png",
+  "alt": "Brick chimney being rebuilt above the roofline, with roof staging",
+  "tags": [
+   "chimneys",
+   "brick"
+  ]
+ },
+ "chimney-rebuilt-staging-sky": {
+  "w": 762,
+  "h": 1170,
+  "widths": [
+   480
+  ],
+  "jpg": 762,
+  "src": "gallery-43-mr-brick-llc.png",
+  "alt": "Rebuilt brick chimney with roof staging still in place",
+  "tags": [
+   "chimneys",
+   "brick"
+  ]
+ },
+ "brick-wall-stone-cap-closeup": {
+  "w": 1080,
+  "h": 1330,
+  "widths": [
+   480,
+   800
+  ],
+  "jpg": 1080,
+  "src": "gallery-44-mr-brick-llc.png",
+  "alt": "Brick wall topped with a new stone cap",
+  "tags": [
+   "brick",
+   "porches"
+  ]
+ },
+ "chimney-repair-scaffold": {
+  "w": 1080,
+  "h": 1170,
+  "widths": [
+   480,
+   800
+  ],
+  "jpg": 1080,
+  "src": "gallery-45-mr-brick-llc.png",
+  "alt": "Repaired brick chimney with scaffolding set up alongside",
+  "tags": [
+   "chimneys",
+   "residential"
+  ]
+ },
+ "fireplace-cast-stone-surround": {
+  "w": 1080,
+  "h": 943,
+  "widths": [
+   480,
+   800
+  ],
+  "jpg": 1080,
+  "src": "gallery-46-mr-brick-llc.png",
+  "alt": "Fireplace with a cast stone surround and hearth",
+  "tags": [
+   "chimneys",
+   "residential"
+  ]
+ },
+ "chimney-rebuild-scaffold-tall": {
+  "w": 1080,
+  "h": 1629,
+  "widths": [
+   480,
+   800
+  ],
+  "jpg": 1080,
+  "src": "gallery-49-mr-brick-llc.png",
+  "alt": "Tall brick chimney being rebuilt from scaffolding",
+  "tags": [
+   "chimneys",
+   "brick"
+  ]
+ },
+ "chimney-scaffold-side-yard": {
+  "w": 1080,
+  "h": 1396,
+  "widths": [
+   480,
+   800
+  ],
+  "jpg": 1080,
+  "src": "gallery-50-mr-brick-llc.png",
+  "alt": "Scaffolding set up along a tall brick chimney on the side of a home",
+  "tags": [
+   "chimneys",
+   "residential"
+  ]
+ },
+ "chimney-before-after-restored": {
+  "w": 1080,
+  "h": 1048,
+  "widths": [
+   480,
+   800
+  ],
+  "jpg": 1080,
+  "src": "gallery-51-mr-brick-llc.png",
+  "alt": "Before and after: a brick chimney restored with new mortar and caps",
+  "tags": [
+   "chimneys",
+   "brick",
+   "residential"
+  ]
  }
 }

@@ -131,6 +131,7 @@
       </address>
       <dl class="hours">
         {% for h in site.hours %}<dt>{{ h.label }}</dt><dd>{{ h.display }}</dd>{% endfor %}
+        {% for h in holidays[:2] %}<dt data-holiday-date="{{ h.date }}">{{ h.label }}</dt><dd data-holiday-date="{{ h.date }}">Closed, {{ h.name }}</dd>{% endfor %}
       </dl>
       <p class="mt-6"><a class="btn" href="/request-quote" data-cta="quote">Request a Free Quote</a></p>
       <div class="social">

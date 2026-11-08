@@ -24,6 +24,21 @@ geo: {lat: 42.45451, lng: -82.96887}
 hours:
   - {days: [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday], label: "Mon – Sat", opens: "08:30", closes: "18:00", display: "8:30 am – 6:00 pm"}
   - {days: [Sunday], label: "Sunday", display: "Closed"}
+# Holiday closures (from the previous site). Shown on the contact page and in
+# the footer, and sent to Google as special opening hours. Past dates drop off
+# automatically. Add next year's dates here.
+holiday_closures:
+  - {date: 2026-11-26, name: Thanksgiving}
+  - {date: 2026-12-25, name: Christmas Day}
+  - {date: 2027-01-01, name: "New Year's Day"}
+# Second slogan used on the previous site.
+slogan_short: Get more bang for your brick!
+# Supplier logos shown on the previous site (static/img/suppliers/).
+suppliers:
+  - {name: Belden Brick, file: belden-brick, w: 152, h: 48}
+  - {name: Sabiston Building Supply, file: sabiston-building-supply, w: 169, h: 62}
+  - {name: Spec Mix, file: spec-mix, w: 155, h: 43}
+  - {name: SRM Concrete, file: srm-concrete, w: 148, h: 58}
 years_experience: "25+"
 facts:
   - Family owned and operated
@@ -47,6 +62,10 @@ google_maps_url: "https://share.google/feP2sxOT53KzePCc2"
 # profile and update them occasionally so they stay accurate.
 google_rating: "5.0"      # from the Google Business Profile; update when it changes
 google_review_count: ""   # left blank on purpose: a fixed count goes stale; the link shows the live total
+
+# IndexNow (Bing, Yandex, Seznam, Naver...). Public by design: the key file is
+# served at /<key>.txt so search engines can verify pings come from this site.
+indexnow_key: "d7c0894213850721551322df0efbc6fd"
 
 tracking:
   # Leave blank until real IDs exist. Nothing loads while blank (no invented IDs).

@@ -78,7 +78,7 @@ cities:
     h1: Eastpointe masonry contractor
     lede: Eastpointe is where Mr. Brick is based, so local jobs get quick quotes and short drive times.
     image: brick-porch-entry
-    nearby: [roseville, st-clair-shores, warren, grosse-pointe]
+    nearby: [roseville, st-clair-shores, warren, harper-woods, grosse-pointe]
     local: |
       Most Eastpointe homes are brick bungalows, ranches and Cape Cods from the 1920s through the 1950s, on the neighborhoods that run from 8 Mile up past 10 Mile between Kelly and Gratiot. It's the same housing stock we've worked on for more than 25 years, so we know where it fails.
 
@@ -126,7 +126,7 @@ cities:
     h1: Masonry for Grosse Pointe homes
     lede: Chimneys, brick, stone steps and porches restored with the care older homes in the Grosse Pointes need, from a family-owned contractor just up the road in Eastpointe.
     image: crew-brick-pillars-stone-steps
-    nearby: [eastpointe, st-clair-shores]
+    nearby: [eastpointe, st-clair-shores, harper-woods]
     local: |
       Grosse Pointe, Grosse Pointe Park, Grosse Pointe Farms, Grosse Pointe Woods and Grosse Pointe Shores have some of the oldest and most detailed masonry in the region. Many homes were built from the 1910s through the 1930s, with tall chimneys, limestone trim, decorative brick bonds and stone steps.
 
@@ -174,7 +174,7 @@ cities:
     h1: Warren masonry and concrete contractor
     lede: Driveways, porches, steps, chimneys and brick repair for Warren homes and commercial properties.
     image: driveway-screed-pour
-    nearby: [eastpointe, roseville]
+    nearby: [eastpointe, roseville, sterling-heights]
     local: |
       Warren is Macomb County's largest city, with a housing stock dominated by brick ranches built in the 1950s and 1960s, plus a large base of commercial and industrial property. Many of those homes still have their original driveways, front porches and chimneys.
 
@@ -213,3 +213,75 @@ cities:
         a: Yes. We work in Royal Oak and nearby communities including Madison Heights, Ferndale, Hazel Park and Berkley.
       - q: Can my old chimney be repaired instead of rebuilt?
         a: Often, yes. If the brick is sound below the top few courses, a new crown, cap and repointing may be all it needs. If the top section has loosened or is leaning, a partial rebuild from the roofline up is the safer fix.
+
+  sterling-heights:
+    name: Sterling Heights
+    county: macomb-county
+    title: Sterling Heights Masonry & Concrete Contractor | Mr. Brick
+    description: Driveways, front steps, porches, paver patios, retaining walls and chimney repair for Sterling Heights homes. Free quotes from Eastpointe-based Mr. Brick.
+    h1: Sterling Heights masonry and concrete
+    lede: Driveways, steps, patios, walls and chimneys for Sterling Heights homes, from a family-owned contractor based in Eastpointe.
+    image: driveway-fresh-pour
+    nearby: [warren, clinton-township]
+    local: |
+      Sterling Heights is one of Macomb County's largest cities, and much of it was built from the 1960s through the 1990s: brick-front ranches, colonials and split-levels on curving subdivision streets, with newer neighborhoods toward the north end.
+
+      Homes of that age are now at the point where their original concrete and masonry wears out. Driveways and aprons scale and crack from decades of salt, front stoops and steps settle away from the house, and brick chimneys need new crowns and repointing at the top. Backyards are where many Sterling Heights homeowners invest next, so paver patios, seat walls and small retaining walls on graded lots are common projects too.
+    considerations:
+      - {title: "Driveways and aprons", text: "Replacing a driveway is the time to correct the slope, rebuild the base and pour proper control joints. The apron at the street may need a city permit."}
+      - {title: "Front stoops on slab homes", text: "Small concrete stoops often settle or tip. Depending on their condition they can be leveled, resurfaced or rebuilt on a footing."}
+      - {title: "Permits", text: "Driveway approaches, porches and some walls typically go through the City of Sterling Heights. We confirm what your project needs before scheduling."}
+    focus: [concrete-driveway-installation, driveway-repair, stair-services, paver-services, retaining-wall-services, chimney-repair]
+    faqs:
+      - q: Do you replace driveways in Sterling Heights?
+        a: Yes, including the apron at the street. A replacement is the chance to fix low spots and drainage toward the garage, which are common on driveways of this age.
+      - q: Can you build a paver patio on a sloped Sterling Heights lot?
+        a: Usually, yes. Slopes are handled with grading, steps or a low retaining wall, planned so water drains away from the house.
+
+  clinton-township:
+    name: Clinton Township
+    county: macomb-county
+    title: Clinton Township Masonry & Concrete Contractor | Mr. Brick
+    description: Brick repair, chimneys, porches and steps, driveways and paver patios for Clinton Township homes. Family-owned Mr. Brick, 25+ years. Free quotes.
+    h1: Clinton Township masonry and concrete
+    lede: Brick, chimney, porch, step, driveway and patio work across Clinton Township, from a family-owned contractor based in Eastpointe.
+    image: brick-steps-stone-treads-entry
+    nearby: [sterling-heights, roseville]
+    local: |
+      Clinton Township is one of the largest townships in Michigan, and its housing covers decades: older brick ranches and bungalows in the southern neighborhoods, and larger subdivisions and condominium communities built more recently farther north.
+
+      That range shows up in the work. On older homes it's brick and mortar repair, chimney crowns and repointing, and front porches and steps that have settled. On newer homes it's paver patios and walkways, stamped concrete, driveway replacement and steps that tie a front entry together.
+    considerations:
+      - {title: "Older brick homes", text: "Brick, mortar and chimneys on older homes are repaired with matched materials and compatible mortar so repairs blend in."}
+      - {title: "Newer subdivisions", text: "Patios, walks and steps are planned around grading and drainage so water runs away from the foundation."}
+      - {title: "Permits", text: "Porch, step and driveway approach work often needs a Charter Township of Clinton permit. We confirm requirements before scheduling."}
+    focus: [porch-restorations, stair-services, chimney-repair, tuckpointing, paver-services, concrete-driveway-installation]
+    faqs:
+      - q: Do you serve all of Clinton Township?
+        a: Yes. We work throughout Clinton Township and the surrounding Macomb County communities.
+      - q: Can new steps match my existing brick?
+        a: Usually. We source brick to match as closely as possible and can pair it with stone or concrete treads. You'll see samples before work starts.
+
+  harper-woods:
+    name: Harper Woods
+    county: wayne-county
+    title: Harper Woods Masonry Contractor | Mr. Brick
+    description: Porch and step repair, chimney work, tuckpointing and concrete for Harper Woods homes, from Mr. Brick in neighboring Eastpointe. Free quotes.
+    h1: Harper Woods masonry contractor
+    lede: Porches, steps, chimneys and brick repair for Harper Woods homes, from a family-owned contractor right across 8 Mile in Eastpointe.
+    image: brick-pillar-concrete-cap
+    nearby: [eastpointe, grosse-pointe]
+    local: |
+      Harper Woods sits just south of Eastpointe, between Detroit and the Grosse Pointes. Its neighborhoods are mostly compact brick bungalows and ranches from the 1940s and 1950s, the same housing stock we work on every week across 8 Mile.
+
+      The trouble spots on these homes are predictable. Front stoops built on shallow bases drift and crack, the stone or concrete caps on porch walls let water in at their joints, step edges break down under salt and shovels, and the chimney, the most exposed masonry on the house, loses mortar first at the very top.
+    considerations:
+      - {title: "Close to home", text: "Harper Woods borders our Eastpointe base, so quotes are quick to schedule."}
+      - {title: "Porches and caps", text: "Loose caps and loose top courses of brick are often a restoration, not a rebuild, if they're caught early."}
+      - {title: "Permits", text: "Porch rebuilds, steps and driveway approaches may need a City of Harper Woods permit. We'll confirm before scheduling."}
+    focus: [porch-restorations, porch-rebuilds, stair-services, chimney-repair, tuckpointing, brick-repair]
+    faqs:
+      - q: Do you work on both sides of Harper Woods, near I-94 and near the Grosse Pointes?
+        a: Yes. We work throughout Harper Woods. Text a photo of the problem to (586) 209-3052 and we can usually tell you what it needs before we come out.
+      - q: My porch caps are loose. Does the whole porch need to be rebuilt?
+        a: Not necessarily. If the porch hasn't moved, resetting the caps and rebuilding the top courses of brick is often enough. If it has settled or pulled away, a rebuild is the lasting fix.

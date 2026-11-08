@@ -170,3 +170,12 @@
   {% endfor %}
 </ul>
 {%- endmacro %}
+
+{% macro suppliers_strip(title="Suppliers we work with") -%}
+<div class="suppliers">
+  <p class="suppliers__title">{{ title }}</p>
+  <ul role="list">
+    {% for s in site.suppliers %}<li><picture><source type="image/webp" srcset="/static/img/suppliers/{{ s.file }}.webp"><img src="/static/img/suppliers/{{ s.file }}.png" alt="{{ s.name }}" width="{{ s.w }}" height="{{ s.h }}" loading="lazy" decoding="async"></picture></li>{% endfor %}
+  </ul>
+</div>
+{%- endmacro %}

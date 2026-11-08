@@ -4,7 +4,7 @@ slug: fireplace-firebox-repair
 seo_title: "Fireplace & Firebox Repair Guide | Mr. Brick"
 description: "Cracked firebrick, open firebox joints, loose hearths and stuck dampers: what's normal, what's unsafe, and how a fireplace is repaired."
 date: 2026-09-30
-image: chimney-three-flues
+image: fireplace-cast-stone-surround
 services: [fireplace-services, chimney-repair]
 faqs:
   - q: Is it safe to use a fireplace with cracked firebrick?
@@ -34,6 +34,8 @@ A masonry fireplace is really two things at once. There's the firebox, a heat-ra
 **Loose, crumbling or missing firebrick** calls for rebuilding that section of the firebox, or the whole firebox, before you burn another fire.
 
 **Water staining or rust in the firebox** usually means water is coming down the chimney. Check the cap and the crown. See [leaking chimney causes](/blog/leaking-chimney-causes).
+
+[[photo:fireplace-cast-stone-surround|A fireplace with a cast stone surround and hearth.]]
 
 ## Hearth and surround issues
 

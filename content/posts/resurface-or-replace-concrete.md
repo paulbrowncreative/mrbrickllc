@@ -44,6 +44,8 @@ It's a new **skin**, not new structure. It depends entirely on the slab undernea
 
 Before quoting a resurface, a contractor should walk the slab, look at crack patterns and edges, check whether sections have moved, look at drainage, and tap for hollow areas. If you're offered a resurface without anyone checking whether the slab is moving, ask why.
 
+[[photo:pool-deck-coping-work|Smoothing and repairing a concrete pool deck along the coping.]]
+
 ## Partial replacement: the middle option
 
 On driveways and walks, a slab is usually divided into panels by control joints. If only a few panels have failed, they can be cut out and replaced while the rest are repaired or resurfaced. The trade-off is color: new concrete won't exactly match old concrete. Read [driveway cracks: repair or replace](/blog/driveway-cracks-repair-or-replace).
@@ -57,4 +59,4 @@ On driveways and walks, a slab is usually divided into panels by control joints.
 
 ## The bottom line
 
-Resurface when the slab is solid and the problem is on top. Replace when the slab itself is moving, broken or draining the wrong way. We do both, [resurfacing](/concrete-resurfacing) and [driveway repair](/driveway-repair) through full replacement, and we'll show you which one your concrete needs.
+Resurface when the slab is solid and the problem is on top. Replace when the slab itself is moving, broken or draining the wrong way. We do both, [resurfacing](/concrete-resurfacing), [pool deck repair](/pool-deck-resurfacing) and [driveway repair](/driveway-repair) through full replacement, and we'll show you which one your concrete needs.

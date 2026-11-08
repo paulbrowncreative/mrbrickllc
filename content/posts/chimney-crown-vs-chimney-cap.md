@@ -30,6 +30,8 @@ Many older chimneys have a thin "mortar wash" instead of a real crown: a layer o
 
 [[photo:chimney-crown-closeup|A new chimney crown poured over the brick, sloped to shed water.]]
 
+[[photo:chimney-stone-cap-roof|The top of a brick chimney finished with a stone cap.]]
+
 ## The chimney cap: the lid over the flue
 
 The **cap** is the metal cover that sits over the flue opening, usually with a screened side and a small roof on top. It keeps rain, snow, leaves, birds and animals out of the flue while letting smoke and gases escape.

@@ -32,6 +32,8 @@ Block walls go up one course at a time on a concrete footing. Where the wall car
 - **Brick and stone veneer.** Block makes a natural backup wall for a veneer finish.
 - **Repairs.** Individual damaged blocks and deteriorated mortar can be repaired or replaced.
 
+[[photo:block-wall-stairwell|A mason building a block wall beside an outdoor stairwell.]]
+
 ## How poured concrete walls are built
 
 Poured walls need forms set on a footing, reinforcement placed, and concrete delivered and placed in one continuous operation.

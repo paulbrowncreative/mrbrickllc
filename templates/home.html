@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "partials/macros.html" import picture, icon, cta_pair, faq_list, promo_cards, photo_grid, lightbox, cta_band, process_steps, text_photos %}
+{% from "partials/macros.html" import picture, icon, cta_pair, faq_list, promo_cards, photo_grid, lightbox, cta_band, process_steps, text_photos, suppliers_strip %}
 {% block content %}
 <section class="hero" aria-labelledby="hero-title">
   <div class="hero__grid">
@@ -63,6 +63,7 @@
         <li><h3>Financing available</h3><p>Options for qualifying projects so repairs don't have to wait. <a href="/finance">How financing works</a>.</p></li>
         <li><h3>Call or text</h3><p>Send a text with a photo. It's often the fastest way to a first answer.</p></li>
       </ul>
+      {{ suppliers_strip() }}
     </div>
     <figure class="figure">
       {{ picture('crew-planter-wall', sizes='(min-width: 64em) 40vw, 100vw') }}
@@ -141,6 +142,7 @@
 <section class="section" aria-labelledby="offers-title">
   <div class="container">
     <div class="section-head">
+      <p class="eyebrow">{{ site.slogan_short }}</p>
       <h2 id="offers-title">Current offers</h2>
       <p>Mention an offer when you schedule. Offers can't be combined.</p>
     </div>

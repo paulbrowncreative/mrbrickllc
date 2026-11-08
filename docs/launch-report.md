@@ -272,3 +272,38 @@ Measured on a simulated mobile connection (150 ms latency, 1.6 Mbps, 4× CPU slo
 
 ## Launch blocker
 `www.mrbrickllc.com` still serves the old Hibu/Duda site (nginx). Every canonical tag and the sitemap point to www.mrbrickllc.com, so the new site can't rank until the domain is pointed at Netlify.
+
+---
+
+# Old-site cross-reference and optimization pass: November 8, 2026
+
+## Compared against www.mrbrickllc.com (the current Hibu/Duda site)
+- **URLs:** all 53 old URLs are covered. 34 are live pages with the same slug and 19 are 301 redirects to the matching new page, so no indexed URL is lost.
+- **NAP:** the old site uses only (586) 209-3052 and mrbrickdesignco@gmail.com, which matches the new site. The old ad graphic and the truck still show 586-250-8329.
+- **Added from the old site:**
+  - 14 project photos it had and the new site didn't, including the first fireplace photo, a pool-deck job, steps, block walls and chimney rebuilds. The site now has 66 photos.
+  - The supplier badges: Belden Brick, Sabiston Building Supply, Spec Mix and SRM Concrete.
+  - Holiday closures, shown on the site and as `specialOpeningHoursSpecification`.
+  - The "Get more bang for your brick!" slogan.
+- **Not carried over:**
+  - An ad graphic showing the 586-250-8329 number
+  - Placeholder images
+  - Hibu template filler ("Keyword in City, ST")
+  - The vendor video splash page, which 301s to the home page
+  - "Stone carving" (no evidence)
+- **Needs an owner decision:**
+  - PayPal is listed in the old FAQ but not in its payment list.
+  - The old site has a dedicated basement waterproofing page (sump pumps, French drains). The new site deliberately asks customers to call instead. Confirm what waterproofing work Mr. Brick does.
+
+## New
+- **`/pool-deck-resurfacing`:** a new concrete service page. Pool decks appear on 7 old pages, and both a review and a photo confirm the work.
+- **Community pages:** Sterling Heights, Clinton Township and Harper Woods, each with unique local content (12 total).
+- **`/llms.txt`:** a plain-text business summary for AI assistants and answer engines.
+- **IndexNow:** a key file at `/<key>.txt` and `tools/indexnow.py`. Run it after each live deploy to notify Bing, Yandex and others.
+- **Business schema additions:** `contactPoint`, `currenciesAccepted` and special (holiday) opening hours.
+
+## Verified on the final build
+- **Pages:** 86 (84 indexable). 0 static problems, 0 schema issues, and FAQ markup matches the visible FAQs on all 68 pages that have them.
+- **Accessibility:** axe reports 0 violations.
+- **Quote form:** passes end to end.
+- **Performance:** LCP 1.6–2.0 s and CLS ≤ 0.03 on a throttled mobile connection.

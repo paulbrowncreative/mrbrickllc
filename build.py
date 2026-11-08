@@ -75,6 +75,11 @@ def active_promos():
         out.append(p)
     return out
 promos = active_promos()
+
+# Upcoming holiday closures only (a stale build is also trimmed client-side).
+holidays = [dict(h, date=str(h["date"])) for h in site.get("holiday_closures") or [] if str(h["date"]) >= TODAY]
+for h in holidays:
+    h["label"] = dt.date.fromisoformat(h["date"]).strftime("%a, %b %-d")
 banner_promo = next((p for p in promos if p.get("banner")), None)
 
 # ------------------------------------------------------------------ posts
@@ -159,6 +164,7 @@ def strip_tags(text):
     return re.sub(r"<[^>]+>", "", text or "")
 env.filters["strip_tags"] = strip_tags
 
+env.globals["holidays"] = holidays
 env.globals.update(site=site, images=images, categories=cats, services=services, areas=areas, cities=cities,
                    tag_service=TAG_SERVICE,
                    faqs=faqs, reviews=reviews, promos=promos, banner_promo=banner_promo,
@@ -195,6 +201,12 @@ def business_schema():
                        ["Macomb County, MI", "Wayne County, MI", "Oakland County, MI", "Southeastern Michigan"]]
                       + [{"@type": "City", "name": (c["name"].replace("The ", "") + ", MI")} for c in cities.values()],
         "openingHoursSpecification": hours,
+        **({"specialOpeningHoursSpecification": [
+            {"@type": "OpeningHoursSpecification", "validFrom": h["date"], "validThrough": h["date"],
+             "opens": "00:00", "closes": "00:00"} for h in holidays]} if holidays else {}),
+        "contactPoint": {"@type": "ContactPoint", "telephone": site["phone_e164"], "email": site["email"],
+                         "contactType": "customer service", "areaServed": "US-MI", "availableLanguage": "English"},
+        "currenciesAccepted": "USD",
         "knowsAbout": [c["name"] for c in cats],
         "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Masonry and concrete services", "itemListElement": [
             {"@type": "OfferCatalog", "name": c["name"], "itemListElement": [
@@ -267,7 +279,7 @@ REVIEW_KEYWORDS_BY_SERVICE = {"tuckpointing": ["tuck"], "brick-repair": ["spalli
                               "paver-services": ["paver"], "walkway-services": ["paver"],
                               "driveway-repair": ["driveway", "slab"], "concrete-driveway-installation": ["driveway"],
                               "concrete-resurfacing": ["smooth", "sand"], "foundation-repair": ["foundation"],
-                              "foundation-services": ["foundation"]}
+                              "foundation-services": ["foundation"], "pool-deck-resurfacing": ["pool"]}
 HOME_FAQS = [f for f in faqs if f.get("home")]
 AREA_SCHEMA = [{"@type": "AdministrativeArea", "name": a["name"] + ", MI"} for a in areas.values()]
 FAQ_GROUPS = []
@@ -559,6 +571,31 @@ def build():
     (DIST / "_redirects").write_text("\n".join(lines) + "\n")
 
     (DIST / "_headers").write_text(HEADERS)
+
+    # IndexNow key file (see tools/indexnow.py)
+    if site.get("indexnow_key"):
+        (DIST / f"{site['indexnow_key']}.txt").write_text(site["indexnow_key"])
+
+    # llms.txt: a plain summary for AI assistants and answer engines
+    L = [f"# {site['name']}", "",
+         f"> Family-owned masonry and concrete contractor based in {site['address']['city']}, Michigan, serving "
+         f"Southeastern Michigan (Macomb, Wayne and Oakland counties) for {site['years_experience']} years. "
+         "Licensed and insured. Free quotes. 10-year warranty on all new construction. Price matching with written "
+         "quotes from licensed competitors. Financing available.", "",
+         f"- Phone (call or text): {site['phone']}", f"- Email: {site['email']}",
+         f"- Hours: " + "; ".join(f"{h['label']} {h['display']}" for h in site["hours"]),
+         f"- Request a free quote: {BASE}/request-quote", f"- Reviews: rated {site.get('google_rating') or ''} on Google; {BASE}/reviews", "",
+         "## Services"]
+    for c in cats:
+        L.append(f"- [{c['name']}]({BASE}/{c['hub']}): " + ", ".join(f"[{x['name']}]({BASE}/{x['slug']})" for x in c["children"]))
+    L += ["", "## Service areas", f"- [All service areas]({BASE}/service-areas)"]
+    L += [f"- [{a['name']}]({BASE}/service-areas/{k})" for k, a in areas.items()]
+    L += [f"- [{c['name']}, MI]({BASE}/service-areas/{k})" for k, c in cities.items()]
+    L += ["", "## Guides", f"- [Blog]({BASE}/blog)"] + [f"- [{p['title']}]({url_of(p['url'])})" for p in posts]
+    L += ["", "## Company", f"- [About]({BASE}/about)", f"- [Project photos]({BASE}/gallery)",
+          f"- [FAQs]({BASE}/faqs)", f"- [Financing]({BASE}/finance)", f"- [Special offers]({BASE}/special-offers)",
+          f"- [Contact]({BASE}/contact)"]
+    (DIST / "llms.txt").write_text("\n".join(L) + "\n")
 
     # RSS for the blog (feed readers, Google Discover, email tools)
     def rfc822(d):

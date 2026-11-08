@@ -43,3 +43,7 @@ Setup (once):
 
 Functions only deploy from Git (or the Netlify CLI). A drag-and-drop zip deploy still collects
 leads in Netlify Forms, so use step 4 for email in that case.
+
+## After each live deploy
+- `python3 tools/indexnow.py` notifies Bing, Yandex and other IndexNow engines of every sitemap URL. Run it only once the site is live on www.mrbrickllc.com.
+- Google: submit or resubmit `https://www.mrbrickllc.com/sitemap.xml` in Search Console.

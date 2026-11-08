@@ -134,7 +134,7 @@ services:
     description: Concrete block walls built on proper footings for garages, foundations, retaining and privacy walls. Residential and commercial. Serving Southeastern Michigan.
     h1: Cinder block and concrete block walls
     lede: Block walls for garages, foundations, retaining and screening — laid plumb and level on a footing that won't heave.
-    image: block-wall-concrete-steps
+    image: block-wall-stairwell
     tags: [retaining-walls, foundations]
     intro: |
       Concrete masonry unit (CMU) walls — still widely called cinder block — are the workhorse of structural masonry. They're strong, fire resistant, and economical, and they can be finished with brick, stone veneer, or stucco when appearance matters.
@@ -278,7 +278,7 @@ services:
     description: Masonry fireplace repair, firebox and hearth restoration, and new indoor and outdoor fireplaces built by Mr. Brick in Southeastern Michigan. Free quotes.
     h1: Fireplace repair and installation
     lede: Firebox, hearth and surround repairs, plus new masonry fireplaces indoors and out.
-    image: chimney-three-flues
+    image: fireplace-cast-stone-surround
     tags: [chimneys, patios]
     intro: |
       A fireplace is two things at once: a heat-rated firebox that has to contain fire safely, and a finished surround that people look at every day. Cracked firebrick, loose hearth stones, and damaged surrounds are all repairable — and when you want something new, masonry lets you build exactly the fireplace the room or yard calls for.
@@ -498,7 +498,7 @@ services:
       - {name: Colored concrete, text: "Integral color mixed through the slab."}
     approach: |
       Stamped concrete needs resealing every few years to keep its color and protect it from salt and freeze-thaw. We'll tell you what maintenance to expect before you choose it — and when pavers might be the better fit.
-    related: [patio-services, concrete-sealing, paver-services]
+    related: [patio-services, concrete-sealing, paver-services, pool-deck-resurfacing]
     faqs:
       - q: Is stamped concrete a good idea in Michigan?
         a: Yes, when it's installed on a proper base and kept sealed. Avoid heavy use of rock salt, and reseal every few years.
@@ -532,7 +532,7 @@ services:
       - Sealing
     approach: |
       Preparation decides whether an overlay lasts. The surface has to be cleaned and profiled so the new material bonds; skipping that step is why cheap resurfacing peels.
-    related: [concrete-leveling, concrete-sealing, driveway-repair]
+    related: [concrete-leveling, concrete-sealing, driveway-repair, pool-deck-resurfacing]
     faqs:
       - q: How long does concrete resurfacing last?
         a: It depends on preparation, traffic and maintenance. A properly bonded and sealed overlay on a sound slab can last many years; one applied over moving or cracked concrete won't.
@@ -601,6 +601,47 @@ services:
         a: Typically every few years, depending on the sealer type and exposure. Stamped concrete usually needs resealing more often than broom-finished concrete.
       - q: When can new concrete be sealed?
         a: New concrete needs to cure first — usually about a month, depending on the product and weather.
+
+  pool-deck-resurfacing:
+    name: Pool Deck Repair & Resurfacing
+    category: concrete
+    title: Pool Deck Repair & Resurfacing in SE Michigan | Mr. Brick
+    description: Cracked, uneven or worn concrete pool decks repaired, leveled, resurfaced or rebuilt in pavers or stamped concrete. Serving Southeastern Michigan. Free quotes.
+    h1: Pool deck repair and resurfacing
+    lede: Cracked, sunken or worn concrete around your pool made smooth, level and safe again, often without tearing the whole deck out.
+    image: pool-deck-coping-work
+    tags: [concrete, patios]
+    intro: |
+      A pool deck takes more abuse than almost any concrete on a property: standing water, pool chemicals, bare feet, furniture, and in Michigan a full winter of freeze-thaw. Decks crack, settle away from the pool, develop trip edges at the joints, and the surface wears rough enough to scrape feet.
+
+      Not every tired deck needs to be torn out. Depending on its condition, the right fix may be grinding and smoothing high spots, leveling settled slabs, repairing cracks and edges, a bonded resurfacing overlay, or replacing failed sections. When a deck is too far gone, we rebuild it in concrete, stamped concrete or pavers.
+    signs:
+      - Trip edges where slabs have lifted or settled
+      - Cracks and broken edges near the coping
+      - Rough, pitted or flaking surface that's hard on bare feet
+      - Water pooling on the deck or draining toward the house
+      - Slabs sloping toward the pool instead of away from it
+    includes:
+      - Assessment of whether the deck can be repaired or needs replacing
+      - Grinding and smoothing of uneven areas and joints
+      - Leveling of settled sections and crack repair
+      - Bonded resurfacing on structurally sound concrete
+      - Replacement sections or full rebuilds in concrete, stamped concrete or pavers
+      - Sealing suited to wet, barefoot areas
+    options:
+      - {name: Repair and smoothing, text: "Grind down trip edges and rough spots and repair cracks on a deck that is otherwise sound."}
+      - {name: Resurfacing, text: "A new bonded surface over solid concrete, with a texture that offers traction when wet."}
+      - {name: Rebuild in pavers or stamped concrete, text: "For decks that have failed, a new surface built on a proper base and sloped away from the pool."}
+    approach: |
+      We start by checking whether the slabs are still moving, because an overlay on a moving slab won't last. Where we can save the existing deck, we will; it's usually the less expensive route. We work on the deck around the pool; the pool shell, liner, plumbing and equipment are for your pool contractor, and we're happy to coordinate with them.
+    related: [concrete-resurfacing, concrete-leveling, stamped-concrete, paver-services]
+    faqs:
+      - q: Can a cracked pool deck be repaired instead of replaced?
+        a: Often, yes. If the slabs are stable, cracks can be repaired, uneven areas ground smooth, and the surface resurfaced. Decks that have broken up or keep moving are better replaced.
+      - q: What's the best surface for a pool deck in Michigan?
+        a: It should offer traction when wet, stay comfortable underfoot, and handle freeze-thaw. Textured concrete, stamped concrete and pavers all work when they're built on a proper base and sloped to drain away from the pool.
+      - q: Do you work on the pool itself?
+        a: No. We handle the concrete, pavers and masonry around the pool. Work on the pool shell, liner, plumbing and equipment is done by pool contractors, and we can coordinate with yours.
 
   # --------------------------------------------------------------- FLATWORK
   driveway-services:
