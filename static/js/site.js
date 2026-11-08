@@ -328,14 +328,13 @@
       track('form_submit', { form_id: formId, service_type: service, property_type: property });
 
       var data = new FormData(form);
-      var fileInput = form.querySelector('input[type="file"]');
-      var files = fileInput ? Array.prototype.slice.call(fileInput.files || []) : [];
+      var fileInput = form.querySelector('[data-photo-picker]');
+      var files = fileInput ? Array.prototype.slice.call(fileInput.files || []).slice(0, MAX_FILES) : [];
       Promise.all(files.map(shrinkImage))
         .then(function (small) {
-          if (files.length) {
-            data.delete(fileInput.name);
-            small.forEach(function (file) { data.append(fileInput.name, file, file.name); });
-          }
+          // Netlify Forms accepts one file per field: photo_1..photo_5.
+          for (var n = 1; n <= MAX_FILES; n++) data.delete('photo_' + n);
+          small.forEach(function (file, i) { data.append('photo_' + (i + 1), file, file.name); });
           var total = small.reduce(function (t, file) { return t + file.size; }, 0);
           if (total > MAX_UPLOAD) {
             var err = new Error('too-large'); err.field = fileInput; throw err;

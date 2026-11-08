@@ -240,3 +240,35 @@ Measured on a simulated mobile connection (150 ms latency, 1.6 Mbps, 4× CPU slo
 - Publish roughly one new article a month from real customer questions, with photos from real jobs.
 - After 60–90 days, use Search Console to find the articles getting impressions and expand those with more detail, photos and FAQs.
 - Add project photos (for example, the pool deck before/after from R.'s review) to the matching articles.
+
+---
+
+# QA pass: November 8, 2026
+
+## Bugs found
+1. **Critical: the live quote form returns 404.** Test POSTs to `mrbrickllc.netlify.app` (`/` and `/thank-you`, both multipart and urlencoded) all return 404. Netlify Forms isn't registered for the site: form detection is off, and the served HTML still carries `data-netlify="true"`, which Netlify strips once it processes a form. No live leads are being captured. **The fix is in the Netlify dashboard**: see "Netlify setup" below.
+2. **Fixed: only one photo per submission would be kept.** Netlify Forms supports one file per field. Photos are now sent as `photo_1`…`photo_5`. All five fields are in the HTML for form detection, and the email function reads them all.
+3. **Fixed:** the email function now sends to both `mrbrickdesignco@gmail.com` and `paulbrowncreative@gmail.com` (`LEAD_TO`, comma-separated).
+4. **Fixed:** 5 meta descriptions were 161–163 characters long.
+
+## Verified after the fixes
+- **Pages:** 82 pages (80 indexable). 0 broken links or assets, 0 duplicate titles or descriptions, one H1 per page and no heading skips. All JSON-LD parses, and the sitemap matches the indexable pages.
+- **Browser sweep:** every page at 390 and 1440 px, with 0 console errors, 0 failed requests, 0 broken images and 0 horizontal overflow.
+- **Accessibility:** axe (WCAG 2.2 AA plus best practice) reports 0 violations on 14 templates at both widths.
+- **Quote form, end to end:**
+  - One POST per submission, even with a double click
+  - `form-name` and the honeypot are present
+  - 5 × 4.2 MB phone photos are downscaled to 3 MB total and sent as `photo_1`–`photo_5`
+  - `/thank-you` fires `quote_request`
+- **Email function:** sends to both inboxes with reply-to set to the customer, includes all photo links, and escapes customer input.
+- **Live site:** security headers, `/resources` → `/blog` 301s and the 404 status all work on mrbrickllc.netlify.app.
+
+## Netlify setup (required)
+1. Netlify → site → **Forms** → **Enable form detection**.
+2. Deploy again (drag-and-drop the latest zip). Detection only applies from the next deploy.
+3. Forms → **Form notifications** → Add notification → **Email notification**. Event: *New form submission*, form: *quote*. Add one for `mrbrickdesignco@gmail.com` and one for `paulbrowncreative@gmail.com`.
+4. Submit a test from `/request-quote` with a photo. It should appear under Forms → quote, and both inboxes should get an email. Check spam the first time.
+5. Optional: the `submission-created` function sends a richer email via Resend. It needs a Git-based deploy and `RESEND_API_KEY`. Resend's default sender only delivers to the Resend account's own email, so sending to both inboxes needs a verified domain. The built-in notifications above need no key.
+
+## Launch blocker
+`www.mrbrickllc.com` still serves the old Hibu/Duda site (nginx). Every canonical tag and the sitemap point to www.mrbrickllc.com, so the new site can't rank until the domain is pointed at Netlify.

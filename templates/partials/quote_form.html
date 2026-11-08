@@ -70,7 +70,11 @@
       </div>
       <div class="field">
         <label for="{{ uid }}-photos">Photos <span class="opt">(optional but helpful)</span></label>
-        <input class="input" id="{{ uid }}-photos" name="photos" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" multiple aria-describedby="{{ uid }}-photos-hint">
+        {# Netlify Forms keeps one file per field, so photos are submitted as
+           photo_1..photo_5. site.js splits the files from this picker across
+           them; photo_2..5 exist only so Netlify's form detection registers them. #}
+        <input class="input" id="{{ uid }}-photos" name="photo_1" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" multiple aria-describedby="{{ uid }}-photos-hint" data-photo-picker>
+        <span hidden>{% for n in range(2, 6) %}<input type="file" name="photo_{{ n }}" accept="image/*">{% endfor %}</span>
         <span class="hint" id="{{ uid }}-photos-hint">Up to 5 photos (JPG, PNG, HEIC). A wide shot plus a close-up works best.</span>
         <p class="file-summary" data-file-summary aria-live="polite"></p>
         <p class="error"></p>

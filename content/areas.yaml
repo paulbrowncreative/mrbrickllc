@@ -12,7 +12,7 @@ areas:
   macomb-county:
     name: Macomb County
     title: Masonry Contractor in Macomb County, MI | Mr. Brick
-    description: Brick, chimney, porch and concrete work for Macomb County homes from Eastpointe-based Mr. Brick — Roseville, St. Clair Shores, Warren, Sterling Heights and more.
+    description: Brick, chimney, porch and concrete work for Macomb County homes from Eastpointe-based Mr. Brick in Roseville, St. Clair Shores, Warren and more.
     h1: Masonry contractor in Macomb County
     lede: Macomb County is home. Mr. Brick is based in Eastpointe, a short drive from most of the county.
     image: brick-porch-entry
@@ -98,7 +98,7 @@ cities:
     name: St. Clair Shores
     county: macomb-county
     title: St. Clair Shores Masonry & Concrete Contractor | Mr. Brick
-    description: Chimney repair, brick porches and steps, pavers, patios and concrete for St. Clair Shores homes near Lake St. Clair. Free quotes from Eastpointe-based Mr. Brick.
+    description: Chimney repair, brick porches and steps, pavers, patios and concrete for St. Clair Shores homes near Lake St. Clair. Free quotes from Mr. Brick.
     h1: Masonry and concrete in St. Clair Shores
     lede: Brick, chimney, porch and concrete work for St. Clair Shores homes, from the canal streets to the neighborhoods off Harper and Little Mack.
     image: paver-patio-wall
@@ -170,7 +170,7 @@ cities:
     name: Warren
     county: macomb-county
     title: Masonry & Concrete Contractor in Warren, MI | Mr. Brick
-    description: Concrete driveways, porches and steps, chimney repair and brick work for Warren homes and businesses. Free quotes from Mr. Brick, based in neighboring Eastpointe.
+    description: Concrete driveways, porches and steps, chimney repair and brick work for Warren homes and businesses. Free quotes from Eastpointe-based Mr. Brick.
     h1: Warren masonry and concrete contractor
     lede: Driveways, porches, steps, chimneys and brick repair for Warren homes and commercial properties.
     image: driveway-screed-pour

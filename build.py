@@ -285,7 +285,7 @@ add("/", "home.html", "Masonry Contractor in Eastpointe & SE Michigan | Mr. Bric
     extra_schema=[faq_schema(HOME_FAQS)])
 
 add("/services", "services_index.html", "Masonry & Concrete Services in SE Michigan | Mr. Brick",
-    "Every masonry and concrete service Mr. Brick offers in Southeastern Michigan: brick, chimneys, porches, concrete, driveways, pavers, patios, foundations and walls.",
+    "Every masonry and concrete service Mr. Brick offers in Southeastern Michigan: brick, chimneys, porches, concrete, driveways, pavers, patios and foundations.",
     h1="Masonry and concrete services", lede="Seven trades, one contractor. Find your project below, or call and describe it — we'll point you the right way.",
     crumbs=[H, ("Services", "/services")], hero_cta=True)
 

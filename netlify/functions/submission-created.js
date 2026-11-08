@@ -6,7 +6,8 @@
 
    Environment variables (Netlify > Site configuration > Environment variables):
      RESEND_API_KEY  required  API key from resend.com (free tier is plenty)
-     LEAD_TO         optional  defaults to mrbrickdesignco@gmail.com
+     LEAD_TO         optional  comma-separated recipients; defaults to the
+                               business inbox plus the site manager's inbox
      LEAD_FROM       optional  defaults to "Mr. Brick Website <onboarding@resend.dev>"
                                (resend.dev can only send to the Resend account's
                                own email; verify mrbrickllc.com in Resend to send
@@ -15,7 +16,8 @@
    Netlify Forms still stores every submission and its photos, so a lead is
    never lost even if the email provider is down. */
 
-const LEAD_TO = process.env.LEAD_TO || 'mrbrickdesignco@gmail.com';
+const LEAD_TO = (process.env.LEAD_TO || 'mrbrickdesignco@gmail.com,paulbrowncreative@gmail.com')
+  .split(',').map((s) => s.trim()).filter(Boolean);
 const LEAD_FROM = process.env.LEAD_FROM || 'Mr. Brick Website <onboarding@resend.dev>';
 
 // Customer-facing fields first, in the order they appear on the form.
@@ -57,7 +59,9 @@ exports.handler = async (event) => {
     return { statusCode: 200, body: 'no email provider configured' };
   }
 
-  const photos = photoList(d.photos);
+  // Photos arrive as photo_1..photo_5 (one file per field); `photos` is legacy.
+  const photos = ['photo_1', 'photo_2', 'photo_3', 'photo_4', 'photo_5', 'photos']
+    .flatMap((k) => photoList(d[k]));
   const rows = FIELDS.filter(([k]) => d[k]).map(([k, label]) => [label, d[k]]);
   const tracking = TRACKING.filter((k) => d[k]).map((k) => [k, d[k]]);
   const phoneDigits = String(d.phone || '').replace(/[^\d+]/g, '');
@@ -89,7 +93,7 @@ ${tracking.length ? `<h3 style="margin:20px 0 8px;font-size:13px;color:#50565c">
     ...(tracking.length ? ['', 'Lead source:', ...tracking.map(([k, v]) => `${k}: ${v}`)] : []),
   ].join('\n');
 
-  const body = { from: LEAD_FROM, to: [LEAD_TO], subject, html, text };
+  const body = { from: LEAD_FROM, to: LEAD_TO, subject, html, text };
   if (d.email && /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d.email)) body.reply_to = clean(d.email);
 
   try {
