@@ -47,6 +47,8 @@ Front steps take more abuse than almost anything else on a house: foot traffic, 
 
 **Best for:** Grand entries, stone-front homes, and projects where the entry is a focal point.
 
+[[photo:brick-pillar-stone-entry-finished|Stone steps and a stone landing framed by curved brick walls and capped pillars.]]
+
 ## What matters more than the material
 
 Whatever you choose, these details decide whether steps stay safe and level:

@@ -193,7 +193,7 @@ def business_schema():
         "telephone": site["phone_e164"],
         "email": site["email"],
         "logo": BASE + "/static/img/mr-brick-logo-480.png",
-        "image": BASE + "/static/img/crew-brick-pillars-stone-steps-1200.jpg",
+        "image": BASE + f"/static/img/crew-brick-pillars-stone-steps-{images['crew-brick-pillars-stone-steps']['jpg']}.jpg",
         "description": "Family-owned masonry and concrete contractor serving Southeastern Michigan with brick repair, tuckpointing, chimney repair and rebuilding, porches and steps, concrete, driveways, pavers, patios, foundations and retaining walls.",
         "slogan": "He's honest, he's practical, he's quick.",
         "address": addr,
