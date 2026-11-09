@@ -23,7 +23,6 @@ chimney-rebuild-staging: {src: gallery-22-mr-brick-llc.jpg, alt: "Brick chimney 
 mr-brick-truck: {src: gallery-23-mr-brick-llc.jpg, alt: "Mr. Brick work truck parked at a job site next to a brick chimney", tags: [company]}
 concrete-sealing: {src: gallery-24-mr-brick-llc.jpg, alt: "Applying sealer to a concrete surface", tags: [concrete]}
 paver-porch-wet: {src: gallery-25-mr-brick-llc.jpg, alt: "Brick paver porch landing with a single step at a brick home", tags: [pavers, porches, residential]}
-brick-walkway-border: {src: gallery-26-mr-brick-llc.jpg, alt: "Brick walkway with a dark border leading to a front door", tags: [walkways, pavers, brick, residential]}
 curved-brick-path: {src: gallery-27-mr-brick-llc.jpg, alt: "Curved brick paver path with dark border, newly installed", tags: [walkways, pavers, residential]}
 chimney-black-cap: {src: gallery-29-mr-brick-llc.jpg, alt: "Brick chimney with a black metal cap against a blue sky", tags: [chimneys, residential]}
 chimney-clay-pots: {src: gallery-32-mr-brick-llc.jpg, alt: "Brick chimney with two clay chimney pots", tags: [chimneys]}
@@ -34,7 +33,6 @@ concrete-block-steps: {src: 3979.png, alt: "New concrete steps at the side entry
 patio-base-prep: {src: 3982.png, alt: "Mason grading the base for a paver patio around a fire pit", tags: [patios, pavers, residential]}
 chimney-tall-exterior: {src: 3985.png, alt: "Tall exterior brick chimney after repair", tags: [chimneys, residential]}
 concrete-walkway-new: {src: 3994.png, alt: "New concrete front walkway between garden beds", tags: [walkways, concrete, residential]}
-chimney-stone-cap: {src: 3995.png, alt: "Chimney finished with a stone cap and new flue liners", tags: [chimneys]}
 chimney-crown-closeup: {src: 3996.png, alt: "Close-up of a new chimney crown poured over brick", tags: [chimneys]}
 chimney-house-scaffold: {src: 3997.png, alt: "Brick chimney on a two-story home with scaffolding in place", tags: [chimneys, residential]}
 chimney-cap-finished: {src: 4001.png, alt: "Brick chimney with a new metal cap after repointing", tags: [chimneys, residential]}
@@ -47,7 +45,6 @@ herringbone-brick-walk: {src: mr-brick-gallery-915-03.jpg, alt: "Red brick paver
 brick-wall-sidewalk: {src: mr-brick-gallery-915-05.jpg, alt: "New brick wall with a stone cap along a sidewalk", tags: [brick, commercial]}
 tuckpointing-stone-cap: {src: mr-brick-gallery-915-06.jpg, alt: "Mason repointing mortar joints on a brick wall with a limestone cap", tags: [brick, commercial]}
 concrete-side-walk: {src: mr-brick-gallery-915-07.jpg, alt: "New concrete side walkway along a home", tags: [walkways, concrete, residential]}
-red-brick-steps-iron-door: {src: mr-brick-gallery-915-steps.jpg, alt: "Red brick steps leading to an iron front door", tags: [steps, brick, residential]}
 curved-paver-walkway: {src: paver-walkway-installation-hero-mr-brick-cust.jpg, alt: "Curved paver walkway with a charcoal border along a brick home", tags: [walkways, pavers, residential]}
 paver-patio-wall: {src: pavers12.png, alt: "Paver patio bordered by a stone seat wall", tags: [patios, pavers, residential]}
 brick-steps-dark-treads: {src: porch-services-hero-mr-brick-llc-cust.png, alt: "Brick steps with dark stone treads and a planter at a front door", tags: [porches, steps, brick, residential]}
@@ -55,7 +52,6 @@ stone-steps-iron-railings: {src: stair-services-hero-mr-brick-llc-cust.png, alt:
 # Added Nov 2026 from the previous mrbrickllc.com gallery (Mr. Brick project photos).
 pool-deck-coping-work: {src: 3983.png, alt: "Mason working on the concrete deck along a pool's coping", tags: [concrete, patios, residential]}
 chimney-stone-cap-roof: {src: 4000.png, alt: "Top of a brick chimney finished with a stone cap, seen from the roof", tags: [chimneys]}
-brick-steps-stone-treads-entry: {src: gallery-35-mr-brick-llc.png, alt: "Brick front steps with dark stone treads leading to a front door", tags: [steps, brick, porches, residential]}
 block-wall-stairwell: {src: gallery-36-mr-brick-llc.png, alt: "Mason building a concrete block wall beside an outdoor stairwell", tags: [retaining-walls, foundations, residential]}
 block-wall-scaffold-build: {src: gallery-37-mr-brick-llc.png, alt: "Concrete block wall under construction with scaffolding in place", tags: [foundations, retaining-walls]}
 chimney-rebuild-before-during-after: {src: gallery-40-mr-brick-llc.png, alt: "A chimney rebuild shown before, during and after", tags: [chimneys, brick, residential]}
@@ -90,3 +86,8 @@ brick-pillar-stone-entry-finished: {src: brick-pillar-stone-entry-finished.jpg, 
 chimney-rebuild-new-brick-flues: {src: chimney-rebuild-new-brick-flues.jpg, alt: "Mason laying new red brick around two clay flue tiles while rebuilding the top of a chimney", tags: [chimneys, brick, residential]}
 brick-repair-scaffold-arched-windows: {src: brick-repair-scaffold-arched-windows.jpg, alt: "Masons on scaffolding repairing brick around the windows of a two-story brick home", tags: [brick, residential]}
 stone-wall-exterior-stairs: {src: stone-wall-exterior-stairs.jpg, alt: "Natural stone wall beside an open exterior staircase with a cable railing", tags: [retaining-walls, residential]}
+chimney-sloped-crown-scaffold: {src: chimney-sloped-crown-scaffold.jpg, alt: "Rebuilt brick chimney top with a new sloped concrete crown, clay flue tile and metal cap", tags: [chimneys, brick, residential]}
+mason-stone-veneer-column: {src: mason-stone-veneer-column.jpg, alt: "Mr. Brick mason setting natural stone veneer on a covered patio column", tags: [stone, residential]}
+outdoor-kitchen-stone-grill: {src: outdoor-kitchen-stone-grill.jpg, alt: "Stone veneer outdoor kitchen with a built-in grill, beverage fridge and storage doors", tags: [outdoor-kitchens, stone, residential]}
+covered-patio-stone-walls-evening: {src: covered-patio-stone-walls-evening.jpg, alt: "Covered patio at dusk with natural stone walls and a stone planter ledge", tags: [stone, patios, residential]}
+covered-patio-stone-tv-wall: {src: covered-patio-stone-tv-wall.jpg, alt: "Covered patio with stone veneer walls and a stone ledge framing an outdoor TV wall", tags: [stone, patios, residential]}

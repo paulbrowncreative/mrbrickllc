@@ -35,7 +35,7 @@ Front steps take more abuse than almost anything else on a house: foot traffic, 
 
 **Best for:** Brick homes, historic neighborhoods, and anyone matching an existing brick porch.
 
-[[photo:brick-steps-stone-treads-entry|Brick front steps with dark stone treads.]]
+[[photo:brick-steps-dark-treads|Brick front steps with dark stone treads.]]
 
 [[photo:red-brick-steps-herringbone-walk|Red brick steps leading down to a herringbone brick walk.]]
 

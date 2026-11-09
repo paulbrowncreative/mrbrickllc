@@ -21,6 +21,8 @@ A stain on the ceiling next to the chimney, a damp wall in the attic, or water i
 
 A cracked or poorly built crown lets water into the top of the masonry, where it runs down inside the chimney. It often shows up far below where it got in. Read [chimney crown vs. chimney cap](/blog/chimney-crown-vs-chimney-cap) for how the top of a chimney should shed water.
 
+[[photo:chimney-sloped-crown-scaffold|A rebuilt chimney top with a new sloped crown that sheds water off the brick.]]
+
 ### 2. The flue opening
 
 Without a cap, rain falls straight down the flue. Look for water, rust or staining in the firebox or around the damper.

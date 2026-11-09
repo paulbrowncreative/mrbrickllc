@@ -4,7 +4,7 @@ slug: outdoor-kitchen-planning-guide
 seo_title: "Outdoor Kitchen Planning Guide for Michigan | Mr. Brick"
 description: "Planning a brick, block or stone outdoor kitchen in Michigan: layout, appliances first, footings, utilities, countertops and winter care."
 date: 2026-09-30
-image: patio-base-prep
+image: outdoor-kitchen-stone-grill
 services: [outdoor-kitchen-installation, patio-services, fireplace-services]
 faqs:
   - q: Do I need to buy my grill before the outdoor kitchen is built?
@@ -18,6 +18,8 @@ A masonry outdoor kitchen, whether it's a simple grill island or a full counter 
 ## Pick your appliances first
 
 The single most important step: **choose your grill and any other built-in appliances before the masonry is designed.** Openings are built to exact cut-out dimensions. Changing grills later can mean cutting into finished masonry.
+
+[[photo:outdoor-kitchen-stone-grill|A stone outdoor kitchen built around its grill, beverage fridge and access doors.]]
 
 Common built-ins:
 
@@ -50,6 +52,8 @@ Gas lines, electrical outlets, lighting and water should be planned before the b
 ## Countertops and caps
 
 The counter takes sun, rain, snow, grease and freeze-thaw. Choose a surface rated for outdoor use in a freeze-thaw climate, with overhangs that shed water away from the masonry below.
+
+[[photo:mason-stone-veneer-column|Setting natural stone veneer on a covered patio column.]]
 
 ## Pair it with fire
 

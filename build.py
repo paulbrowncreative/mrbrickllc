@@ -155,10 +155,10 @@ def render_post(p):
     p["toc"] = [(t["id"], t["name"]) for t in md.toc_tokens]
 # Gallery tag -> the service page that best explains that kind of work.
 TAG_SERVICE = {"chimneys": "chimney-services", "porches": "porch-services", "steps": "stair-services",
-               "brick": "brick-masonry", "stone": "stair-services", "concrete": "concrete-services",
+               "brick": "brick-masonry", "stone": "brick-masonry", "concrete": "concrete-services",
                "driveways": "driveway-services", "walkways": "walkway-services", "pavers": "paver-services",
                "patios": "patio-services", "retaining-walls": "retaining-wall-services",
-               "foundations": "foundation-services"}
+               "foundations": "foundation-services", "outdoor-kitchens": "outdoor-kitchen-installation"}
 
 def strip_tags(text):
     return re.sub(r"<[^>]+>", "", text or "")
@@ -351,12 +351,12 @@ for slug, c in cities.items():
 
 TAG_LABELS = {"chimneys": "Chimneys", "porches": "Porches", "steps": "Steps", "brick": "Brick", "stone": "Stone",
               "concrete": "Concrete", "driveways": "Driveways", "walkways": "Walkways", "pavers": "Pavers",
-              "patios": "Patios", "retaining-walls": "Retaining walls", "foundations": "Foundations",
+              "patios": "Patios", "retaining-walls": "Retaining walls", "foundations": "Foundations", "outdoor-kitchens": "Outdoor kitchens",
               "commercial": "Commercial", "residential": "Residential", "company": "Our crew"}
 env.globals["tag_labels"] = TAG_LABELS
 gallery_ids = [i for i in images]
 filters = []
-for k in ["chimneys", "porches", "steps", "brick", "stone", "concrete", "driveways", "walkways", "pavers", "patios",
+for k in ["chimneys", "porches", "steps", "brick", "stone", "concrete", "driveways", "walkways", "pavers", "patios", "outdoor-kitchens",
           "retaining-walls", "foundations", "commercial", "residential"]:
     n = sum(1 for i in gallery_ids if k in images[i]["tags"])
     if n:

@@ -368,23 +368,6 @@
    "residential"
   ]
  },
- "brick-walkway-border": {
-  "w": 1000,
-  "h": 1333,
-  "widths": [
-   480,
-   800
-  ],
-  "jpg": 750,
-  "src": "gallery-26-mr-brick-llc.jpg",
-  "alt": "Brick walkway with a dark border leading to a front door",
-  "tags": [
-   "walkways",
-   "pavers",
-   "brick",
-   "residential"
-  ]
- },
  "curved-brick-path": {
   "w": 1000,
   "h": 1328,
@@ -533,19 +516,6 @@
    "walkways",
    "concrete",
    "residential"
-  ]
- },
- "chimney-stone-cap": {
-  "w": 720,
-  "h": 868,
-  "widths": [
-   480
-  ],
-  "jpg": 720,
-  "src": "3995.png",
-  "alt": "Chimney finished with a stone cap and new flue liners",
-  "tags": [
-   "chimneys"
   ]
  },
  "chimney-crown-closeup": {
@@ -730,21 +700,6 @@
    "residential"
   ]
  },
- "red-brick-steps-iron-door": {
-  "w": 720,
-  "h": 493,
-  "widths": [
-   480
-  ],
-  "jpg": 720,
-  "src": "mr-brick-gallery-915-steps.jpg",
-  "alt": "Red brick steps leading to an iron front door",
-  "tags": [
-   "steps",
-   "brick",
-   "residential"
-  ]
- },
  "curved-paver-walkway": {
   "w": 1536,
   "h": 2048,
@@ -836,23 +791,6 @@
   "alt": "Top of a brick chimney finished with a stone cap, seen from the roof",
   "tags": [
    "chimneys"
-  ]
- },
- "brick-steps-stone-treads-entry": {
-  "w": 1080,
-  "h": 932,
-  "widths": [
-   480,
-   800
-  ],
-  "jpg": 1000,
-  "src": "gallery-35-mr-brick-llc.png",
-  "alt": "Brick front steps with dark stone treads leading to a front door",
-  "tags": [
-   "steps",
-   "brick",
-   "porches",
-   "residential"
   ]
  },
  "block-wall-stairwell": {
@@ -1370,6 +1308,86 @@
   "alt": "Natural stone wall beside an open exterior staircase with a cable railing",
   "tags": [
    "retaining-walls",
+   "residential"
+  ]
+ },
+ "chimney-sloped-crown-scaffold": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "jpg": 750,
+  "src": "chimney-sloped-crown-scaffold.jpg",
+  "alt": "Rebuilt brick chimney top with a new sloped concrete crown, clay flue tile and metal cap",
+  "tags": [
+   "chimneys",
+   "brick",
+   "residential"
+  ]
+ },
+ "mason-stone-veneer-column": {
+  "w": 1080,
+  "h": 1409,
+  "widths": [
+   480,
+   800
+  ],
+  "jpg": 767,
+  "src": "mason-stone-veneer-column.jpg",
+  "alt": "Mr. Brick mason setting natural stone veneer on a covered patio column",
+  "tags": [
+   "stone",
+   "residential"
+  ]
+ },
+ "outdoor-kitchen-stone-grill": {
+  "w": 1080,
+  "h": 793,
+  "widths": [
+   480,
+   800
+  ],
+  "jpg": 1000,
+  "src": "outdoor-kitchen-stone-grill.jpg",
+  "alt": "Stone veneer outdoor kitchen with a built-in grill, beverage fridge and storage doors",
+  "tags": [
+   "outdoor-kitchens",
+   "stone",
+   "residential"
+  ]
+ },
+ "covered-patio-stone-walls-evening": {
+  "w": 1080,
+  "h": 1384,
+  "widths": [
+   480,
+   800
+  ],
+  "jpg": 780,
+  "src": "covered-patio-stone-walls-evening.jpg",
+  "alt": "Covered patio at dusk with natural stone walls and a stone planter ledge",
+  "tags": [
+   "stone",
+   "patios",
+   "residential"
+  ]
+ },
+ "covered-patio-stone-tv-wall": {
+  "w": 1075,
+  "h": 807,
+  "widths": [
+   480,
+   800
+  ],
+  "jpg": 1000,
+  "src": "covered-patio-stone-tv-wall.jpg",
+  "alt": "Covered patio with stone veneer walls and a stone ledge framing an outdoor TV wall",
+  "tags": [
+   "stone",
+   "patios",
    "residential"
   ]
  }

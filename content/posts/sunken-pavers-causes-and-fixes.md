@@ -4,7 +4,7 @@ slug: sunken-pavers-causes-and-fixes
 seo_title: "Sunken or Shifting Pavers? Causes & Fixes | Mr. Brick"
 description: "Why pavers settle, heave, spread and grow weeds in Michigan, what a proper paver base looks like, and how sunken pavers are lifted and reset."
 date: 2026-09-30
-image: brick-walkway-border
+image: curved-paver-walkway
 services: [paver-services, walkway-services, patio-services]
 faqs:
   - q: Can sunken pavers be fixed without replacing them?
@@ -22,7 +22,7 @@ Well-built pavers are one of the most durable surfaces you can put down in Michi
 - **Soft spots** that weren't dug out before the base went in
 - **Too much bedding sand**, which compresses unevenly over time
 
-[[photo:brick-walkway-border|A brick walkway with a dark border leading to a front door.]]
+[[photo:curved-paver-walkway|A brick walkway with a dark border leading to a front door.]]
 
 ## Why pavers heave or rock
 
