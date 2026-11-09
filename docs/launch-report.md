@@ -266,7 +266,7 @@ Measured on a simulated mobile connection (150 ms latency, 1.6 Mbps, 4× CPU slo
 ## Netlify setup (required)
 1. Netlify → site → **Forms** → **Enable form detection**.
 2. Deploy again (drag-and-drop the latest zip). Detection only applies from the next deploy.
-3. Forms → **Form notifications** → Add notification → **Email notification**. Event: *New form submission*, form: *quote*. Add one for `mrbrickdesignco@gmail.com` and one for `paulbrowncreative@gmail.com`.
+3. Forms → **Form notifications** → Add notification → **Email notification**. Event: *New form submission*, form: *quote*. Add one each for `mrbrickdesignco@gmail.com`, `mrbrickmarketing@gmail.com` and `paulbrowncreative@gmail.com`. (Drag-and-drop zip deploys do not include the email function, so these notifications are what send lead emails.)
 4. Submit a test from `/request-quote` with a photo. It should appear under Forms → quote, and both inboxes should get an email. Check spam the first time.
 5. Optional: the `submission-created` function sends a richer email via Resend. It needs a Git-based deploy and `RESEND_API_KEY`. Resend's default sender only delivers to the Resend account's own email, so sending to both inboxes needs a verified domain. The built-in notifications above need no key.
 

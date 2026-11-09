@@ -16,7 +16,7 @@
    Netlify Forms still stores every submission and its photos, so a lead is
    never lost even if the email provider is down. */
 
-const LEAD_TO = (process.env.LEAD_TO || 'mrbrickdesignco@gmail.com,paulbrowncreative@gmail.com')
+const LEAD_TO = (process.env.LEAD_TO || 'mrbrickdesignco@gmail.com,mrbrickmarketing@gmail.com,paulbrowncreative@gmail.com')
   .split(',').map((s) => s.trim()).filter(Boolean);
 const LEAD_FROM = process.env.LEAD_FROM || 'Mr. Brick Website <onboarding@resend.dev>';
 
