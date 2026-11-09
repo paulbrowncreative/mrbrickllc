@@ -37,14 +37,15 @@
   ]
  },
  "stone-steps-iron-gate": {
-  "w": 1000,
-  "h": 1333,
+  "w": 1500,
+  "h": 2000,
   "widths": [
    480,
-   800
+   800,
+   1200
   ],
   "jpg": 750,
-  "src": "gallery-03-mr-brick-llc.jpg",
+  "src": "stone-steps-iron-gate-hd.jpg",
   "alt": "Stone steps leading to a wrought iron gate with brick detailing",
   "tags": [
    "steps",
@@ -53,14 +54,15 @@
   ]
  },
  "driveway-screed-pour": {
-  "w": 1000,
-  "h": 1333,
+  "w": 1500,
+  "h": 2000,
   "widths": [
    480,
-   800
+   800,
+   1200
   ],
   "jpg": 750,
-  "src": "gallery-06-mr-brick-llc.jpg",
+  "src": "driveway-screed-pour-hd.jpg",
   "alt": "Crew screeding a freshly poured concrete driveway in front of a garage",
   "tags": [
    "driveways",
@@ -87,14 +89,15 @@
   ]
  },
  "footing-excavation": {
-  "w": 1000,
-  "h": 1333,
+  "w": 1500,
+  "h": 2000,
   "widths": [
    480,
-   800
+   800,
+   1200
   ],
   "jpg": 750,
-  "src": "gallery-08-mr-brick-llc.jpg",
+  "src": "footing-excavation-hd.jpg",
   "alt": "Crew excavating a square footing in a residential yard",
   "tags": [
    "foundations",
@@ -102,14 +105,15 @@
   ]
  },
  "porch-block-foundation": {
-  "w": 1000,
-  "h": 1333,
+  "w": 1500,
+  "h": 2000,
   "widths": [
    480,
-   800
+   800,
+   1200
   ],
   "jpg": 750,
-  "src": "gallery-09-mr-brick-llc.jpg",
+  "src": "porch-block-foundation-hd.jpg",
   "alt": "Brick and concrete block foundation being built for a new front porch",
   "tags": [
    "porches",
@@ -119,14 +123,15 @@
   ]
  },
  "mason-leveling-brick": {
-  "w": 1000,
-  "h": 1333,
+  "w": 1500,
+  "h": 2000,
   "widths": [
    480,
-   800
+   800,
+   1200
   ],
   "jpg": 750,
-  "src": "gallery-10-mr-brick-llc.jpg",
+  "src": "mason-leveling-brick-hd.jpg",
   "alt": "Mason checking a new brick course with a level",
   "tags": [
    "brick",
@@ -134,14 +139,15 @@
   ]
  },
  "brick-entry-planter": {
-  "w": 1000,
-  "h": 1333,
+  "w": 1500,
+  "h": 2000,
   "widths": [
    480,
-   800
+   800,
+   1200
   ],
   "jpg": 750,
-  "src": "gallery-11-mr-brick-llc.jpg",
+  "src": "brick-entry-planter-hd.jpg",
   "alt": "Brick entry with new steps and a built-in brick planter",
   "tags": [
    "brick",
@@ -150,14 +156,15 @@
   ]
  },
  "block-wall-concrete-steps": {
-  "w": 1000,
-  "h": 1333,
+  "w": 1500,
+  "h": 2000,
   "widths": [
    480,
-   800
+   800,
+   1200
   ],
   "jpg": 750,
-  "src": "gallery-12-mr-brick-llc.jpg",
+  "src": "block-wall-concrete-steps-hd.jpg",
   "alt": "Concrete block wall alongside new poured concrete steps",
   "tags": [
    "retaining-walls",
@@ -166,14 +173,15 @@
   ]
  },
  "brick-porch-entry": {
-  "w": 1000,
-  "h": 1333,
+  "w": 1500,
+  "h": 2000,
   "widths": [
    480,
-   800
+   800,
+   1200
   ],
   "jpg": 750,
-  "src": "gallery-13-mr-brick-llc.jpg",
+  "src": "brick-porch-entry-hd.jpg",
   "alt": "Restored brick porch and steps at a brown brick home",
   "tags": [
    "porches",
@@ -201,14 +209,15 @@
   ]
  },
  "bricklaying-step-riser": {
-  "w": 1000,
-  "h": 1328,
+  "w": 1506,
+  "h": 2000,
   "widths": [
    480,
-   800
+   800,
+   1200
   ],
   "jpg": 753,
-  "src": "gallery-15-mr-brick-llc.jpg",
+  "src": "bricklaying-step-riser-hd.jpg",
   "alt": "Brick risers being laid on a concrete step, mortar and tools in view",
   "tags": [
    "steps",
@@ -216,14 +225,15 @@
   ]
  },
  "brick-pillar-concrete-cap": {
-  "w": 1000,
-  "h": 1328,
+  "w": 1506,
+  "h": 2000,
   "widths": [
    480,
-   800
+   800,
+   1200
   ],
   "jpg": 753,
-  "src": "gallery-16-mr-brick-llc.jpg",
+  "src": "brick-pillar-concrete-cap-hd.jpg",
   "alt": "New brick pillar with a concrete cap next to concrete steps",
   "tags": [
    "brick",
@@ -248,14 +258,15 @@
   ]
  },
  "chimney-twin-caps": {
-  "w": 1000,
-  "h": 1328,
+  "w": 1506,
+  "h": 2000,
   "widths": [
    480,
-   800
+   800,
+   1200
   ],
   "jpg": 753,
-  "src": "gallery-18-mr-brick-llc.jpg",
+  "src": "chimney-twin-caps-hd.jpg",
   "alt": "Chimney with two new flue caps on a roof with white siding",
   "tags": [
    "chimneys",
@@ -263,28 +274,30 @@
   ]
  },
  "chimney-terracotta-flues": {
-  "w": 1000,
-  "h": 1328,
+  "w": 1506,
+  "h": 2000,
   "widths": [
    480,
-   800
+   800,
+   1200
   ],
   "jpg": 753,
-  "src": "gallery-19-mr-brick-llc.jpg",
+  "src": "chimney-terracotta-flues-hd.jpg",
   "alt": "Chimney crown with three clay flue tiles during repair",
   "tags": [
    "chimneys"
   ]
  },
  "chimney-roof-scaffold": {
-  "w": 1000,
-  "h": 1328,
+  "w": 1506,
+  "h": 2000,
   "widths": [
    480,
-   800
+   800,
+   1200
   ],
   "jpg": 753,
-  "src": "gallery-20-mr-brick-llc.jpg",
+  "src": "chimney-roof-scaffold-hd.jpg",
   "alt": "Brick chimney on a shingled roof with scaffolding set for repair",
   "tags": [
    "chimneys",
@@ -292,14 +305,15 @@
   ]
  },
  "brick-pillar-landscape": {
-  "w": 1000,
-  "h": 1328,
+  "w": 1506,
+  "h": 2000,
   "widths": [
    480,
-   800
+   800,
+   1200
   ],
   "jpg": 753,
-  "src": "gallery-21-mr-brick-llc.jpg",
+  "src": "brick-pillar-landscape-hd.jpg",
   "alt": "Brick pillar with concrete cap at the top of new steps",
   "tags": [
    "brick",
@@ -308,14 +322,15 @@
   ]
  },
  "chimney-rebuild-staging": {
-  "w": 1000,
-  "h": 1328,
+  "w": 1506,
+  "h": 2000,
   "widths": [
    480,
-   800
+   800,
+   1200
   ],
   "jpg": 753,
-  "src": "gallery-22-mr-brick-llc.jpg",
+  "src": "chimney-rebuild-staging-hd.jpg",
   "alt": "Brick chimney being rebuilt, with brick staged on the roof",
   "tags": [
    "chimneys",
@@ -339,28 +354,30 @@
   ]
  },
  "concrete-sealing": {
-  "w": 1000,
-  "h": 1328,
+  "w": 1506,
+  "h": 2000,
   "widths": [
    480,
-   800
+   800,
+   1200
   ],
   "jpg": 753,
-  "src": "gallery-24-mr-brick-llc.jpg",
+  "src": "concrete-sealing-hd.jpg",
   "alt": "Applying sealer to a concrete surface",
   "tags": [
    "concrete"
   ]
  },
  "paver-porch-wet": {
-  "w": 1000,
-  "h": 1328,
+  "w": 1506,
+  "h": 2000,
   "widths": [
    480,
-   800
+   800,
+   1200
   ],
   "jpg": 753,
-  "src": "gallery-25-mr-brick-llc.jpg",
+  "src": "paver-porch-wet-hd.jpg",
   "alt": "Brick paver porch landing with a single step at a brick home",
   "tags": [
    "pavers",
@@ -369,14 +386,15 @@
   ]
  },
  "curved-brick-path": {
-  "w": 1000,
-  "h": 1328,
+  "w": 1506,
+  "h": 2000,
   "widths": [
    480,
-   800
+   800,
+   1200
   ],
   "jpg": 753,
-  "src": "gallery-27-mr-brick-llc.jpg",
+  "src": "curved-brick-path-hd.jpg",
   "alt": "Curved brick paver path with dark border, newly installed",
   "tags": [
    "walkways",
@@ -385,14 +403,16 @@
   ]
  },
  "chimney-black-cap": {
-  "w": 1004,
-  "h": 1237,
+  "w": 1623,
+  "h": 2000,
   "widths": [
    480,
-   800
+   800,
+   1200,
+   1600
   ],
   "jpg": 812,
-  "src": "gallery-29-mr-brick-llc.jpg",
+  "src": "chimney-black-cap-hd.jpg",
   "alt": "Brick chimney with a black metal cap against a blue sky",
   "tags": [
    "chimneys",
@@ -416,14 +436,16 @@
   ]
  },
  "chimney-three-flues": {
-  "w": 1000,
-  "h": 976,
+  "w": 2000,
+  "h": 1952,
   "widths": [
    480,
-   800
+   800,
+   1200,
+   1600
   ],
   "jpg": 1000,
-  "src": "gallery-33-mr-brick-llc.jpg",
+  "src": "chimney-three-flues-hd.jpg",
   "alt": "Rebuilt brick chimney with three capped flues and a new crown",
   "tags": [
    "chimneys",
@@ -431,14 +453,16 @@
   ]
  },
  "chimney-before-after": {
-  "w": 1008,
-  "h": 1005,
+  "w": 2000,
+  "h": 1994,
   "widths": [
    480,
-   800
+   800,
+   1200,
+   1600
   ],
   "jpg": 1000,
-  "src": "gallery-52-mr-brick-llc.jpg",
+  "src": "chimney-before-after-hd.jpg",
   "alt": "Before and after: a crumbling brick chimney and the same chimney rebuilt by Mr. Brick",
   "tags": [
    "chimneys",
@@ -446,13 +470,15 @@
   ]
  },
  "chimney-scaffold-side": {
-  "w": 720,
-  "h": 1082,
+  "w": 1331,
+  "h": 2000,
   "widths": [
-   480
+   480,
+   800,
+   1200
   ],
-  "jpg": 665,
-  "src": "3977.png",
+  "jpg": 666,
+  "src": "chimney-scaffold-side-hd.jpg",
   "alt": "Chimney on the side of a brick home with scaffolding during repair",
   "tags": [
    "chimneys",
@@ -460,13 +486,15 @@
   ]
  },
  "concrete-block-steps": {
-  "w": 720,
-  "h": 981,
+  "w": 1468,
+  "h": 2000,
   "widths": [
-   480
+   480,
+   800,
+   1200
   ],
-  "jpg": 720,
-  "src": "3979.png",
+  "jpg": 734,
+  "src": "concrete-block-steps-hd.jpg",
   "alt": "New concrete steps at the side entry of a home",
   "tags": [
    "steps",
@@ -475,13 +503,15 @@
   ]
  },
  "patio-base-prep": {
-  "w": 720,
-  "h": 919,
+  "w": 1567,
+  "h": 2000,
   "widths": [
-   480
+   480,
+   800,
+   1200
   ],
-  "jpg": 720,
-  "src": "3982.png",
+  "jpg": 784,
+  "src": "patio-base-prep-hd.jpg",
   "alt": "Mason grading the base for a paver patio around a fire pit",
   "tags": [
    "patios",
@@ -490,13 +520,15 @@
   ]
  },
  "chimney-tall-exterior": {
-  "w": 720,
-  "h": 917,
+  "w": 1570,
+  "h": 2000,
   "widths": [
-   480
+   480,
+   800,
+   1200
   ],
-  "jpg": 720,
-  "src": "3985.png",
+  "jpg": 785,
+  "src": "chimney-tall-exterior-hd.jpg",
   "alt": "Tall exterior brick chimney after repair",
   "tags": [
    "chimneys",
@@ -504,13 +536,16 @@
   ]
  },
  "concrete-walkway-new": {
-  "w": 720,
-  "h": 827,
+  "w": 1741,
+  "h": 2000,
   "widths": [
-   480
+   480,
+   800,
+   1200,
+   1600
   ],
-  "jpg": 720,
-  "src": "3994.png",
+  "jpg": 870,
+  "src": "concrete-walkway-new-hd.jpg",
   "alt": "New concrete front walkway between garden beds",
   "tags": [
    "walkways",
@@ -519,26 +554,30 @@
   ]
  },
  "chimney-crown-closeup": {
-  "w": 720,
-  "h": 910,
+  "w": 1582,
+  "h": 2000,
   "widths": [
-   480
+   480,
+   800,
+   1200
   ],
-  "jpg": 720,
-  "src": "3996.png",
+  "jpg": 791,
+  "src": "chimney-crown-closeup-hd.jpg",
   "alt": "Close-up of a new chimney crown poured over brick",
   "tags": [
    "chimneys"
   ]
  },
  "chimney-house-scaffold": {
-  "w": 720,
-  "h": 901,
+  "w": 1598,
+  "h": 2000,
   "widths": [
-   480
+   480,
+   800,
+   1200
   ],
-  "jpg": 720,
-  "src": "3997.png",
+  "jpg": 799,
+  "src": "chimney-house-scaffold-hd.jpg",
   "alt": "Brick chimney on a two-story home with scaffolding in place",
   "tags": [
    "chimneys",
@@ -546,13 +585,16 @@
   ]
  },
  "chimney-cap-finished": {
-  "w": 720,
-  "h": 813,
+  "w": 1771,
+  "h": 2000,
   "widths": [
-   480
+   480,
+   800,
+   1200,
+   1600
   ],
-  "jpg": 720,
-  "src": "4001.png",
+  "jpg": 886,
+  "src": "chimney-cap-finished-hd.jpg",
   "alt": "Brick chimney with a new metal cap after repointing",
   "tags": [
    "chimneys",
@@ -560,13 +602,15 @@
   ]
  },
  "chimney-crew-scaffold": {
-  "w": 720,
-  "h": 930,
+  "w": 1548,
+  "h": 2000,
   "widths": [
-   480
+   480,
+   800,
+   1200
   ],
-  "jpg": 720,
-  "src": "4002.png",
+  "jpg": 774,
+  "src": "chimney-crew-scaffold-hd.jpg",
   "alt": "Mr. Brick crew on scaffolding rebuilding a tall brick chimney",
   "tags": [
    "chimneys",
@@ -575,13 +619,16 @@
   ]
  },
  "porch-slab-stone-house": {
-  "w": 719,
-  "h": 499,
+  "w": 2000,
+  "h": 1388,
   "widths": [
-   480
+   480,
+   800,
+   1200,
+   1600
   ],
-  "jpg": 719,
-  "src": "4003.png",
+  "jpg": 1000,
+  "src": "porch-slab-stone-house-hd.jpg",
   "alt": "New concrete porch slab and step at a stone-front home",
   "tags": [
    "porches",
@@ -590,13 +637,16 @@
   ]
  },
  "concrete-finish-broom": {
-  "w": 720,
-  "h": 481,
+  "w": 2000,
+  "h": 1336,
   "widths": [
-   480
+   480,
+   800,
+   1200,
+   1600
   ],
-  "jpg": 720,
-  "src": "4005.png",
+  "jpg": 1000,
+  "src": "concrete-finish-broom-hd.jpg",
   "alt": "Crew broom-finishing new concrete in front of a home",
   "tags": [
    "concrete",
@@ -636,13 +686,15 @@
   ]
  },
  "herringbone-brick-walk": {
-  "w": 720,
-  "h": 1149,
+  "w": 1253,
+  "h": 2000,
   "widths": [
-   480
+   480,
+   800,
+   1200
   ],
-  "jpg": 627,
-  "src": "mr-brick-gallery-915-03.jpg",
+  "jpg": 626,
+  "src": "herringbone-brick-walk-hd.jpg",
   "alt": "Red brick paver walkway laid in a herringbone pattern",
   "tags": [
    "walkways",
@@ -718,13 +770,16 @@
   ]
  },
  "paver-patio-wall": {
-  "w": 720,
-  "h": 482,
+  "w": 2000,
+  "h": 1339,
   "widths": [
-   480
+   480,
+   800,
+   1200,
+   1600
   ],
-  "jpg": 720,
-  "src": "pavers12.png",
+  "jpg": 1000,
+  "src": "paver-patio-wall-hd.jpg",
   "alt": "Paver patio bordered by a stone seat wall",
   "tags": [
    "patios",
@@ -733,14 +788,16 @@
   ]
  },
  "brick-steps-dark-treads": {
-  "w": 1080,
-  "h": 932,
+  "w": 2000,
+  "h": 1726,
   "widths": [
    480,
-   800
+   800,
+   1200,
+   1600
   ],
   "jpg": 1000,
-  "src": "porch-services-hero-mr-brick-llc-cust.png",
+  "src": "brick-steps-dark-treads-hd.jpg",
   "alt": "Brick steps with dark stone treads and a planter at a front door",
   "tags": [
    "porches",
@@ -750,13 +807,15 @@
   ]
  },
  "stone-steps-iron-railings": {
-  "w": 602,
-  "h": 762,
+  "w": 1580,
+  "h": 2000,
   "widths": [
-   480
+   480,
+   800,
+   1200
   ],
-  "jpg": 602,
-  "src": "stair-services-hero-mr-brick-llc-cust.png",
+  "jpg": 790,
+  "src": "stone-steps-iron-railings-hd.jpg",
   "alt": "Stone-capped steps with brick risers leading to a porch with iron railings",
   "tags": [
    "steps",
@@ -766,13 +825,15 @@
   ]
  },
  "pool-deck-coping-work": {
-  "w": 720,
-  "h": 908,
+  "w": 1586,
+  "h": 2000,
   "widths": [
-   480
+   480,
+   800,
+   1200
   ],
-  "jpg": 720,
-  "src": "3983.png",
+  "jpg": 793,
+  "src": "pool-deck-coping-work-hd.jpg",
   "alt": "Mason working on the concrete deck along a pool's coping",
   "tags": [
    "concrete",
@@ -781,26 +842,31 @@
   ]
  },
  "chimney-stone-cap-roof": {
-  "w": 720,
-  "h": 914,
+  "w": 1575,
+  "h": 2000,
   "widths": [
-   480
+   480,
+   800,
+   1200
   ],
-  "jpg": 720,
-  "src": "4000.png",
+  "jpg": 788,
+  "src": "chimney-stone-cap-roof-hd.jpg",
   "alt": "Top of a brick chimney finished with a stone cap, seen from the roof",
   "tags": [
    "chimneys"
   ]
  },
  "block-wall-stairwell": {
-  "w": 720,
-  "h": 842,
+  "w": 1710,
+  "h": 2000,
   "widths": [
-   480
+   480,
+   800,
+   1200,
+   1600
   ],
-  "jpg": 720,
-  "src": "gallery-36-mr-brick-llc.png",
+  "jpg": 855,
+  "src": "block-wall-stairwell-hd.jpg",
   "alt": "Mason building a concrete block wall beside an outdoor stairwell",
   "tags": [
    "retaining-walls",
@@ -809,13 +875,16 @@
   ]
  },
  "block-wall-scaffold-build": {
-  "w": 720,
-  "h": 887,
+  "w": 1623,
+  "h": 2000,
   "widths": [
-   480
+   480,
+   800,
+   1200,
+   1600
   ],
-  "jpg": 720,
-  "src": "gallery-37-mr-brick-llc.png",
+  "jpg": 812,
+  "src": "block-wall-scaffold-build-hd.jpg",
   "alt": "Concrete block wall under construction with scaffolding in place",
   "tags": [
    "foundations",
@@ -823,14 +892,16 @@
   ]
  },
  "chimney-rebuild-before-during-after": {
-  "w": 1080,
-  "h": 1078,
+  "w": 2000,
+  "h": 1996,
   "widths": [
    480,
-   800
+   800,
+   1200,
+   1600
   ],
   "jpg": 1000,
-  "src": "gallery-40-mr-brick-llc.png",
+  "src": "chimney-rebuild-before-during-after-hd.jpg",
   "alt": "A chimney rebuild shown before, during and after",
   "tags": [
    "chimneys",
@@ -839,13 +910,15 @@
   ]
  },
  "chimney-rebuild-roof-staging": {
-  "w": 595,
-  "h": 974,
+  "w": 1222,
+  "h": 2000,
   "widths": [
-   480
+   480,
+   800,
+   1200
   ],
-  "jpg": 595,
-  "src": "gallery-41-mr-brick-llc.png",
+  "jpg": 611,
+  "src": "chimney-rebuild-roof-staging-hd.jpg",
   "alt": "Brick chimney being rebuilt above the roofline, with roof staging",
   "tags": [
    "chimneys",
@@ -853,13 +926,15 @@
   ]
  },
  "chimney-rebuilt-staging-sky": {
-  "w": 762,
-  "h": 1170,
+  "w": 1303,
+  "h": 2000,
   "widths": [
-   480
+   480,
+   800,
+   1200
   ],
-  "jpg": 651,
-  "src": "gallery-43-mr-brick-llc.png",
+  "jpg": 652,
+  "src": "chimney-rebuilt-staging-sky-hd.jpg",
   "alt": "Rebuilt brick chimney with roof staging still in place",
   "tags": [
    "chimneys",
@@ -867,14 +942,16 @@
   ]
  },
  "brick-wall-stone-cap-closeup": {
-  "w": 1080,
-  "h": 1330,
+  "w": 1624,
+  "h": 2000,
   "widths": [
    480,
-   800
+   800,
+   1200,
+   1600
   ],
   "jpg": 812,
-  "src": "gallery-44-mr-brick-llc.png",
+  "src": "brick-wall-stone-cap-closeup-hd.jpg",
   "alt": "Brick wall topped with a new stone cap",
   "tags": [
    "brick",
@@ -882,14 +959,16 @@
   ]
  },
  "chimney-repair-scaffold": {
-  "w": 1080,
-  "h": 1170,
+  "w": 1846,
+  "h": 2000,
   "widths": [
    480,
-   800
+   800,
+   1200,
+   1600
   ],
   "jpg": 923,
-  "src": "gallery-45-mr-brick-llc.png",
+  "src": "chimney-repair-scaffold-hd.jpg",
   "alt": "Repaired brick chimney with scaffolding set up alongside",
   "tags": [
    "chimneys",
@@ -897,14 +976,16 @@
   ]
  },
  "fireplace-cast-stone-surround": {
-  "w": 1080,
-  "h": 943,
+  "w": 2000,
+  "h": 1746,
   "widths": [
    480,
-   800
+   800,
+   1200,
+   1600
   ],
   "jpg": 1000,
-  "src": "gallery-46-mr-brick-llc.png",
+  "src": "fireplace-cast-stone-surround-hd.jpg",
   "alt": "Fireplace with a cast stone surround and hearth",
   "tags": [
    "chimneys",
@@ -927,14 +1008,15 @@
   ]
  },
  "chimney-scaffold-side-yard": {
-  "w": 1080,
-  "h": 1396,
+  "w": 1547,
+  "h": 2000,
   "widths": [
    480,
-   800
+   800,
+   1200
   ],
-  "jpg": 773,
-  "src": "gallery-50-mr-brick-llc.png",
+  "jpg": 774,
+  "src": "chimney-scaffold-side-yard-hd.jpg",
   "alt": "Scaffolding set up along a tall brick chimney on the side of a home",
   "tags": [
    "chimneys",
@@ -942,14 +1024,16 @@
   ]
  },
  "chimney-before-after-restored": {
-  "w": 1080,
-  "h": 1048,
+  "w": 2000,
+  "h": 1941,
   "widths": [
    480,
-   800
+   800,
+   1200,
+   1600
   ],
   "jpg": 1000,
-  "src": "gallery-51-mr-brick-llc.png",
+  "src": "chimney-before-after-restored-hd.jpg",
   "alt": "Before and after: a brick chimney restored with new mortar and caps",
   "tags": [
    "chimneys",
@@ -1078,13 +1162,16 @@
   ]
  },
  "chimney-new-crown-caps": {
-  "w": 720,
-  "h": 868,
+  "w": 1659,
+  "h": 2000,
   "widths": [
-   480
+   480,
+   800,
+   1200,
+   1600
   ],
-  "jpg": 720,
-  "src": "chimney-new-crown-caps.jpg",
+  "jpg": 830,
+  "src": "chimney-new-crown-caps-hd.jpg",
   "alt": "Gray brick chimney with a new sloped crown, two flue caps and roof flashing",
   "tags": [
    "chimneys",
@@ -1247,14 +1334,16 @@
   ]
  },
  "brick-pillar-stone-entry-finished": {
-  "w": 1080,
-  "h": 743,
+  "w": 2000,
+  "h": 1376,
   "widths": [
    480,
-   800
+   800,
+   1200,
+   1600
   ],
   "jpg": 1000,
-  "src": "brick-pillar-stone-entry-finished.jpg",
+  "src": "brick-pillar-stone-entry-finished-hd.jpg",
   "alt": "Finished front entry with stone steps, a stone paver landing and curved brick walls with limestone-capped pillars",
   "tags": [
    "steps",
@@ -1344,14 +1433,16 @@
   ]
  },
  "outdoor-kitchen-stone-grill": {
-  "w": 1080,
-  "h": 793,
+  "w": 2000,
+  "h": 1469,
   "widths": [
    480,
-   800
+   800,
+   1200,
+   1600
   ],
   "jpg": 1000,
-  "src": "outdoor-kitchen-stone-grill.jpg",
+  "src": "outdoor-kitchen-stone-grill-hd.jpg",
   "alt": "Stone veneer outdoor kitchen with a built-in grill, beverage fridge and storage doors",
   "tags": [
    "outdoor-kitchens",
@@ -1360,14 +1451,15 @@
   ]
  },
  "covered-patio-stone-walls-evening": {
-  "w": 1080,
-  "h": 1384,
+  "w": 1561,
+  "h": 2000,
   "widths": [
    480,
-   800
+   800,
+   1200
   ],
   "jpg": 780,
-  "src": "covered-patio-stone-walls-evening.jpg",
+  "src": "covered-patio-stone-walls-evening-hd.jpg",
   "alt": "Covered patio at dusk with natural stone walls and a stone planter ledge",
   "tags": [
    "stone",
@@ -1376,14 +1468,16 @@
   ]
  },
  "covered-patio-stone-tv-wall": {
-  "w": 1075,
-  "h": 807,
+  "w": 2000,
+  "h": 1501,
   "widths": [
    480,
-   800
+   800,
+   1200,
+   1600
   ],
   "jpg": 1000,
-  "src": "covered-patio-stone-tv-wall.jpg",
+  "src": "covered-patio-stone-tv-wall-hd.jpg",
   "alt": "Covered patio with stone veneer walls and a stone ledge framing an outdoor TV wall",
   "tags": [
    "stone",
