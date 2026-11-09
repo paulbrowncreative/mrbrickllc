@@ -2,9 +2,8 @@
 title: "Why Brick Porches and Steps Fail in Michigan — and How to Fix Them for Good"
 slug: porch-and-step-problems
 seo_title: "Why Brick Porches & Steps Fail in Michigan | Mr. Brick"
-description: "Settling slabs, popped caps, loose brick and tipping steps: why Southeastern Michigan porches fail, when restoration works, and when a rebuild is the only lasting fix."
+description: "Settling slabs, popped caps, loose brick and tipping steps: why Southeastern Michigan porches fail, when restoration works, and when only a rebuild lasts."
 date: 2026-09-27
-category: Porches
 image: porch-stone-steps-columns
 services: [porch-restorations, porch-rebuilds, stair-services]
 ---
@@ -25,9 +24,15 @@ Drive through almost any post-war neighborhood in Southeastern Michigan and you'
 
 If the porch hasn't moved — it's level, tight to the house, and the walls are straight — the problems are on the surface, and [porch restoration](/porch-restorations) is usually the right call. That can mean resetting or replacing caps, replacing and repointing brick, resurfacing the slab, and repairing step edges.
 
+[[photo:brick-steps-dark-treads|Rebuilt brick steps with dark stone treads.]]
+
 ## When it needs a rebuild
 
 If the porch has settled, pulled away from the house, cracked through its slab, or has walls that bulge, the problem is underneath. Putting new brick and caps on a porch that's still moving just means doing it again in a few years. A [porch rebuild](/porch-rebuilds) starts over with footings below frost depth, a solid foundation, and a new slab and steps.
+
+[[photo:white-brick-porch-walls-rebuild|A porch rebuild in progress: new brick walls going up before the slab is poured.]]
+
+[[photo:brick-steps-cracked-separating|Brick steps cracked through and separating: a sign the base underneath has moved.]]
 
 ## Steps deserve special attention
 

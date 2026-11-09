@@ -1,10 +1,9 @@
 ---
 title: "Tuckpointing vs. Rebuilding: How to Tell What Your Brick Needs"
 slug: tuckpointing-vs-rebuilding
-seo_title: "Tuckpointing vs. Rebuilding Brick: Which Do You Need? | Mr. Brick"
+seo_title: "Tuckpointing vs. Rebuilding Brick | Mr. Brick"
 description: "How to tell whether a brick wall or chimney needs repointing, brick replacement, or a rebuild — the signs a mason looks for, explained plainly."
 date: 2026-09-27
-category: Brick Repair
 image: tuckpointing-stone-cap
 services: [tuckpointing, brick-repair, chimney-rebuilding]
 ---
@@ -25,6 +24,8 @@ If the joints are open *and* individual bricks are flaking, cracked through, or 
 
 The fix is [brick replacement](/brick-repair): cutting out damaged units and setting matched brick in their place, usually alongside repointing of the surrounding area. A few bad bricks in a sound wall is a routine repair.
 
+[[photo:brick-repair-scaffold-arched-windows|Masons on scaffolding replacing damaged brick around second-story windows.]]
+
 ## Then look at the wall
 
 Rebuilding is warranted when the wall has lost its structure, not just its surface. Signs include:
@@ -36,9 +37,13 @@ Rebuilding is warranted when the wall has lost its structure, not just its surfa
 
 At that point the bricks are no longer bonded to each other. New mortar in the joints would just be holding loose units in place for a winter or two. The durable fix is to take the section down to sound masonry and relay it. On chimneys this is usually a [partial chimney rebuild](/chimney-rebuilding) from the roofline up.
 
+[[photo:chimney-rebuild-staging|A chimney rebuild in progress, with new brick staged on the roof.]]
+
 ## Chimneys fail first
 
 Chimneys get weather on every side, so they show all three stages sooner than the walls of the house. A cracked crown lets water into the top courses; the mortar there washes out first; then the brick loosens. Catching a chimney at the repointing stage costs far less than rebuilding it.
+
+[[photo:chimney-rebuild-new-brick-flues|Rebuilding the top of a chimney: new brick laid around the clay flue tiles.]]
 
 ## Why the mortar mix matters
 

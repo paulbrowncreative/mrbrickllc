@@ -1,17 +1,35 @@
 {% extends "inner.html" %}
+{% from "partials/macros.html" import icon %}
+{# Reached after a successful quote request: a 303 from /api/lead (no JS) or
+   site.js after a JSON success. site.js fires generate_lead here once, only
+   when the sessionStorage flag set before the redirect is present. #}
 {% block body %}
 <section class="section">
   <div class="container two-col">
     <div class="prose">
       <h2>What happens next</h2>
-      <p>We'll review your request and get back to you by your preferred contact method, usually within business hours ({% for h in site.hours %}{{ h.label }} {{ h.display }}{{ '; ' if not loop.last }}{% endfor %}).</p>
-      <p>Need to add photos or details? Text them to <a href="sms:{{ site.phone_e164 }}">{{ site.phone }}</a>.</p>
+      <ol class="next-steps">
+        <li><strong>We review your request.</strong> Your details went straight to the Mr. Brick team.</li>
+        <li><strong>We reach out the way you asked</strong> (call, text or email) during business hours: {% for h in site.hours %}{{ h.label }} {{ h.display }}{{ '; ' if not loop.last }}{% endfor %}.</li>
+        <li><strong>We look at the project</strong> and give you a free, no-obligation quote.</li>
+      </ol>
+      <div class="callout" data-cta-location="thank_you">
+        <p><strong>Need us sooner, or have photos?</strong> Call or text <a href="tel:{{ site.phone_e164 }}">{{ site.phone }}</a>. Texting a wide shot and a close-up of the area helps us quote faster.</p>
+        <p class="callout__actions">
+          <a class="btn" href="tel:{{ site.phone_e164 }}">{{ icon('phone') }} Call {{ site.phone }}</a>
+          <a class="btn btn--ghost" href="sms:{{ site.phone_e164 }}">{{ icon('text') }} Text photos</a>
+        </p>
+      </div>
     </div>
     <div class="prose">
       <h2>While you wait</h2>
-      <p><a class="text-link" href="/gallery">Browse project photos</a></p>
-      <p><a class="text-link" href="/resources">Read our masonry guides</a></p>
-      <p><a class="text-link" href="/finance">Learn about financing</a></p>
+      <ul class="link-list">
+        <li><a class="text-link" href="/gallery">See our past work</a> — chimneys, porches, steps, pavers and concrete.</li>
+        <li><a class="text-link" href="/reviews">Read what customers say</a> — {{ site.google_rating }} stars on Google.</li>
+        <li><a class="text-link" href="/services">Browse all services</a></li>
+        <li><a class="text-link" href="/finance">Learn about financing</a></li>
+        <li><a class="text-link" href="/blog">Read the Mr. Brick blog</a></li>
+      </ul>
     </div>
   </div>
 </section>

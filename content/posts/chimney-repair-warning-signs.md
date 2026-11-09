@@ -1,10 +1,9 @@
 ---
 title: "7 Signs Your Chimney Needs Repair Before Water Gets In"
 slug: chimney-repair-warning-signs
-seo_title: "7 Signs Your Chimney Needs Repair | Southeastern Michigan | Mr. Brick"
+seo_title: "7 Signs Your Chimney Needs Repair | Mr. Brick"
 description: "Cracked crowns, washed-out mortar, spalling brick and ceiling stains: the chimney warning signs Michigan homeowners should watch for, and what each one means."
 date: 2026-09-27
-category: Chimneys
 image: chimney-crew-scaffold
 services: [chimney-repair, chimney-rebuilding, tuckpointing]
 ---
@@ -35,6 +34,8 @@ A chimney cap keeps rain, birds and animals out of the flue. Rust streaks down t
 
 Water stains near a chimney are often blamed on the roof. Sometimes that's right — flashing is part of the roof — but cracked crowns and open mortar joints cause just as many leaks. It's worth having the masonry checked before re-roofing around it.
 
+[[photo:chimney-roof-scaffold|A brick chimney with scaffolding set up for repair.]]
+
 ## 7. A lean or gap at the roofline
 
 A chimney that leans, or has a visible gap where it meets the roof or house, needs professional attention promptly. This goes beyond maintenance.
@@ -42,5 +43,7 @@ A chimney that leans, or has a visible gap where it meets the roof or house, nee
 ## What to do next
 
 Most chimney problems caught early are repairable: a new crown, a cap, and repointing of the top courses. Waiting a few more winters is how a repair becomes a rebuild.
+
+[[photo:chimney-scaffold-crew-teardown|Scaffolding up and the crew starting on a chimney that waited too long for repair.]]
 
 If you've noticed any of these signs, [request a free chimney quote](/request-quote). Mr. Brick will inspect the chimney, share what we find, and recommend the repair that fits — not the biggest job we can sell.

@@ -2,9 +2,16 @@
 {% from "partials/macros.html" import faq_list, cta_band %}
 {% block body %}
 <section class="section">
-  <div class="container two-col">
-    <div><h2>About working with us</h2><p class="muted">Service-specific questions are answered on each <a href="/services">service page</a>.</p></div>
-    {{ faq_list(faqs) }}
+  <div class="container">
+    <nav class="faq-toc" aria-label="FAQ topics">
+      <ul role="list">{% for g, items in faq_groups %}<li><a href="#{{ g|lower|replace(' & ', '-')|replace(' ', '-')|replace(',', '') }}">{{ g }}</a></li>{% endfor %}</ul>
+    </nav>
+    {% for g, items in faq_groups %}
+    <div class="two-col faq-group" id="{{ g|lower|replace(' & ', '-')|replace(' ', '-')|replace(',', '') }}">
+      <div><h2>{{ g }}</h2>{% if loop.first %}<p class="muted">Service-specific questions are answered on each <a href="/services">service page</a>. Don't see yours? <a href="tel:{{ site.phone_e164 }}">Call or text {{ site.phone }}</a>.</p>{% endif %}</div>
+      {{ faq_list(items) }}
+    </div>
+    {% endfor %}
   </div>
 </section>
 {{ cta_band(location='faqs') }}

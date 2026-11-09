@@ -65,7 +65,7 @@ The full list is in `url-inventory.csv` and `redirect-map.csv`.
 - **Offers:** promotions are managed in `site.yaml` with start and end dates and are hidden automatically once expired, even on a stale build.
 
 ## Measurement
-See `analytics-event-map.md`. There are 19 dataLayer events. The primary conversion, `quote_request`, fires once per real submission. First- and last-touch UTM and click-ID attribution travel with each lead into Netlify Forms. No personal data is sent to analytics.
+See `analytics-event-map.md`. There are 20 dataLayer events. The primary conversion, `quote_request`, fires once per real submission. First- and last-touch UTM and click-ID attribution travel with each lead into Netlify Forms. No personal data is sent to analytics.
 
 ## Accessibility
 axe-core (WCAG 2.0/2.1/2.2 AA plus best practice) reports **0 violations on the 15 audited templates**.
@@ -83,7 +83,7 @@ Measured on a simulated mobile connection (150 ms latency, 1.6 Mbps, 4× CPU slo
 | Home | 1.5 s | 0.000 | 386 KB |
 | Chimney repair | 0.6 s | 0.000 | 72 KB |
 
-- **Images:** AVIF and WebP with a JPEG fallback, served responsively at 480–1600 px. Every image has width and height set, and images below the fold lazy-load.
+- **Images:** AVIF with a JPEG fallback, served responsively at 480–1600 px. (The WebP tier was removed in Sept 2026: AVIF is supported by every current browser, and dropping it cut the deploy by ~13 MB.) Every image has width and height set, and images below the fold lazy-load.
 - **Hero:** the hero image is preloaded with `fetchpriority=high`.
 - **Font:** one self-hosted variable font (90 KB) covers every weight and width.
 - **Assets:** CSS and JS are content-hashed and cached as immutable.
@@ -116,3 +116,198 @@ Measured on a simulated mobile connection (150 ms latency, 1.6 Mbps, 4× CPU slo
 - [ ] After the switch: submit the sitemap in Google Search Console, inspect the home page and 3 service pages, and watch the Pages and 404 reports for 4 weeks.
 - [ ] Update the website URL and hours in Google Business Profile if they changed. Cancel the old Hibu site only after the DNS move.
 - [ ] Remove the old Bing, iPromote and Facebook pixels unless they're re-added through GTM.
+
+---
+
+# Optimization pass — September 2026
+
+## What changed
+- **Local SEO architecture:** added six community pages under `/service-areas/`: Eastpointe (home base), St. Clair Shores, the Grosse Pointes, Roseville, Warren and Royal Oak. Each one covers the local housing stock, exposure, permits, the most-requested services, nearby communities and FAQs. They're linked from their county page, the Service Areas menu, the footer, the home page and the relevant service pages. No project claims, addresses or reviews were invented.
+- **Navigation:** Services mega menu, plus **Service Areas** (counties and communities) and **About** (About, Reviews, Financing, Offers, FAQs, Guides) dropdowns. Every page in the recommended structure is now one click from the header. Current-section highlighting and keyboard focus-out closing are included.
+- **Home page:**
+  - A tighter H1 ("Masonry built for Michigan winters") with the location in the eyebrow and lede.
+  - A **before/after chimney feature** with a chimney-specific CTA.
+  - "Most requested" service links and project-type shortcuts into the gallery.
+  - Community links, grouped FAQ selection and a "text a photo" prompt.
+- **Service pages:** a verified-facts trust strip in the hero, a dedicated **process** section with its own CTA, "text us a photo" prompts, a gallery link pre-filtered to that service, and links to the community pages that feature the service.
+- **FAQs:** expanded from 10 to 19 questions, grouped into Quotes & pricing, Working with Mr. Brick, Projects & timing, and Brick, chimneys & foundations, with topic navigation. Cost answers explain what drives price; no prices are published.
+- **Gallery:** `?type=` deep links (used by service pages and the home page), a filter-aware link to the matching service, and a lightbox link from any photo to its service page.
+- **Quote form:**
+  - Photos are downscaled in the browser before upload, so phone photos fit under Netlify's 8 MB limit.
+  - Up to 5 images, with type validation and a selected-file summary.
+  - Double-submit guard.
+  - Phone auto-formatting.
+  - Email becomes required when "Email" is the preferred contact method.
+  - Field length limits and clearer microcopy.
+  - A new `form_service_select` event.
+- **Footer:** NAP block (name, city, ZIP, phone, text, email), hours, a quote button, and service-area and community links.
+- **Technical SEO:**
+  - The `sitemap.xml` `lastmod` is emitted only where it's known (guides and legal pages) instead of stamping every URL with the build date.
+  - Richer `HomeAndConstructionBusiness` schema: community `areaServed`, `knowsAbout` and an `OfferCatalog` of every service.
+  - `Service` schema now has county `areaServed` and an image.
+  - `WebPage` schema links to its `BreadcrumbList` and primary image.
+  - FAQ schema text is stripped of HTML.
+- **Headers:** moved from `netlify.toml` to a generated `dist/_headers`, so Git deploys and drag-and-drop zip deploys behave the same. `upgrade-insecure-requests` was added to the CSP.
+
+## Verified
+- **Build:** 56 pages (54 indexable), all in the sitemap. There are no orphan pages and no broken internal links.
+- **Metadata:** unique titles (70 characters or fewer) and descriptions (165 or fewer), exactly one H1 per page, every JSON-LD block parses, and every image has alt text.
+- **Accessibility:** axe-core (WCAG 2.0/2.1/2.2 AA plus best practice) reports **0 violations** on 17 templates at 1440 px and 390 px.
+- **Layout:** no horizontal overflow and no console errors on 9 key pages at 320, 375, 390, 414, 768, 1024, 1280, 1440 and 1920 px.
+- **Quote form, end to end:**
+  - Service pre-select and step validation.
+  - The conditional email requirement and phone formatting.
+  - Photo summary and a single POST despite a double click.
+  - The redirect to `/thank-you` and the `quote_request` event.
+- **Performance** (simulated mobile: 150 ms latency, 1.6 Mbps, 4× CPU slowdown):
+  - Home: LCP 1.7 s, CLS 0
+  - Service page: LCP 1.6 s, CLS 0
+  - Community page: LCP 1.6 s, CLS 0
+
+## Still needs the owner
+- Confirm the phone number (the site uses 586-209-3052, but Facebook lists 586-250-8329).
+- Confirm whether the street address should be public.
+- Confirm the 20% promotion and its end date.
+- Review the community-page copy and community lists.
+- Add the Google review link and Google Maps URL to `content/site.yaml`.
+- Add real reviews to `content/reviews.yaml`.
+- Add the GTM ID.
+
+---
+
+# Full QA pass — September 30, 2026
+
+## Fixed
+- **Heading outline:** the Services mega menu used eight `<h2>` labels, which put headings above the H1 on every page. They're now styled paragraphs. Every page now starts with its H1 and never skips a heading level.
+- **Title tags:** all titles now fit Google's display width (60 characters or fewer). Titles lead with the service or city keyword and end with the brand.
+- **Service H1s:** every service page H1 now carries the location ("Chimney repair *in Southeastern Michigan*"), shown as a secondary line. Generic hub and utility H1s were given keywords: "Concrete contractor…", "Masonry FAQs", "Masonry project gallery", "Mr. Brick reviews".
+- **Guide breadcrumbs:** the last item (on screen and in `BreadcrumbList`) is now the article title, not the category.
+- **Schema:**
+  - `BlogPosting` has a named author, `articleSection` and `inLanguage`.
+  - Area pages declare a `contentLocation`: a City or County, with City pages nested in their county.
+  - Service `WebPage` blocks point to their `Service` as `mainEntity`.
+- **Social tags:** `og:image:width`/`height`, `twitter:image:alt`, and article publish-time and section tags were added.
+- **Image sitemap:** each URL in `sitemap.xml` now lists the project photos rendered on that page, which helps the photos appear in Google Images.
+- **Unique copy:** the one sentence shared between the Wayne County and Grosse Pointe pages was rewritten.
+- **Gallery:** added about 150 words of useful content ("About these projects", "Browse by service").
+- **Footer:** the quote button no longer inherits the footer's link underline.
+
+## Verified on the final build
+- **Pages and links:** 56 pages (54 indexable), all in the sitemap. No orphan pages, no broken links or missing assets, no duplicate titles or descriptions, and exactly one H1 per page.
+- **Schema:**
+  - 10 types across 380+ blocks.
+  - Required properties are present and every `@id` reference resolves.
+  - Every page's FAQ markup matches the FAQs visible on it.
+- **Accessibility:** axe-core (WCAG 2.2 AA plus best practice) reports 0 violations on 17 templates at desktop and mobile widths.
+- **Layout:** no horizontal overflow and no console errors on 9 page types at 7 widths from 320 to 1920 px.
+- **Quote form, end to end:** validation, conditional email, a single POST on double-click, and the `/thank-you` conversion event.
+
+## Deliberately not changed
+- **URL slugs.** The existing slugs (`/chimney-repair`, `/tuckpointing`, `/porch-rebuilds`, and so on) are the URLs Google has already indexed for www.mrbrickllc.com. Renaming them would restart their ranking history for a marginal keyword gain, so they stay. New pages use clean, descriptive slugs.
+- **FAQPage markup.** It's kept because it's accurate and matches the visible questions. Google currently shows FAQ rich results mainly for government and health sites, so expect no FAQ snippets from it; other search and AI engines still read it.
+
+---
+
+# Reviews — September 30, 2026
+- **34 verified Google reviews**, all 5-star, are in `content/reviews.yaml`, copied word for word as supplied.
+  - Home page and every service page: a scrolling review row with Pause/Play, pause on hover or focus, and a still, swipeable row for reduced motion.
+  - `/reviews`: every review as a card.
+  - Service pages lead with the reviews that mention that kind of work (keyword ranking in `build.py`: `REVIEW_KEYWORDS`).
+- **Summary line:** "5.0 out of 5 on Google from 36 reviews", linking to the Business Profile. Keep `google_rating` and `google_review_count` in `site.yaml` current.
+- **Excluded:** Joseph K.'s post. It's written by a team member ("we specialize…", "ask for Joe"), and presenting insider content as a customer review violates the FTC Consumer Reviews rule (16 CFR 465) and Google's review policies.
+- **No `AggregateRating` / `Review` schema was added.** Google doesn't award review stars to a business marking up reviews about itself (it treats them as self-serving), and the rating is Google's own.
+
+---
+
+# Blog — September 30, 2026
+- **Where it lives:** `/blog`, in the main nav (the About menu's old "Masonry guides" link was folded into it). The old `/resources` URLs 301 to `/blog`.
+- **29 articles:** 26 new plus the 3 original guides. Every service page has at least one supporting article that links back to it (topic clusters). Each article targets one homeowner question, such as "why is my brick flaking", "chimney crown vs cap", "stamped concrete vs pavers", "how deep do footings need to be in Michigan" and "how to choose a masonry contractor".
+- **Articles include:**
+  - Real Mr. Brick project photos, both in the header and inline
+  - Table of contents, reading time, published date and author box
+  - Visible FAQs with `FAQPage` markup
+  - Service quote call-to-action, related services and "Keep reading"
+- **Blog index:** a featured guide (`featured: true`), topic jump links, and one section per service category, each linking to its service hub.
+- **Structured data:**
+  - `BlogPosting`: author, dates, `wordCount`, `articleSection`, and an `about` link to the matching `Service` entities.
+  - `Blog` and `ItemList` on the index.
+- **RSS:** `/blog/feed.xml`, linked from every page.
+- **Other pages:** a home page "From the blog" section, and service pages list their related guides.
+- **No invented facts:** no prices, statistics or project claims. Technical guidance is general and defers to the local building department where codes apply (for example, 42-inch frost depth "commonly", confirm locally).
+- **Review row:** service pages show their 5 most relevant reviews and the home page shows 12, so reviews don't dominate each page's unique content. The loop copies are now built by JavaScript, so each review appears once in the HTML.
+
+## Next for the blog
+- Publish roughly one new article a month from real customer questions, with photos from real jobs.
+- After 60–90 days, use Search Console to find the articles getting impressions and expand those with more detail, photos and FAQs.
+- Add project photos (for example, the pool deck before/after from R.'s review) to the matching articles.
+
+---
+
+# QA pass: November 8, 2026
+
+## Bugs found
+1. **Critical: the live quote form returns 404.** Test POSTs to `mrbrickllc.netlify.app` (`/` and `/thank-you`, both multipart and urlencoded) all return 404. Netlify Forms isn't registered for the site: form detection is off, and the served HTML still carries `data-netlify="true"`, which Netlify strips once it processes a form. No live leads are being captured. **The fix is in the Netlify dashboard**: see "Netlify setup" below.
+2. **Fixed: only one photo per submission would be kept.** Netlify Forms supports one file per field. Photos are now sent as `photo_1`…`photo_5`. All five fields are in the HTML for form detection, and the email function reads them all.
+3. **Fixed:** the email function now sends to both `mrbrickdesignco@gmail.com` and `paulbrowncreative@gmail.com` (`LEAD_TO`, comma-separated).
+4. **Fixed:** 5 meta descriptions were 161–163 characters long.
+
+## Verified after the fixes
+- **Pages:** 82 pages (80 indexable). 0 broken links or assets, 0 duplicate titles or descriptions, one H1 per page and no heading skips. All JSON-LD parses, and the sitemap matches the indexable pages.
+- **Browser sweep:** every page at 390 and 1440 px, with 0 console errors, 0 failed requests, 0 broken images and 0 horizontal overflow.
+- **Accessibility:** axe (WCAG 2.2 AA plus best practice) reports 0 violations on 14 templates at both widths.
+- **Quote form, end to end:**
+  - One POST per submission, even with a double click
+  - `form-name` and the honeypot are present
+  - 5 × 4.2 MB phone photos are downscaled to 3 MB total and sent as `photo_1`–`photo_5`
+  - `/thank-you` fires `quote_request`
+- **Email function:** sends to both inboxes with reply-to set to the customer, includes all photo links, and escapes customer input.
+- **Live site:** security headers, `/resources` → `/blog` 301s and the 404 status all work on mrbrickllc.netlify.app.
+
+## Netlify setup (required)
+1. Netlify → site → **Forms** → **Enable form detection**.
+2. Deploy again (drag-and-drop the latest zip). Detection only applies from the next deploy.
+3. Forms → **Form notifications** → Add notification → **Email notification**. Event: *New form submission*, form: *quote*. Add one each for `mrbrickdesignco@gmail.com`, `mrbrickmarketing@gmail.com` and `paulbrowncreative@gmail.com`. (Drag-and-drop zip deploys do not include the email function, so these notifications are what send lead emails.)
+4. Submit a test from `/request-quote` with a photo. It should appear under Forms → quote, and both inboxes should get an email. Check spam the first time.
+5. Optional: the `submission-created` function sends a richer email via Resend. It needs a Git-based deploy and `RESEND_API_KEY`. Resend's default sender only delivers to the Resend account's own email, so sending to both inboxes needs a verified domain. The built-in notifications above need no key.
+
+## Launch blocker
+`www.mrbrickllc.com` still serves the old Hibu/Duda site (nginx). Every canonical tag and the sitemap point to www.mrbrickllc.com, so the new site can't rank until the domain is pointed at Netlify.
+
+---
+
+# Old-site cross-reference and optimization pass: November 8, 2026
+
+## Compared against www.mrbrickllc.com (the current Hibu/Duda site)
+- **URLs:** all 53 old URLs are covered. 34 are live pages with the same slug and 19 are 301 redirects to the matching new page, so no indexed URL is lost.
+- **NAP:** the old site uses only (586) 209-3052 and mrbrickdesignco@gmail.com, which matches the new site. The old ad graphic and the truck still show 586-250-8329.
+- **Added from the old site:**
+  - 14 project photos it had and the new site didn't, including the first fireplace photo, a pool-deck job, steps, block walls and chimney rebuilds. The site now has 66 photos.
+  - The supplier badges: Belden Brick, Sabiston Building Supply, Spec Mix and SRM Concrete.
+  - Holiday closures, shown on the site and as `specialOpeningHoursSpecification`.
+  - The "Get more bang for your brick!" slogan.
+- **Not carried over:**
+  - An ad graphic showing the 586-250-8329 number
+  - Placeholder images
+  - Hibu template filler ("Keyword in City, ST")
+  - The vendor video splash page, which 301s to the home page
+  - "Stone carving" (no evidence)
+- **Needs an owner decision:**
+  - PayPal is listed in the old FAQ but not in its payment list.
+  - The old site has a dedicated basement waterproofing page (sump pumps, French drains). The new site deliberately asks customers to call instead. Confirm what waterproofing work Mr. Brick does.
+
+## New
+- **`/pool-deck-resurfacing`:** a new concrete service page. Pool decks appear on 7 old pages, and both a review and a photo confirm the work.
+- **Community pages:** Sterling Heights, Clinton Township and Harper Woods, each with unique local content (12 total).
+- **`/llms.txt`:** a plain-text business summary for AI assistants and answer engines.
+- **IndexNow:** a key file at `/<key>.txt` and `tools/indexnow.py`. Run it after each live deploy to notify Bing, Yandex and others.
+- **Business schema additions:** `contactPoint`, `currenciesAccepted` and special (holiday) opening hours.
+
+## Verified on the final build
+- **Pages:** 86 (84 indexable). 0 static problems, 0 schema issues, and FAQ markup matches the visible FAQs on all 68 pages that have them.
+- **Accessibility:** axe reports 0 violations.
+- **Quote form:** passes end to end.
+- **Performance:** LCP 1.6–2.0 s and CLS ≤ 0.03 on a throttled mobile connection.
+
+## Quote form: Resend via /api/lead (Nov 9, 2026)
+
+The quote form no longer uses Netlify Forms. It posts to `/api/lead` (`netlify/functions/lead.mjs`), which validates the request, filters spam and emails each lead through Resend. Visitors without JavaScript get a normal form post with a redirect. Successful submissions go to `/thank-you`, which fires `generate_lead` once; incomplete ones go to `/form-error`. Photo uploads were removed (requests are capped at 20 KB); customers are asked to text photos instead. The Netlify Forms notification steps above no longer apply. Setup, deploy and testing are documented in the README under "Quote form → email (Resend)".

@@ -9,7 +9,7 @@ privacy-policy:
     Mr. Brick LLC ("we", "us") operates mrbrickllc.com. This policy explains what information we collect through this website and how we use it.
 
     ## Information you give us
-    When you request a quote or contact us, we collect what you enter: your name, phone number, email address (optional), project ZIP code, project details, contact preferences and any photos you upload. We use this information only to respond to your request, quote and schedule your project, and keep records of work we perform. We do not sell your personal information.
+    When you request a quote or contact us, we collect what you enter: your name, phone number, email address (optional), project ZIP code, project details, contact preferences and any photos you text us. Quote requests are delivered to us by email through our email provider, Resend. We use this information only to respond to your request, quote and schedule your project, and keep records of work we perform. We do not sell your personal information.
 
     ## Information collected automatically
     To understand which pages and advertising bring customers to us, the site records the page you first arrived on, the referring website, and campaign parameters in the address you clicked (such as utm_source or a Google Ads click ID). This is stored in your browser and sent with your quote request. If we enable Google Analytics or Google Ads measurement, those services may set cookies and collect usage data such as pages viewed and device type under Google's own privacy policy. We do not send your name, phone number, email or message to analytics or advertising platforms.
@@ -27,7 +27,7 @@ privacy-policy:
     We may update this policy. The date above shows when it last changed.
 terms:
   title: Terms of Use | Mr. Brick LLC
-  description: Terms of use for the Mr. Brick LLC website.
+  description: Terms of use for the Mr. Brick LLC website, including quotes, offers, photos and content, and the limits of the information published here.
   h1: Terms of use
   body: |
     *Last updated {{UPDATED}}*

@@ -1,23 +1,25 @@
 {% from "partials/macros.html" import icon %}
-{# Multi-step quote form. Works as a single long form without JS.
-   Netlify Forms: name="quote", honeypot "bot-field", file uploads enabled.
+{# Multi-step quote form. Posts to /api/lead (netlify/functions/lead.mjs),
+   which emails the lead through Resend. Without JS it is one long form and
+   the server answers with a 303 to /thank-you or /form-error; with JS,
+   site.js validates, sends with fetch and shows server errors per field.
+   Spam traps: "bot-field" (off-screen honeypot) and "started_at" (fill time).
    form_uid keeps ids unique if the form ever appears twice on one page. #}
 {% set uid = form_uid|default('q') %}
 {% set preselect = preselect_service|default('') %}
 <div class="quote" data-cta-location="quote_form">
   <div class="quote__head">
     <{{ form_heading_tag|default('h2') }} id="{{ uid }}-title">{{ form_heading|default('Request a free quote') }}</{{ form_heading_tag|default('h2') }}>
-    <p>Three short steps. We'll get back to you to talk through the project and set up a time to see it.</p>
+    <p>Three short steps, about a minute. Free and no obligation.</p>
     <ol class="progress" aria-hidden="true"><li></li><li></li><li></li></ol>
     <p class="progress-label" aria-live="polite"></p>
   </div>
-  <form name="quote" method="POST" action="/thank-you" enctype="multipart/form-data"
-        data-netlify="true" netlify-honeypot="bot-field" data-quote-form="{{ uid }}"
+  <form name="quote" method="post" action="/api/lead" data-quote-form="{{ uid }}"
         aria-labelledby="{{ uid }}-title" novalidate>
-    <input type="hidden" name="form-name" value="quote">
-    <p class="hp" aria-hidden="true"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-    {# Attribution (filled by site.js; never sent to analytics) #}
-    {% for f in ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','gbraid','wbraid','first_touch','last_touch','landing_page','referrer','submitted_from'] %}
+    <p class="hp" aria-hidden="true"><label for="{{ uid }}-hp">Leave this empty</label> <input id="{{ uid }}-hp" name="bot-field" tabindex="-1" autocomplete="off"></p>
+    <input type="hidden" name="started_at" value="">
+    {# Attribution (filled by site.js from first/last touch; never sent to analytics) #}
+    {% for f in ['page_url','landing_page','referrer','first_touch','last_touch','utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','gbraid','wbraid'] %}
     <input type="hidden" name="{{ f }}" value="">
     {% endfor %}
 
@@ -55,6 +57,7 @@
         <div class="field">
           <label for="{{ uid }}-zip">Project ZIP code</label>
           <input class="input" id="{{ uid }}-zip" name="zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" pattern="[0-9]{5}" required data-msg="Enter the ZIP code where the work is.">
+          <span class="hint">So we can confirm we cover your area.</span>
           <p class="error"></p>
         </div>
         <div class="field">
@@ -67,12 +70,7 @@
           </select>
         </div>
       </div>
-      <div class="field">
-        <label for="{{ uid }}-photos">Photos <span class="opt">(optional, up to 8 MB total)</span></label>
-        <input class="input" id="{{ uid }}-photos" name="photos" type="file" accept="image/*" multiple>
-        <span class="hint">Photos help us give you a more accurate first answer.</span>
-        <p class="error"></p>
-      </div>
+      <p class="form-tip">Have photos? After you send this, text them to <a href="sms:{{ site.phone_e164 }}">{{ site.phone }}</a>. A wide shot plus a close-up helps us quote faster.</p>
       <div class="form-actions">
         <button class="btn btn--ghost" type="button" data-back>Back</button>
         <button class="btn" type="button" data-next>Continue</button>
@@ -83,18 +81,18 @@
       <legend>How should we reach you?</legend>
       <div class="field">
         <label for="{{ uid }}-name">Name</label>
-        <input class="input" id="{{ uid }}-name" name="name" autocomplete="name" required data-msg="Enter your name.">
+        <input class="input" id="{{ uid }}-name" name="name" autocomplete="name" maxlength="80" required data-msg="Enter your name.">
         <p class="error"></p>
       </div>
       <div class="row-2">
         <div class="field">
           <label for="{{ uid }}-phone">Phone</label>
-          <input class="input" id="{{ uid }}-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required data-msg="Enter a phone number so we can reach you.">
+          <input class="input" id="{{ uid }}-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="20" placeholder="(586) 555-0123" required data-msg="Enter a phone number so we can reach you.">
           <p class="error"></p>
         </div>
         <div class="field">
           <label for="{{ uid }}-email">Email <span class="opt">(optional)</span></label>
-          <input class="input" id="{{ uid }}-email" name="email" type="email" autocomplete="email">
+          <input class="input" id="{{ uid }}-email" name="email" type="email" autocomplete="email" maxlength="120">
           <p class="error"></p>
         </div>
       </div>
@@ -114,9 +112,9 @@
       </div>
       <div class="form-actions">
         <button class="btn btn--ghost" type="button" data-back>Back</button>
-        <button class="btn" type="submit">Send My Quote Request</button>
+        <button class="btn" type="submit">Request My Free Quote</button>
       </div>
-      <p class="form-note">We use your details only to respond about your project. See our <a href="/privacy-policy">privacy policy</a>.</p>
+      <p class="form-note">We use your details only to respond about your project. No spam, no sharing. See our <a href="/privacy-policy">privacy policy</a>.</p>
     </fieldset>
   </form>
 </div>

@@ -5,7 +5,11 @@
   <div class="container">
     <div class="area-cards">
       {% for slug, a in areas.items() %}
-      <a class="area-card" href="/service-areas/{{ slug }}"><h2 style="font-size:var(--step-2)">{{ a.name }}</h2><p>{{ a.communities|join(', ') }}</p></a>
+      <div class="area-card area-card--static">
+        <h2 class="area-card__title"><a href="/service-areas/{{ slug }}">{{ a.name }}</a></h2>
+        <p>{{ a.communities|join(', ') }}</p>
+        {% if a.cities %}<p class="area-card__links"><span class="visually-hidden">Community pages: </span>{% for c in a.cities %}<a href="/service-areas/{{ c.slug }}">{{ c.name }}</a>{% endfor %}</p>{% endif %}
+      </div>
       {% endfor %}
     </div>
   </div>

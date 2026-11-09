@@ -65,27 +65,30 @@
   function store(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); } catch (err) { /* storage blocked */ } }
   function load(key) { try { return JSON.parse(localStorage.getItem(key) || 'null'); } catch (err) { return null; } }
 
+  var TOUCH_TTL = 30 * 24 * 60 * 60 * 1000; // first-visit values are kept for 30 days
+  function fresh(touch) { return touch && Date.now() - Date.parse(touch.ts || 0) < TOUCH_TTL ? touch : null; }
+
   (function captureAttribution() {
     var params = new URLSearchParams(location.search);
     var touch = { landing_page: location.pathname, referrer: doc.referrer || '(direct)', ts: new Date().toISOString() };
     var hasParams = false;
     ATTR_KEYS.forEach(function (k) { var v = params.get(k); if (v) { touch[k] = v.slice(0, 150); hasParams = true; } });
     var externalRef = doc.referrer && doc.referrer.indexOf(location.host) === -1;
-    if (!load('mb_first_touch')) store('mb_first_touch', touch);
+    if (!fresh(load('mb_first_touch'))) store('mb_first_touch', touch);
     // A new last touch = a new campaign click or an external referral, not an internal page view.
-    if (hasParams || externalRef || !load('mb_last_touch')) store('mb_last_touch', touch);
+    if (hasParams || externalRef || !fresh(load('mb_last_touch'))) store('mb_last_touch', touch);
   })();
 
   function fillAttribution(form) {
-    var first = load('mb_first_touch') || {};
-    var last = load('mb_last_touch') || {};
+    var first = fresh(load('mb_first_touch')) || {};
+    var last = fresh(load('mb_last_touch')) || first;
     function set(name, val) { var f = form.querySelector('[name="' + name + '"]'); if (f) f.value = val || ''; }
     ATTR_KEYS.forEach(function (k) { set(k, last[k] || first[k]); });
     set('first_touch', [first.utm_source || '', first.utm_medium || '', first.referrer || '', first.landing_page || ''].join(' | '));
     set('last_touch', [last.utm_source || '', last.utm_medium || '', last.referrer || '', last.landing_page || ''].join(' | '));
     set('landing_page', first.landing_page);
     set('referrer', last.referrer);
-    set('submitted_from', location.pathname);
+    set('page_url', location.href.split('#')[0]);
   }
 
   /* ======================================================================
@@ -134,11 +137,22 @@
   doc.addEventListener('click', function (e) {
     if (window.innerWidth >= 1024 && !e.target.closest('.nav-list')) closeSubs();
   });
+  // Keyboard users tabbing out of an open desktop menu shouldn't leave it hanging open.
+  doc.addEventListener('focusin', function (e) {
+    if (window.innerWidth < 1024) return;
+    var li = e.target.closest('.nav-list > li');
+    subToggles.forEach(function (b) {
+      if (b.getAttribute('aria-expanded') === 'true' && b.closest('li') !== li) closeSubs();
+    });
+  });
 
   /* ======================================================================
      4. PROMOTIONS — hide anything past its end date even if the build is stale.
      ====================================================================== */
   var today = new Date().toISOString().slice(0, 10);
+  doc.querySelectorAll('[data-holiday-date]').forEach(function (el) {
+    if (el.getAttribute('data-holiday-date') < today) el.remove();
+  });
   doc.querySelectorAll('[data-promo-ends]').forEach(function (el) {
     var ends = el.getAttribute('data-promo-ends');
     if (ends && ends < today) el.remove();
@@ -147,7 +161,12 @@
   /* ======================================================================
      5. QUOTE FORM — multi-step with validation, Netlify Forms submission.
      ====================================================================== */
-  var MAX_UPLOAD = 8 * 1024 * 1024; // Netlify Forms limit per submission
+  function formatPhone(v) {
+    var d = v.replace(/\D/g, '');
+    if (d.length === 11 && d[0] === '1') d = d.slice(1);
+    if (d.length !== 10) return v;
+    return '(' + d.slice(0, 3) + ') ' + d.slice(3, 6) + '-' + d.slice(6);
+  }
 
   doc.querySelectorAll('form[data-quote-form]').forEach(function (form) {
     var steps = Array.prototype.slice.call(form.querySelectorAll('.step'));
@@ -160,6 +179,9 @@
     var started = false;
 
     fillAttribution(form);
+    // Fill time for the server's spam check (blank without JS, which skips that check).
+    var startedAt = form.querySelector('[name="started_at"]');
+    if (startedAt) startedAt.value = String(Date.now());
 
     // Deep links like /request-quote?service=Chimney preselect the service.
     var wanted = new URLSearchParams(location.search).get('service');
@@ -211,13 +233,11 @@
           if (checked[f.name]) return;
           checked[f.name] = true;
           if (f.required && !scope.querySelector('input[name="' + f.name + '"]:checked')) msg = f.getAttribute('data-msg') || 'Please choose one.';
-        } else if (f.type === 'file') {
-          var total = 0;
-          Array.prototype.forEach.call(f.files || [], function (file) { total += file.size; });
-          if (total > MAX_UPLOAD) msg = 'Photos add up to more than 8 MB. Please choose fewer or smaller photos.';
         } else {
           var v = (f.value || '').trim();
-          if (f.required && !v) msg = f.getAttribute('data-msg') || 'This field is required.';
+          var method = form.querySelector('[name="contact_method"]');
+          var needsEmail = f.name === 'email' && method && method.value === 'Email';
+          if ((f.required || needsEmail) && !v) msg = needsEmail ? 'Enter your email, since you prefer to be contacted by email.' : (f.getAttribute('data-msg') || 'This field is required.');
           else if (v && f.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) msg = 'Enter an email like name@example.com.';
           else if (v && f.type === 'tel' && v.replace(/\D/g, '').length < 10) msg = 'Enter a 10-digit phone number.';
           else if (v && f.name === 'zip' && !/^\d{5}$/.test(v)) msg = 'Enter a 5-digit ZIP code.';
@@ -239,7 +259,15 @@
     form.addEventListener('change', function (e) {
       var f = e.target;
       if (f.closest('.field.has-error')) fieldError(f, '');
-      if (f.type === 'file' && f.files && f.files.length) track('file_upload', { form_id: formId, file_count: f.files.length });
+      if (f.name === 'service') track('form_service_select', { form_id: formId, service_type: f.value });
+      if (f.name === 'contact_method') {
+        var em = form.querySelector('[name="email"]');
+        var opt = em && em.closest('.field').querySelector('.opt');
+        if (opt) opt.hidden = f.value === 'Email';
+      }
+    });
+    form.addEventListener('focusout', function (e) {
+      if (e.target.type === 'tel' && e.target.value) e.target.value = formatPhone(e.target.value);
     });
 
     form.addEventListener('click', function (e) {
@@ -257,39 +285,79 @@
       if (back) { e.preventDefault(); show(current - 1); }
     });
 
+    var submitting = false;
     form.addEventListener('submit', function (e) {
+      if (submitting) { e.preventDefault(); return; } // no double submissions
       // Honeypot filled => silently drop.
       var hp = form.querySelector('[name="bot-field"]');
       if (hp && hp.value) { e.preventDefault(); return; }
       if (!validate(steps.length > 1 ? steps[current] : form)) { e.preventDefault(); return; }
-      if (!window.fetch || !window.FormData) return; // native POST fallback
+      if (!window.fetch || !window.FormData || !window.Promise || !window.URLSearchParams) return; // native POST fallback
       e.preventDefault();
+      submitting = true;
 
       var btn = form.querySelector('[type="submit"]');
-      if (btn) { btn.setAttribute('aria-busy', 'true'); btn.dataset.label = btn.textContent; btn.textContent = 'Sending…'; }
+      function setBusy(busy) {
+        if (!btn) return;
+        btn.disabled = busy;
+        if (busy) { btn.setAttribute('aria-busy', 'true'); btn.dataset.label = btn.textContent; btn.textContent = 'Sending\u2026'; }
+        else { btn.removeAttribute('aria-busy'); if (btn.dataset.label) btn.textContent = btn.dataset.label; }
+      }
+      function fail(message) {
+        submitting = false;
+        setBusy(false);
+        track('form_error', { form_id: formId, field_name: '(submit)', step: current + 1 });
+        if (alertBox) {
+          alertBox.innerHTML = message + ' Please try again, or call or text <a href="tel:+15862093052">(586) 209-3052</a> and we\u2019ll take your request by phone.';
+          alertBox.classList.add('is-visible');
+          alertBox.focus();
+        }
+      }
+      setBusy(true);
       if (alertBox) alertBox.classList.remove('is-visible');
 
       var service = (form.querySelector('[name="service"]:checked') || {}).value || '';
       var property = (form.querySelector('[name="property_type"]:checked') || {}).value || '';
       track('form_submit', { form_id: formId, service_type: service, property_type: property });
 
-      fetch('/', { method: 'POST', body: new FormData(form) })
+      fetch(form.getAttribute('action') || '/api/lead', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+        body: new URLSearchParams(new FormData(form)).toString(),
+        credentials: 'same-origin'
+      })
         .then(function (res) {
-          if (!res.ok) throw new Error('HTTP ' + res.status);
-          // The conversion fires on /thank-you once, guarded by this flag.
-          try { sessionStorage.setItem('mb_lead', JSON.stringify({ form_id: formId, service_type: service, property_type: property })); } catch (err) {}
-          track('form_success', { form_id: formId, service_type: service, property_type: property });
-          window.location.href = form.getAttribute('action') || '/thank-you';
+          return res.json().catch(function () { return {}; }).then(function (body) { return { status: res.status, ok: res.ok, body: body }; });
         })
-        .catch(function () {
-          track('form_error', { form_id: formId, field_name: '(submit)', step: current + 1 });
-          if (alertBox) {
-            alertBox.innerHTML = 'Your request didn\u2019t go through. Check your connection and try again, or call or text <a href="tel:+15862093052">(586) 209-3052</a>.';
-            alertBox.classList.add('is-visible');
-            alertBox.focus();
+        .then(function (r) {
+          if (r.ok && r.body.ok) {
+            // generate_lead fires on /thank-you once, guarded by this flag.
+            try { sessionStorage.setItem('mb_lead', JSON.stringify({ form_id: formId, service_type: service, property_type: property })); } catch (err) {}
+            track('form_success', { form_id: formId, service_type: service, property_type: property });
+            window.location.href = '/thank-you';
+            return;
           }
-          if (btn) { btn.removeAttribute('aria-busy'); btn.textContent = btn.dataset.label; }
-        });
+          if (r.status === 422 && r.body.errors) {
+            // Server-side validation: show each message next to its field.
+            submitting = false;
+            setBusy(false);
+            var firstBad = null;
+            Object.keys(r.body.errors).forEach(function (name) {
+              var field = form.querySelector('[name="' + name + '"]');
+              if (!field) return;
+              fieldError(field, r.body.errors[name]);
+              track('form_error', { form_id: formId, field_name: name, step: current + 1 });
+              if (!firstBad) firstBad = field;
+            });
+            if (firstBad) {
+              if (steps.length > 1) show(steps.indexOf(firstBad.closest('.step')));
+              firstBad.focus();
+              return;
+            }
+          }
+          fail('Your request didn\u2019t go through.');
+        })
+        .catch(function () { fail('Your request didn\u2019t go through \u2014 check your connection.'); });
     });
   });
 
@@ -297,8 +365,44 @@
   if (PAGE_TYPE === 'thank-you') {
     var lead = null;
     try { lead = JSON.parse(sessionStorage.getItem('mb_lead') || 'null'); sessionStorage.removeItem('mb_lead'); } catch (err) {}
-    if (lead) track('quote_request', lead);
+    if (lead) track('generate_lead', lead);
   }
+
+  /* Review marquee. The HTML has each review once; here we clone the cards so
+     each half of the track is at least ~6 cards (wider than any screen), then
+     animate -50% for a seamless loop. Clones are aria-hidden + inert.
+     Reduced motion: no clones, the row stays a swipeable list. */
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  doc.querySelectorAll('[data-marquee]').forEach(function (m) {
+    var track = m.querySelector('.marquee__track');
+    var cards = track ? Array.prototype.slice.call(track.children) : [];
+    if (!cards.length || reduceMotion) return;
+    var reps = cards.length < 6 ? Math.ceil(6 / cards.length) : 1;
+    var frag = doc.createDocumentFragment();
+    for (var i = 0; i < reps * 2 - 1; i++) {
+      cards.forEach(function (c) {
+        var clone = c.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        clone.setAttribute('inert', '');
+        clone.querySelectorAll('[role="img"]').forEach(function (el) { el.removeAttribute('role'); el.removeAttribute('aria-label'); });
+        frag.appendChild(clone);
+      });
+    }
+    track.appendChild(frag);
+    m.style.setProperty('--marquee-duration', Math.max(cards.length * reps * 7, 40) + 's');
+    m.classList.add('is-looping');
+    var btn = m.querySelector('.marquee__toggle');
+    if (!btn) return;
+    var label = btn.querySelector('span');
+    var pauseIcon = btn.querySelector('svg').outerHTML;
+    var playIcon = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+    btn.addEventListener('click', function () {
+      var paused = m.classList.toggle('is-paused');
+      btn.setAttribute('aria-pressed', String(paused));
+      btn.querySelector('svg').outerHTML = paused ? playIcon : pauseIcon;
+      label.textContent = paused ? 'Play reviews' : 'Pause reviews';
+    });
+  });
 
   /* ======================================================================
      6. GALLERY — filter chips + <dialog> lightbox.
@@ -308,8 +412,8 @@
     var items = Array.prototype.slice.call(grid.querySelectorAll('li'));
     var chips = doc.querySelectorAll('[data-filter]');
     var status = doc.querySelector('[data-gallery-status]');
-    chips.forEach(function (chip) {
-      chip.addEventListener('click', function () {
+    var ctx = doc.querySelector('[data-gallery-context]');
+    function applyFilter(chip, quiet) {
         var f = chip.getAttribute('data-filter');
         chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
         var shown = 0;
@@ -318,25 +422,52 @@
           li.hidden = !match;
           if (match) shown++;
         });
-        if (status) status.textContent = shown + ' photos shown';
-        track('gallery_filter', { filter: f });
-      });
+        if (status && !quiet) status.textContent = shown + ' photos shown';
+        if (ctx) {
+          var url = chip.getAttribute('data-service-url');
+          ctx.hidden = !url;
+          if (url) {
+            ctx.querySelector('[data-gallery-label]').textContent = (chip.getAttribute('data-service-name') || '').toLowerCase();
+            ctx.querySelector('[data-gallery-service]').setAttribute('href', url);
+          }
+        }
+        if (!quiet) {
+          track('gallery_filter', { filter: f });
+          try { history.replaceState(null, '', f === 'all' ? location.pathname : '?type=' + encodeURIComponent(f)); } catch (err) {}
+        }
+    }
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () { applyFilter(chip, false); });
     });
+    var wantType = new URLSearchParams(location.search).get('type');
+    if (wantType) {
+      var pre = doc.querySelector('[data-filter="' + wantType.replace(/[^a-z-]/g, '') + '"]');
+      if (pre) { applyFilter(pre, true); pre.scrollIntoView({ block: 'nearest', inline: 'center' }); }
+    }
   }
 
   var dialog = doc.querySelector('.lightbox');
   if (dialog && typeof dialog.showModal === 'function') {
     var img = dialog.querySelector('.lightbox__img');
     var cap = dialog.querySelector('.lightbox__caption');
+    var svcLink = dialog.querySelector('.lightbox__service');
     var list = [];
     var idx = 0;
     function visibleCards() { return Array.prototype.slice.call(doc.querySelectorAll('[data-lightbox]')).filter(function (b) { return !b.closest('li[hidden]'); }); }
     function open(i) {
       var b = list[i]; if (!b) return;
       idx = i;
-      img.src = b.getAttribute('data-full');
+      // Use the large AVIF only if this browser already chose AVIF for the thumbnail.
+      var thumb = b.querySelector('img');
+      var avif = thumb && /\.avif(\?|$)/.test(thumb.currentSrc || '');
+      img.src = (avif && b.getAttribute('data-full-avif')) || b.getAttribute('data-full');
       img.alt = b.getAttribute('data-alt');
       cap.textContent = b.getAttribute('data-alt');
+      if (svcLink) {
+        var su = b.getAttribute('data-service-url');
+        svcLink.hidden = !su;
+        if (su) { svcLink.href = su; svcLink.textContent = 'About our ' + b.getAttribute('data-service-name').toLowerCase() + ' work \u2192'; }
+      }
       track('view_project', { project_id: b.getAttribute('data-id') });
     }
     doc.addEventListener('click', function (e) {
