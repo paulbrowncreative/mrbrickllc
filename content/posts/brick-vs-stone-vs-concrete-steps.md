@@ -37,6 +37,8 @@ Front steps take more abuse than almost anything else on a house: foot traffic, 
 
 [[photo:brick-steps-stone-treads-entry|Brick front steps with dark stone treads.]]
 
+[[photo:red-brick-steps-herringbone-walk|Red brick steps leading down to a herringbone brick walk.]]
+
 ## Natural stone steps
 
 **Pros:** The most premium look and excellent wear resistance. Heavy stone treads feel solid underfoot and age well.

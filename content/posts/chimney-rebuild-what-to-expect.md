@@ -49,6 +49,8 @@ If the brick is solid and the problem is the mortar or the crown, a [chimney rep
 6. **New cap** over the flue or flues.
 7. **Clean-up.** Debris is hauled away and the roof and yard are cleaned.
 
+[[photo:chimney-teardown-roof-crew|Cutting out the deteriorated top of a chimney before it is rebuilt.]]
+
 Flashing, where the chimney meets the roof, is part of the roof. Coordinate with your roofer if it needs replacing at the same time.
 
 [[photo:chimney-rebuild-staging|A chimney partway through a rebuild, with new brick staged on the roof.]]

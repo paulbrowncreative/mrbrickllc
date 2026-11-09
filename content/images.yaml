@@ -73,3 +73,9 @@ porch-slab-new-pour: {src: porch-slab-new-pour.jpg, alt: "Freshly poured concret
 wall-cap-replacement-crew: {src: wall-cap-replacement-crew.jpg, alt: "Masons replacing the stone caps on a brick wall at a commercial property", tags: [brick, commercial]}
 brick-paver-walkway-repair: {src: brick-paver-walkway-repair.jpg, alt: "Crew repairing a curved brick paver walkway, with damaged pavers lifted out", tags: [walkways, pavers, brick, residential]}
 stone-planter-wall-cap: {src: stone-planter-wall-cap.jpg, alt: "Stone planter wall with a stone cap, filled with flowers, beside a brick home", tags: [stone, brick, residential]}
+# Added Nov 9, 2026 (supplied by Mr. Brick). A security sign and a neighbor's house number blurred.
+brick-steps-cracked-separating: {src: brick-steps-cracked-separating.jpg, alt: "Gray brick front steps cracked and separating from the porch, before repair", tags: [steps, brick, porches, residential]}
+red-brick-steps-herringbone-walk: {src: red-brick-steps-herringbone-walk.jpg, alt: "Red brick front steps with an iron railing above a herringbone brick paver walk", tags: [steps, brick, pavers, residential]}
+chimney-new-crown-caps: {src: chimney-new-crown-caps.jpg, alt: "Gray brick chimney with a new sloped crown, two flue caps and roof flashing", tags: [chimneys, residential]}
+chimney-rebuild-scaffold-yard: {src: chimney-rebuild-scaffold-yard.jpg, alt: "Mr. Brick crew rebuilding a tall exterior brick chimney from scaffolding", tags: [chimneys, brick, residential]}
+chimney-teardown-roof-crew: {src: chimney-teardown-roof-crew.jpg, alt: "Mason cutting out a deteriorated chimney top on the roof during a rebuild", tags: [chimneys, brick, residential]}

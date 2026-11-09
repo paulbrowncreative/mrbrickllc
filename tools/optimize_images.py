@@ -38,8 +38,10 @@ for iid, meta in cat.items():
     for w in widths:
         r = im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
         r.save(OUT / f'{iid}-{w}.avif', quality=40, speed=6)
-    w = min(1200, im.width)
-    im.resize((w, round(im.height * w / im.width)), Image.LANCZOS).save(
+    # JPEG fallback (old browsers, social previews): longest side capped at 1200 px.
+    scale = min(1, 1200 / max(im.width, im.height))
+    w = round(im.width * scale)
+    im.resize((w, round(im.height * scale)), Image.LANCZOS).save(
         OUT / f'{iid}-{w}.jpg', quality=78, optimize=True, progressive=True)
     manifest[iid] = {'w': im.width, 'h': im.height, 'widths': widths, 'jpg': w, **meta}
     made.append(iid)

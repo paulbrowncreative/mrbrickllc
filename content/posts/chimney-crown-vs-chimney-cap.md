@@ -40,6 +40,8 @@ Without a cap, rain falls straight down the flue. That water can rust dampers, s
 
 [[photo:chimney-black-cap]]
 
+[[photo:chimney-new-crown-caps|A finished chimney with a new sloped crown and caps over both flues.]]
+
 ## How crowns and caps fail in Michigan
 
 - **Freeze-thaw cracking.** Water gets into a small crack in the crown, freezes and widens it. Then more water gets in.
