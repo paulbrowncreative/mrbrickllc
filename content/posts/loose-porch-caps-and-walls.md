@@ -48,6 +48,8 @@ Salt tracked onto the porch and snow piled on top of the walls both make it wors
 
 [[photo:brick-pillar-concrete-cap|A new brick pillar with a concrete cap beside concrete steps.]]
 
+[[photo:wall-cap-replacement-crew|Masons resetting the stone caps on a brick wall.]]
+
 ## Restoration or rebuild?
 
 Restoration makes sense when the porch is level, tight to the house, and the damage is limited to caps, the top courses of brick, and surfaces. If the slab is cracked through and sloping, or the walls are bulging, read [what happens during a porch rebuild](/blog/porch-rebuild-process). Our guide to [why brick porches and steps fail](/blog/porch-and-step-problems) covers the bigger picture.

@@ -67,3 +67,9 @@ fireplace-cast-stone-surround: {src: gallery-46-mr-brick-llc.png, alt: "Fireplac
 chimney-rebuild-scaffold-tall: {src: gallery-49-mr-brick-llc.png, alt: "Tall brick chimney being rebuilt from scaffolding", tags: [chimneys, brick]}
 chimney-scaffold-side-yard: {src: gallery-50-mr-brick-llc.png, alt: "Scaffolding set up along a tall brick chimney on the side of a home", tags: [chimneys, residential]}
 chimney-before-after-restored: {src: gallery-51-mr-brick-llc.png, alt: "Before and after: a brick chimney restored with new mortar and caps", tags: [chimneys, brick, residential]}
+# Added Nov 9, 2026 (supplied by Mr. Brick). House number and an old yard-sign phone number blurred.
+chimney-top-rebuild-crew: {src: chimney-top-rebuild-crew.jpg, alt: "Mr. Brick masons on scaffolding rebuilding the top of a brick chimney", tags: [chimneys, brick, residential]}
+porch-slab-new-pour: {src: porch-slab-new-pour.jpg, alt: "Freshly poured concrete porch slab on a brick base at a brick home", tags: [porches, concrete, brick, residential]}
+wall-cap-replacement-crew: {src: wall-cap-replacement-crew.jpg, alt: "Masons replacing the stone caps on a brick wall at a commercial property", tags: [brick, commercial]}
+brick-paver-walkway-repair: {src: brick-paver-walkway-repair.jpg, alt: "Crew repairing a curved brick paver walkway, with damaged pavers lifted out", tags: [walkways, pavers, brick, residential]}
+stone-planter-wall-cap: {src: stone-planter-wall-cap.jpg, alt: "Stone planter wall with a stone cap, filled with flowers, beside a brick home", tags: [stone, brick, residential]}

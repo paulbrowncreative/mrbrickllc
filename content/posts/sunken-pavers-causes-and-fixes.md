@@ -50,6 +50,8 @@ Weeds grow where joint sand has washed out and wind-blown soil has taken its pla
 
 Because the same pavers go back down, the repair usually blends right in.
 
+[[photo:brick-paver-walkway-repair|Repairing a brick paver walkway: damaged pavers lifted out before the base is corrected.]]
+
 [[photo:paver-porch-wet|A brick paver porch landing with a single step.]]
 
 ## Simple paver maintenance

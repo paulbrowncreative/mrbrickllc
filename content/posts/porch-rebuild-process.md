@@ -53,6 +53,8 @@ Block or brick foundation walls go up on the footings to support the slab. They'
 
 A reinforced concrete slab is formed and poured over the foundation, sloped slightly away from the house so water runs off. Steps are formed with consistent rise and run from top to bottom, because one uneven step is what trips people.
 
+[[photo:porch-slab-new-pour|A freshly poured porch slab on its brick base.]]
+
 ## Step 6: Finishes
 
 Brick or stone veneer on the walls, limestone or concrete caps, stone or paver treads, or a [paver](/paver-services) or stone deck over the slab. Anchor points for railings are built in so the railings end up solidly in sound masonry.

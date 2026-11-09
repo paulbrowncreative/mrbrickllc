@@ -1018,5 +1018,89 @@
    "brick",
    "residential"
   ]
+ },
+ "chimney-top-rebuild-crew": {
+  "w": 1023,
+  "h": 2000,
+  "widths": [
+   480,
+   800
+  ],
+  "jpg": 1023,
+  "src": "chimney-top-rebuild-crew.jpg",
+  "alt": "Mr. Brick masons on scaffolding rebuilding the top of a brick chimney",
+  "tags": [
+   "chimneys",
+   "brick",
+   "residential"
+  ]
+ },
+ "porch-slab-new-pour": {
+  "w": 2000,
+  "h": 1500,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ],
+  "jpg": 1200,
+  "src": "porch-slab-new-pour.jpg",
+  "alt": "Freshly poured concrete porch slab on a brick base at a brick home",
+  "tags": [
+   "porches",
+   "concrete",
+   "brick",
+   "residential"
+  ]
+ },
+ "wall-cap-replacement-crew": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "jpg": 1200,
+  "src": "wall-cap-replacement-crew.jpg",
+  "alt": "Masons replacing the stone caps on a brick wall at a commercial property",
+  "tags": [
+   "brick",
+   "commercial"
+  ]
+ },
+ "brick-paver-walkway-repair": {
+  "w": 1125,
+  "h": 1500,
+  "widths": [
+   480,
+   800
+  ],
+  "jpg": 1125,
+  "src": "brick-paver-walkway-repair.jpg",
+  "alt": "Crew repairing a curved brick paver walkway, with damaged pavers lifted out",
+  "tags": [
+   "walkways",
+   "pavers",
+   "brick",
+   "residential"
+  ]
+ },
+ "stone-planter-wall-cap": {
+  "w": 1080,
+  "h": 1920,
+  "widths": [
+   480,
+   800
+  ],
+  "jpg": 1080,
+  "src": "stone-planter-wall-cap.jpg",
+  "alt": "Stone planter wall with a stone cap, filled with flowers, beside a brick home",
+  "tags": [
+   "stone",
+   "brick",
+   "residential"
+  ]
  }
 }
