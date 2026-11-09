@@ -18,7 +18,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC, OUT = ROOT / 'src-images', ROOT / 'static/img'
 MANIFEST = ROOT / 'content/_image_manifest.json'
 WIDTHS = [480, 800, 1200, 1600]
-JPG_MAX = 1000   # JPEG fallback: old browsers and social previews only
+JPG_MAX = 800   # JPEG fallback: old browsers and social previews only
 
 force = set(sys.argv[sys.argv.index('--force') + 1:]) if '--force' in sys.argv else set()
 cat = yaml.safe_load(open(ROOT / 'content/images.yaml'))
@@ -39,7 +39,7 @@ for iid, meta in cat.items():
     for w in widths:
         r = im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
         r.save(OUT / f'{iid}-{w}.avif', quality=40, speed=6)
-    # JPEG fallback (old browsers, social previews): longest side capped at 1000 px.
+    # JPEG fallback (old browsers, social previews): longest side capped at 800 px.
     scale = min(1, JPG_MAX / max(im.width, im.height))
     w = round(im.width * scale)
     im.resize((w, round(im.height * scale)), Image.LANCZOS).save(
