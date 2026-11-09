@@ -65,27 +65,30 @@
   function store(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); } catch (err) { /* storage blocked */ } }
   function load(key) { try { return JSON.parse(localStorage.getItem(key) || 'null'); } catch (err) { return null; } }
 
+  var TOUCH_TTL = 30 * 24 * 60 * 60 * 1000; // first-visit values are kept for 30 days
+  function fresh(touch) { return touch && Date.now() - Date.parse(touch.ts || 0) < TOUCH_TTL ? touch : null; }
+
   (function captureAttribution() {
     var params = new URLSearchParams(location.search);
     var touch = { landing_page: location.pathname, referrer: doc.referrer || '(direct)', ts: new Date().toISOString() };
     var hasParams = false;
     ATTR_KEYS.forEach(function (k) { var v = params.get(k); if (v) { touch[k] = v.slice(0, 150); hasParams = true; } });
     var externalRef = doc.referrer && doc.referrer.indexOf(location.host) === -1;
-    if (!load('mb_first_touch')) store('mb_first_touch', touch);
+    if (!fresh(load('mb_first_touch'))) store('mb_first_touch', touch);
     // A new last touch = a new campaign click or an external referral, not an internal page view.
-    if (hasParams || externalRef || !load('mb_last_touch')) store('mb_last_touch', touch);
+    if (hasParams || externalRef || !fresh(load('mb_last_touch'))) store('mb_last_touch', touch);
   })();
 
   function fillAttribution(form) {
-    var first = load('mb_first_touch') || {};
-    var last = load('mb_last_touch') || {};
+    var first = fresh(load('mb_first_touch')) || {};
+    var last = fresh(load('mb_last_touch')) || first;
     function set(name, val) { var f = form.querySelector('[name="' + name + '"]'); if (f) f.value = val || ''; }
     ATTR_KEYS.forEach(function (k) { set(k, last[k] || first[k]); });
     set('first_touch', [first.utm_source || '', first.utm_medium || '', first.referrer || '', first.landing_page || ''].join(' | '));
     set('last_touch', [last.utm_source || '', last.utm_medium || '', last.referrer || '', last.landing_page || ''].join(' | '));
     set('landing_page', first.landing_page);
     set('referrer', last.referrer);
-    set('submitted_from', location.pathname);
+    set('page_url', location.href.split('#')[0]);
   }
 
   /* ======================================================================
@@ -158,28 +161,6 @@
   /* ======================================================================
      5. QUOTE FORM — multi-step with validation, Netlify Forms submission.
      ====================================================================== */
-  var MAX_UPLOAD = 8 * 1024 * 1024; // Netlify Forms limit per submission
-  var MAX_FILES = 5;
-  var IMG_OK = /^image\/(jpeg|png|webp|heic|heif)$|\.(jpe?g|png|webp|heic|heif)$/i;
-
-  // Phone photos are 3-5 MB each; downscale in the browser so several fit
-  // under Netlify's 8 MB cap and upload quickly on mobile data. Anything the
-  // browser can't decode (e.g. HEIC outside Safari) is sent as-is.
-  function shrinkImage(file) {
-    return new Promise(function (resolve) {
-      if (!window.createImageBitmap || !/^image\//.test(file.type) || file.size < 600 * 1024) return resolve(file);
-      createImageBitmap(file).then(function (bmp) {
-        var max = 1800, scale = Math.min(1, max / Math.max(bmp.width, bmp.height));
-        var c = doc.createElement('canvas');
-        c.width = Math.round(bmp.width * scale); c.height = Math.round(bmp.height * scale);
-        c.getContext('2d').drawImage(bmp, 0, 0, c.width, c.height);
-        c.toBlob(function (blob) {
-          if (!blob || blob.size >= file.size) return resolve(file);
-          resolve(new File([blob], file.name.replace(/\.[^.]+$/, '') + '.jpg', { type: 'image/jpeg' }));
-        }, 'image/jpeg', 0.82);
-      }).catch(function () { resolve(file); });
-    });
-  }
   function formatPhone(v) {
     var d = v.replace(/\D/g, '');
     if (d.length === 11 && d[0] === '1') d = d.slice(1);
@@ -198,6 +179,9 @@
     var started = false;
 
     fillAttribution(form);
+    // Fill time for the server's spam check (blank without JS, which skips that check).
+    var startedAt = form.querySelector('[name="started_at"]');
+    if (startedAt) startedAt.value = String(Date.now());
 
     // Deep links like /request-quote?service=Chimney preselect the service.
     var wanted = new URLSearchParams(location.search).get('service');
@@ -249,10 +233,6 @@
           if (checked[f.name]) return;
           checked[f.name] = true;
           if (f.required && !scope.querySelector('input[name="' + f.name + '"]:checked')) msg = f.getAttribute('data-msg') || 'Please choose one.';
-        } else if (f.type === 'file') {
-          var list = Array.prototype.slice.call(f.files || []);
-          if (list.length > MAX_FILES) msg = 'Please choose up to ' + MAX_FILES + ' photos.';
-          else if (list.some(function (file) { return !IMG_OK.test(file.type) && !IMG_OK.test(file.name); })) msg = 'Photos must be JPG, PNG, WebP or HEIC images.';
         } else {
           var v = (f.value || '').trim();
           var method = form.querySelector('[name="contact_method"]');
@@ -279,12 +259,6 @@
     form.addEventListener('change', function (e) {
       var f = e.target;
       if (f.closest('.field.has-error')) fieldError(f, '');
-      if (f.type === 'file') {
-        var n = (f.files || []).length;
-        var sum = form.querySelector('[data-file-summary]');
-        if (sum) sum.textContent = n ? n + (n === 1 ? ' photo' : ' photos') + ' selected' : '';
-        if (n) track('file_upload', { form_id: formId, file_count: n });
-      }
       if (f.name === 'service') track('form_service_select', { form_id: formId, service_type: f.value });
       if (f.name === 'contact_method') {
         var em = form.querySelector('[name="email"]');
@@ -318,57 +292,72 @@
       var hp = form.querySelector('[name="bot-field"]');
       if (hp && hp.value) { e.preventDefault(); return; }
       if (!validate(steps.length > 1 ? steps[current] : form)) { e.preventDefault(); return; }
-      if (!window.fetch || !window.FormData || !window.Promise) return; // native POST fallback
+      if (!window.fetch || !window.FormData || !window.Promise || !window.URLSearchParams) return; // native POST fallback
       e.preventDefault();
       submitting = true;
 
       var btn = form.querySelector('[type="submit"]');
-      if (btn) { btn.setAttribute('aria-busy', 'true'); btn.dataset.label = btn.textContent; btn.textContent = 'Sending…'; }
+      function setBusy(busy) {
+        if (!btn) return;
+        btn.disabled = busy;
+        if (busy) { btn.setAttribute('aria-busy', 'true'); btn.dataset.label = btn.textContent; btn.textContent = 'Sending\u2026'; }
+        else { btn.removeAttribute('aria-busy'); if (btn.dataset.label) btn.textContent = btn.dataset.label; }
+      }
+      function fail(message) {
+        submitting = false;
+        setBusy(false);
+        track('form_error', { form_id: formId, field_name: '(submit)', step: current + 1 });
+        if (alertBox) {
+          alertBox.innerHTML = message + ' Please try again, or call or text <a href="tel:+15862093052">(586) 209-3052</a> and we\u2019ll take your request by phone.';
+          alertBox.classList.add('is-visible');
+          alertBox.focus();
+        }
+      }
+      setBusy(true);
       if (alertBox) alertBox.classList.remove('is-visible');
 
       var service = (form.querySelector('[name="service"]:checked') || {}).value || '';
       var property = (form.querySelector('[name="property_type"]:checked') || {}).value || '';
       track('form_submit', { form_id: formId, service_type: service, property_type: property });
 
-      var data = new FormData(form);
-      var fileInput = form.querySelector('[data-photo-picker]');
-      var files = fileInput ? Array.prototype.slice.call(fileInput.files || []).slice(0, MAX_FILES) : [];
-      Promise.all(files.map(shrinkImage))
-        .then(function (small) {
-          // Netlify Forms accepts one file per field: photo_1..photo_5.
-          for (var n = 1; n <= MAX_FILES; n++) data.delete('photo_' + n);
-          small.forEach(function (file, i) { data.append('photo_' + (i + 1), file, file.name); });
-          var total = small.reduce(function (t, file) { return t + file.size; }, 0);
-          if (total > MAX_UPLOAD) {
-            var err = new Error('too-large'); err.field = fileInput; throw err;
-          }
-          return fetch('/', { method: 'POST', body: data });
-        })
+      fetch(form.getAttribute('action') || '/api/lead', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+        body: new URLSearchParams(new FormData(form)).toString(),
+        credentials: 'same-origin'
+      })
         .then(function (res) {
-          if (!res.ok) throw new Error('HTTP ' + res.status);
-          // The conversion fires on /thank-you once, guarded by this flag.
-          try { sessionStorage.setItem('mb_lead', JSON.stringify({ form_id: formId, service_type: service, property_type: property })); } catch (err) {}
-          track('form_success', { form_id: formId, service_type: service, property_type: property });
-          window.location.href = form.getAttribute('action') || '/thank-you';
+          return res.json().catch(function () { return {}; }).then(function (body) { return { status: res.status, ok: res.ok, body: body }; });
         })
-        .catch(function (err) {
-          submitting = false;
-          if (err && err.message === 'too-large') {
-            fieldError(err.field, 'Those photos are too large to send together. Please choose fewer photos, or text them to us instead.');
-            track('form_error', { form_id: formId, field_name: 'photos', step: current + 1 });
-            if (steps.length > 1) show(steps.indexOf(err.field.closest('.step')));
-            err.field.focus();
-            if (btn) { btn.removeAttribute('aria-busy'); btn.textContent = btn.dataset.label; }
+        .then(function (r) {
+          if (r.ok && r.body.ok) {
+            // generate_lead fires on /thank-you once, guarded by this flag.
+            try { sessionStorage.setItem('mb_lead', JSON.stringify({ form_id: formId, service_type: service, property_type: property })); } catch (err) {}
+            track('form_success', { form_id: formId, service_type: service, property_type: property });
+            window.location.href = '/thank-you';
             return;
           }
-          track('form_error', { form_id: formId, field_name: '(submit)', step: current + 1 });
-          if (alertBox) {
-            alertBox.innerHTML = 'Your request didn\u2019t go through. Check your connection and try again, or call or text <a href="tel:+15862093052">(586) 209-3052</a>.';
-            alertBox.classList.add('is-visible');
-            alertBox.focus();
+          if (r.status === 422 && r.body.errors) {
+            // Server-side validation: show each message next to its field.
+            submitting = false;
+            setBusy(false);
+            var firstBad = null;
+            Object.keys(r.body.errors).forEach(function (name) {
+              var field = form.querySelector('[name="' + name + '"]');
+              if (!field) return;
+              fieldError(field, r.body.errors[name]);
+              track('form_error', { form_id: formId, field_name: name, step: current + 1 });
+              if (!firstBad) firstBad = field;
+            });
+            if (firstBad) {
+              if (steps.length > 1) show(steps.indexOf(firstBad.closest('.step')));
+              firstBad.focus();
+              return;
+            }
           }
-          if (btn) { btn.removeAttribute('aria-busy'); btn.textContent = btn.dataset.label; }
-        });
+          fail('Your request didn\u2019t go through.');
+        })
+        .catch(function () { fail('Your request didn\u2019t go through \u2014 check your connection.'); });
     });
   });
 
@@ -376,7 +365,7 @@
   if (PAGE_TYPE === 'thank-you') {
     var lead = null;
     try { lead = JSON.parse(sessionStorage.getItem('mb_lead') || 'null'); sessionStorage.removeItem('mb_lead'); } catch (err) {}
-    if (lead) track('quote_request', lead);
+    if (lead) track('generate_lead', lead);
   }
 
   /* Review marquee. The HTML has each review once; here we clone the cards so

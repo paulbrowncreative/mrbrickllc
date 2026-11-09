@@ -3,7 +3,8 @@
   publish = "dist"
 
 [functions]
-  # submission-created.js emails each verified quote request (see the file header)
+  # lead.mjs serves POST /api/lead: validates quote requests and emails them via Resend.
+  # Functions deploy from Git or the Netlify CLI, not from drag-and-drop zips.
   directory = "netlify/functions"
 
 [build.environment]

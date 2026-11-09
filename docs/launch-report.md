@@ -307,3 +307,7 @@ Measured on a simulated mobile connection (150 ms latency, 1.6 Mbps, 4× CPU slo
 - **Accessibility:** axe reports 0 violations.
 - **Quote form:** passes end to end.
 - **Performance:** LCP 1.6–2.0 s and CLS ≤ 0.03 on a throttled mobile connection.
+
+## Quote form: Resend via /api/lead (Nov 9, 2026)
+
+The quote form no longer uses Netlify Forms. It posts to `/api/lead` (`netlify/functions/lead.mjs`), which validates the request, filters spam and emails each lead through Resend. Visitors without JavaScript get a normal form post with a redirect. Successful submissions go to `/thank-you`, which fires `generate_lead` once; incomplete ones go to `/form-error`. Photo uploads were removed (requests are capped at 20 KB); customers are asked to text photos instead. The Netlify Forms notification steps above no longer apply. Setup, deploy and testing are documented in the README under "Quote form → email (Resend)".

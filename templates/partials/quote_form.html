@@ -1,6 +1,9 @@
 {% from "partials/macros.html" import icon %}
-{# Multi-step quote form. Works as a single long form without JS.
-   Netlify Forms: name="quote", honeypot "bot-field", file uploads enabled.
+{# Multi-step quote form. Posts to /api/lead (netlify/functions/lead.mjs),
+   which emails the lead through Resend. Without JS it is one long form and
+   the server answers with a 303 to /thank-you or /form-error; with JS,
+   site.js validates, sends with fetch and shows server errors per field.
+   Spam traps: "bot-field" (off-screen honeypot) and "started_at" (fill time).
    form_uid keeps ids unique if the form ever appears twice on one page. #}
 {% set uid = form_uid|default('q') %}
 {% set preselect = preselect_service|default('') %}
@@ -11,13 +14,12 @@
     <ol class="progress" aria-hidden="true"><li></li><li></li><li></li></ol>
     <p class="progress-label" aria-live="polite"></p>
   </div>
-  <form name="quote" method="POST" action="/thank-you" enctype="multipart/form-data"
-        data-netlify="true" netlify-honeypot="bot-field" data-quote-form="{{ uid }}"
+  <form name="quote" method="post" action="/api/lead" data-quote-form="{{ uid }}"
         aria-labelledby="{{ uid }}-title" novalidate>
-    <input type="hidden" name="form-name" value="quote">
-    <p class="hp" aria-hidden="true"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-    {# Attribution (filled by site.js; never sent to analytics) #}
-    {% for f in ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','gbraid','wbraid','first_touch','last_touch','landing_page','referrer','submitted_from'] %}
+    <p class="hp" aria-hidden="true"><label for="{{ uid }}-hp">Leave this empty</label> <input id="{{ uid }}-hp" name="bot-field" tabindex="-1" autocomplete="off"></p>
+    <input type="hidden" name="started_at" value="">
+    {# Attribution (filled by site.js from first/last touch; never sent to analytics) #}
+    {% for f in ['page_url','landing_page','referrer','first_touch','last_touch','utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','gbraid','wbraid'] %}
     <input type="hidden" name="{{ f }}" value="">
     {% endfor %}
 
@@ -68,17 +70,7 @@
           </select>
         </div>
       </div>
-      <div class="field">
-        <label for="{{ uid }}-photos">Photos <span class="opt">(optional but helpful)</span></label>
-        {# Netlify Forms keeps one file per field, so photos are submitted as
-           photo_1..photo_5. site.js splits the files from this picker across
-           them; photo_2..5 exist only so Netlify's form detection registers them. #}
-        <input class="input" id="{{ uid }}-photos" name="photo_1" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" multiple aria-describedby="{{ uid }}-photos-hint" data-photo-picker>
-        <span hidden>{% for n in range(2, 6) %}<input type="file" name="photo_{{ n }}" accept="image/*">{% endfor %}</span>
-        <span class="hint" id="{{ uid }}-photos-hint">Up to 5 photos (JPG, PNG, HEIC). A wide shot plus a close-up works best.</span>
-        <p class="file-summary" data-file-summary aria-live="polite"></p>
-        <p class="error"></p>
-      </div>
+      <p class="form-tip">Have photos? After you send this, text them to <a href="sms:{{ site.phone_e164 }}">{{ site.phone }}</a>. A wide shot plus a close-up helps us quote faster.</p>
       <div class="form-actions">
         <button class="btn btn--ghost" type="button" data-back>Back</button>
         <button class="btn" type="button" data-next>Continue</button>
@@ -120,7 +112,7 @@
       </div>
       <div class="form-actions">
         <button class="btn btn--ghost" type="button" data-back>Back</button>
-        <button class="btn" type="submit">Get My Free Quote</button>
+        <button class="btn" type="submit">Request My Free Quote</button>
       </div>
       <p class="form-note">We use your details only to respond about your project. No spam, no sharing. See our <a href="/privacy-policy">privacy policy</a>.</p>
     </fieldset>
