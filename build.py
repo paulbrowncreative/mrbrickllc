@@ -152,13 +152,74 @@ def render_post(p):
     md = markdown.Markdown(extensions=["extra", "sane_lists", "toc"],
                            extension_configs={"toc": {"toc_depth": "2-2", "permalink": False}})
     p["html"] = md.convert(body)
-    p["toc"] = [(t["id"], t["name"]) for t in md.toc_tokens]
+    p["toc"] = [(t["id"], title_case(html.unescape(t["name"]))) for t in md.toc_tokens]
 # Gallery tag -> the service page that best explains that kind of work.
 TAG_SERVICE = {"chimneys": "chimney-services", "porches": "porch-services", "steps": "stair-services",
                "brick": "brick-masonry", "stone": "brick-masonry", "concrete": "concrete-services",
                "driveways": "driveway-services", "walkways": "walkway-services", "pavers": "paver-services",
                "patios": "patio-services", "retaining-walls": "retaining-wall-services",
                "foundations": "foundation-services", "outdoor-kitchens": "outdoor-kitchen-installation"}
+
+# ------------------------------------------------------------------ headline style
+# Every <h1>-<h6> (and the post table of contents) is set in title case at
+# build time, so headings stay consistent no matter where the text comes from.
+# AP-style: articles, short conjunctions and prepositions of three letters or
+# fewer stay lowercase unless first, last or after a colon. Words that already
+# carry capitals (ZIP, FAQs, SE, Mr., iPhone) are left exactly as written.
+MINOR_WORDS = {"a", "an", "the", "and", "but", "or", "nor", "for", "as", "at", "by",
+               "in", "of", "on", "per", "to", "via", "vs", "vs."}
+
+def _cap(word):
+    return word[:1].upper() + word[1:] if word[:1].islower() else word
+
+def _title_word(word, force):
+    if "@" in word or "/" in word or any(c.isupper() for c in word[1:]):
+        return word  # acronyms, brands, addresses
+    lead = re.match(r"^[(\[\"'“‘¿¡]*", word).group(0)
+    core = word[len(lead):]
+    if not force and core.lower().rstrip(".,;:!?)\"'”’") in MINOR_WORDS:
+        return lead + core.lower()
+    # Hyphenated parts are capitalized separately ("Freeze-Thaw", "10-Year").
+    return lead + "-".join(_cap(part) for part in core.split("-"))
+
+def title_case(text):
+    """Title-case a plain-text heading."""
+    words = text.split(" ")
+    real = [i for i, w in enumerate(words) if w.strip()]
+    out, force = [], True
+    for i, w in enumerate(words):
+        if not w:
+            out.append(w)
+            continue
+        out.append(_title_word(w, force or i == real[-1]))
+        # Capitalize after a colon, question mark or a list number like "1."
+        force = w.endswith((":", "?", "!")) or w in ("&", "|") or bool(re.fullmatch(r"\d+\.", w))
+    return " ".join(out)
+
+def titlecase_headings(page_html):
+    """Apply title_case to the text of every h1-h6, keeping inline tags intact.
+    Words are counted across the whole heading, so the first- and last-word
+    rules hold even when part of a heading sits in a <span>."""
+    def fix(m):
+        open_tag, inner, close_tag = m.group(1), m.group(3), m.group(4)
+        parts = re.split(r"(<[^>]+>)", inner)
+        texts = [i for i, part in enumerate(parts) if part and not part.startswith("<") and part.strip()]
+        if not texts:
+            return m.group(0)
+        joined = "\u0000".join(html.unescape(parts[i]) for i in texts)
+        for i, new in zip(texts, title_case(joined).split("\u0000")):
+            parts[i] = html.escape(new, quote=False)
+        return open_tag + "".join(parts) + close_tag
+    return re.sub(r"(<h([1-6])\b[^>]*>)(.*?)(</h\2>)", fix, page_html, flags=re.S)
+
+def excerpt(text, length=110):
+    """Shorten to a whole word and end with an ellipsis, without leaving a dangling comma."""
+    text = " ".join(str(text or "").split())
+    if len(text) <= length:
+        return text
+    cut = text[:length].rsplit(" ", 1)[0]
+    return cut.rstrip(",;:–-") + "…"
+env.filters["excerpt"] = excerpt
 
 def strip_tags(text):
     return re.sub(r"<[^>]+>", "", text or "")
@@ -293,12 +354,12 @@ for f in faqs:
 add("/", "home.html", "Masonry Contractor in Eastpointe & SE Michigan | Mr. Brick",
     "Family-owned masonry and concrete contractor in Eastpointe serving Southeastern Michigan for 25+ years: brick, chimneys, porches, steps, concrete. Free quotes.",
     type="home", h1="Masonry built for Michigan winters", lcp_image="crew-brick-pillars-stone-steps", lcp_sizes="(min-width: 64em) 48vw, 100vw",
-    og_title="Mr. Brick LLC — Masonry Contractors in Southeastern Michigan",
+    og_title="Mr. Brick LLC | Masonry Contractors in Southeastern Michigan",
     extra_schema=[faq_schema(HOME_FAQS)])
 
 add("/services", "services_index.html", "Masonry & Concrete Services in SE Michigan | Mr. Brick",
     "Every masonry and concrete service Mr. Brick offers in Southeastern Michigan: brick, chimneys, porches, concrete, driveways, pavers, patios and foundations.",
-    h1="Masonry and concrete services", lede="Seven trades, one contractor. Find your project below, or call and describe it — we'll point you the right way.",
+    h1="Masonry and concrete services", lede="Seven trades, one contractor. Find your project below, or call and describe it, and we'll point you the right way.",
     crumbs=[H, ("Services", "/services")], hero_cta=True)
 
 for slug, s in services.items():
@@ -374,7 +435,7 @@ add("/about", "about.html", "About Mr. Brick | Family-Owned Masonry Contractor",
 
 add("/reviews", "reviews.html", "Mr. Brick LLC Reviews | Eastpointe Masonry Contractor",
     "Read and leave reviews for Mr. Brick LLC, a family-owned masonry contractor serving Southeastern Michigan. See real project photos and our commitments.",
-    h1="Mr. Brick reviews", lede="Real feedback from real customers — and our commitments to every one of them.",
+    h1="Mr. Brick reviews", lede="Real feedback from real customers, and our commitments to every one of them.",
     crumbs=[H, ("Reviews", "/reviews")], hero_cta=True)
 
 add("/finance", "finance.html", "Masonry Financing in Southeastern Michigan | Mr. Brick",
@@ -394,12 +455,12 @@ add("/faqs", "faqs.html", "Masonry FAQs: Cost, Timing & Warranty | Mr. Brick LLC
 
 add("/contact", "contact.html", "Contact Mr. Brick LLC | Call or Text (586) 209-3052",
     "Call or text Mr. Brick at (586) 209-3052 or send a quote request. Masonry contractor based in Eastpointe, serving Southeastern Michigan. Mon–Sat 8:30–6.",
-    h1="Contact Mr. Brick", lede="Call, text, email or send a quote request — whatever's easiest for you.",
+    h1="Contact Mr. Brick", lede="Call, text, email or send a quote request, whichever is easiest for you.",
     crumbs=[H, ("Contact", "/contact")], schema_type="ContactPage")
 
 add("/request-quote", "quote.html", "Request a Free Masonry Quote | Mr. Brick LLC",
     "Request a free, no-obligation quote for brick, chimney, porch, concrete or paver work in Southeastern Michigan. Three quick steps, photos welcome.",
-    h1="Request a free quote", lede="Three quick steps. Add photos if you can — they help us give you a better first answer.",
+    h1="Request a free quote", lede="Three quick steps, about a minute. Have photos? Text them to us after you send the form.",
     crumbs=[H, ("Request a Quote", "/request-quote")], type="quote")
 
 for p in posts:
@@ -444,7 +505,7 @@ for slug, L in LEGAL.items():
         crumbs=[H, (L["h1"], "/" + slug)])
 
 # Quote form outcomes (see netlify/functions/lead.mjs). Both noindex, out of the sitemap.
-add("/thank-you", "thank_you.html", "Thanks — We Got Your Request | Mr. Brick LLC",
+add("/thank-you", "thank_you.html", "Thank You! We Got Your Request | Mr. Brick LLC",
     "Your quote request was sent to Mr. Brick LLC.", h1="Thank you!",
     lede="We received your quote request. Here's what happens next.", noindex=True, type="thank-you")
 add("/form-error", "form_error.html", "Your Request Wasn't Sent | Mr. Brick LLC",
@@ -550,6 +611,7 @@ def build():
         p["schema"] = schema
         html_out = env.get_template(p["template"]).render(page=p, **{k: v for k, v in p.items() if k not in ("title",)})
         html_out = re.sub(r"\n\s*\n+", "\n", html_out)
+        html_out = titlecase_headings(html_out)
         main = html_out.split('<main id="main">', 1)[-1].split("</main>", 1)[0]
         p["img_srcs"] = list(dict.fromkeys(re.findall(r'<img src="(/static/img/[^"]+\.jpg)"', main)))
         dest = out_path(p["path"])

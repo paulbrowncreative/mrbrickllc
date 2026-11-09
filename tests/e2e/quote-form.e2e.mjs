@@ -101,7 +101,7 @@ test('browser validation puts each message next to its field', async () => {
   await page.goto(site.url + '/request-quote');
   await page.click(`${F} .step:nth-of-type(1) [data-next]`);
   const err = page.locator(`${F} .step:nth-of-type(1) .field.has-error .error`).first();
-  assert.match(await err.textContent(), /Choose the service/);
+  assert.match(await err.textContent(), /Choose the closest service/);
   const radio = page.locator(`${F} input[name=service]`).first();
   assert.equal(await radio.getAttribute('aria-invalid'), 'true');
   assert.equal(await radio.getAttribute('aria-describedby'), await err.getAttribute('id'));

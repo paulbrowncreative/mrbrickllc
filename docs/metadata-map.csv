@@ -10,18 +10,18 @@ url,title,title_len,description_len,h1,indexable
 "https://www.mrbrickllc.com/chimney-rebuilding","Chimney Rebuilding in Southeastern Michigan | Mr. Brick",55,151,"Chimney rebuilding",yes
 "https://www.mrbrickllc.com/fireplace-services","Fireplace Repair & Installation in SE Michigan | Mr. Brick",58,153,"Fireplace repair and installation",yes
 "https://www.mrbrickllc.com/porch-services","Porch Repair & Rebuilding in SE Michigan | Mr. Brick",52,151,"Porch repair, rebuilds and steps",yes
-"https://www.mrbrickllc.com/porch-restorations","Porch Restoration in Southeastern Michigan | Mr. Brick",54,147,"Porch restoration",yes
-"https://www.mrbrickllc.com/porch-rebuilds","Porch Rebuilds & New Porches in SE Michigan | Mr. Brick",55,151,"Porch rebuilds",yes
-"https://www.mrbrickllc.com/stair-services","Brick, Stone & Concrete Steps in SE Michigan | Mr. Brick",56,159,"Brick, stone and concrete steps",yes
+"https://www.mrbrickllc.com/porch-restorations","Porch Restoration in Southeastern Michigan | Mr. Brick",54,154,"Porch restoration",yes
+"https://www.mrbrickllc.com/porch-rebuilds","Porch Rebuilds & New Porches in SE Michigan | Mr. Brick",55,150,"Porch rebuilds",yes
+"https://www.mrbrickllc.com/stair-services","Brick, Stone & Concrete Steps in SE Michigan | Mr. Brick",56,143,"Brick, stone and concrete steps",yes
 "https://www.mrbrickllc.com/concrete-services","Concrete Contractor in Southeastern Michigan | Mr. Brick",56,151,"Concrete contractor for homes and businesses",yes
 "https://www.mrbrickllc.com/stamped-concrete","Stamped & Decorative Concrete in SE Michigan | Mr. Brick",56,152,"Stamped and decorative concrete",yes
-"https://www.mrbrickllc.com/concrete-resurfacing","Concrete Resurfacing & Repair in SE Michigan | Mr. Brick",56,155,"Concrete resurfacing and repair",yes
+"https://www.mrbrickllc.com/concrete-resurfacing","Concrete Resurfacing & Repair in SE Michigan | Mr. Brick",56,153,"Concrete resurfacing and repair",yes
 "https://www.mrbrickllc.com/concrete-leveling","Concrete Leveling & Slab Lifting in SE Michigan | Mr. Brick",59,145,"Concrete leveling",yes
 "https://www.mrbrickllc.com/concrete-sealing","Concrete Sealing & Coatings in SE Michigan | Mr. Brick",54,151,"Concrete sealing and coatings",yes
 "https://www.mrbrickllc.com/pool-deck-resurfacing","Pool Deck Repair & Resurfacing in SE Michigan | Mr. Brick",57,159,"Pool deck repair and resurfacing",yes
 "https://www.mrbrickllc.com/driveway-services","Concrete & Brick Driveways in SE Michigan | Mr. Brick",53,157,"Driveways, walkways and pavers",yes
 "https://www.mrbrickllc.com/concrete-driveway-installation","Concrete Driveway Installation in SE Michigan | Mr. Brick",57,150,"Concrete driveway installation",yes
-"https://www.mrbrickllc.com/driveway-repair","Driveway Repair & Resurfacing in SE Michigan | Mr. Brick",56,153,"Driveway repair and resurfacing",yes
+"https://www.mrbrickllc.com/driveway-repair","Driveway Repair & Resurfacing in SE Michigan | Mr. Brick",56,155,"Driveway repair and resurfacing",yes
 "https://www.mrbrickllc.com/walkway-services","Brick, Paver & Concrete Walkways in SE Michigan | Mr. Brick",59,148,"Brick, paver and concrete walkways",yes
 "https://www.mrbrickllc.com/paver-services","Brick Paver Installation in SE Michigan | Mr. Brick",51,151,"Brick paver installation and repair",yes
 "https://www.mrbrickllc.com/patio-services","Patio Installation in Southeastern Michigan | Mr. Brick",55,146,"Patio installation and outdoor living",yes
@@ -32,7 +32,7 @@ url,title,title_len,description_len,h1,indexable
 "https://www.mrbrickllc.com/service-areas","Service Areas | Southeastern Michigan Masonry | Mr. Brick",57,140,"Masonry across Southeastern Michigan",yes
 "https://www.mrbrickllc.com/service-areas/macomb-county","Masonry Contractor in Macomb County, MI | Mr. Brick",51,144,"Masonry contractor in Macomb County",yes
 "https://www.mrbrickllc.com/service-areas/wayne-county","Wayne County & Grosse Pointe Masonry Contractor | Mr. Brick",59,154,"Masonry contractor in Wayne County and the Grosse Pointes",yes
-"https://www.mrbrickllc.com/service-areas/oakland-county","Masonry Contractor in Oakland County, MI | Mr. Brick",52,147,"Masonry contractor in Oakland County",yes
+"https://www.mrbrickllc.com/service-areas/oakland-county","Masonry Contractor in Oakland County, MI | Mr. Brick",52,148,"Masonry contractor in Oakland County",yes
 "https://www.mrbrickllc.com/service-areas/eastpointe","Eastpointe, MI Masonry & Concrete Contractor | Mr. Brick",56,160,"Eastpointe masonry contractor",yes
 "https://www.mrbrickllc.com/service-areas/st-clair-shores","St. Clair Shores Masonry & Concrete Contractor | Mr. Brick",58,144,"Masonry and concrete in St. Clair Shores",yes
 "https://www.mrbrickllc.com/service-areas/grosse-pointe","Grosse Pointe Masonry & Chimney Contractor | Mr. Brick",54,159,"Masonry for Grosse Pointe homes",yes
@@ -78,11 +78,11 @@ url,title,title_len,description_len,h1,indexable
 "https://www.mrbrickllc.com/blog/sunken-pavers-causes-and-fixes","Sunken or Shifting Pavers? Causes & Fixes | Mr. Brick",53,141,"Why Pavers Sink, Shift and Grow Weeds, and How to Fix Them",yes
 "https://www.mrbrickllc.com/blog/why-retaining-walls-lean","Why Retaining Walls Lean & Fail | Mr. Brick",43,139,"Why Retaining Walls Lean and Fail, and How to Build One That Lasts",yes
 "https://www.mrbrickllc.com/blog/chimney-repair-warning-signs","7 Signs Your Chimney Needs Repair | Mr. Brick",45,158,"7 Signs Your Chimney Needs Repair Before Water Gets In",yes
-"https://www.mrbrickllc.com/blog/tuckpointing-vs-rebuilding","Tuckpointing vs. Rebuilding Brick | Mr. Brick",45,143,"Tuckpointing vs. Rebuilding: How to Tell What Your Brick Needs",yes
-"https://www.mrbrickllc.com/blog/porch-and-step-problems","Why Brick Porches & Steps Fail in Michigan | Mr. Brick",54,154,"Why Brick Porches and Steps Fail in Michigan — and How to Fix Them for Good",yes
+"https://www.mrbrickllc.com/blog/tuckpointing-vs-rebuilding","Tuckpointing vs. Rebuilding Brick | Mr. Brick",45,146,"Tuckpointing vs. Rebuilding: How to Tell What Your Brick Needs",yes
+"https://www.mrbrickllc.com/blog/porch-and-step-problems","Why Brick Porches & Steps Fail in Michigan | Mr. Brick",54,154,"Why Brick Porches and Steps Fail in Michigan and How to Fix Them for Good",yes
 "https://www.mrbrickllc.com/privacy-policy","Privacy Policy | Mr. Brick LLC",30,91,"Privacy policy",yes
 "https://www.mrbrickllc.com/terms","Terms of Use | Mr. Brick LLC",28,139,"Terms of use",yes
 "https://www.mrbrickllc.com/accessibility","Accessibility Statement | Mr. Brick LLC",39,72,"Accessibility",yes
-"https://www.mrbrickllc.com/thank-you","Thanks — We Got Your Request | Mr. Brick LLC",44,45,"Thank you!",no
+"https://www.mrbrickllc.com/thank-you","Thank You! We Got Your Request | Mr. Brick LLC",46,45,"Thank you!",no
 "https://www.mrbrickllc.com/form-error","Your Request Wasn't Sent | Mr. Brick LLC",40,43,"Your request wasn't sent yet",no
 "https://www.mrbrickllc.com/404","Page Not Found | Mr. Brick LLC",30,41,"That page isn't here",no

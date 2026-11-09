@@ -62,7 +62,7 @@ const TRACKING_FIELDS = ['page_url', 'landing_page', 'referrer', 'first_touch', 
 
 // Same wording as the browser messages in static/js/site.js.
 export const MESSAGES = {
-  service: "Choose the service that's closest — or pick Other.",
+  service: 'Choose the closest service, or pick Other.',
   property_type: 'Choose a property type.',
   zip: 'Enter the ZIP code where the work is.',
   zipFormat: 'Enter a 5-digit ZIP code.',

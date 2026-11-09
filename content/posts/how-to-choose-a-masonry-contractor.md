@@ -22,7 +22,7 @@ Ask to see proof of both. Insurance protects you if someone is hurt or property 
 
 ## 2. What exactly is included in the quote?
 
-A good quote spells out the scope: demolition and haul-away, excavation, base or footings, materials, finishes, clean-up, and anything that's excluded. Vague quotes make it impossible to compare contractors.
+A good quote spells out the scope: demolition and haul-away, excavation, base or footings, materials, finishes, cleanup, and anything that's excluded. Vague quotes make it impossible to compare contractors.
 
 ## 3. How deep will the footings or base be?
 

@@ -1,5 +1,5 @@
 ---
-title: "Why Brick Porches and Steps Fail in Michigan — and How to Fix Them for Good"
+title: "Why Brick Porches and Steps Fail in Michigan and How to Fix Them for Good"
 slug: porch-and-step-problems
 seo_title: "Why Brick Porches & Steps Fail in Michigan | Mr. Brick"
 description: "Settling slabs, popped caps, loose brick and tipping steps: why Southeastern Michigan porches fail, when restoration works, and when only a rebuild lasts."
@@ -12,7 +12,7 @@ Drive through almost any post-war neighborhood in Southeastern Michigan and you'
 
 ## The usual causes
 
-**Shallow footings.** Many older porches were built without footings that reach below the frost line — typically 42 inches in Southeastern Michigan. Every winter the ground freezes, expands and lifts the porch a little, then lets it back down unevenly.
+**Shallow footings.** Many older porches were built without footings that reach below the frost line, typically 42 inches in Southeastern Michigan. Every winter the ground freezes, expands and lifts the porch a little, then lets it back down unevenly.
 
 **Settled fill.** Porches are often built over backfill next to the foundation. That soil keeps compacting for years, and the porch slowly drops or tilts.
 
@@ -22,7 +22,7 @@ Drive through almost any post-war neighborhood in Southeastern Michigan and you'
 
 ## When restoration makes sense
 
-If the porch hasn't moved — it's level, tight to the house, and the walls are straight — the problems are on the surface, and [porch restoration](/porch-restorations) is usually the right call. That can mean resetting or replacing caps, replacing and repointing brick, resurfacing the slab, and repairing step edges.
+If the porch hasn't moved (it's level, tight to the house, and the walls are straight), the problems are on the surface, and [porch restoration](/porch-restorations) is usually the right call. That can mean resetting or replacing caps, replacing and repointing brick, resurfacing the slab, and repairing step edges.
 
 [[photo:brick-steps-dark-treads|Rebuilt brick steps with dark stone treads.]]
 
@@ -36,7 +36,7 @@ If the porch has settled, pulled away from the house, cracked through its slab, 
 
 ## Steps deserve special attention
 
-Steps separate from porches more often than any other element because they're frequently built on their own, shallower base. They're also where people get hurt. Uneven risers — even a small difference from one step to the next — cause trips. When steps are rebuilt, the rise and run of every step should be consistent. See our [brick, stone and concrete steps](/stair-services) page for the options.
+Steps separate from porches more often than any other element because they're frequently built on their own, shallower base. They're also where people get hurt. Uneven risers cause trips, even when the difference from one step to the next is small. When steps are rebuilt, the rise and run of every step should be consistent. See our [brick, stone and concrete steps](/stair-services) page for the options.
 
 ## A simple self-check
 

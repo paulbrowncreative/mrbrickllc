@@ -31,7 +31,7 @@
         <span class="label" id="{{ uid }}-svc-label">Service</span>
         <div class="choice-grid choice-grid--3" role="radiogroup" aria-labelledby="{{ uid }}-svc-label">
           {% for s in form_services %}
-          <label class="choice"><input type="radio" name="service" value="{{ s }}" required data-msg="Choose the service that's closest — or pick Other."{% if s == preselect %} checked{% endif %}><span>{{ s }}</span></label>
+          <label class="choice"><input type="radio" name="service" value="{{ s }}" required data-msg="Choose the closest service, or pick Other."{% if s == preselect %} checked{% endif %}><span>{{ s }}</span></label>
           {% endfor %}
         </div>
         <p class="error" id="{{ uid }}-svc-err"></p>

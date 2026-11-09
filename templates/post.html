@@ -23,7 +23,7 @@
     <nav class="toc" aria-label="In this article">
       <details open>
         <summary class="toc__title">In this article</summary>
-        <ol>{% for id, name in post.toc %}<li><a href="#{{ id }}">{{ name }}</a></li>{% endfor %}{% if post.faqs %}<li><a href="#faq">Common questions</a></li>{% endif %}</ol>
+        <ol>{% for id, name in post.toc %}<li><a href="#{{ id }}">{{ name }}</a></li>{% endfor %}{% if post.faqs %}<li><a href="#faq">Common Questions</a></li>{% endif %}</ol>
       </details>
     </nav>
     {% endif %}
@@ -40,7 +40,7 @@
     </article>
     <aside class="post-aside" aria-label="Article tools">
       <div class="aside-box" data-cta-location="post_aside">
-        <h2>Need {{ svc.name|lower }}?</h2>
+        <h2>Need help with {{ svc.name }}?</h2>
         <p>Free quotes from a family-owned masonry contractor with {{ site.years_experience }} years of experience.</p>
         <div class="btn-row">
           <a class="btn btn--block" href="/request-quote?service={{ svc.form_service|urlencode }}" data-cta="quote_post">Get a Free Quote</a>

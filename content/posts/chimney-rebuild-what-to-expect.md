@@ -49,7 +49,7 @@ If the brick is solid and the problem is the mortar or the crown, a [chimney rep
 4. **Rebuilding.** New brick is laid in compatible mortar, matched to the house or chosen new.
 5. **New crown.** A properly formed, sloped concrete crown with an overhang and drip edge. This is the part that decides how long the new masonry stays dry.
 6. **New cap** over the flue or flues.
-7. **Clean-up.** Debris is hauled away and the roof and yard are cleaned.
+7. **Cleanup.** Debris is hauled away and the roof and yard are cleaned.
 
 [[photo:chimney-teardown-roof-crew|Cutting out the deteriorated top of a chimney before it is rebuilt.]]
 
