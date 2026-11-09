@@ -445,7 +445,7 @@ for slug, L in LEGAL.items():
 
 # Quote form outcomes (see netlify/functions/lead.mjs). Both noindex, out of the sitemap.
 add("/thank-you", "thank_you.html", "Thanks — We Got Your Request | Mr. Brick LLC",
-    "Your quote request was sent to Mr. Brick LLC.", h1="Thanks — your request is in",
+    "Your quote request was sent to Mr. Brick LLC.", h1="Thank you!",
     lede="We received your quote request. Here's what happens next.", noindex=True, type="thank-you")
 add("/form-error", "form_error.html", "Your Request Wasn't Sent | Mr. Brick LLC",
     "Your quote request is missing some details.", h1="Your request wasn't sent yet",
