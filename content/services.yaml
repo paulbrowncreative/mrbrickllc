@@ -25,13 +25,13 @@ services:
     title: Brick & Masonry Contractor in SE Michigan | Mr. Brick
     description: Brick repair, tuckpointing, brick replacement and block wall construction for homes and businesses across Southeastern Michigan. 25+ years. Free quotes.
     h1: Brick and masonry repair
-    lede: Loose brick, crumbling mortar, cracked walls and new block construction — handled by masons who have been doing this work in Southeastern Michigan for more than 25 years.
+    lede: Loose brick, crumbling mortar, cracked walls and new block construction, handled by masons who have been doing this work in Southeastern Michigan for more than 25 years.
     image: tuckpointing-stone-cap
     tags: [brick]
     intro: |
       Brick outlasts almost every other exterior material, but the mortar holding it together does not. Michigan's freeze-thaw cycles push water into small cracks, freeze it, and widen those cracks a little more every winter. Left alone, open joints turn into loose brick, then into bulging or failed sections of wall.
 
-      Mr. Brick handles the full range of brick and block work — from repointing a single wall to rebuilding sections, installing new block walls, and building brick features like pillars and planters. We match brick and mortar to what is already on the building, so repairs blend in instead of standing out.
+      Mr. Brick handles the full range of brick and block work, from repointing a single wall to rebuilding sections, installing new block walls, and building brick features like pillars and planters. We match brick and mortar to what is already on the building, so repairs blend in instead of standing out.
     signs:
       - Mortar that is sandy, recessed, or missing from the joints
       - Loose, cracked, or spalling (flaking) brick faces
@@ -51,11 +51,11 @@ services:
     title: Brick Repair & Replacement in SE Michigan | Mr. Brick
     description: Cracked, loose or spalling brick repaired and replaced with matched brick and mortar. Serving Southeastern Michigan for 25+ years. Free quotes.
     h1: Brick repair and replacement
-    lede: We remove damaged brick, replace it with a close match, and re-lay it in mortar suited to your wall — so the repair holds and doesn't look like a patch.
+    lede: We remove damaged brick, replace it with a close match, and re-lay it in mortar suited to your wall, so the repair holds and doesn't look like a patch.
     image: mason-leveling-brick
     tags: [brick]
     intro: |
-      Most brick damage starts with water. When mortar joints open up or a brick face spalls, moisture gets behind the surface, freezes, and forces pieces off. The fix is not caulk or a skim of mortar over the problem — it's cutting out what has failed and rebuilding it properly.
+      Most brick damage starts with water. When mortar joints open up or a brick face spalls, moisture gets behind the surface, freezes, and forces pieces off. The fix is not caulk or a skim of mortar over the problem. It's cutting out what has failed and rebuilding it properly.
 
       For small areas that means replacing individual bricks. For walls that have cracked through, bulged, or lost their bond, it means taking the section down and relaying it. We'll tell you plainly which one your wall needs.
     signs:
@@ -70,13 +70,13 @@ services:
       - Sourcing a close match for size, color and texture
       - Relaying brick in compatible mortar with joints tooled to match
       - Rebuilding failed sections of walls, pillars and planters
-      - Clean-up of mortar residue when the work is done
+      - Cleanup of mortar residue when the work is done
     options:
       - {name: Spot replacement, text: "Individual damaged bricks are cut out and replaced. Best when the rest of the wall is sound."}
       - {name: Section rebuild, text: "A cracked, bulging or loose section is taken down and relaid. Needed when bricks have lost their bond to each other."}
       - {name: Pillars, planters and short walls, text: "Freestanding brick takes the worst weather exposure. These are often rebuilt from the footing or cap down."}
     approach: |
-      We start by finding why the brick failed. If a downspout is dumping water against the wall or a cap is letting water in from the top, replacing brick without fixing that just resets the clock. Once the cause is dealt with, we replace or rebuild with matched material and mortar that is compatible with the original — mortar that is too hard can crack the brick around it.
+      We start by finding why the brick failed. If a downspout is dumping water against the wall or a cap is letting water in from the top, replacing brick without fixing that just resets the clock. Once the cause is dealt with, we replace or rebuild with matched material and mortar that is compatible with the original, because mortar that is too hard can crack the brick around it.
     related: [tuckpointing, brick-masonry, chimney-repair, porch-restorations]
     faqs:
       - q: Should I repair or replace a damaged brick wall?
@@ -92,11 +92,11 @@ services:
     title: Tuckpointing & Brick Repointing in SE Michigan | Mr. Brick
     description: Tuckpointing and repointing for brick homes, chimneys and commercial walls in Southeastern Michigan. Deteriorated mortar ground out and replaced. Free quotes.
     h1: Tuckpointing and repointing
-    lede: Worn mortar ground out and replaced with new, properly tooled joints — the maintenance that keeps water out of brick walls and chimneys.
+    lede: Worn mortar ground out and replaced with new, properly tooled joints. It's the maintenance that keeps water out of brick walls and chimneys.
     image: tuckpointing-stone-cap
     tags: [brick, chimneys]
     intro: |
-      Mortar is designed to be the sacrificial part of a brick wall. It wears out long before the brick does, and when it does, water gets in. Tuckpointing — more accurately called repointing — replaces that worn mortar before the damage spreads to the brick itself.
+      Mortar is designed to be the sacrificial part of a brick wall. It wears out long before the brick does, and when it does, water gets in. Tuckpointing, more accurately called repointing, replaces that worn mortar before the damage spreads to the brick itself.
 
       Done right, it isn't a smear of mortar over old joints. The deteriorated mortar is removed to a consistent depth, the joints are cleaned, and new mortar is packed in and tooled to match the profile of the rest of the wall.
     signs:
@@ -111,9 +111,9 @@ services:
       - Mixing mortar to match color and compatibility with the existing wall
       - Packing joints in layers and tooling them to the original profile
       - Replacing cracked or loose bricks found along the way
-      - Clean-up of the wall face
+      - Cleanup of the wall face
     options:
-      - {name: Spot repointing, text: "Targeted areas — usually where water runs off a roof, sill or downspout."}
+      - {name: Spot repointing, text: "Targeted areas, usually where water runs off a roof, sill or downspout."}
       - {name: Full wall or elevation, text: "An entire side of a building when the mortar has aged out evenly."}
       - {name: Chimney repointing, text: "The most exposed masonry on the house. Often paired with a new crown or cap."}
     approach: |
@@ -121,7 +121,7 @@ services:
     related: [brick-repair, chimney-repair, brick-masonry]
     faqs:
       - q: What's the difference between tuckpointing and repointing?
-        a: Homeowners and contractors use both terms for the same job — removing old mortar and replacing it. Technically, tuckpointing is a decorative technique that adds a thin contrasting line to the joint, while repointing is the repair itself.
+        a: Homeowners and contractors use both terms for the same job, which is removing old mortar and replacing it. Technically, tuckpointing is a decorative technique that adds a thin contrasting line to the joint, while repointing is the repair itself.
       - q: How often does brick need tuckpointing?
         a: It depends on exposure and the original mortar. Many walls go decades between repointing; chimneys, parapets and walls under downspouts need it much sooner. When joints are recessed a quarter inch or more, it's time.
       - q: Can tuckpointing be done in cold weather?
@@ -133,11 +133,11 @@ services:
     title: Cinder Block & Concrete Block Walls in SE MI | Mr. Brick
     description: Concrete block walls built on proper footings for garages, foundations, retaining and privacy walls. Residential and commercial. Serving Southeastern Michigan.
     h1: Cinder block and concrete block walls
-    lede: Block walls for garages, foundations, retaining and screening — laid plumb and level on a footing that won't heave.
+    lede: Block walls for garages, foundations, retaining and screening, laid plumb and level on a footing that won't heave.
     image: block-wall-stairwell
     tags: [retaining-walls, foundations]
     intro: |
-      Concrete masonry unit (CMU) walls — still widely called cinder block — are the workhorse of structural masonry. They're strong, fire resistant, and economical, and they can be finished with brick, stone veneer, or stucco when appearance matters.
+      Concrete masonry unit (CMU) walls, still widely called cinder block, are the workhorse of structural masonry. They're strong, fire resistant, and economical, and they can be finished with brick, stone veneer, or stucco when appearance matters.
 
       A block wall is only as good as what's under it. In Michigan that means a footing below the frost line, reinforcement where the wall carries load or holds back soil, and drainage so water doesn't build up behind it.
     includes:
@@ -153,7 +153,7 @@ services:
       - {name: Retaining and landscape walls, text: "Reinforced block with drainage to hold back soil."}
       - {name: Screen and privacy walls, text: "Freestanding walls finished to match your home."}
     approach: |
-      We confirm the wall's purpose before we price it — a garden wall, a retaining wall and a load-bearing foundation wall are built very differently. If a permit or engineered design is needed, we'll tell you up front.
+      We confirm the wall's purpose before we price it, because a garden wall, a retaining wall and a load-bearing foundation wall are built very differently. If a permit or engineered design is needed, we'll tell you up front.
     related: [retaining-wall-services, foundation-services, brick-masonry]
     faqs:
       - q: Is cinder block the same as concrete block?
@@ -173,7 +173,7 @@ services:
     image: chimney-crew-scaffold
     tags: [chimneys]
     intro: |
-      A chimney takes wind, rain and freeze-thaw on all four sides with nothing to shelter it. That's why chimney masonry usually fails first — cracked crowns, open mortar joints, and loose brick near the top — and why leaks around a chimney are so often blamed on the roof.
+      A chimney takes wind, rain and freeze-thaw on all four sides with nothing to shelter it. That's why chimney masonry usually fails first (cracked crowns, open mortar joints and loose brick near the top), and why leaks around a chimney are so often blamed on the roof.
 
       Mr. Brick handles chimney work from the crown down: repointing, brick replacement, crowns, caps, and full or partial rebuilds when the masonry is past repair. We also repair and build fireplaces.
     signs:
@@ -195,7 +195,7 @@ services:
     title: Chimney Repair in Southeastern Michigan | Mr. Brick
     description: Chimney crown repair, caps, tuckpointing and brick replacement for Southeastern Michigan homes. Stop leaks and falling brick. Call or text for a free quote.
     h1: Chimney repair
-    lede: Crowns, caps, mortar and brick — fixed before a small chimney problem turns into a leak or a rebuild.
+    lede: Crowns, caps, mortar and brick, fixed before a small chimney problem turns into a leak or a rebuild.
     image: chimney-cap-finished
     tags: [chimneys]
     intro: |
@@ -224,7 +224,7 @@ services:
     related: [chimney-rebuilding, tuckpointing, fireplace-services, brick-repair]
     faqs:
       - q: Is a leaking chimney a roofing problem or a masonry problem?
-        a: It can be either — or both. Flashing is part of the roof; the crown, brick and mortar are masonry. We look at the masonry side and will tell you if flashing appears to be the issue.
+        a: It can be either, or both. Flashing is part of the roof; the crown, brick and mortar are masonry. We look at the masonry side and will tell you if flashing appears to be the issue.
       - q: What does a chimney crown do?
         a: The crown is the concrete slab at the top of the chimney. It covers the brick, slopes water away from the flue, and is the first line of defense against leaks.
       - q: Can chimney repair be done in winter?
@@ -236,11 +236,11 @@ services:
     title: Chimney Rebuilding in Southeastern Michigan | Mr. Brick
     description: Partial and full chimney rebuilds for leaning, loose or deteriorated brick chimneys in Southeastern Michigan. See before-and-after photos. Free quotes.
     h1: Chimney rebuilding
-    lede: When the brick has lost its bond, we take the chimney down to sound masonry and rebuild it — new brick, new mortar, new crown, new cap.
+    lede: When the brick has lost its bond, we take the chimney down to sound masonry and rebuild it with new brick, new mortar, a new crown and a new cap.
     image: chimney-before-after
     tags: [chimneys]
     intro: |
-      A chimney needs rebuilding when repair would only be cosmetic — when bricks near the top are loose, the stack leans, or the masonry has deteriorated so badly that repointing won't hold. Most rebuilds are partial: the chimney is dismantled down to the point where the masonry is solid, usually at or below the roofline, and rebuilt from there.
+      A chimney needs rebuilding when repair would only be cosmetic: when bricks near the top are loose, the stack leans, or the masonry has deteriorated so badly that repointing won't hold. Most rebuilds are partial: the chimney is dismantled down to the point where the masonry is solid, usually at or below the roofline, and rebuilt from there.
 
       A rebuild is also the time to fix what caused the failure: an undersized or cracked crown, no cap, or water getting in at the top.
     signs:
@@ -255,7 +255,7 @@ services:
       - Rebuilding with brick matched to the house, or new brick you choose
       - New flue tiles or liner where needed
       - A new poured crown with proper overhang
-      - New chimney cap and clean-up of all debris
+      - New chimney cap and cleanup of all debris
     options:
       - {name: Partial rebuild, text: "Above-roof section rebuilt. The most common chimney rebuild."}
       - {name: Full rebuild, text: "The entire chimney from its base, when deterioration goes all the way down."}
@@ -281,7 +281,7 @@ services:
     image: fireplace-cast-stone-surround
     tags: [chimneys, patios]
     intro: |
-      A fireplace is two things at once: a heat-rated firebox that has to contain fire safely, and a finished surround that people look at every day. Cracked firebrick, loose hearth stones, and damaged surrounds are all repairable — and when you want something new, masonry lets you build exactly the fireplace the room or yard calls for.
+      A fireplace is two things at once: a heat-rated firebox that has to contain fire safely, and a finished surround that people look at every day. Cracked firebrick, loose hearth stones, and damaged surrounds are all repairable, and when you want something new, masonry lets you build exactly the fireplace the room or yard calls for.
     signs:
       - Cracked or missing firebrick or gaps in firebox joints
       - Loose or cracked hearth stones
@@ -340,9 +340,9 @@ services:
     name: Porch Restoration
     category: porch
     title: Porch Restoration in Southeastern Michigan | Mr. Brick
-    description: Porch restoration for brick and concrete porches — brick repair, new caps, resurfacing and step repair — across Southeastern Michigan. Free quotes.
+    description: Porch restoration for brick and concrete porches across Southeastern Michigan, including brick repair, new caps, resurfacing and step repair. Free quotes.
     h1: Porch restoration
-    lede: Brick, caps, surfaces and steps repaired on a porch that's structurally sound — so you keep what's good and fix what isn't.
+    lede: Brick, caps, surfaces and steps repaired on a porch that's structurally sound, so you keep what's good and fix what isn't.
     image: brick-porch-entry
     tags: [porches]
     intro: |
@@ -367,7 +367,7 @@ services:
       - {name: Surface restoration, text: "Resurfacing or pavers over a sound slab."}
       - {name: Step repair, text: "Rebuilding edges and treads before they become a trip hazard."}
     approach: |
-      We check whether the porch has moved before we quote a restoration. If it has settled or cracked through, putting new brick on a moving base wastes your money — and we'll say so.
+      We check whether the porch has moved before we quote a restoration. If it has settled or cracked through, putting new brick on a moving base wastes your money, and we'll tell you so.
     related: [porch-rebuilds, stair-services, brick-repair, tuckpointing]
     faqs:
       - q: Can a cracked porch slab be repaired?
@@ -379,7 +379,7 @@ services:
     name: Porch Rebuilds
     category: porch
     title: Porch Rebuilds & New Porches in SE Michigan | Mr. Brick
-    description: Complete porch rebuilds from the footing up — brick, block, stone and concrete — for Southeastern Michigan homes. 10-year warranty on new construction.
+    description: Complete porch rebuilds from the footing up in brick, block, stone and concrete for Southeastern Michigan homes. 10-year warranty on new construction.
     h1: Porch rebuilds
     lede: When a porch has settled, cracked through, or pulled away from the house, we take it down and build it back on a foundation that won't move.
     image: crew-brick-pillars-stone-steps
@@ -387,7 +387,7 @@ services:
     intro: |
       Many older porches in Southeastern Michigan were built on shallow footings or on fill that has settled over the decades. No amount of surface repair will stop a porch that is still moving. A rebuild starts over with footings below frost depth, a solid block or brick foundation, and a new slab and steps.
 
-      It is also a chance to change what didn't work — a bigger landing, safer step heights, better drainage, or a new look in brick or stone.
+      It is also a chance to change what didn't work, with a bigger landing, safer step heights, better drainage, or a new look in brick or stone.
     signs:
       - Porch pulling away from the house
       - Slab cracked through and sloping
@@ -400,7 +400,7 @@ services:
       - Block or brick foundation walls
       - Reinforced concrete slab and steps
       - Brick, stone or paver finishes and caps
-      - Railing anchor points and final clean-up
+      - Railing anchor points and final cleanup
     options:
       - {name: Like-for-like rebuild, text: "Same size and style, built correctly this time."}
       - {name: Redesigned porch, text: "New size, layout, step configuration or materials."}
@@ -418,13 +418,13 @@ services:
     name: Brick, Stone & Concrete Steps
     category: porch
     title: Brick, Stone & Concrete Steps in SE Michigan | Mr. Brick
-    description: New and rebuilt front steps in brick, stone and concrete — safe rise and run, solid footings, matched to your home. Serving Southeastern Michigan. Free quotes.
+    description: New and rebuilt front steps in brick, stone and concrete, with safe rise and run, solid footings and a look matched to your home. Serving Southeastern Michigan. Free quotes.
     h1: Brick, stone and concrete steps
     lede: Front and side-entry steps built with consistent, comfortable step heights on a base that won't heave in winter.
     image: stone-steps-iron-railings
     tags: [steps]
     intro: |
-      Steps take more abuse than almost any masonry on a house — foot traffic, salt, snow shovels, and frost pushing up from below. When they crack, tip or crumble at the edges, they become a safety problem fast.
+      Steps take more abuse than almost any masonry on a house: foot traffic, salt, snow shovels, and frost pushing up from below. When they crack, tip or crumble at the edges, they become a safety problem fast.
 
       We rebuild and build new steps in poured concrete, brick with stone or concrete treads, and natural stone, with even risers and treads deep enough to walk on comfortably.
     signs:
@@ -444,13 +444,13 @@ services:
       - {name: Brick with stone treads, text: "A classic look for brick homes."}
       - {name: Natural stone, text: "Heavy stone treads for a premium entry."}
     approach: |
-      Step dimensions matter more than most people realize — a single riser that is a little taller than the rest is what trips people. We lay out steps so rises and runs are consistent from bottom to top.
+      Step dimensions matter more than most people realize. A single riser that is a little taller than the rest is what trips people. We lay out steps so rises and runs are consistent from bottom to top.
     related: [porch-rebuilds, porch-restorations, walkway-services]
     faqs:
       - q: Can new steps match my existing porch?
         a: Yes. We match brick, stone and concrete finishes to the porch and house wherever possible.
       - q: Do you build steps for side and back doors?
-        a: Yes — front, side, rear and garage entries.
+        a: Yes. We build steps for front, side, rear and garage entries.
 
   # --------------------------------------------------------------- CONCRETE
   concrete-services:
@@ -460,7 +460,7 @@ services:
     title: Concrete Contractor in Southeastern Michigan | Mr. Brick
     description: Concrete installation, stamped concrete, resurfacing, leveling, sealing and removal for homes and businesses across Southeastern Michigan. Free quotes.
     h1: Concrete contractor for homes and businesses
-    lede: New pours, decorative finishes, repairs and sealing — plus removal and haul-away of old concrete when it's time to start over.
+    lede: New pours, decorative finishes, repairs and sealing, plus removal and haul-away of old concrete when it's time to start over.
     image: driveway-screed-pour
     tags: [concrete, driveways]
     intro: |
@@ -478,13 +478,13 @@ services:
     title: Stamped & Decorative Concrete in SE Michigan | Mr. Brick
     description: Stamped concrete patios, walkways and driveways plus acid staining and colored finishes. Stone, slate and brick patterns. Serving Southeastern Michigan.
     h1: Stamped and decorative concrete
-    lede: The look of stone, slate or brick, poured as one durable surface — for patios, walkways and driveways.
+    lede: The look of stone, slate or brick, poured as one durable surface for patios, walkways and driveways.
     image: concrete-slab-forms
     tags: [concrete, patios]
     intro: |
       Stamped concrete is textured and colored while it's still workable, producing the look of stone, slate, brick or wood plank. It's a strong choice for patios and walkways where you want a finished look at a lower cost than natural stone.
 
-      Acid staining and integral color are other decorative options — they add variegated, permanent color to new or existing concrete.
+      Acid staining and integral color are other decorative options that add variegated, permanent color to new or existing concrete.
     includes:
       - Excavation, base preparation and forming
       - Integral or broadcast color
@@ -497,7 +497,7 @@ services:
       - {name: Acid staining, text: "Permanent, variegated color on new or existing concrete."}
       - {name: Colored concrete, text: "Integral color mixed through the slab."}
     approach: |
-      Stamped concrete needs resealing every few years to keep its color and protect it from salt and freeze-thaw. We'll tell you what maintenance to expect before you choose it — and when pavers might be the better fit.
+      Stamped concrete needs resealing every few years to keep its color and protect it from salt and freeze-thaw. We'll tell you what maintenance to expect before you choose it, and when pavers might be the better fit.
     related: [patio-services, concrete-sealing, paver-services, pool-deck-resurfacing]
     faqs:
       - q: Is stamped concrete a good idea in Michigan?
@@ -509,13 +509,13 @@ services:
     name: Concrete Resurfacing
     category: concrete
     title: Concrete Resurfacing & Repair in SE Michigan | Mr. Brick
-    description: Resurface worn, scaled or stained concrete patios, porches, walks and driveways instead of replacing them — when the slab underneath is sound. Free quotes.
+    description: Resurface worn, scaled or stained concrete patios, porches, walks and driveways instead of replacing them when the slab underneath is sound. Free quotes.
     h1: Concrete resurfacing and repair
     lede: A new wearing surface over concrete that's structurally sound but worn out, scaled or stained.
     image: concrete-finish-broom
     tags: [concrete]
     intro: |
-      Resurfacing makes sense when a slab is still solid and level but the top has deteriorated — scaling from salt, pitting, surface cracks or stains. A bonded overlay restores the surface for less than tear-out and replacement.
+      Resurfacing makes sense when a slab is still solid and level but the top has deteriorated, with scaling from salt, pitting, surface cracks or stains. A bonded overlay restores the surface for less than tear-out and replacement.
 
       It does not fix concrete that has settled, heaved or cracked all the way through. In those cases we'll recommend leveling or replacement instead.
     signs:
@@ -545,7 +545,7 @@ services:
     title: Concrete Leveling & Slab Lifting in SE Michigan | Mr. Brick
     description: Level sunken sidewalks, driveways, patios and steps and remove trip hazards without full replacement. Serving Southeastern Michigan. Free quotes.
     h1: Concrete leveling
-    lede: Sunken slabs lifted back into place — removing trip hazards and redirecting water away from your house.
+    lede: Sunken slabs lifted back into place, removing trip hazards and redirecting water away from your house.
     image: concrete-side-walk
     tags: [concrete, walkways]
     intro: |
@@ -567,7 +567,7 @@ services:
       - q: Is leveling cheaper than replacing concrete?
         a: Usually, when the slab is intact. Replacement is the better value when the concrete is badly cracked or deteriorated.
       - q: Why did my concrete sink?
-        a: Most often soil washing out from under the slab — from downspouts, poor grading, or fill that was never compacted.
+        a: Most often soil washing out from under the slab, from downspouts, poor grading, or fill that was never compacted.
 
   concrete-sealing:
     name: Concrete Sealing & Coatings
@@ -575,7 +575,7 @@ services:
     title: Concrete Sealing & Coatings in SE Michigan | Mr. Brick
     description: Sealers and protective coatings for driveways, patios, stamped concrete and garage floors that resist salt, stains and freeze-thaw damage. Free quotes.
     h1: Concrete sealing and coatings
-    lede: Protect concrete from road salt, stains and water — and keep stamped and colored concrete looking the way it did when it was poured.
+    lede: Protect concrete from road salt, stains and water, and keep stamped and colored concrete looking the way it did when it was poured.
     image: concrete-sealing
     tags: [concrete]
     intro: |
@@ -600,7 +600,7 @@ services:
       - q: How often should concrete be sealed?
         a: Typically every few years, depending on the sealer type and exposure. Stamped concrete usually needs resealing more often than broom-finished concrete.
       - q: When can new concrete be sealed?
-        a: New concrete needs to cure first — usually about a month, depending on the product and weather.
+        a: New concrete needs to cure first, usually for about a month, depending on the product and weather.
 
   pool-deck-resurfacing:
     name: Pool Deck Repair & Resurfacing
@@ -651,7 +651,7 @@ services:
     title: Concrete & Brick Driveways in SE Michigan | Mr. Brick
     description: Concrete driveway installation, brick and paver driveways, driveway repair, walkways and paver work across Southeastern Michigan. Free quotes from Mr. Brick.
     h1: Driveways, walkways and pavers
-    lede: Concrete, brick and paver driveways and walks — built on a base designed for Michigan winters.
+    lede: Concrete, brick and paver driveways and walks, built on a base designed for Michigan winters.
     image: driveway-fresh-pour
     tags: [driveways, walkways, pavers]
     intro: |
@@ -667,11 +667,11 @@ services:
     title: Concrete Driveway Installation in SE Michigan | Mr. Brick
     description: New and replacement concrete driveways with proper excavation, compacted base, reinforcement and drainage. Old driveway removal included. Free quotes.
     h1: Concrete driveway installation
-    lede: Tear-out, base, forms, reinforcement and a clean finish — a new driveway built to handle Michigan freeze-thaw and daily traffic.
+    lede: Tear-out, base, forms, reinforcement and a clean finish, for a new driveway built to handle Michigan freeze-thaw and daily traffic.
     image: driveway-screed-pour
     tags: [driveways, concrete]
     intro: |
-      A replacement driveway is a big purchase that should last decades. Most early failures come from what's underneath — a thin base, soft spots that weren't dug out, or no slope to move water off the slab. We prepare the ground properly before any concrete is placed.
+      A replacement driveway is a big purchase that should last decades. Most early failures come from what's underneath: a thin base, soft spots that weren't dug out, or no slope to move water off the slab. We prepare the ground properly before any concrete is placed.
     includes:
       - Removal and haul-away of the old driveway
       - Excavation and correction of soft spots
@@ -689,7 +689,7 @@ services:
     related: [driveway-repair, concrete-sealing, walkway-services, stamped-concrete]
     faqs:
       - q: How soon can I drive on a new concrete driveway?
-        a: Foot traffic is usually fine within a day or two; vehicles should wait until the concrete has cured enough — typically around a week, depending on weather. We'll give you specific timing for your pour.
+        a: Foot traffic is usually fine within a day or two; vehicles should wait until the concrete has cured enough, typically around a week, depending on weather. We'll give you specific timing for your pour.
       - q: Does a new driveway need a permit?
         a: Some municipalities require one, especially for the apron at the street. We'll let you know what applies in your city.
 
@@ -697,9 +697,9 @@ services:
     name: Driveway Repair & Resurfacing
     category: flatwork
     title: Driveway Repair & Resurfacing in SE Michigan | Mr. Brick
-    description: Concrete, brick and paver driveway repair — cracks, sunken sections, scaled surfaces and partial replacement. Serving Southeastern Michigan. Free quotes.
+    description: Concrete, brick and paver driveway repair for cracks, sunken sections, scaled surfaces and partial replacement. Serving Southeastern Michigan. Free quotes.
     h1: Driveway repair and resurfacing
-    lede: Fix the damaged section, resurface a worn slab, or replace only the panels that failed — instead of paying for a whole new driveway.
+    lede: Fix the damaged section, resurface a worn slab, or replace only the panels that failed instead of paying for a whole new driveway.
     image: concrete-finish-broom
     tags: [driveways, concrete]
     intro: |
@@ -734,7 +734,7 @@ services:
     title: Brick, Paver & Concrete Walkways in SE Michigan | Mr. Brick
     description: New brick, paver and concrete walkways and sidewalk replacement for Southeastern Michigan homes. Level, well-drained and built to last. Free quotes.
     h1: Brick, paver and concrete walkways
-    lede: Front walks, side paths and garden walkways in brick, pavers or concrete — level, well-drained, and matched to your home.
+    lede: Front walks, side paths and garden walkways in brick, pavers or concrete that are level, well drained and matched to your home.
     image: herringbone-brick-walk
     tags: [walkways]
     intro: |
@@ -751,7 +751,7 @@ services:
       - {name: Paver walkways, text: "Concrete pavers in many colors and shapes, easy to repair."}
       - {name: Concrete walkways, text: "Economical and durable, with broom or stamped finish."}
     approach: |
-      Paver walks stay flat only when the base is compacted in layers and the edges are restrained. That work is invisible when the job is done, which is why it gets skipped — and why we don't skip it.
+      Paver walks stay flat only when the base is compacted in layers and the edges are restrained. That work is invisible when the job is done, which is why it gets skipped, and why we don't skip it.
     related: [paver-services, stair-services, concrete-leveling]
     faqs:
       - q: Brick or concrete pavers for a walkway?
@@ -765,7 +765,7 @@ services:
     title: Brick Paver Installation in SE Michigan | Mr. Brick
     description: Brick and concrete paver patios, walkways, porches and driveways installed on a compacted base with edge restraint. Southeastern Michigan. Free quotes.
     h1: Brick paver installation and repair
-    lede: Paver patios, walks, porch landings and driveways — plus repair and resetting of pavers that have settled.
+    lede: Paver patios, walks, porch landings and driveways, plus repair and resetting of pavers that have settled.
     image: curved-paver-walkway
     tags: [pavers]
     intro: |
@@ -799,11 +799,11 @@ services:
     title: Patio Installation in Southeastern Michigan | Mr. Brick
     description: Paver, natural stone, concrete and stamped concrete patios, fire features and outdoor kitchens built for Southeastern Michigan homes. Free quotes.
     h1: Patio installation and outdoor living
-    lede: Paver, stone and concrete patios — with seat walls, fire features and outdoor kitchens when you want more than a slab.
+    lede: Paver, stone and concrete patios, with seat walls, fire features and outdoor kitchens when you want more than a slab.
     image: paver-patio-wall
     tags: [patios, pavers]
     intro: |
-      A patio should feel like part of the house: sized for how you'll actually use it, sloped so rain runs away from the foundation, and built on a base that won't heave or settle. We build patios in pavers, natural stone, poured concrete and stamped concrete, and we build masonry features around them — seat walls, fireplaces, fire pits and outdoor kitchens.
+      A patio should feel like part of the house: sized for how you'll actually use it, sloped so rain runs away from the foundation, and built on a base that won't heave or settle. We build patios in pavers, natural stone, poured concrete and stamped concrete, and we build masonry features around them: seat walls, fireplaces, fire pits and outdoor kitchens.
     includes:
       - Layout and sizing around furniture and traffic flow
       - Excavation, base and grading away from the house
@@ -828,11 +828,11 @@ services:
     title: Outdoor Kitchen Masonry in Southeastern Michigan | Mr. Brick
     description: Brick, stone and block outdoor kitchens, grill islands and bar counters built on proper footings by Mr. Brick. Serving Southeastern Michigan. Free quotes.
     h1: Outdoor kitchens and grill islands
-    lede: Masonry grill islands, counters and bars in brick, block and stone — built on footings that keep them level for decades.
+    lede: Masonry grill islands, counters and bars in brick, block and stone, built on footings that keep them level for decades.
     image: outdoor-kitchen-stone-grill
     tags: [patios]
     intro: |
-      An outdoor kitchen is a masonry structure first. It has to sit on a stable base, resist Michigan winters, and support heavy countertops and built-in appliances. We build the structure and finishes — block cores, brick or stone veneer, caps and counters — sized to the grill and appliances you've chosen.
+      An outdoor kitchen is a masonry structure first. It has to sit on a stable base, resist Michigan winters, and support heavy countertops and built-in appliances. We build the structure and finishes (block cores, brick or stone veneer, caps and counters), sized to the grill and appliances you've chosen.
     includes:
       - Design around your grill and appliance cut-outs
       - Footing or reinforced slab
@@ -845,7 +845,7 @@ services:
     related: [patio-services, fireplace-services, paver-services]
     faqs:
       - q: Do I need to buy my grill before you build?
-        a: Ideally, yes — or at least choose the model — so the opening is built to its exact dimensions.
+        a: Ideally, yes, or at least choose the model, so the opening is built to its exact dimensions.
       - q: Can you add an outdoor kitchen to an existing patio?
         a: Often. We'll check whether the existing patio can support the weight or whether a footing is needed.
 
@@ -880,7 +880,7 @@ services:
       - q: Do you do basement waterproofing?
         a: Call us to talk through your situation. We repair foundation masonry and cracks and can address drainage at the foundation; we'll tell you honestly whether your problem is one we should take on.
       - q: How deep do footings need to be in Michigan?
-        a: Footings must extend below the frost line — commonly 42 inches in Southeastern Michigan. Your local building department sets the requirement for your project.
+        a: Footings must extend below the frost line, commonly 42 inches in Southeastern Michigan. Your local building department sets the requirement for your project.
 
   foundation-repair:
     name: Foundation Repair
@@ -888,11 +888,11 @@ services:
     title: Foundation Repair in Southeastern Michigan | Mr. Brick
     description: Foundation crack repair, block replacement and repointing for Southeastern Michigan homes. Honest assessments and free quotes from Mr. Brick.
     h1: Foundation repair
-    lede: Cracked and deteriorated foundation masonry repaired — with an honest read on whether you need a mason or an engineer first.
+    lede: Cracked and deteriorated foundation masonry repaired, with an honest read on whether you need a mason or an engineer first.
     image: porch-block-foundation
     tags: [foundations]
     intro: |
-      Not every foundation crack is a crisis. Hairline shrinkage cracks in poured walls and minor stair-step cracks in block are common and usually repairable. Horizontal cracks, bowing walls, and cracks that keep widening are different — they point to soil pressure or settlement that needs to be understood before anything is patched.
+      Not every foundation crack is a crisis. Hairline shrinkage cracks in poured walls and minor stair-step cracks in block are common and usually repairable. Horizontal cracks, bowing walls, and cracks that keep widening are different. They point to soil pressure or settlement that needs to be understood before anything is patched.
 
       We repair foundation masonry and, when a problem goes beyond masonry, we'll say so plainly.
     signs:
@@ -921,7 +921,7 @@ services:
     title: Retaining Wall Installation in SE Michigan | Mr. Brick
     description: Block, segmental, stone and brick retaining walls with proper base, drainage and reinforcement. Serving Southeastern Michigan. Free quotes.
     h1: Retaining wall installation
-    lede: Walls that hold back soil for years — built with the base, drainage and reinforcement that decide whether a retaining wall stands or leans.
+    lede: Walls that hold back soil for years, built with the base, drainage and reinforcement that decide whether a retaining wall stands or leans.
     image: block-wall-concrete-steps
     tags: [retaining-walls]
     intro: |
@@ -941,7 +941,7 @@ services:
       - Caps and finished ends
       - Rebuilding of failed walls
     options:
-      - {name: Segmental block walls, text: "Interlocking units — the most common landscape retaining wall."}
+      - {name: Segmental block walls, text: "Interlocking units, the most common landscape retaining wall."}
       - {name: Concrete block walls, text: "Reinforced CMU, often faced with brick or stone."}
       - {name: Stone walls, text: "Natural stone for a traditional landscape look."}
     approach: |

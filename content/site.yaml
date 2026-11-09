@@ -95,7 +95,7 @@ promotions:
   - id: first-responders
     active: true
     title: First responder discount
-    body: Firefighters, EMTs and law enforcement — ask about your discount when you call.
+    body: Firefighters, EMTs and law enforcement get a discount. Ask about it when you call.
     terms: Not valid with other offers. Restrictions apply. Must be mentioned at time of scheduling.
     starts: ""
     ends: ""

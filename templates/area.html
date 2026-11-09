@@ -49,7 +49,7 @@
   <div class="container">
     <div class="section-head"><h2>Most-requested services in {{ place }}</h2></div>
     <ul class="link-grid link-grid--2" role="list">
-      {% for slug in area.focus %}{% set s = services[slug] %}<li><a href="/{{ slug }}"><span><strong>{{ s.name }}</strong><span>{{ s.lede|truncate(100) }}</span></span>{{ icon('arrow') }}</a></li>{% endfor %}
+      {% for slug in area.focus %}{% set s = services[slug] %}<li><a href="/{{ slug }}"><span><strong>{{ s.name }}</strong><span>{{ s.lede|excerpt(100) }}</span></span>{{ icon('arrow') }}</a></li>{% endfor %}
     </ul>
     <p class="mt-6"><a class="text-link" href="/services">All masonry and concrete services</a></p>
   </div>
@@ -60,7 +60,7 @@
   <div class="container two-col">
     <div><h2>{{ area.name }} community pages</h2><p class="muted">Local notes on housing, permits and the projects we see most in these communities.</p></div>
     <ul class="link-grid" role="list">
-      {% for c in area.cities %}<li><a href="/service-areas/{{ c.slug }}"><span><strong>{{ c.name }}</strong><span>{{ c.lede|truncate(90) }}</span></span>{{ icon('arrow') }}</a></li>{% endfor %}
+      {% for c in area.cities %}<li><a href="/service-areas/{{ c.slug }}"><span><strong>{{ c.name }}</strong><span>{{ c.lede|excerpt(90) }}</span></span>{{ icon('arrow') }}</a></li>{% endfor %}
     </ul>
   </div>
 </section>
@@ -68,7 +68,7 @@
 
 <section class="section section--dark">
   <div class="container">
-    <div class="section-head"><h2>How it works</h2><p>From first photo to clean-up.</p></div>
+    <div class="section-head"><h2>How it works</h2><p>From first photo to cleanup.</p></div>
     {{ process_steps() }}
     <div class="mt-6">{{ text_photos('area_process') }}</div>
   </div>
@@ -84,7 +84,7 @@
 {% if area.faqs %}
 <section class="section section--concrete">
   <div class="container two-col">
-    <h2>{{ area.name }} questions</h2>
+    <h2>Common questions in {{ place }}</h2>
     {{ faq_list(area.faqs) }}
   </div>
 </section>

@@ -8,7 +8,7 @@ image: chimney-crew-scaffold
 services: [chimney-repair, chimney-rebuilding, tuckpointing]
 ---
 
-Chimney damage is easy to miss because most of it happens where nobody looks — on the roof. By the time a stain shows up on a ceiling, water has usually been getting in for a while. Here's what to look for, from the ground and from inside.
+Chimney damage is easy to miss because most of it happens where nobody looks: on the roof. By the time a stain shows up on a ceiling, water has usually been getting in for a while. Here's what to look for, from the ground and from inside.
 
 ## 1. Pieces of brick or mortar on the roof or ground
 
@@ -32,7 +32,7 @@ A chimney cap keeps rain, birds and animals out of the flue. Rust streaks down t
 
 ## 6. Stains on ceilings or walls near the chimney
 
-Water stains near a chimney are often blamed on the roof. Sometimes that's right — flashing is part of the roof — but cracked crowns and open mortar joints cause just as many leaks. It's worth having the masonry checked before re-roofing around it.
+Water stains near a chimney are often blamed on the roof. Sometimes that's right, since flashing is part of the roof, but cracked crowns and open mortar joints cause just as many leaks. It's worth having the masonry checked before re-roofing around it.
 
 [[photo:chimney-roof-scaffold|A brick chimney with scaffolding set up for repair.]]
 
@@ -46,4 +46,4 @@ Most chimney problems caught early are repairable: a new crown, a cap, and repoi
 
 [[photo:chimney-scaffold-crew-teardown|Scaffolding up and the crew starting on a chimney that waited too long for repair.]]
 
-If you've noticed any of these signs, [request a free chimney quote](/request-quote). Mr. Brick will inspect the chimney, share what we find, and recommend the repair that fits — not the biggest job we can sell.
+If you've noticed any of these signs, [request a free chimney quote](/request-quote). Mr. Brick will inspect the chimney, share what we find, and recommend the repair that fits, not the biggest job we can sell.

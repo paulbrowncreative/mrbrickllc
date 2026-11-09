@@ -159,7 +159,7 @@
   });
 
   /* ======================================================================
-     5. QUOTE FORM — multi-step with validation, Netlify Forms submission.
+     5. QUOTE FORM: multi-step with validation, sent to /api/lead.
      ====================================================================== */
   function formatPhone(v) {
     var d = v.replace(/\D/g, '');

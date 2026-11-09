@@ -2,13 +2,13 @@
 title: "Tuckpointing vs. Rebuilding: How to Tell What Your Brick Needs"
 slug: tuckpointing-vs-rebuilding
 seo_title: "Tuckpointing vs. Rebuilding Brick | Mr. Brick"
-description: "How to tell whether a brick wall or chimney needs repointing, brick replacement, or a rebuild — the signs a mason looks for, explained plainly."
+description: "How to tell whether a brick wall or chimney needs repointing, brick replacement, or a rebuild, with the signs a mason looks for explained plainly."
 date: 2026-09-27
 image: tuckpointing-stone-cap
 services: [tuckpointing, brick-repair, chimney-rebuilding]
 ---
 
-When brick starts to look tired, homeowners usually hear one of three recommendations: tuckpoint it, replace some brick, or rebuild the section. They're very different jobs at very different prices, and the right answer depends on one question — **is the problem the mortar, the brick, or the wall itself?**
+When brick starts to look tired, homeowners usually hear one of three recommendations: tuckpoint it, replace some brick, or rebuild the section. They're very different jobs at very different prices, and the right answer depends on one question: **is the problem the mortar, the brick, or the wall itself?**
 
 ## Start with the mortar
 
@@ -20,7 +20,7 @@ Repointing replaces that mortar before water starts working on the brick. It's t
 
 ## Then look at the brick
 
-If the joints are open *and* individual bricks are flaking, cracked through, or loose, the damage has moved into the brick itself. Water that got in through the joints has frozen inside the brick and pushed its face off — called spalling.
+If the joints are open *and* individual bricks are flaking, cracked through, or loose, the damage has moved into the brick itself. Water that got in through the joints has frozen inside the brick and pushed its face off. This is called spalling.
 
 The fix is [brick replacement](/brick-repair): cutting out damaged units and setting matched brick in their place, usually alongside repointing of the surrounding area. A few bad bricks in a sound wall is a routine repair.
 
@@ -47,7 +47,7 @@ Chimneys get weather on every side, so they show all three stages sooner than th
 
 ## Why the mortar mix matters
 
-On older homes — especially pre-war brick — the original mortar was softer than today's standard mixes. Repointing with mortar that's harder than the brick forces the brick to take the stress, and the brick edges crack instead of the joint. A good mason matches the mortar to the wall, not the other way around.
+On older homes, especially those with pre-war brick, the original mortar was softer than today's standard mixes. Repointing with mortar that's harder than the brick forces the brick to take the stress, and the brick edges crack instead of the joint. A good mason matches the mortar to the wall, not the other way around.
 
 ## Fix the water, not just the masonry
 
