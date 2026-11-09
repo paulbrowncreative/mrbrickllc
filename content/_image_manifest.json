@@ -1184,5 +1184,94 @@
    "brick",
    "residential"
   ]
+ },
+ "stamped-concrete-cleaning-prep": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "jpg": 900,
+  "src": "stamped-concrete-cleaning-prep.jpg",
+  "alt": "Mr. Brick crew pressure washing a stamped concrete patio and steps, shielding the brick, before resealing",
+  "tags": [
+   "concrete",
+   "patios",
+   "steps",
+   "residential"
+  ]
+ },
+ "stone-front-porch-step-new": {
+  "w": 2000,
+  "h": 942,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ],
+  "jpg": 1200,
+  "src": "stone-front-porch-step-new.jpg",
+  "alt": "Finished concrete porch with a gray brick base and a new single step in front of a fieldstone home",
+  "tags": [
+   "porches",
+   "steps",
+   "concrete",
+   "brick",
+   "residential"
+  ]
+ },
+ "chimney-rebuild-scaffold-deck": {
+  "w": 1500,
+  "h": 2000,
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "jpg": 900,
+  "src": "chimney-rebuild-scaffold-deck.jpg",
+  "alt": "Mr. Brick crew on scaffolding and the roof rebuilding the top of a two-story brick chimney",
+  "tags": [
+   "chimneys",
+   "brick",
+   "residential"
+  ]
+ },
+ "block-porch-demolition": {
+  "w": 1125,
+  "h": 1500,
+  "widths": [
+   480,
+   800
+  ],
+  "jpg": 900,
+  "src": "block-porch-demolition.jpg",
+  "alt": "Mason breaking out an old concrete block porch and steps with a sledgehammer before the rebuild",
+  "tags": [
+   "porches",
+   "steps",
+   "residential"
+  ]
+ },
+ "gray-brick-porch-skirt-new": {
+  "w": 1500,
+  "h": 1125,
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "jpg": 1200,
+  "src": "gray-brick-porch-skirt-new.jpg",
+  "alt": "New gray brick porch walls under a concrete cap, with the walkway dug out for the next step",
+  "tags": [
+   "porches",
+   "brick",
+   "concrete",
+   "residential"
+  ]
  }
 }

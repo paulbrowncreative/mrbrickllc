@@ -35,6 +35,8 @@ If the brick is solid and the problem is the mortar or the crown, a [chimney rep
 
 **Partial rebuild.** This is the most common. The chimney is taken down to the point where the masonry is solid, usually at or just below the roofline, and rebuilt from there. The part above the roof takes the worst weather, so that's where most failures are.
 
+[[photo:chimney-rebuild-scaffold-deck|A partial rebuild: the chimney taken down to sound brick and rebuilt from scaffolding.]]
+
 **Full rebuild.** Needed when deterioration runs the full height of the chimney, when the foundation or base has failed, or when the chimney is being substantially changed.
 
 **Removal.** For chimneys that are no longer used, taking the stack down below the roofline and closing the roof can be an option. It's worth discussing with your roofer as well.

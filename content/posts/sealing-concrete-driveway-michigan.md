@@ -46,6 +46,8 @@ Sealing reduces how much water and salt gets into the surface in the first place
 3. Let the concrete dry fully
 4. Apply at the rate the manufacturer specifies. More is not better, especially with film-forming sealers.
 
+[[photo:stamped-concrete-cleaning-prep|Pressure washing stamped concrete before resealing, with a shield protecting the brick.]]
+
 ## Sealing won't fix everything
 
 A sealer protects sound concrete. It won't fix a slab that's cracked through, sunken or heaved. Those need [resurfacing, leveling or replacement](/blog/resurface-or-replace-concrete). Scaling that's already happened can often be [resurfaced](/concrete-resurfacing), then sealed.

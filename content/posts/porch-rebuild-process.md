@@ -37,6 +37,8 @@ Before anything is torn out, the new porch is laid out: landing size, step count
 
 The old porch, steps and caps are broken up and removed. Care is taken at the house wall, foundation and door threshold, and landscaping is protected where possible.
 
+[[photo:block-porch-demolition|Breaking out an old block porch and steps, with tarps down to protect the beds.]]
+
 ## Step 3: Excavation and footings below frost depth
 
 This is the step that decides whether the new porch stays put. Footings are dug and poured below the frost line so frost can't lift the porch in winter. Many older Michigan porches were built without this, which is why they moved. Read [why frost depth matters](/blog/frost-depth-footings-michigan).
@@ -59,9 +61,13 @@ A reinforced concrete slab is formed and poured over the foundation, sloped slig
 
 Brick or stone veneer on the walls, limestone or concrete caps, stone or paver treads, or a [paver](/paver-services) or stone deck over the slab. Anchor points for railings are built in so the railings end up solidly in sound masonry.
 
+[[photo:gray-brick-porch-skirt-new|New brick walls under the porch cap, with the walk dug out for the next step.]]
+
 ## Step 7: Cure, clean up, walk-through
 
 Concrete needs time to cure before heavy use. You'll get guidance on when the steps can take foot traffic, and the site is cleaned up. New construction from Mr. Brick carries our 10-year warranty.
+
+[[photo:stone-front-porch-step-new|A finished porch with a brick base and a new step, ready for the walk-through.]]
 
 ## Questions to ask any porch contractor
 
