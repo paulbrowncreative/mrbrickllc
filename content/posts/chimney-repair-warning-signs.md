@@ -44,4 +44,6 @@ A chimney that leans, or has a visible gap where it meets the roof or house, nee
 
 Most chimney problems caught early are repairable: a new crown, a cap, and repointing of the top courses. Waiting a few more winters is how a repair becomes a rebuild.
 
+[[photo:chimney-scaffold-crew-teardown|Scaffolding up and the crew starting on a chimney that waited too long for repair.]]
+
 If you've noticed any of these signs, [request a free chimney quote](/request-quote). Mr. Brick will inspect the chimney, share what we find, and recommend the repair that fits — not the biggest job we can sell.

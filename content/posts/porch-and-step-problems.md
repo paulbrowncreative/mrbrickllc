@@ -30,6 +30,8 @@ If the porch hasn't moved — it's level, tight to the house, and the walls are 
 
 If the porch has settled, pulled away from the house, cracked through its slab, or has walls that bulge, the problem is underneath. Putting new brick and caps on a porch that's still moving just means doing it again in a few years. A [porch rebuild](/porch-rebuilds) starts over with footings below frost depth, a solid foundation, and a new slab and steps.
 
+[[photo:white-brick-porch-walls-rebuild|A porch rebuild in progress: new brick walls going up before the slab is poured.]]
+
 [[photo:brick-steps-cracked-separating|Brick steps cracked through and separating: a sign the base underneath has moved.]]
 
 ## Steps deserve special attention

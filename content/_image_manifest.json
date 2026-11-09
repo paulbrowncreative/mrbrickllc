@@ -1273,5 +1273,39 @@
    "concrete",
    "residential"
   ]
+ },
+ "white-brick-porch-walls-rebuild": {
+  "w": 1500,
+  "h": 1129,
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "jpg": 1200,
+  "src": "white-brick-porch-walls-rebuild.jpg",
+  "alt": "Masons laying new white brick porch walls on a rebuilt foundation before the slab is poured",
+  "tags": [
+   "porches",
+   "brick",
+   "residential"
+  ]
+ },
+ "chimney-scaffold-crew-teardown": {
+  "w": 1284,
+  "h": 1873,
+  "widths": [
+   480,
+   800,
+   1200
+  ],
+  "jpg": 823,
+  "src": "chimney-scaffold-crew-teardown.jpg",
+  "alt": "Mr. Brick crew on scaffolding beside a gray brick chimney, starting to take down the deteriorated top",
+  "tags": [
+   "chimneys",
+   "brick",
+   "residential"
+  ]
  }
 }
