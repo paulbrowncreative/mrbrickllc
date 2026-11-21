@@ -14,8 +14,8 @@ export const RESEND_URL = 'https://api.resend.com/emails';
 
 export const BUSINESS = {
   name: 'Mr. Brick LLC',
-  phone: '(586) 209-3052',
-  phoneE164: '+15862093052',
+  phone: '(586) 250-8329',
+  phoneE164: '+15862508329',
   site: 'https://www.mrbrickllc.com',
   timeZone: 'America/Detroit',
   brand: '#b3222a',

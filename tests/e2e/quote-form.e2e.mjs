@@ -132,8 +132,8 @@ test('a Resend failure shows the message and phone number, and the button comes 
     await page.keyboard.press('Enter');
     const alert = page.locator(`${F} .form-alert.is-visible`);
     await alert.waitFor();
-    assert.match(await alert.textContent(), /didn’t go through.*\(586\) 209-3052/);
-    assert.equal(await alert.locator('a[href="tel:+15862093052"]').count(), 1);
+    assert.match(await alert.textContent(), /didn’t go through.*\(586\) 250-8329/);
+    assert.equal(await alert.locator('a[href="tel:+15862508329"]').count(), 1);
     assert.equal(await page.isEnabled(`${F} [type=submit]`), true);
     assert.equal(await page.textContent(`${F} [type=submit]`), 'Request My Free Quote');
     assert.match(page.url(), /\/request-quote$/);
@@ -171,7 +171,7 @@ test('with JavaScript off the form posts natively and redirects (303)', async ()
   await page.goto(site.url + '/request-quote');
   await page.fill(`${F} [name=name]`, 'Missing Phone');
   await Promise.all([page.waitForURL('**/form-error'), page.click(`${F} [type=submit]`)]);
-  assert.match(await page.textContent('main'), /\(586\) 209-3052/);
+  assert.match(await page.textContent('main'), /\(586\) 250-8329/);
   assert.equal(resend.state.emails.length, 1, 'nothing sent for the invalid one');
 });
 
