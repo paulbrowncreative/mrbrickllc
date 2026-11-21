@@ -311,3 +311,7 @@ Measured on a simulated mobile connection (150 ms latency, 1.6 Mbps, 4× CPU slo
 ## Quote form: Resend via /api/lead (Nov 9, 2026)
 
 The quote form no longer uses Netlify Forms. It posts to `/api/lead` (`netlify/functions/lead.mjs`), which validates the request, filters spam and emails each lead through Resend. Visitors without JavaScript get a normal form post with a redirect. Successful submissions go to `/thank-you`, which fires `generate_lead` once; incomplete ones go to `/form-error`. Photo uploads were removed (requests are capped at 20 KB); customers are asked to text photos instead. The Netlify Forms notification steps above no longer apply. Setup, deploy and testing are documented in the README under "Quote form → email (Resend)".
+
+## Phone number change (Nov 21, 2026)
+
+The business phone for calls, texts and leads is now **(586) 250-8329**, matching Facebook and the truck lettering. It replaces (586) 209-3052 everywhere on the site, in the business schema, in the lead email's call button and in the form's error message. Update Google Business Profile, Bing Places, Apple Business Connect and any directory listings to the same number so NAP stays consistent.
